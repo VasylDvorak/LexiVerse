@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search"
+        android:contentDescription="@string/search_word"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/search_word"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/menu_history"
+        android:contentDescription="@string/menu_title_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/menu_title_history"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/find_word_in_history"
+        android:contentDescription="@string/find_in_history"
+        android:icon="@drawable/baseline_history_edu_24"
+        android:title="@string/find_in_history"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/favorite"
+        android:contentDescription="@string/favorite"
+        android:icon="@drawable/baseline_favorite_24"
+        android:title="@string/favorite"
+        app:showAsAction="never" />
+
+</menu>

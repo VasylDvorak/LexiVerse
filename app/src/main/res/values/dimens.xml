@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="play_button_margin">20dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="title_history_size">26sp</dimen>
+    <dimen name="margin_end">80dp</dimen>
+</resources>

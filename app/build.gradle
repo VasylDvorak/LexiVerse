@@ -1,0 +1,123 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("kotlin-android")
+    id("kotlin-parcelize")
+}
+
+android {
+    namespace Config.application_id
+    compileSdk Config.compile_sdk
+
+    defaultConfig {
+        applicationId Config.application_id
+        minSdk Config.min_sdk
+        targetSdk Config.target_sdk
+        versionCode Releases.version_code
+        versionName Releases.version_name
+
+        testInstrumentationRunner Config.testInstrumentationRunner
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility Config.java_version
+        targetCompatibility Config.java_version
+    }
+    kotlinOptions {
+        jvmTarget = Config.jvmTarget
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    //Design
+    implementation Design.appcompat
+    implementation Design.material
+    implementation Design.savedstate
+    implementation Design.constraintlayout
+    implementation Design.fragment_ktx
+    implementation Design.ui_ktx
+    implementation Design.swiperefreshlayout
+    implementation Design.recyclerview
+    implementation Design.viewmodel_ktx
+
+    //Kotlin
+    implementation Kotlin.core
+    implementation Kotlin.coroutines_core
+    implementation Kotlin.coroutines_android
+
+    //Retrofit
+    implementation Retrofit.retrofit
+    implementation Retrofit.converter_gson
+    implementation Retrofit.adapter_coroutines
+    implementation Retrofit.logging_interceptor
+
+    //Koin
+    implementation Koin.koin_android
+    implementation Koin.koin_core
+    implementation Koin.koin_compat
+
+    //Cicerone
+    implementation Cicerone.cicerone
+
+    //Glide
+    implementation Glide.glideCompiler
+    implementation Glide.glide
+
+
+    //Room
+    implementation Room.runtime
+    kapt Room.kapt_compiler
+    annotationProcessor Room.annotation_processor_compiler
+    implementation Room.room_ktx
+
+    //TestImpl
+    testImplementation TestImpl.junit
+    androidTestImplementation TestImpl.espresso
+    androidTestImplementation TestImpl.test_imlement_junit
+    testImplementation TestImpl.core_testing
+    //Mockito
+    testImplementation "org.mockito:mockito-core:5.3.1"
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation('com.nhaarman:mockito-kotlin:1.5.0') {
+        exclude group: 'org.jetbrains.kotlin'
+        exclude group: 'org.mockito'
+    }
+    //Robolectric
+    testImplementation 'org.robolectric:robolectric:4.10.3'
+    testImplementation 'androidx.test:core:1.5.0'
+    testImplementation 'androidx.test:runner:1.5.2'
+    testImplementation 'androidx.test.ext:truth:1.5.0'
+    testImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
+    //UI Automator
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation 'androidx.test:rules:1.6.0-alpha01'
+    //Fragment
+    debugImplementation 'androidx.fragment:fragment-testing:1.6.0'
+    //RecyclerView
+    debugImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+
+    //CoroutineTests
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+
+
+}

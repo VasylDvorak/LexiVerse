@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/description_screen_swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/margin_xx_small"
+    android:paddingLeft="@dimen/margin_xx_small"
+    android:paddingEnd="@dimen/margin_xx_small"
+    android:paddingRight="@dimen/margin_xx_small">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/description_header"
+            style="@style/HeaderTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:contentDescription="@string/header"
+            android:textIsSelectable="true"
+            tools:text="@string/header" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:fitsSystemWindows="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/play_articulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/baseline_volume_up_24"
+                android:contentDescription="@string/pronounce"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/transcription"
+                style="@style/TranscriptionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:contentDescription="@string/transcription"
+                android:textIsSelectable="true"
+                tools:text="@string/transcription" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/translation_textview"
+            style="@style/BaseTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:textIsSelectable="true" />
+
+
+        <com.diplomproject.utils.ui.EquilateralImageView
+            android:id="@+id/description_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:contentDescription="@string/image_stub"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ic_no_photo_vector"
+            tools:visibility="visible" />
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Translator" parent="Base.Theme.Translator">
+        <item name="android:windowSplashScreenBackground">@color/colorHistoryCard</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splashscreen_logo_animated</item>
+        <item name="android:windowSplashScreenAnimationDuration">15000</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/colorHistoryCard</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/icon</item>
+    </style>
+</resources>

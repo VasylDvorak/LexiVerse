@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">"Словарь RU/EN"</string>
+    <string name="error_textview_stub">Ошибка</string>
+    <string name="enter_word">Введите слово</string>
+    <string name="search_space">Область поиска</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="search_word">Искать слово</string>
+    <string name="looking_for">Ищем</string>
+    <string name="header">Заголовок</string>
+    <string name="transcription">[транскрипция]</string>
+    <string name="error_stub">Ошибка</string>
+    <string name="reload_button">Перегрузить</string>
+    <string name="undefined_error">Неопределённая ошибка</string>
+    <string name="empty_server_response_on_success">Не можем найти слово</string>
+    <string name="list_is_empty">Список пуст</string>
+    <string name="no_word_in_history">Не можем найти слово в истории</string>
+    <string name="button_search">Искать слово в истории</string>
+    <string name="search_hint">Введите слово</string>
+    <string name="delete_description">X</string>
+    <string name="image_stub">Рисунок</string>
+    <string name="dialog_button_cancel">OK</string>
+    <string name="dialog_title_stub">Неопределённая ошибка</string>
+    <string name="dialog_title_device_is_offline">Нет интернет соединения</string>
+    <string name="dialog_message_device_is_offline">Вы не можете использовать словарь
+        без интернет соединения</string>
+    <string name="dialog_tittle_sorry">Извините</string>
+    <string name="pronounce">Произношение</string>
+    <string name="empty_string">Пустая строка</string>
+    <string name="menu_title_history">ИСТОРИЯ</string>
+    <string name="favorite">Избранные</string>
+    <string name="favorites">ИЗБРАННЫЕ</string>
+    <string name="find_in_history">Найти в истории</string>
+    <string name="translation">перевод</string>
+</resources>
