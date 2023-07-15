@@ -14,9 +14,11 @@ import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityMainBinding
-import com.diplomproject.presenter.BackButtonListener
-import com.diplomproject.presenter.MainPresenter
+import com.diplomproject.navigation.IScreens
+import com.diplomproject.navigation.BackButtonListener
+import com.github.terrakok.cicerone.Router
 import org.koin.android.ext.android.inject
+import org.koin.java.KoinJavaComponent
 
 private const val DURATION = 1000L
 private const val COUNTDOWN_DURATION = 2000L
@@ -25,11 +27,9 @@ private const val COUNTDOWN_INTERVAL = 1000L
 class MainActivity : AppCompatActivity() {
 
     private val navigatorHolder: NavigatorHolder by inject()
-
-
+    private val router: Router by KoinJavaComponent.inject(Router::class.java)
+    private val screen = KoinJavaComponent.getKoin().get<IScreens>()
     val navigator = AppNavigator(this, R.id.container)
-
-    private val presenter = MainPresenter()
 
     private var vb: ActivityMainBinding? = null
 
@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity() {
         setDefaultSplashScreen()
         vb = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vb?.root)
-        presenter.mainFragmentStart()
-
+        router.replaceScreen(screen.startMainFragment())
     }
 
 
@@ -59,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 return
             }
         }
-        presenter.backClicked()
+        router.replaceScreen(screen.startMainFragment())
 
     }
 
