@@ -31,4 +31,35 @@
     <string name="favorites">ИЗБРАННЫЕ</string>
     <string name="find_in_history">Найти в истории</string>
     <string name="translation">перевод</string>
+
+    <!--bottom SettingsFragment-->
+    <string name="dictionary">Словарь</string>
+    <string name="learning_together">Учимся вместе</string>
+    <string name="knowledge_check">Проверка знаний</string>
+
+    <!-- bottom nav root menu -->
+    <string name="root_menu">Меню</string>
+    <string name="favorites_elements">Избраное</string>
+    <string name="grade">Успеваемость</string>
+    <string name="settings">Настройки</string>
+
+    <!-- bottom nav menu - common usage-->
+    <string name="delete_menu">Удалить</string>
+
+    <!-- О приложении -->
+    <string name="about_app">О приложении</string>
+    <string name="cod_version">Код версии:</string>
+    <string name="version">Версия:</string>
+
+    <!-- Settings info -->
+    <string name="version_code">Код версии: </string>
+    <string name="version_name">Версии: </string>
+    <string name="app_info">О Приложении\n\nПриложение является результатом выполнения
+                    практических заданий по освоению разработки Android приложений.
+                    \n(Июль 2023 года)</string>
+
+    <!-- Exception info -->
+    <string name="fragment_exception">Такого фрагмента нет </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
