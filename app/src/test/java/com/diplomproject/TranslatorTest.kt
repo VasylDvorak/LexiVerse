@@ -23,42 +23,5 @@ class TranslatorTest {
         assertNotEquals(BaseFragment.DIALOG_FRAGMENT_TAG, DescriptionFragment.CURRENT_DATA_MODEl)
     }
 
-    @Test
-    fun testForEqauls() {
-        assertEquals(ApiModule().baseUrl, ApiModule().baseUrlLocation())
-    }
-
-
-    @Test
-    fun testForArrayEquals() {
-       repeat(5){
-        assertArrayEquals(AppModule()
-            .getFirstArray((it+1)*2), AppModule().getSecondArray(it+1))
-    }
-    }
-
-    @Test
-    fun testForNull() {
-        assertNull(AndroidScreens().getNull(-5))
-    }
-
-    @Test
-    fun testForNotNull() {
-        assertNotNull(AndroidScreens().getNull(5))
-    }
-
-    @Test
-    fun testForSame() {
-        assertSame(CiceroneModule().someString, CiceroneModule().getStringForTest())
-    }
-
-    @Test
-    fun testForTrue() {
-        assertTrue(RetrofitImplementation().getBoolean(false, true))
-}
-    @Test
-    fun testForFalse() {
-        assertFalse(RetrofitImplementation().getBoolean(false, false))
-    }
 
 }

@@ -25,6 +25,7 @@ class FavoriteViewModel(var interactor: FavoriteInteractor) :
         _mutableLiveData.postValue(parseLocalSearchResults(interactor.getData(word, isOnline)))
     }
 
+
     override fun handleError(error: Throwable) {
         _mutableLiveData.postValue(AppState.Error(error))
     }
@@ -49,4 +50,6 @@ class FavoriteViewModel(var interactor: FavoriteInteractor) :
             )
         }
     }
+
 }
+

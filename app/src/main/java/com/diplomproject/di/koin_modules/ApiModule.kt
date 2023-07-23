@@ -18,11 +18,10 @@ class ApiModule {
     }
 
     val baseUrl = "https://dictionary.skyeng.ru/api/public/v1/"
-    fun baseUrlLocation(): String = "https://dictionary.skyeng.ru/api/public/v1/"
 
     fun createRetrofit(interceptor: Interceptor): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrlLocation())
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(createOkHttpClient(interceptor))

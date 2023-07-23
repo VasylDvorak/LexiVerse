@@ -10,21 +10,16 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.github.terrakok.cicerone.Router
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentHistoryFavoriteBinding
-import com.diplomproject.di.ConnectKoinModules
 import com.diplomproject.di.ConnectKoinModules.historyScreenScope
 import com.diplomproject.domain.base.BaseFragment
 import com.diplomproject.model.data.AppState
 import com.diplomproject.model.data.DataModel
-import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
 import com.diplomproject.view.SearchDialogFragment
-import org.koin.java.KoinJavaComponent
 
 
 class HistoryFragment : BaseFragment<AppState, HistoryInteractor>() {
@@ -37,8 +32,6 @@ class HistoryFragment : BaseFragment<AppState, HistoryInteractor>() {
 
     private val observer = Observer<AppState> { renderData(it) }
 
-    private val router: Router by KoinJavaComponent.inject(Router::class.java)
-    private val screen = KoinJavaComponent.getKoin().get<IScreens>()
     private val historyActivityRecyclerview by viewById<RecyclerView>(R.id.history_activity_recyclerview)
 
     override lateinit var model: HistoryViewModel
@@ -130,8 +123,6 @@ class HistoryFragment : BaseFragment<AppState, HistoryInteractor>() {
             )
             historyActivityRecyclerview.setRenderEffect(blurEffect)
         }
-
-
     }
 
 

@@ -26,5 +26,11 @@
         android:icon="@drawable/baseline_favorite_24"
         android:title="@string/favorite"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/settings"
+        android:contentDescription="@string/settings"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="@string/settings"
+        app:showAsAction="never" />
 
 </menu>
