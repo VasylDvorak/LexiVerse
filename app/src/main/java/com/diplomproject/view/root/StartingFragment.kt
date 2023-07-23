@@ -20,17 +20,17 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
             getController().openDictionary()
         }
         binding.learningTogetherButton.setOnClickListener {
-            getController().openUsersGitHub()
+            getController().openLearningTogether()
         }
         binding.knowledgeCheckButton.setOnClickListener {
-            getController().openConverterImage()
+            getController().openKnowledgeCheck()
         }
     }
 
     interface Controller {
         fun openDictionary()
-        fun openUsersGitHub()
-        fun openConverterImage()
+        fun openLearningTogether()
+        fun openKnowledgeCheck()
     }
 
     private fun getController(): Controller = activity as Controller
