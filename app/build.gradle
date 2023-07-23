@@ -121,6 +121,10 @@ dependencies {
 
     //CoroutineTests
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+    // KoinTest
+//    testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.4.0'
+//    testImplementation 'io.kotlintest:kotlintest-extensions-koin:3.4.0'
+  //  testImplementation 'org.koin:koin-test:2.1.6'
 
 
 }

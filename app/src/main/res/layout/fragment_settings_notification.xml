@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/first_notification_setting"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/first_notification_setting"
+        android:text="@string/first_notification_setting"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/second_notification_setting"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/second_notification_setting"
+        android:text="@string/second_notification_setting"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_notification_setting" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

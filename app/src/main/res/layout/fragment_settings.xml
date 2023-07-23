@@ -1,20 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_settings"
-    android:background="@color/color_white"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".view.settings.SettingsFragment">
+    tools:context=".view.settings_menu.SettingsFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/about_app_button"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/about_app"
-        android:textSize="@dimen/default_text" />
+    <TextView
+        android:id="@+id/registration"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/registration"
+        android:text="@string/registration"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/settings_notification"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/settings_notification"
+        android:text="@string/settings_notification"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registration" />
+
+    <TextView
+        android:id="@+id/support"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/support"
+        android:text="@string/support"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_notification" />
+
+    <TextView
+        android:id="@+id/choosing_theme"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/choosing_theme"
+        android:text="@string/choosing_theme"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/support" />
+
+    <TextView
+        android:id="@+id/share_application"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/share_application"
+        android:text="@string/share_application"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choosing_theme" />
+
+    <TextView
+        android:id="@+id/enter_exit"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/enter_exit"
+        android:text="@string/enter_exit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share_application" />
+
+    <TextView
+        android:id="@+id/about_application"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/about_application"
+        android:text="@string/about_application"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_exit" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

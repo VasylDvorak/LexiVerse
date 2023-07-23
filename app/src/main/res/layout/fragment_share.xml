@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/enter_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/enter_phone_number"
+        android:freezesText="true"
+        android:hint="@string/enter_phone_number"
+        android:inputType="phone"
+        android:textIsSelectable="true" />
+
+    <TextView
+        style="@style/SettingsFragmentTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:autoLink="web"
+        android:clickable="false"
+        android:text="@string/title_link" />
+
+    <TextView
+        android:id="@+id/web_link"
+        style="@style/SettingsFragmentTextStyle"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:autoLink="web"
+        android:clickable="false"
+        android:freezesText="true"
+        android:text="@string/download_link"
+        android:textIsSelectable="true" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/send_SMS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/button_send_sms"
+        android:padding="5dp"
+        android:text="@string/button_send_sms"
+        android:textAllCaps="false" />
+
+</LinearLayout>

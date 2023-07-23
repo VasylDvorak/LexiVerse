@@ -20,21 +20,19 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.terrakok.cicerone.Router
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentMainBinding
 import com.diplomproject.di.ConnectKoinModules.mainScreenScope
 import com.diplomproject.domain.base.BaseFragment
 import com.diplomproject.model.data.AppState
 import com.diplomproject.model.data.DataModel
-import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
 import com.diplomproject.view.SearchDialogFragment
-import org.koin.java.KoinJavaComponent
 
-private const val LIST_KEY = "list_key"
+
+const val LIST_KEY = "list_key"
 
 class MainFragment : BaseFragment<AppState, MainInteractor>() {
 
@@ -49,10 +47,6 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
     private var _binding: FragmentMainBinding? = null
     private val binding
         get() = _binding!!
-
-    val router: Router by KoinJavaComponent.inject(Router::class.java)
-    private val screen = KoinJavaComponent.getKoin().get<IScreens>()
-
 
 
     private val adapter: MainAdapter by lazy {
@@ -88,7 +82,7 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-
+        activity?.title = getString(R.string.app_name)
         initViewModel()
         initViews()
         model.getRestoredData()?.let { renderData(it) }
@@ -98,10 +92,10 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
         if (!listFromJson.isNullOrEmpty()) {
             updateAdapter(listFromJson)
         }
+
     }
 
     private fun findWordInHistory() {
-
         val searchDialogFragment = SearchDialogFragment.newInstance()
         searchDialogFragment.setRecyclerView(mainFragmentRecyclerview)
         searchDialogFragment.setOnSearchClickListener(object :
@@ -169,7 +163,6 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
 
         showErrorScreen(getString(R.string.empty_server_response_on_success))
     }
-
 
     private fun updateAdapter(dataModel: List<DataModel>) {
 
@@ -295,6 +288,11 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
                 true
             }
 
+            R.id.settings -> {
+                router.navigateTo(screen.startSettingsFragment())
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -354,6 +352,8 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
         fun newInstance() = MainFragment()
 
     }
+
+
 }
 
 

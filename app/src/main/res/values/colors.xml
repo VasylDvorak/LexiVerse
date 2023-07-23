@@ -16,11 +16,5 @@
     <color name="card_color">#CEE8F8</color>
     <color name="color_white_transparent">#80FFFFFF</color>
     <color name="animated_icon_color">#3AF506</color>
-
-    <!-- bottom nav menu -->
-    <color name="item_icon_tint">#670A20</color>
-    <color name="item_text">#670A20</color>
-    <color name="bnv_default">#059EE4</color>
-
-
+    <color name="click_text">#C2D0DC</color>
 </resources>

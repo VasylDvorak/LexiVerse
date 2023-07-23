@@ -5,10 +5,5 @@
     <dimen name="card_corner_radius">10dp</dimen>
     <dimen name="title_history_size">26sp</dimen>
     <dimen name="margin_end">80dp</dimen>
-
-    <!-- default -->
-    <dimen name="default_text">18sp</dimen>
-
-    <!-- margin (not default)-->
-    <dimen name="margin_about_app_dp">60dp</dimen>
+    <dimen name="settings_text_margin">10dp</dimen>
 </resources>

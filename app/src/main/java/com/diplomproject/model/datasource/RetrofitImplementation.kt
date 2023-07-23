@@ -11,5 +11,4 @@ class RetrofitImplementation : DataSource<List<DataModel>> {
         val getService = getKoin().get<ApiService>()
         return getService.searchAsync(word).await()
     }
-    fun getBoolean(argumentOne: Boolean, argumentTwo: Boolean)= argumentOne || argumentTwo
 }

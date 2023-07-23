@@ -1,6 +1,7 @@
 package com.diplomproject.domain.base
 
 
+import android.animation.Animator
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
@@ -10,11 +11,15 @@ import com.google.android.material.snackbar.Snackbar
 import com.diplomproject.R
 import com.diplomproject.model.data.AppState
 import com.diplomproject.model.data.DataModel
+import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.network.OnlineRepository
 import com.diplomproject.utils.ui.AlertDialogFragment
+import com.diplomproject.view.AnimatorTranslator
 import com.diplomproject.viewmodel.BaseViewModel
 import com.diplomproject.viewmodel.Interactor
+import com.github.terrakok.cicerone.Router
 import org.koin.android.ext.android.inject
+import org.koin.java.KoinJavaComponent
 import java.io.IOException
 
 
@@ -27,6 +32,8 @@ abstract class BaseFragment<T : AppState, I : Interactor<T>> : Fragment(), ViewL
     abstract val model: BaseViewModel<T>
     protected val checkSDKversion = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
 
+    val router: Router by KoinJavaComponent.inject(Router::class.java)
+    val screen = KoinJavaComponent.getKoin().get<IScreens>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -75,7 +82,7 @@ abstract class BaseFragment<T : AppState, I : Interactor<T>> : Fragment(), ViewL
     }
 
 
-    abstract fun setDataToAdapter(data: List<DataModel>)
+  abstract fun setDataToAdapter(data: List<DataModel>)
     protected open fun renderData(appState: T) {
 
         when (appState) {
@@ -123,6 +130,9 @@ abstract class BaseFragment<T : AppState, I : Interactor<T>> : Fragment(), ViewL
             mMediaPlayer?.release()
             mMediaPlayer = null
         }
+    }
+    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
+        return AnimatorTranslator().setAnimator(transit, enter)
     }
 
     companion object {
