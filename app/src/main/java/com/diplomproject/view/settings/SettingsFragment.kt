@@ -13,9 +13,9 @@ class SettingsFragment : ViewBindingFragment<FragmentSettingsBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.aboutAppButton.setOnClickListener {
-            getController().openAboutApp()
-        }
+//        binding.aboutAppButton.setOnClickListener {
+//            getController().openAboutApp()
+//        }
     }
 
     interface Controller {
