@@ -23,11 +23,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Translator">
         <activity
+            android:name=".view.root.together.LearningTogetherActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MainActivity"
+            android:configChanges="screenSize|screenLayout|keyboardHidden"
+            android:exported="false" />
+        <activity
+            android:name=".view.root.RootActivity"
             android:configChanges="screenSize|screenLayout|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
@@ -47,10 +53,3 @@
     </application>
 
 </manifest>
-
-
-
-
-
-
-
