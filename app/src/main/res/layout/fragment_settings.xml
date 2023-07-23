@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.settings_menu.SettingsFragment">
+
+    <TextView
+        android:id="@+id/registration"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/registration"
+        android:text="@string/registration"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settings_notification"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/settings_notification"
+        android:text="@string/settings_notification"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registration" />
+
+    <TextView
+        android:id="@+id/support"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/support"
+        android:text="@string/support"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_notification" />
+
+    <TextView
+        android:id="@+id/choosing_theme"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/choosing_theme"
+        android:text="@string/choosing_theme"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/support" />
+
+    <TextView
+        android:id="@+id/share_application"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/share_application"
+        android:text="@string/share_application"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choosing_theme" />
+
+    <TextView
+        android:id="@+id/enter_exit"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/enter_exit"
+        android:text="@string/enter_exit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share_application" />
+
+    <TextView
+        android:id="@+id/about_application"
+        style="@style/SettingsFragmentTextStyle"
+        android:contentDescription="@string/about_application"
+        android:text="@string/about_application"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_exit" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

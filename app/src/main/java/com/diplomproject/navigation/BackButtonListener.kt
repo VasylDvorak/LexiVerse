@@ -1,4 +1,4 @@
-package com.diplomproject.presenter
+package com.diplomproject.navigation
 
 interface BackButtonListener {
     fun backPressed(): Boolean

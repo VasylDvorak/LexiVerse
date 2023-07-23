@@ -6,16 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.github.terrakok.cicerone.Router
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentHistoryFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.favoriteScreenScope
 import com.diplomproject.domain.base.BaseFragment
 import com.diplomproject.model.data.AppState
 import com.diplomproject.model.data.DataModel
-import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.ui.viewById
-import org.koin.java.KoinJavaComponent
 
 
 class FavoriteFragment : BaseFragment<AppState, FavoriteInteractor>() {
@@ -25,8 +22,7 @@ class FavoriteFragment : BaseFragment<AppState, FavoriteInteractor>() {
     private val binding
         get() = _binding!!
 
-    val router: Router by KoinJavaComponent.inject(Router::class.java)
-    private val screen = KoinJavaComponent.getKoin().get<IScreens>()
+
     private val historyActivityRecyclerview by viewById<RecyclerView>(R.id.history_activity_recyclerview)
     override lateinit var model: FavoriteViewModel
     private val adapter: FavoriteAdapter by lazy {
@@ -86,7 +82,6 @@ class FavoriteFragment : BaseFragment<AppState, FavoriteInteractor>() {
         releaseMediaPlayer()
     }
 
-
     override fun onResume() {
         super.onResume()
         model.getData("", false)
@@ -118,8 +113,6 @@ class FavoriteFragment : BaseFragment<AppState, FavoriteInteractor>() {
 
                 else -> {}
             }
-
-
         }
     }
 
