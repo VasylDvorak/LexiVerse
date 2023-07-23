@@ -1,5 +1,6 @@
 package com.diplomproject.view
 
+import android.animation.Animator
 import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.media.MediaPlayer
@@ -8,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -17,19 +17,19 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.google.android.material.snackbar.Snackbar
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentDescriptionBinding
 import com.diplomproject.domain.base.BaseFragment
 import com.diplomproject.model.data.DataModel
 import com.diplomproject.utils.network.OnlineRepository
 import com.diplomproject.utils.ui.AlertDialogFragment
+import com.diplomproject.view.settings_menu.BaseFragmentSettingsMenu
+import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import java.io.IOException
 
 
-
-class DescriptionFragment : Fragment() {
+class DescriptionFragment : BaseFragmentSettingsMenu() {
 
     private var snack: Snackbar? = null
     protected var isNetworkAvailable: Boolean = false
@@ -189,6 +189,10 @@ class DescriptionFragment : Fragment() {
         }
     }
 
+    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
+        return AnimatorTranslator().setAnimator(transit, enter)
+    }
+
     companion object {
 
         fun newInstance(bundle: Bundle): DescriptionFragment {
@@ -196,6 +200,7 @@ class DescriptionFragment : Fragment() {
             fragment.arguments = bundle
             return fragment
         }
+
         const val CURRENT_DATA_MODEl = "current_data_model"
     }
 }
