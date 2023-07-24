@@ -23,7 +23,6 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = getString(R.string.title_settings)
         initClickedViews()
     }
 

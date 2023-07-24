@@ -26,9 +26,10 @@
             android:name=".view.root.together.LearningTogetherActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.DictionaryActivity"
             android:configChanges="screenSize|screenLayout|keyboardHidden"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.root.RootActivity"
             android:configChanges="screenSize|screenLayout|keyboardHidden"

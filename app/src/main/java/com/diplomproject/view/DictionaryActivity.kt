@@ -32,7 +32,7 @@ private const val COUNTDOWN_DURATION = 2000L
 private const val COUNTDOWN_INTERVAL = 1000L
 const val SHOW_DETAILS = "SHOW_DETAILS"
 
-class MainActivity : AppCompatActivity() {
+class DictionaryActivity : AppCompatActivity() {
 
     private val navigatorHolder: NavigatorHolder by inject()
     private val router: Router by KoinJavaComponent.inject(Router::class.java)
@@ -93,15 +93,6 @@ class MainActivity : AppCompatActivity() {
         initViewModel()
         super.onPause()
         navigatorHolder.removeNavigator()
-    }
-
-    override fun onBackPressed() {
-        val fragmentManager = fragmentManager
-        if (fragmentManager.backStackEntryCount > 0) {
-            fragmentManager.popBackStack()
-        } else {
-            super.onBackPressed()
-        }
     }
 
     private fun setDefaultSplashScreen() {

@@ -30,6 +30,7 @@ import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
 import com.diplomproject.view.SearchDialogFragment
+import com.google.gson.Gson
 
 
 const val LIST_KEY = "list_key"
@@ -82,7 +83,6 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = getString(R.string.app_name)
         initViewModel()
         initViews()
         model.getRestoredData()?.let { renderData(it) }
@@ -285,11 +285,6 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
 
             R.id.favorite -> {
                 router.navigateTo(screen.startFavoriteFragment())
-                true
-            }
-
-            R.id.settings -> {
-                router.navigateTo(screen.startSettingsFragment())
                 true
             }
 

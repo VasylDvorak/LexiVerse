@@ -4,15 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.commit
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentSettingsBinding
+import com.diplomproject.model.data.DataModel
+import com.diplomproject.navigation.IScreens
+import com.diplomproject.view.DescriptionFragment
+import com.github.terrakok.cicerone.Router
+import com.google.gson.Gson
+import org.koin.java.KoinJavaComponent
 
 class SettingsFragment : BaseFragmentSettingsMenu() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding
         get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,7 +29,6 @@ class SettingsFragment : BaseFragmentSettingsMenu() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = getString(R.string.title_settings)
         initClickedViews()
     }
 
@@ -31,23 +36,18 @@ class SettingsFragment : BaseFragmentSettingsMenu() {
         binding.apply {
             with(router) {
                 screen.apply {
-                    registration.setOnClickListener { replaceScreen(startRegistrationFragment()) }
+                    registration.setOnClickListener { navigateTo(startRegistrationFragment()) }
                     settingsNotification.setOnClickListener {
-                        replaceScreen(
-                            startSettingsNotificationFragment()
-                        )
+                        navigateTo(startSettingsNotificationFragment())
                     }
-                    support.setOnClickListener { replaceScreen(startSupportFragment()) }
-                    choosingTheme.setOnClickListener { replaceScreen(startChoosingThemeFragment()) }
+                    support.setOnClickListener { navigateTo(startSupportFragment()) }
+                    choosingTheme.setOnClickListener { navigateTo(startChoosingThemeFragment()) }
                     shareApplication.setOnClickListener {
-                        replaceScreen(
-                            startShareApplicationFragment()
-                        )
+                        navigateTo(startShareApplicationFragment())
                     }
-                    enterExit.setOnClickListener { replaceScreen(startEnterExitFragment()) }
+                    enterExit.setOnClickListener { navigateTo(startEnterExitFragment()) }
                     aboutApplication.setOnClickListener {
-                        replaceScreen(
-                            startAboutApplicationFragment()
+                        navigateTo(startAboutApplicationFragment()
                         )
                     }
                 }
@@ -62,7 +62,7 @@ class SettingsFragment : BaseFragmentSettingsMenu() {
 
 
     companion object {
-        fun newInstance() = SettingsFragment()
+        fun newInstance() =SettingsFragment()
 
     }
 }

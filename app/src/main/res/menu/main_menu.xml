@@ -13,7 +13,7 @@
         android:contentDescription="@string/menu_title_history"
         android:icon="@drawable/ic_history1"
         android:title="@string/menu_title_history"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
     <item
         android:id="@+id/find_word_in_history"
         android:contentDescription="@string/find_in_history"
@@ -25,12 +25,6 @@
         android:contentDescription="@string/favorite"
         android:icon="@drawable/baseline_favorite_24"
         android:title="@string/favorite"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/settings"
-        android:contentDescription="@string/settings"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="@string/settings"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 
 </menu>

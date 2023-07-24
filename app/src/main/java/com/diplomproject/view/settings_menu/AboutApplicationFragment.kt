@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentAboutApplicationBinding
+import com.diplomproject.view.favorite.FavoriteViewModel
+import com.google.android.apps.common.testing.accessibility.framework.BuildConfig
 
 
 class AboutApplicationFragment : BaseFragmentSettingsMenu() {
@@ -24,13 +26,14 @@ class AboutApplicationFragment : BaseFragmentSettingsMenu() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = getString(R.string.title_settings)
         initClickedViews()
     }
 
     private fun initClickedViews() {
         binding.apply {
-
+            codVersionTextView.text = getString(R.string.version_code) + BuildConfig.VERSION_CODE
+            versionTextView.text = getString(R.string.version_name) + BuildConfig.VERSION_NAME
+            aboutAppTextView.text = getString(R.string.app_info)
         }
     }
 
@@ -38,7 +41,6 @@ class AboutApplicationFragment : BaseFragmentSettingsMenu() {
         super.onDestroyView()
         _binding = null
     }
-
 
     companion object {
         fun newInstance() = AboutApplicationFragment()

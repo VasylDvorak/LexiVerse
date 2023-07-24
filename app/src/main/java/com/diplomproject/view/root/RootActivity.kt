@@ -2,18 +2,27 @@ package com.diplomproject.view.root
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
-import com.diplomproject.view.MainActivity
+import com.diplomproject.di.ConnectKoinModules
+import com.diplomproject.model.data.AppState
+import com.diplomproject.view.DictionaryActivity
+import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.root.favorite.FavoritesElementFragment
 import com.diplomproject.view.root.grade.GradeFragment
 import com.diplomproject.view.root.knowledgecheck.KnowledgeCheckFragment
 import com.diplomproject.view.root.together.LearningTogetherActivity
-import com.diplomproject.view.settings.AboutAppFragment
-import com.diplomproject.view.settings.SettingsFragment
+import com.diplomproject.view.settings_menu.SettingsFragment
+import com.diplomproject.view.widget.NEW_DATA
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.google.gson.Gson
+import org.koin.android.ext.android.inject
+
 
 private const val TAG_ROOT_CONTAINER_LAYOUT_KEY = "TAG_ROOT_CONTAINER_LAYOUT_KEY"
 private const val DICTIONARY_REQUEST_KOD = 100
@@ -22,12 +31,14 @@ private const val LEARNING_TOGETHER_REQUEST_KOD = 200
 class RootActivity : ViewBindingActivity<ActivityRootBinding>(
     ActivityRootBinding::inflate
 ),
-    SettingsFragment.Controller,
     StartingFragment.Controller,
     FavoritesElementFragment.Controller,
     GradeFragment.Controller,
     KnowledgeCheckFragment.Controller {
 
+    private val navigatorHolder: NavigatorHolder by inject()
+    val navigator = AppNavigator(this, R.id.fragment_container_frame_layout)
+    lateinit var model: FavoriteViewModel
     private val settingsFragment: SettingsFragment by lazy { SettingsFragment.newInstance() }
     private val gradeFragment: GradeFragment by lazy {
         GradeFragment.newInstance()
@@ -48,28 +59,35 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
         }
     }
 
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
+    }
+
     private fun onBottomNaviBar() {
-        binding.bottomNavBar.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.root_menu_item -> {
-                    navigateTo(StartingFragment())
-                }
+        binding.bottomNavBar.apply {
+            setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.root_menu_item -> {
+                        navigateTo(StartingFragment())
+                    }
 
-                R.id.favorites_elements_item -> {
-                    navigateTo(favoritesElementFragment)
-                }
+                    R.id.favorites_elements_item -> {
+                        navigateTo(favoritesElementFragment)
+                    }
 
-                R.id.chart_grade_item -> {
-                    navigateTo(gradeFragment)
-                }
+                    R.id.chart_grade_item -> {
+                        navigateTo(gradeFragment)
+                    }
 
-                R.id.settings_item -> {
-                    navigateTo(settingsFragment)
-                }
+                    R.id.settings_item -> {
+                        navigateTo(settingsFragment)
+                    }
 
-                else -> throw IllegalStateException(getString(R.string.fragment_exception))
+                    else -> throw IllegalStateException(getString(R.string.fragment_exception))
+                }
+                return@setOnItemSelectedListener true
             }
-            return@setOnItemSelectedListener true
         }
     }
 
@@ -102,7 +120,7 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
     }
 
     private fun onDictionary() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, DictionaryActivity::class.java)
         startActivityForResult(intent, DICTIONARY_REQUEST_KOD)
     }
 
@@ -112,18 +130,41 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
     }
 
     override fun onPause() {
+        initViewModel()
         super.onPause()
+        navigatorHolder.removeNavigator()
         binding.bottomNavBar.visibility = View.GONE
+    }
+    private fun initViewModel() {
+
+        val viewModel: FavoriteViewModel by lazy { ConnectKoinModules.favoriteScreenScope.get() }
+        model = viewModel
+
+        model.subscribe().observe(this) { appState ->
+            when (appState) {
+                is AppState.Success -> {
+                    appState.data?.let {
+
+                        val appSharedPrefs =
+                            PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                        val prefsEditor = appSharedPrefs.edit()
+                        val gson = Gson()
+                        val json = gson.toJson(it)
+                        prefsEditor.putString(NEW_DATA, json)
+                        prefsEditor.apply()
+                    }
+                }
+                else -> {}
+            }
+        }
+        model.getData("", false)
+
     }
     private fun onLearningTogether() {
         val intent = Intent(this, LearningTogetherActivity::class.java)
         startActivityForResult(intent, LEARNING_TOGETHER_REQUEST_KOD)
     }
 
-    override fun openAboutApp() {
-        navigateWithBackStack(AboutAppFragment.newInstance())
-        binding.bottomNavBar.visibility = View.GONE
-    }
 
     override fun openDictionary() {
         onDictionary()

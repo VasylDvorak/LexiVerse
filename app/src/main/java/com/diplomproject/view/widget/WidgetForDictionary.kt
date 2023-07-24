@@ -13,7 +13,7 @@ import android.view.View
 import android.widget.RemoteViews
 import com.diplomproject.R
 import com.diplomproject.model.data.DataModel
-import com.diplomproject.view.MainActivity
+import com.diplomproject.view.DictionaryActivity
 import com.diplomproject.view.SHOW_DETAILS
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -48,7 +48,7 @@ class WidgetForDictionary : AppWidgetProvider() {
 
             START_MAIN_ACTIVITY -> {
                 widgetLoader.readCurrentData()?.let {
-                    val intent = Intent(context, MainActivity::class.java)
+                    val intent = Intent(context, DictionaryActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     intent.putExtra(SHOW_DETAILS, Gson().toJson(it))
                     context.startActivity(intent)
