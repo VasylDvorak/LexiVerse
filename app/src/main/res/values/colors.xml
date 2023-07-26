@@ -22,4 +22,6 @@
     <color name="item_icon_tint">#670A20</color>
     <color name="item_text">#670A20</color>
     <color name="bnv_default">#059EE4</color>
+    <color name="widget_gradient_end">#044fab</color>
+    <color name="widget_gradient_start">#9cefee</color>
 </resources>
