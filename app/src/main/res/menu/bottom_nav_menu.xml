@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/root_menu_item"
-        android:icon="@drawable/list_recycler_view_24"
+        android:icon="@drawable/icon_learning"
         android:title="@string/root_menu" />
 
     <item
         android:id="@+id/favorites_elements_item"
-        android:icon="@drawable/ic_favorite_item"
+        android:icon="@drawable/icon_favorite"
         android:title="@string/favorites_elements" />
 
     <item
         android:id="@+id/chart_grade_item"
-        android:icon="@drawable/ic_chart_24"
+        android:icon="@drawable/icon_statistic"
         android:title="@string/grade" />
 
     <item
         android:id="@+id/settings_item"
-        android:icon="@drawable/ic_settings_24"
+        android:icon="@drawable/icon_setting_2"
         android:title="@string/settings" />
 </menu>

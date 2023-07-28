@@ -9,4 +9,5 @@
     <dimen name="widget_padding">3dp</dimen>
     <dimen name="widget_corners_radius">15dp</dimen>
     <dimen name="picture_size">200dp</dimen>
+    <dimen name="bottom_nav_item_size_half">28dp</dimen>
 </resources>

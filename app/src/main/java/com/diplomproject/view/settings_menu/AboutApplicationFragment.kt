@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentAboutApplicationBinding
-import com.diplomproject.view.favorite.FavoriteViewModel
 import com.google.android.apps.common.testing.accessibility.framework.BuildConfig
 
 
