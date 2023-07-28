@@ -24,4 +24,11 @@
     <color name="bnv_default">#059EE4</color>
     <color name="widget_gradient_end">#044fab</color>
     <color name="widget_gradient_start">#9cefee</color>
+
+    <color name="blue_dark">#276EF1</color>
+    <color name="blue_medium">#5B91F4</color>
+    <color name="blue_light">#A0BFF9</color>
+
+
+
 </resources>
