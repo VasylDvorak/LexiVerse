@@ -14,8 +14,8 @@ import androidx.core.animation.doOnEnd
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityMainBinding
 import com.diplomproject.di.ConnectKoinModules
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.navigation.IScreens
 import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.widget.NEW_DATA

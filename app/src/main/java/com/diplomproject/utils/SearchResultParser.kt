@@ -1,15 +1,19 @@
 package com.diplomproject.utils
 
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
-import com.diplomproject.model.data.Meanings
-import com.diplomproject.model.data.Translation
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.data_word_request.Meanings
+import com.diplomproject.model.data_word_request.Translation
+import com.diplomproject.model.data_description_request.DescriptionAppState
+import com.diplomproject.model.data_description_request.Example
 import com.diplomproject.room.favorite.FavoriteEntity
 import com.diplomproject.room.history.HistoryEntity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 
-
+private val gson by lazy { Gson() }
 suspend fun parseSearchResults(state: Flow<AppState>): AppState {
     var newSearchResults = ArrayList<DataModel>()
     var appState = state.first()
@@ -29,6 +33,21 @@ suspend fun parseSearchResults(state: Flow<AppState>): AppState {
         else -> {}
     }
     return appState
+}
+
+suspend fun parseSearchResultsDescription(state: Flow<DescriptionAppState>): DescriptionAppState {
+    var descriptionAppState = state.first()
+
+
+    when (descriptionAppState) {
+        is DescriptionAppState.Success -> {
+            var searchResults = descriptionAppState.data!!
+            descriptionAppState = DescriptionAppState.Success(searchResults)
+        }
+
+        else -> {}
+    }
+    return descriptionAppState
 }
 
 
@@ -74,8 +93,10 @@ private fun getSuccessResultData(
 
                 newDataModels.add(
                     DataModel(
+                        searchResult.id,
                         searchResult.text,
-                        listOf(searchResult.meanings?.get(0) ?: Meanings())
+                        listOf(searchResult.meanings?.get(0) ?: Meanings()),
+                        searchResult.exampleDataModel
                     )
                 )
             }
@@ -95,6 +116,7 @@ private fun parseOnlineResult(
             ) {
                 newMeanings.add(
                     Meanings(
+                        meaning.id,
                         meaning.translation,
                         meaning.imageUrl,
                         meaning.transcription,
@@ -104,7 +126,7 @@ private fun parseOnlineResult(
             }
         }
         if (newMeanings.isNotEmpty()) {
-            newDataModels.add(DataModel(dataModel.text, newMeanings))
+            newDataModels.add(DataModel(dataModel.id, dataModel.text, newMeanings))
         }
     }
 }
@@ -117,8 +139,11 @@ fun parseResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>): Arra
             if (meaning.translation != null && !meaning.translation.translation.isNullOrBlank()) {
                 newMeanings.add(
                     Meanings(
+                        meaning.id,
                         meaning.translation,
-                        meaning.imageUrl, meaning.transcription, meaning.soundUrl
+                        meaning.imageUrl,
+                        meaning.transcription,
+                        meaning.soundUrl
                     )
                 )
             }
@@ -126,7 +151,7 @@ fun parseResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>): Arra
 
 
         if (newMeanings.isNotEmpty()) {
-            newDataModels.add(DataModel(dataModel.text, newMeanings))
+            newDataModels.add(DataModel(dataModel.id, dataModel.text, newMeanings))
         }
     }
     return newDataModels
@@ -137,11 +162,15 @@ fun mapHistoryEntityToSearchResult(list: List<HistoryEntity>): List<DataModel> {
     if (!list.isNullOrEmpty()) {
         for (entity in list) {
             val meanings = Meanings(
+                entity.id,
                 Translation(entity.translation),
-                entity.imageUrl, entity.transcription, entity.soundUrl
+                entity.imageUrl,
+                entity.transcription,
+                entity.soundUrl
             )
-
-            searchResult.add(DataModel(entity.word, listOf(meanings)))
+            val type = object : TypeToken<List<Example?>?>() {}.type
+            val exampleList = Gson().fromJson(entity.examples, type) as List<Example>
+            searchResult.add(DataModel(entity.id, entity.word, listOf(meanings), exampleList))
         }
     }
     return searchResult
@@ -152,11 +181,15 @@ fun mapFavoriteEntityToSearchResult(list: List<FavoriteEntity>): List<DataModel>
     if (!list.isNullOrEmpty()) {
         for (entity in list) {
             val meanings = Meanings(
+                entity.id,
                 Translation(entity.translation),
-                entity.imageUrl, entity.transcription, entity.soundUrl
+                entity.imageUrl,
+                entity.transcription,
+                entity.soundUrl
             )
-
-            searchResult.add(DataModel(entity.word, listOf(meanings)))
+            val type = object : TypeToken<List<Example?>?>() {}.type
+            val exampleList = Gson().fromJson(entity.examples, type) as List<Example>
+            searchResult.add(DataModel(entity.id, entity.word, listOf(meanings), exampleList))
         }
     }
     return searchResult
@@ -171,8 +204,13 @@ fun convertDataModelSuccessToEntity(appState: AppState): HistoryEntity? {
             } else {
                 var meanings = searchResult[0].meanings?.get(0)
                 HistoryEntity(
-                    searchResult[0].text!!, meanings?.imageUrl,
-                    meanings?.transcription, meanings?.soundUrl, meanings?.translation!!.translation
+                    meanings?.id,
+                    searchResult[0].text!!,
+                    meanings?.imageUrl,
+                    meanings?.transcription,
+                    meanings?.soundUrl,
+                    meanings?.translation!!.translation,
+                    gson.toJson(searchResult[0].exampleDataModel)
                 )
             }
         }
@@ -184,8 +222,13 @@ fun convertDataModelSuccessToEntity(appState: AppState): HistoryEntity? {
 fun converterDataModelToFavoriteEntity(sourse: DataModel): FavoriteEntity {
     var meanings = sourse.meanings?.get(0)
     return FavoriteEntity(
-        sourse.text!!, meanings?.imageUrl,
-        meanings?.transcription, meanings?.soundUrl, meanings?.translation!!.translation
+        meanings?.id,
+        sourse.text!!,
+        meanings?.imageUrl,
+        meanings?.transcription,
+        meanings?.soundUrl,
+        meanings?.translation!!.translation,
+        gson.toJson(sourse.exampleDataModel)
     )
 
 }

@@ -1,12 +1,11 @@
 package com.diplomproject.view.favorite
 
 import androidx.lifecycle.LiveData
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.parseLocalSearchResults
 import com.diplomproject.viewmodel.BaseViewModel
 import kotlinx.coroutines.launch
-
 class FavoriteViewModel(var interactor: FavoriteInteractor) :
     BaseViewModel<AppState>() {
     private val liveDataForViewToObserve: LiveData<AppState> = _mutableLiveData

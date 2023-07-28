@@ -12,7 +12,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RemoteViews
 import com.diplomproject.R
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.view.DictionaryActivity
 import com.diplomproject.view.SHOW_DETAILS
 import com.google.gson.Gson
@@ -23,7 +23,7 @@ import java.io.IOException
 
 private const val CHANGE_WORD = "CHANGE_WORD"
 private const val PLAY_PRONUNCIATION = "PLAY_PRONUNCIATION"
-private const val START_MAIN_ACTIVITY = "START_MAIN_ACTIVITY"
+private const val START_DICTIONARY_ACTIVITY = "START_DICTIONARY_ACTIVITY"
 
 class WidgetForDictionary : AppWidgetProvider() {
 
@@ -46,7 +46,7 @@ class WidgetForDictionary : AppWidgetProvider() {
                     ?.let { playContentUrl(it.meanings?.get(0)?.soundUrl) }
             }
 
-            START_MAIN_ACTIVITY -> {
+            START_DICTIONARY_ACTIVITY -> {
                 widgetLoader.readCurrentData()?.let {
                     val intent = Intent(context, DictionaryActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -92,7 +92,7 @@ class WidgetForDictionary : AppWidgetProvider() {
                     val pendingIntentPlayPronunciation =
                         createPendingIntend(PLAY_PRONUNCIATION, context)
                     val pendingIntentStartMainActivity =
-                        createPendingIntend(START_MAIN_ACTIVITY, context)
+                        createPendingIntend(START_DICTIONARY_ACTIVITY, context)
 
                     setOnClickPendingIntent(R.id.text_unit_layout_widget, pendingIntentChangeText)
                     setOnClickPendingIntent(R.id.header_textview_widget, pendingIntentChangeText)

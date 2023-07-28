@@ -9,8 +9,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.diplomproject.R
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.network.OnlineRepository
 import com.diplomproject.utils.ui.AlertDialogFragment

@@ -3,8 +3,8 @@ package com.diplomproject.navigation
 import android.os.Bundle
 import com.github.terrakok.cicerone.Screen
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import com.diplomproject.model.data.DataModel
-import com.diplomproject.view.DescriptionFragment
+import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.view.description.DescriptionFragment
 import com.diplomproject.view.favorite.FavoriteFragment
 import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.history.HistoryFragment

@@ -9,7 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.DataModel
 
 class FavoriteAdapter(
     private var onListItemClickListener: (DataModel) -> Unit,
@@ -57,7 +57,6 @@ class FavoriteAdapter(
                         R.color.color_favorite_card
                     )
                 )
-
         }
 
         fun bind(data: DataModel) {

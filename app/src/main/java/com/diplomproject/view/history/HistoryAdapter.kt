@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatImageButton
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.DataModel
 
 class HistoryAdapter(
     private var onListItemClickListener: (DataModel) -> Unit,

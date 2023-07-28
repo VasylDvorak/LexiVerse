@@ -1,7 +1,7 @@
 package com.diplomproject.navigation
 
 import com.github.terrakok.cicerone.Screen
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.DataModel
 
 
 interface IScreens {
