@@ -5,6 +5,8 @@ import com.diplomproject.di.ConnectKoinModules.apiModule
 import com.diplomproject.di.ConnectKoinModules.appModule
 import com.diplomproject.di.ConnectKoinModules.application
 import com.diplomproject.di.ConnectKoinModules.ciceroneModule
+import com.diplomproject.di.ConnectKoinModules.descriptionFragmentModule
+import com.diplomproject.di.ConnectKoinModules.descriptionScreen
 import com.diplomproject.di.ConnectKoinModules.favoriteFragmentModule
 import com.diplomproject.di.ConnectKoinModules.favoriteScreen
 import com.diplomproject.di.ConnectKoinModules.historyFragmentModule
@@ -25,12 +27,11 @@ class App : Application() {
                 listOf(
                     application, mainScreen, apiModule, appModule,
                     mainFragmentModule, ciceroneModule, historyScreen,
-                    historyFragmentModule, favoriteFragmentModule, favoriteScreen
+                    historyFragmentModule, favoriteFragmentModule,
+                    favoriteScreen, descriptionFragmentModule, descriptionScreen
                 )
             )
         }
-
     }
-
 }
 

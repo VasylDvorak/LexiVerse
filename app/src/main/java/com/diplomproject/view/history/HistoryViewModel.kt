@@ -1,8 +1,8 @@
 package com.diplomproject.view.history
 
 import androidx.lifecycle.LiveData
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.parseLocalSearchResults
 import com.diplomproject.utils.parseWordSearchResults
 import com.diplomproject.viewmodel.BaseViewModel

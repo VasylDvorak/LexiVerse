@@ -1,4 +1,4 @@
-package com.diplomproject.view
+package com.diplomproject.view.description
 
 import android.animation.Animator
 import android.graphics.drawable.Drawable
@@ -9,6 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -19,10 +23,15 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentDescriptionBinding
+import com.diplomproject.di.ConnectKoinModules.descriptionScreenScope
 import com.diplomproject.domain.base.BaseFragment
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.data_description_request.DescriptionAppState
+import com.diplomproject.model.data_description_request.Example
 import com.diplomproject.utils.network.OnlineRepository
 import com.diplomproject.utils.ui.AlertDialogFragment
+import com.diplomproject.utils.ui.viewById
+import com.diplomproject.view.AnimatorTranslator
 import com.diplomproject.view.settings_menu.BaseFragmentSettingsMenu
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
@@ -34,10 +43,20 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
     private var snack: Snackbar? = null
     protected var isNetworkAvailable: Boolean = false
     private val checkConnection: OnlineRepository by inject()
+    private val descriptionFragmentRecyclerview by viewById<RecyclerView>(R.id.description_recyclerview)
     var mMediaPlayer: MediaPlayer? = null
+    lateinit var model: DescriptionViewModel
+    private val observer = Observer<DescriptionAppState> { renderData(it) }
     private var _binding: FragmentDescriptionBinding? = null
     private val binding
         get() = _binding!!
+
+    private val adapter: DiscriptionFragmentAdapter by lazy { DiscriptionFragmentAdapter(::onPlayClick) }
+
+
+    private fun onPlayClick(url: String) {
+        playContentUrl(url)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,14 +69,26 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startLoadingOrShowError()
+        showError()
+        initViewModel()
+        initViews()
         setData()
     }
 
+    private fun initViewModel() {
+        if (descriptionFragmentRecyclerview.adapter != null) {
+            throw IllegalStateException("The ViewModel should be initialised first")
+        }
+        val viewModel: DescriptionViewModel by lazy { descriptionScreenScope.get() }
+        model = viewModel
+        model.subscribe().observe(viewLifecycleOwner, observer)
+    }
 
     private fun setData() {
         val currentDataModel =
             (arguments?.getParcelable(CURRENT_DATA_MODEl) as DataModel?) ?: DataModel()
+        currentDataModel.meanings?.let { model.getDataDescription(it, true) }
+
         binding.apply {
             descriptionHeader.text = currentDataModel.text
             if (currentDataModel.meanings?.size != 0) {
@@ -75,15 +106,50 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                 if (imageLink.isNullOrBlank()) {
                     stopRefreshAnimationIfNeeded()
                 } else {
-
                     useGlideToLoadPhoto(descriptionImageview, imageLink)
-
                 }
             }
         }
     }
 
-    private fun startLoadingOrShowError() {
+    fun renderData(descriptionAppState: DescriptionAppState) {
+        model.setQuery(descriptionAppState)
+        when (descriptionAppState) {
+            is DescriptionAppState.Success -> {
+                binding.progressBarRoundDescription.visibility = View.GONE
+                val data = descriptionAppState.data
+                if (data.isNullOrEmpty()) {
+                    Toast.makeText(context, getString(R.string.example_absent), Toast.LENGTH_LONG)
+                } else {
+
+                    updateAdapter(data)
+                }
+            }
+
+            is DescriptionAppState.Loading -> {
+                binding.progressBarRoundDescription.visibility = View.VISIBLE
+            }
+
+            is DescriptionAppState.Error -> {
+                binding.progressBarRoundDescription.visibility = View.GONE
+                Toast.makeText(context, getString(R.string.example_absent), Toast.LENGTH_LONG)
+            }
+        }
+    }
+
+
+    private fun updateAdapter(examples: List<Example>?) {
+        //  showViewSuccess()
+        adapter?.setData(examples)
+    }
+
+    private fun initViews() {
+        descriptionFragmentRecyclerview.layoutManager =
+            LinearLayoutManager(context)
+        descriptionFragmentRecyclerview.adapter = adapter
+    }
+
+    private fun showError() {
         checkConnection.observe(
             viewLifecycleOwner,
             {

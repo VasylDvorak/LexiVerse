@@ -8,9 +8,9 @@ import androidx.test.runner.AndroidJUnit4
 import com.google.gson.Gson
 import com.nhaarman.mockito_kotlin.atLeastOnce
 import com.diplomproject.TestCoroutineRule
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
-import com.diplomproject.model.data.Meanings
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.data_word_request.Meanings
 import com.diplomproject.model.repository.RepositoryLocal
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope

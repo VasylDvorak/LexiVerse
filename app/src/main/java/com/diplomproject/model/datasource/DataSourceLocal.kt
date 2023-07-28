@@ -1,7 +1,7 @@
 package com.diplomproject.model.datasource
 
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
 
 
 interface DataSourceLocal<T> : DataSource<T> {

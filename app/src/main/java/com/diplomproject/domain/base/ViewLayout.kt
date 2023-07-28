@@ -5,7 +5,6 @@ interface ViewLayout {
     fun responseEmpty() {}
 
     fun showViewLoading() {}
-
     fun showErrorScreen(error: String?) {}
 
 

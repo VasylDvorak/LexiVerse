@@ -3,7 +3,7 @@ package com.diplomproject.view.widget
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.preference.PreferenceManager
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.DataModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.koin.java.KoinJavaComponent
