@@ -16,6 +16,11 @@ object Releases {
     const val version_name = "1.0"
 }
 
+object Modules {
+    const val app = ":app"
+    const val learningTogether = ":learningTogether"
+}
+
 
 object Versions {
     //Design
@@ -29,11 +34,12 @@ object Versions {
     const val recyclerview = "1.3.0"
     const val viewmodelKtx = "1.6.1"
 
-
     //Kotlin
     const val core = "1.10.0"
     const val coroutinesCore = "1.7.0-RC"
-    const val coroutinesAndroid = "1.7.0-RC"
+    const val coroutinesAndroid = "1.7.0-RC"    // splash Screen
+    const val splashScreen = "1.0.1"
+
 
     //Retrofit
     const val retrofit = "2.9.0"
@@ -89,6 +95,7 @@ object Kotlin {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
     const val coroutines_android =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroid}"
+    const val splash_screen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
 }
 
 object Retrofit {

@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Translator">
         <activity
-            android:name=".view.root.together.LearningTogetherActivity"
+            android:name=".learningtogether.LearningTogetherActivity"
             android:exported="false" />
         <activity
             android:name=".view.DictionaryActivity"

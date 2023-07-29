@@ -15,7 +15,6 @@ import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.root.favorite.FavoritesElementFragment
 import com.diplomproject.view.root.grade.GradeFragment
 import com.diplomproject.view.root.knowledgecheck.KnowledgeCheckFragment
-import com.diplomproject.view.root.together.LearningTogetherActivity
 import com.diplomproject.view.settings_menu.SettingsFragment
 import com.diplomproject.view.widget.NEW_DATA
 import com.github.terrakok.cicerone.NavigatorHolder
@@ -135,6 +134,7 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
         navigatorHolder.removeNavigator()
         binding.bottomNavBar.visibility = View.GONE
     }
+
     private fun initViewModel() {
 
         val viewModel: FavoriteViewModel by lazy { ConnectKoinModules.favoriteScreenScope.get() }
@@ -154,14 +154,17 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
                         prefsEditor.apply()
                     }
                 }
+
                 else -> {}
             }
         }
         model.getData("", false)
 
     }
+
     private fun onLearningTogether() {
-        val intent = Intent(this, LearningTogetherActivity::class.java)
+        val intent =
+            Intent(this, com.diplomproject.learningtogether.LearningTogetherActivity::class.java)
         startActivityForResult(intent, LEARNING_TOGETHER_REQUEST_KOD)
     }
 

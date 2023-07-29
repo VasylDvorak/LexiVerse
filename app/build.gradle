@@ -42,56 +42,12 @@ android {
     kotlinOptions {
         jvmTarget = Config.jvmTarget
     }
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
 
-    //Design
-    implementation Design.appcompat
-    implementation Design.material
-    implementation Design.savedstate
-    implementation Design.constraintlayout
-    implementation Design.fragment_ktx
-    implementation Design.ui_ktx
-    implementation Design.swiperefreshlayout
-    implementation Design.recyclerview
-    implementation Design.viewmodel_ktx
-
-    //Kotlin
-    implementation Kotlin.core
-    implementation Kotlin.coroutines_core
-    implementation Kotlin.coroutines_android
-
-    //Retrofit
-    implementation Retrofit.retrofit
-    implementation Retrofit.converter_gson
-    implementation Retrofit.adapter_coroutines
-    implementation Retrofit.logging_interceptor
-
-    //Koin
-    implementation Koin.koin_android
-    implementation Koin.koin_core
-    implementation Koin.koin_compat
-
-    //Cicerone
-    implementation Cicerone.cicerone
-
-    //Glide
-    implementation Glide.glideCompiler
-    implementation Glide.glide
-
-
-    //Room
-    implementation Room.runtime
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    kapt Room.kapt_compiler
-    annotationProcessor Room.annotation_processor_compiler
-    implementation Room.room_ktx
+    //Modules
+    implementation project(Modules.learningTogether)
 
     //TestImpl
     testImplementation TestImpl.junit
@@ -121,4 +77,13 @@ dependencies {
 
     //CoroutineTests
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+
+    //Room
+    implementation Room.runtime
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    kapt Room.kapt_compiler
+    annotationProcessor Room.annotation_processor_compiler
+    implementation Room.room_ktx
 }
