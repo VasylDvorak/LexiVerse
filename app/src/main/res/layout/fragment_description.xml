@@ -117,8 +117,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/cardView3"
                     app:srcCompat="@drawable/ic_no_photo_vector"
                     tools:visibility="visible" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
