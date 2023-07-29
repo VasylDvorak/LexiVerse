@@ -1,4 +1,4 @@
-package com.diplomproject.model.data
+package com.diplomproject.model.data_word_request
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

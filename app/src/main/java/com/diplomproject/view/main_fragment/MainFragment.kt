@@ -24,13 +24,12 @@ import com.diplomproject.R
 import com.diplomproject.databinding.FragmentMainBinding
 import com.diplomproject.di.ConnectKoinModules.mainScreenScope
 import com.diplomproject.domain.base.BaseFragment
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
 import com.diplomproject.view.SearchDialogFragment
-import com.google.gson.Gson
 
 
 const val LIST_KEY = "list_key"

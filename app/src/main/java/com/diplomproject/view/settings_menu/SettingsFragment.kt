@@ -4,15 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
-import com.diplomproject.R
 import com.diplomproject.databinding.FragmentSettingsBinding
-import com.diplomproject.model.data.DataModel
-import com.diplomproject.navigation.IScreens
-import com.diplomproject.view.DescriptionFragment
-import com.github.terrakok.cicerone.Router
-import com.google.gson.Gson
-import org.koin.java.KoinJavaComponent
 
 class SettingsFragment : BaseFragmentSettingsMenu() {
 

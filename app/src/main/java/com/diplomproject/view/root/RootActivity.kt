@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
 import com.diplomproject.di.ConnectKoinModules
-import com.diplomproject.model.data.AppState
+import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.view.DictionaryActivity
 import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.root.favorite.FavoritesElementFragment

@@ -1,7 +1,8 @@
 package com.diplomproject.model.datasource
 
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.data_description_request.DataModelId
 import com.diplomproject.room.favorite.FavoriteDao
 import com.diplomproject.room.history.HistoryDao
 import com.diplomproject.utils.convertDataModelSuccessToEntity
@@ -17,6 +18,9 @@ class RoomDataBaseImplementation(
     override suspend fun getData(word: String): List<DataModel> {
         return mapHistoryEntityToSearchResult(historyDao.all())
     }
+
+    override suspend fun getDataId(id: String): List<DataModelId> = listOf()
+
 
     override suspend fun saveToDB(appState: AppState) {
         convertDataModelSuccessToEntity(appState)?.let {

@@ -1,8 +1,8 @@
 package com.diplomproject.view.main_fragment
 
 import androidx.lifecycle.LiveData
-import com.diplomproject.model.data.AppState
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.parseSearchResults
 import com.diplomproject.utils.parseWordSearchResults
 import com.diplomproject.viewmodel.BaseViewModel
@@ -98,6 +98,7 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
                 }
                 .filterNotNull()
                 .collect { result ->
+                    result
                     _liveDataForViewToObserve.postValue(result)
                 }
         }

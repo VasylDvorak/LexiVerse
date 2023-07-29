@@ -6,11 +6,12 @@ import androidx.room.Room
 import com.diplomproject.di.koin_modules.ApiModule
 import com.diplomproject.di.koin_modules.AppModule
 import com.diplomproject.di.koin_modules.CiceroneModule
+import com.diplomproject.di.koin_modules.DescriptionFragmentModule
 import com.diplomproject.di.koin_modules.FavoriteFragmentModule
 import com.diplomproject.di.koin_modules.HistoryFragmentModule
 import com.diplomproject.di.koin_modules.MainFragmentModule
 import com.diplomproject.di.koin_modules.NAME_CICERONE_MODULE_CICERONE
-import com.diplomproject.model.data.DataModel
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.RetrofitImplementation
 import com.diplomproject.model.datasource.RoomDataBaseImplementation
 import com.diplomproject.model.repository.Repository
@@ -19,6 +20,9 @@ import com.diplomproject.model.repository.RepositoryImplementationLocal
 import com.diplomproject.model.repository.RepositoryLocal
 import com.diplomproject.room.HistoryFavoriteDataBase
 import com.diplomproject.utils.network.OnlineRepository
+import com.diplomproject.view.description.DescriptionFragment
+import com.diplomproject.view.description.DescriptionInteractor
+import com.diplomproject.view.description.DescriptionViewModel
 import com.diplomproject.view.favorite.FavoriteFragment
 import com.diplomproject.view.favorite.FavoriteInteractor
 import com.diplomproject.view.favorite.FavoriteViewModel
@@ -86,6 +90,18 @@ object ConnectKoinModules {
             .getOrCreateScope("mainScreenScope", named<MainFragment>())
     }
 
+    val descriptionScreen = module {
+        scope(named<DescriptionFragment>()) {
+            scoped { DescriptionInteractor(get()) }
+            viewModel { DescriptionViewModel(get()) }
+        }
+    }
+
+    val descriptionScreenScope by lazy {
+        getKoin()
+            .getOrCreateScope("descriptionScreenScope", named<DescriptionFragment>())
+    }
+
 
     val apiModule = module {
         factory { ApiModule().getService() }
@@ -123,6 +139,11 @@ object ConnectKoinModules {
 
     val favoriteFragmentModule = module {
         single { FavoriteFragmentModule().favoriteFragment() }
+
+    }
+
+    val descriptionFragmentModule = module {
+        single { DescriptionFragmentModule().descriptionFragment() }
 
     }
 }
