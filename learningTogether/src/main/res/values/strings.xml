@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Learning Languages</string>
+    <string name="english_level_1">English Level 1</string>
+    <string name="english_level_2">English Level 2</string>
+    <string name="kotlin_level_1">Kotlin Level 1</string>
+    <string name="kotlin_level_2">Kotlin Level 2</string>
+    <string name="java_level_1">Kotlin Level 1</string>
+    <string name="java_level_2">Kotlin Level 2</string>
+    <string name="hello_kotlin_fragment">Hello Kotlin fragment</string>
+    <string name="answer_option_english_fragment">Вариант ответа</string>
+    <string name="task_english_fragment">Задание</string>
+    <string name="english_level_1_card_view">Level 1</string>
+    <string name="english_level_2_card_view">Level 2</string>
+    <string name="kotlin_level_1_card_view">Level 1</string>
+    <string name="kotlin_level_2_card_view">2</string>
+    <string name="java_level_1_card_view">Level 1</string>
+    <string name="java_level_2_card_view">Level 2</string>
+    <string name="name_level_1_card_view">NO NAME 1</string>
+    <string name="name_level_2_card_view">NO NAME 2</string>
+    <string name="repeat_button">Повторить</string>
+    <string name="victory_finish">УРА!!!\nВсе правильно!</string>
+    <string name="favourites">Избраное</string>
+    <string name="statistics">Статистика</string>
+    <string name="settings">Настройки</string>
+    <string name="about_app">О приложении</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding">10dp</dimen>
+    <dimen name="radius_button_default">20dp</dimen>
+    <dimen name="button_finish_width_size">300dp</dimen>
+    <dimen name="margin_task">5dp</dimen>
+    <dimen name="restriction_image">300dp</dimen>
+    <dimen name="default_text">18sp</dimen>
+    <dimen name="margin_answer">8dp</dimen>
+    <dimen name="margin_lesson">5dp</dimen>
+</resources>

@@ -4,6 +4,8 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-android")
     id("kotlin-parcelize")
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -48,6 +50,11 @@ dependencies {
 
     //Modules
     implementation project(Modules.learningTogether)
+
+    //Koin
+    implementation Koin.koin_android
+    implementation Koin.koin_core
+    implementation Koin.koin_compat
 
     //TestImpl
     testImplementation TestImpl.junit

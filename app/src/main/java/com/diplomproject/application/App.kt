@@ -14,7 +14,9 @@ import com.diplomproject.di.ConnectKoinModules.historyScreen
 import com.diplomproject.di.ConnectKoinModules.mainFragmentModule
 import com.diplomproject.di.ConnectKoinModules.mainScreen
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
+import org.koin.core.logger.Level
 
 class App : Application() {
 
@@ -22,13 +24,22 @@ class App : Application() {
         super.onCreate()
 
         startKoin {
+            androidLogger(Level.DEBUG)
             androidContext(this@App)
             modules(
                 listOf(
-                    application, mainScreen, apiModule, appModule,
-                    mainFragmentModule, ciceroneModule, historyScreen,
-                    historyFragmentModule, favoriteFragmentModule,
-                    favoriteScreen, descriptionFragmentModule, descriptionScreen
+                    application,
+                    mainScreen,
+                    apiModule,
+                    appModule,
+                    mainFragmentModule,
+                    ciceroneModule,
+                    historyScreen,
+                    historyFragmentModule,
+                    favoriteFragmentModule,
+                    favoriteScreen,
+                    descriptionFragmentModule,
+                    descriptionScreen
                 )
             )
         }

@@ -10,18 +10,16 @@ import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
 import com.diplomproject.di.ConnectKoinModules
 import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.navigation.IScreens
 import com.diplomproject.view.DictionaryActivity
 import com.diplomproject.view.favorite.FavoriteViewModel
-import com.diplomproject.view.root.favorite.FavoritesElementFragment
-import com.diplomproject.view.root.grade.GradeFragment
-import com.diplomproject.view.root.knowledgecheck.KnowledgeCheckFragment
-import com.diplomproject.view.settings_menu.SettingsFragment
 import com.diplomproject.view.widget.NEW_DATA
 import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.google.gson.Gson
 import org.koin.android.ext.android.inject
-
+import org.koin.java.KoinJavaComponent
 
 private const val TAG_ROOT_CONTAINER_LAYOUT_KEY = "TAG_ROOT_CONTAINER_LAYOUT_KEY"
 private const val DICTIONARY_REQUEST_KOD = 100
@@ -30,21 +28,14 @@ private const val LEARNING_TOGETHER_REQUEST_KOD = 200
 class RootActivity : ViewBindingActivity<ActivityRootBinding>(
     ActivityRootBinding::inflate
 ),
-    StartingFragment.Controller,
-    FavoritesElementFragment.Controller,
-    GradeFragment.Controller,
-    KnowledgeCheckFragment.Controller {
+    StartingFragment.Controller {
+
+    private val router: Router by KoinJavaComponent.inject(Router::class.java)
+    private val screen = KoinJavaComponent.getKoin().get<IScreens>()
 
     private val navigatorHolder: NavigatorHolder by inject()
-    val navigator = AppNavigator(this, R.id.fragment_container_frame_layout)
+    private val navigator = AppNavigator(this, R.id.fragment_container_frame_layout)
     lateinit var model: FavoriteViewModel
-    private val settingsFragment: SettingsFragment by lazy { SettingsFragment.newInstance() }
-    private val gradeFragment: GradeFragment by lazy {
-        GradeFragment.newInstance()
-    }
-    private val favoritesElementFragment: FavoritesElementFragment by lazy {
-        FavoritesElementFragment.newInstance()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,19 +59,19 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
             setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.root_menu_item -> {
-                        navigateTo(StartingFragment())
+                        router.replaceScreen(screen.startStartingFragment())
                     }
 
                     R.id.favorites_elements_item -> {
-                        navigateTo(favoritesElementFragment)
+                        router.replaceScreen(screen.startFavoritesElementFragment())
                     }
 
                     R.id.chart_grade_item -> {
-                        navigateTo(gradeFragment)
+                        router.replaceScreen(screen.startGradeFragment())
                     }
 
                     R.id.settings_item -> {
-                        navigateTo(settingsFragment)
+                        router.replaceScreen(screen.startSettingsFragment())
                     }
 
                     else -> throw IllegalStateException(getString(R.string.fragment_exception))
@@ -154,20 +145,18 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
                         prefsEditor.apply()
                     }
                 }
-
                 else -> {}
             }
         }
         model.getData("", false)
-
     }
 
     private fun onLearningTogether() {
         val intent =
             Intent(this, com.diplomproject.learningtogether.LearningTogetherActivity::class.java)
+//            Intent(this, com.diplomproject.learningtogether.ui.TogetherActivity::class.java)
         startActivityForResult(intent, LEARNING_TOGETHER_REQUEST_KOD)
     }
-
 
     override fun openDictionary() {
         onDictionary()
@@ -175,12 +164,6 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 
     override fun openLearningTogether() {
         onLearningTogether()
-    }
-
-    override fun openKnowledgeCheck() {
-        navigateWithBackStack(
-            KnowledgeCheckFragment.newInstance()
-        )
     }
 
     @Deprecated("Deprecated in Java")
