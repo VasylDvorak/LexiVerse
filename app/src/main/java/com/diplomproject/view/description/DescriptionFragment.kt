@@ -104,7 +104,7 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                 }
                 val imageLink = currentDataModel.meanings?.get(0)?.imageUrl
                 if (imageLink.isNullOrBlank()) {
-                    stopRefreshAnimationIfNeeded()
+                //    stopRefreshAnimationIfNeeded()
                 } else {
                     useGlideToLoadPhoto(descriptionImageview, imageLink)
                 }
@@ -164,7 +164,7 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                         R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
                     )
                     snack?.show()
-                    stopRefreshAnimationIfNeeded()
+                  //  stopRefreshAnimationIfNeeded()
                 }
             })
         checkConnection.currentStatus()
@@ -196,15 +196,6 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
         }
     }
 
-
-    private fun stopRefreshAnimationIfNeeded() {
-        binding.apply {
-            if (descriptionScreenSwipeRefreshLayout.isRefreshing) {
-                descriptionScreenSwipeRefreshLayout.isRefreshing = false
-            }
-        }
-    }
-
     private fun useGlideToLoadPhoto(imageView: ImageView, imageLink: String) {
         Glide.with(this)
             .load("https:$imageLink")
@@ -215,7 +206,7 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    stopRefreshAnimationIfNeeded()
+                 //   stopRefreshAnimationIfNeeded()
                     imageView.setImageResource(R.drawable.ic_load_error_vector)
                     return false
                 }
@@ -227,7 +218,7 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    stopRefreshAnimationIfNeeded()
+                 //  stopRefreshAnimationIfNeeded()
                     return false
                 }
             })
