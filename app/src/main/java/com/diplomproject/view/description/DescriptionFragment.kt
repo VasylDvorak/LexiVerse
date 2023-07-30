@@ -151,22 +151,22 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
 
     private fun showError() {
         checkConnection.observe(
-            viewLifecycleOwner,
-            {
-                isNetworkAvailable = it
-                if (isNetworkAvailable) {
-                    snack?.dismiss()
-                    snack = null
-                    setData()
-                } else {
-                    snack = Snackbar.make(
-                        requireView(),
-                        R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
-                    )
-                    snack?.show()
-                    stopRefreshAnimationIfNeeded()
-                }
-            })
+            viewLifecycleOwner
+        ) {
+            isNetworkAvailable = it
+            if (isNetworkAvailable) {
+                snack?.dismiss()
+                snack = null
+                setData()
+            } else {
+                snack = Snackbar.make(
+                    requireView(),
+                    R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
+                )
+                snack?.show()
+                stopRefreshAnimationIfNeeded()
+            }
+        }
         checkConnection.currentStatus()
     }
 
