@@ -29,13 +29,13 @@ import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.history.HistoryFragment
 import com.diplomproject.view.history.HistoryInteractor
 import com.diplomproject.view.history.HistoryViewModel
+import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.main_fragment.MainInteractor
 import com.diplomproject.view.main_fragment.MainViewModel
-import com.diplomproject.view.main_fragment.MainFragment
 import org.koin.android.ext.koin.androidApplication
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.mp.KoinPlatform.getKoin
 
 object ConnectKoinModules {
@@ -105,7 +105,6 @@ object ConnectKoinModules {
 
     val apiModule = module {
         factory { ApiModule().getService() }
-
     }
 
     val appModule = module {

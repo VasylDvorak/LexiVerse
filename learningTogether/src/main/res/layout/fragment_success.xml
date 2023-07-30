@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.task.TaskFragment">
+
+    <TextView
+        style="@style/task_tv_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pomidorko_cyr_ru"
+        android:text="@string/victory_finish" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/repeat_button"
+        android:layout_width="@dimen/button_finish_width_size"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pomidorko_cyr_ru"
+        android:text="@string/repeat_button"
+        app:cornerRadius="@dimen/radius_button_default" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/victory_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+    <ProgressBar
+        android:id="@+id/progress_success_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+</LinearLayout>

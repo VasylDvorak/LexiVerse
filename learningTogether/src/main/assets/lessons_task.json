@@ -1,0 +1,846 @@
+[
+  {
+    "id": 1,
+    "name": "English Course",
+    "logo_url": "https://www.nicolasalvatore.com/web/wp-content/uploads/2015/09/traduzione-italiano-inglese-1022x1024.png",
+    "lessons": [
+      {
+        "id": 10,
+        "name": "English Lesson 1",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English1.jpg?alt=media&token=cce3804b-aca0-48f5-9854-f9e62efc28f7",
+        "victory_image_url": "https://avatars.mds.yandex.net/get-zen_doc/1244179/pub_5c7f8fe55b0ac200b3abd1ad_5c7f912362b23d00b4837dc3/scale_1200",
+        "tasks": [
+          {
+            "id": 100,
+            "task": "Good afternoon",
+            "task_image_url": "https://yur-gazeta.ru/wp-content/uploads/2021/02/sposoby-privetstvija-v-raznyh-stranah-mira-46d45df.jpg",
+            "right_answer": "Добрый день",
+            "variants_answer": [
+              "Добрый день",
+              "Привет",
+              "Добрый вечер",
+              "До свидания"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 200,
+            "task": "Table",
+            "task_image_url": "https://garantanapa.ru/wp-content/uploads/2021/02/xt_120213_02.jpg",
+            "right_answer": "Стол",
+            "variants_answer": [
+              "Стул",
+              "Стол",
+              "Ручка",
+              "Таблица"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 300,
+            "task": "Sofa",
+            "task_image_url": "https://www.sunhome.ru/i/wallpapers/60/oranzhevii-divan.orig.jpg",
+            "right_answer": "Диван",
+            "variants_answer": [
+              "Стол",
+              "Кресло",
+              "Диван",
+              "Ваза"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 400,
+            "task": "Pencil",
+            "task_image_url": "https://all-t-shirts.ru/goods_images/ru130894II000cb37cd61f64c542399c1a831c84de5d5.jpg",
+            "right_answer": "Карандаш",
+            "variants_answer": [
+              "Ручка",
+              "Линейка",
+              "Пенал",
+              "Карандаш"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 500,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 600,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "name": "English Lesson 2",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 1000,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 2000,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 3000,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "English Lesson 3",
+        "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 10000,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 20000,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 30000,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "name": "English Lesson 2",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 1001,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 2002,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 3003,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 50,
+        "name": "English Lesson 3",
+        "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 10001,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 20002,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 30003,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Kotlin Course",
+    "logo_url": "https://desano.ru/img/?i=DDtSNlJnU2tQKlJLAAZXeVFlADRSbwcwBDRXf1Y1V3kEaFB1VDU.2.jpg",
+    "lessons": [
+      {
+        "id": 401,
+        "name": "Kotlin Basic",
+        "image_url": "https://www.pvsm.ru/images/2016/02/25/piter-vstrecha-JUG-ru-s-razrabotchikami-Kotlin.jpg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 100001,
+            "task": "Что такое object в Kotlin?",
+            "right_answer": "Синглтон",
+            "variants_answer": [
+              "Синглтон",
+              "Базовый класс Java",
+              "Поток",
+              "Переменная"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 200002,
+            "task": "Проверка на равенство позволяющая сравнивать данные, содержащиеся в переменных",
+            "right_answer": "equals",
+            "variants_answer": [
+              "toString",
+              "equals",
+              "true",
+              "argument"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 300003,
+            "task": "что это за конструкция?\nval str = \"abcd\"",
+            "right_answer": "это объявление неизменяемой String переменной",
+            "variants_answer": [
+              "это объявление неизменяемой String переменной",
+              "это объявление изменяемой String переменной",
+              "это массив",
+              "это вызов класса"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 400004,
+            "task": "Является ли true значением Boolean?",
+            "right_answer": "Да",
+            "variants_answer": [
+              "Да",
+              "Нет"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 501,
+        "name": "Kotlin Lesson 2",
+        "image_url": "https://www.explore-group.com/storage/images-processed/w-1500_h-auto_m-fit_s-any__highres_476144970.jpeg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 100002,
+            "task": "Что такое object в Kotlin?",
+            "right_answer": "Синглтон",
+            "variants_answer": [
+              "Синглтон",
+              "Базовый класс Java",
+              "Поток",
+              "Переменная"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 200002,
+            "task": "Проверка на равенство позволяющая сравнивать данные, содержащиеся в переменных",
+            "right_answer": "equals",
+            "variants_answer": [
+              "toString",
+              "equals",
+              "true",
+              "argument"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 300002,
+            "task": "что это за конструкция?\nval str = \"abcd\"",
+            "right_answer": "это объявление неизменяемой String переменной",
+            "variants_answer": [
+              "это объявление неизменяемой String переменной",
+              "это объявление изменяемой String переменной",
+              "это массив",
+              "это вызов класса"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 400002,
+            "task": "Является ли true значением Boolean?",
+            "right_answer": "Да",
+            "variants_answer": [
+              "Да",
+              "Нет"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Kotlin Course2",
+    "logo_url": "https://desano.ru/img/?i=DDtSNlJnU2tQKlJLAAZXeVFlADRSbwcwBDRXf1Y1V3kEaFB1VDU.2.jpg",
+    "lessons": [
+      {
+        "id": 99,
+        "name": "Kotlin Basic",
+        "image_url": "https://www.pvsm.ru/images/2016/02/25/piter-vstrecha-JUG-ru-s-razrabotchikami-Kotlin.jpg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 121,
+            "task": "Что такое object в Kotlin?",
+            "right_answer": "Синглтон",
+            "variants_answer": [
+              "Синглтон",
+              "Базовый класс Java",
+              "Поток",
+              "Переменная"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 212,
+            "task": "Проверка на равенство позволяющая сравнивать данные, содержащиеся в переменных",
+            "right_answer": "equals",
+            "variants_answer": [
+              "toString",
+              "equals",
+              "true",
+              "argument"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 312,
+            "task": "что это за конструкция?\nval str = \"abcd\"",
+            "right_answer": "это объявление неизменяемой String переменной",
+            "variants_answer": [
+              "это объявление неизменяемой String переменной",
+              "это объявление изменяемой String переменной",
+              "это массив",
+              "это вызов класса"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 412,
+            "task": "Является ли true значением Boolean?",
+            "right_answer": "Да",
+            "variants_answer": [
+              "Да",
+              "Нет"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 77,
+        "name": "Kotlin Lesson 2",
+        "image_url": "https://www.explore-group.com/storage/images-processed/w-1500_h-auto_m-fit_s-any__highres_476144970.jpeg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 123,
+            "task": "Что такое object в Kotlin?",
+            "right_answer": "Синглтон",
+            "variants_answer": [
+              "Синглтон",
+              "Базовый класс Java",
+              "Поток",
+              "Переменная"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 223,
+            "task": "Проверка на равенство позволяющая сравнивать данные, содержащиеся в переменных",
+            "right_answer": "equals",
+            "variants_answer": [
+              "toString",
+              "equals",
+              "true",
+              "argument"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 323,
+            "task": "что это за конструкция?\nval str = \"abcd\"",
+            "right_answer": "это объявление неизменяемой String переменной",
+            "variants_answer": [
+              "это объявление неизменяемой String переменной",
+              "это объявление изменяемой String переменной",
+              "это массив",
+              "это вызов класса"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 423,
+            "task": "Является ли true значением Boolean?",
+            "right_answer": "Да",
+            "variants_answer": [
+              "Да",
+              "Нет"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "English Course2",
+    "logo_url": "https://www.nicolasalvatore.com/web/wp-content/uploads/2015/09/traduzione-italiano-inglese-1022x1024.png",
+    "lessons": [
+      {
+        "id": 55,
+        "name": "English Lesson 1",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English1.jpg?alt=media&token=cce3804b-aca0-48f5-9854-f9e62efc28f7",
+        "victory_image_url": "https://avatars.mds.yandex.net/get-zen_doc/1244179/pub_5c7f8fe55b0ac200b3abd1ad_5c7f912362b23d00b4837dc3/scale_1200",
+        "tasks": [
+          {
+            "id": 155,
+            "task": "Good afternoon",
+            "task_image_url": "https://yur-gazeta.ru/wp-content/uploads/2021/02/sposoby-privetstvija-v-raznyh-stranah-mira-46d45df.jpg",
+            "right_answer": "Добрый день",
+            "variants_answer": [
+              "Добрый день",
+              "Привет",
+              "Добрый вечер",
+              "До свидания"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 255,
+            "task": "Table",
+            "task_image_url": "https://garantanapa.ru/wp-content/uploads/2021/02/xt_120213_02.jpg",
+            "right_answer": "Стол",
+            "variants_answer": [
+              "Стул",
+              "Стол",
+              "Ручка",
+              "Таблица"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 355,
+            "task": "Sofa",
+            "task_image_url": "https://www.sunhome.ru/i/wallpapers/60/oranzhevii-divan.orig.jpg",
+            "right_answer": "Диван",
+            "variants_answer": [
+              "Стол",
+              "Кресло",
+              "Диван",
+              "Ваза"
+            ],
+            "level": 1,
+            "favourites": false
+          },
+          {
+            "id": 455,
+            "task": "Pencil",
+            "task_image_url": "https://all-t-shirts.ru/goods_images/ru130894II000cb37cd61f64c542399c1a831c84de5d5.jpg",
+            "right_answer": "Карандаш",
+            "variants_answer": [
+              "Ручка",
+              "Линейка",
+              "Пенал",
+              "Карандаш"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 555,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 655,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 277,
+        "name": "English Lesson 2",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 177,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 277,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 377,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 388,
+        "name": "English Lesson 3",
+        "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 188,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 288,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 388,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 444,
+        "name": "English Lesson 2",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 144,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 244,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 344,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 511,
+        "name": "English Lesson 3",
+        "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 111,
+            "task": "Telephone",
+            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
+            "right_answer": "Телефон",
+            "variants_answer": [
+              "Телега",
+              "Телефон",
+              "Ручка",
+              "Телевизор"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 211,
+            "task": "Mouse",
+            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
+            "right_answer": "Мышь",
+            "variants_answer": [
+              "Мышь",
+              "Собака",
+              "Скунс",
+              "Змея"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 311,
+            "task": "Chair",
+            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
+            "right_answer": "Стул",
+            "variants_answer": [
+              "Стул",
+              "Диван",
+              "Ваза",
+              "Ручка"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      }
+    ]
+  }
+]

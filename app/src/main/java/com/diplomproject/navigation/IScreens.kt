@@ -1,8 +1,7 @@
 package com.diplomproject.navigation
 
-import com.github.terrakok.cicerone.Screen
 import com.diplomproject.model.data_word_request.DataModel
-
+import com.github.terrakok.cicerone.Screen
 
 interface IScreens {
 
@@ -18,5 +17,9 @@ interface IScreens {
     fun startShareApplicationFragment(): Screen
     fun startEnterExitFragment(): Screen
     fun startAboutApplicationFragment(): Screen
+    fun startStartingFragment(): Screen
+    fun startKnowledgeCheckFragment(): Screen
+    fun startFavoritesElementFragment(): Screen
+    fun startGradeFragment(): Screen
 
 }

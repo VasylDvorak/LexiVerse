@@ -16,21 +16,29 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
     }
 
     private fun initButton() {
-        binding.dictionaryButton.setOnClickListener {
-            getController().openDictionary()
-        }
-        binding.learningTogetherButton.setOnClickListener {
-            getController().openLearningTogether()
-        }
-        binding.knowledgeCheckButton.setOnClickListener {
-            getController().openKnowledgeCheck()
+        binding.apply {
+            with(router) {
+                screen.apply {
+
+                    dictionaryButton.setOnClickListener {
+                        getController().openDictionary()
+                    }
+
+                    learningTogetherButton.setOnClickListener {
+                        getController().openLearningTogether()
+                    }
+
+                    knowledgeCheckButton.setOnClickListener {
+                        navigateTo(startKnowledgeCheckFragment())
+                    }
+                }
+            }
         }
     }
 
     interface Controller {
         fun openDictionary()
         fun openLearningTogether()
-        fun openKnowledgeCheck()
     }
 
     private fun getController(): Controller = activity as Controller
@@ -38,5 +46,9 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
     override fun onAttach(context: Context) {
         super.onAttach(context)
         getController()
+    }
+
+    companion object {
+        fun newInstance() = StartingFragment()
     }
 }

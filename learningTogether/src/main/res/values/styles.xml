@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="answer_task_tv_style">
+        <item name="android:background">@color/light_blue</item>
+        <item name="android:contextClickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+
+    <style name="task_tv_style" parent="answer_task_tv_style">
+        <item name="android:background">@color/white</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="card_view_style">
+        <item name="android:layout_gravity">center</item>
+        <item name="cardCornerRadius">15dp</item>
+    </style>
+</resources>
