@@ -37,12 +37,12 @@
     <string name="the_best">Избранное</string>
     <string name="progress">Успеваемость</string>
     <string name="Settings">Настройки</string>
-    <string name="registration">Регистрация / Данные пользоватля</string>
+    <string name="registration">Регистрация</string>
     <string name="settings_notification">Настройки уведомления</string>
     <string name="support">Написать в поддержку</string>
     <string name="choosing_theme">Выбор темы</string>
     <string name="share_application">Поделиться приложением</string>
-    <string name="enter_exit">Войти / Выйти</string>
+    <string name="enter_exit">Выйти</string>
     <string name="about_application">О Приложении</string>
     <string name="title_settings">Настройки</string>
 
