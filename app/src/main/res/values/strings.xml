@@ -58,9 +58,9 @@
     <string name="exit">Выход</string>
     <string name="application_description">Приложение создано....</string>
     <string name="enter_phone_number">Введите номер телефона</string>
-    <string name="title_link">Ссалка на скачивание:</string>
+    <string name="title_link">Ссылка на скачивание:</string>
     <string name="download_link">https://play.google.com/store/games?device=windows</string>
-    <string name="button_send_sms">Послать SMS с ссылкой</string>
+    <string name="button_send_sms">Послать SMS со ссылкой</string>
     <string name="for_sms">Приложение словарь: </string>
     <string name="message_were_sent">Сообщение отправлпено</string>
     <string name="enter_all_data">Пожалуйста введите все данные..</string>
