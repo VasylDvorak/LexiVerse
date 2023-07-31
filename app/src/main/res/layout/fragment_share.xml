@@ -4,7 +4,16 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical">
-
+    <TextView
+        style="@style/SettingsFragmentTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:autoLink="web"
+        android:clickable="false"
+        android:text="Формат ввода 79787057610" />
 
     <EditText
         android:id="@+id/enter_phone_number"
