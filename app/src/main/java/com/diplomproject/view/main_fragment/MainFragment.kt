@@ -192,11 +192,8 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
                 showViewLoading()
                 binding.apply {
                     if (appState.progress != null) {
-                        progressBarHorizontal.visibility = View.VISIBLE
                         progressBarRound.visibility = View.GONE
-                        progressBarHorizontal.progress = appState.progress!!
                     } else {
-                        progressBarHorizontal.visibility = View.GONE
                         progressBarRound.visibility = View.VISIBLE
                     }
                 }
