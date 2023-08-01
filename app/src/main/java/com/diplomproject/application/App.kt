@@ -13,6 +13,7 @@ import com.diplomproject.di.ConnectKoinModules.historyFragmentModule
 import com.diplomproject.di.ConnectKoinModules.historyScreen
 import com.diplomproject.di.ConnectKoinModules.mainFragmentModule
 import com.diplomproject.di.ConnectKoinModules.mainScreen
+import com.diplomproject.learningtogether.di.appModuleLearningTogether
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
@@ -39,7 +40,8 @@ class App : Application() {
                     favoriteFragmentModule,
                     favoriteScreen,
                     descriptionFragmentModule,
-                    descriptionScreen
+                    descriptionScreen,
+                    appModuleLearningTogether
                 )
             )
         }

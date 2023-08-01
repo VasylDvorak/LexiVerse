@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dist="http://schemas.android.com/apk/distribution"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:dist="http://schemas.android.com/apk/distribution">
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -16,7 +15,6 @@
 
     <application
         android:name=".application.App"
-        tools:replace="android:name"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

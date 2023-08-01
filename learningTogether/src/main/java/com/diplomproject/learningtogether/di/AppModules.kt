@@ -13,10 +13,10 @@ package com.diplomproject.learningtogether.di
  * get - ходит по всем зависимостям и ищит ту зависимость которая поможет ему вернуть значение.
  */
 
+import com.diplomproject.learningtogether.data.AssetsCoursesRepoImpl
 import com.diplomproject.learningtogether.data.CoursesWithFavoriteLessonInteractorImpl
 import com.diplomproject.learningtogether.data.FavoriteInteractionImpl
 import com.diplomproject.learningtogether.data.FavoriteRepoImpl
-import com.diplomproject.learningtogether.data.FirebaseLessonsRepoImpl
 import com.diplomproject.learningtogether.domain.interactor.CoursesWithFavoriteLessonInteractor
 import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.domain.repos.CoursesRepo
@@ -29,7 +29,8 @@ import org.koin.dsl.module
 
 val appModuleLearningTogether = module {
 
-    single<CoursesRepo> { FirebaseLessonsRepoImpl() }
+//    single<CoursesRepo> { FirebaseLessonsRepoImpl() }
+    single<CoursesRepo> { AssetsCoursesRepoImpl(get()) }
     single<FavoriteLessonsRepo> { FavoriteRepoImpl() }
     single<CoursesWithFavoriteLessonInteractor> {
         CoursesWithFavoriteLessonInteractorImpl(
@@ -37,6 +38,8 @@ val appModuleLearningTogether = module {
             get()
         )
     }
+
+    single<FavoriteLessonsRepo> { FavoriteRepoImpl() }
 
     single<FavoriteInteractor> { FavoriteInteractionImpl(get()) }
 

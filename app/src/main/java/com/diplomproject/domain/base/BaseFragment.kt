@@ -7,7 +7,6 @@ import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import com.diplomproject.R
 import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
@@ -18,6 +17,7 @@ import com.diplomproject.view.AnimatorTranslator
 import com.diplomproject.viewmodel.BaseViewModel
 import com.diplomproject.viewmodel.Interactor
 import com.github.terrakok.cicerone.Router
+import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
 import java.io.IOException
@@ -82,7 +82,7 @@ abstract class BaseFragment<T : AppState, I : Interactor<T>> : Fragment(), ViewL
     }
 
 
-  abstract fun setDataToAdapter(data: List<DataModel>)
+    abstract fun setDataToAdapter(data: List<DataModel>)
     protected open fun renderData(appState: T) {
 
         when (appState) {
@@ -131,6 +131,7 @@ abstract class BaseFragment<T : AppState, I : Interactor<T>> : Fragment(), ViewL
             mMediaPlayer = null
         }
     }
+
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
         return AnimatorTranslator().setAnimator(transit, enter)
     }

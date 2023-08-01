@@ -153,8 +153,8 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 
     private fun onLearningTogether() {
         val intent =
-            Intent(this, com.diplomproject.learningtogether.LearningTogetherActivity::class.java)
-//            Intent(this, com.diplomproject.learningtogether.ui.TogetherActivity::class.java)
+//            Intent(this, com.diplomproject.learningtogether.LearningTogetherActivity::class.java)
+            Intent(this, com.diplomproject.learningtogether.ui.TogetherActivity::class.java)
         startActivityForResult(intent, LEARNING_TOGETHER_REQUEST_KOD)
     }
 
