@@ -23,7 +23,7 @@ import org.koin.java.KoinJavaComponent
 import java.io.IOException
 
 
-abstract class BaseFragment<T : AppState, I : Interactor<T>> : Fragment(), ViewLayout {
+abstract class BaseFragment<T : AppState> : Fragment(), ViewLayout {
 
     var mMediaPlayer: MediaPlayer? = null
     private var snack: Snackbar? = null

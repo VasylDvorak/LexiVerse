@@ -22,7 +22,7 @@ import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
 import com.diplomproject.view.SearchDialogFragment
 
 
-class HistoryFragment : BaseFragment<AppState, HistoryInteractor>() {
+class HistoryFragment : BaseFragment<AppState>() {
 
 
     private var _binding: FragmentHistoryFavoriteBinding? = null
