@@ -55,6 +55,8 @@ dependencies {
     implementation Koin.koin_android
     implementation Koin.koin_core
     implementation Koin.koin_compat
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
 
     //TestImpl
     testImplementation TestImpl.junit

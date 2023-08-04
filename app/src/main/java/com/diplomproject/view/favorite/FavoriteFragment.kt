@@ -14,7 +14,7 @@ import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.ui.viewById
 
-class FavoriteFragment : BaseFragment<AppState, FavoriteInteractor>() {
+class FavoriteFragment : BaseFragment<AppState>() {
 
 
     private var _binding: FragmentHistoryFavoriteBinding? = null

@@ -101,4 +101,11 @@
     <string name="example">Пример</string>
     <string name="enter_email_reg">enter_email</string>
     <string name="enter_password">enter_password</string>
+    <string name="set_time_delay">Установить задержку времени</string>
+    <string name="delay">Задержка</string>
+    <string name="show_notification_every">Показывать нотификацию каждые</string>
+    <string name="listen">Прослушать</string>
+    <string name="to_application">В приложение</string>
+    <string name="notificator_name">Dictionary</string>
+    <string name="empty_list">Список избрнных слов пуст</string>
 </resources>

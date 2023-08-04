@@ -34,7 +34,7 @@ import com.diplomproject.view.SearchDialogFragment
 
 const val LIST_KEY = "list_key"
 
-class MainFragment : BaseFragment<AppState, MainInteractor>() {
+class MainFragment : BaseFragment<AppState>() {
 
     override lateinit var model: MainViewModel
     private lateinit var preferences: SharedPreferences

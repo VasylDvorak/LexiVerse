@@ -1,6 +1,7 @@
 package com.diplomproject.view
 
 import android.animation.ObjectAnimator
+
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -33,7 +34,7 @@ private const val COUNTDOWN_INTERVAL = 1000L
 const val SHOW_DETAILS = "SHOW_DETAILS"
 
 class DictionaryActivity : AppCompatActivity() {
-
+    private val gson = Gson()
     private val navigatorHolder: NavigatorHolder by inject()
     private val router: Router by KoinJavaComponent.inject(Router::class.java)
     private val screen = KoinJavaComponent.getKoin().get<IScreens>()
@@ -48,9 +49,8 @@ class DictionaryActivity : AppCompatActivity() {
         vb = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vb?.root)
 
-        val fromWidget = intent.extras?.getString(SHOW_DETAILS)
+        val fromWidget = intent.extras?.getString(SHOW_DETAILS, null)
         val showDataModel = Gson().fromJson(fromWidget, DataModel::class.java)
-
         if (showDataModel != null) {
             router.replaceScreen(screen.startDescriptionFragment(showDataModel))
         } else {
@@ -71,18 +71,19 @@ class DictionaryActivity : AppCompatActivity() {
                         val appSharedPrefs =
                             PreferenceManager.getDefaultSharedPreferences(applicationContext)
                         val prefsEditor = appSharedPrefs.edit()
-                        val gson = Gson()
+
                         val json = gson.toJson(it)
                         prefsEditor.putString(NEW_DATA, json)
                         prefsEditor.apply()
                     }
                 }
+
                 else -> {}
             }
         }
         model.getData("", false)
-
     }
+
 
     override fun onResumeFragments() {
         super.onResumeFragments()
