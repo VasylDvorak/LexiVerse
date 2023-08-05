@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_error">
+        app:strokeColor="@color/pastel_hot_pink"
+        app:strokeWidth="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -105,81 +106,86 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView3"
-        app:strokeColor="@color/blue_dark">
+        app:strokeColor="@color/pastel_tiffany_blue"
+        app:strokeWidth="2dp">
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_height="match_parent">
+
 
             <TextView
                 android:id="@+id/emptyListText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="@string/empty_list" />
+                android:text="@string/empty_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cardLayout"
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Напоминания слов"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView22"
+                app:layout_constraintStart_toEndOf="@+id/imageView22"
+                app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emptyListText"
+                app:srcCompat="@drawable/icon_notif_2" />
+
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchNotification"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView22"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView22" />
+
+            <LinearLayout
+                android:id="@+id/seekBarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView22">
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/textSeekBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Напоминания слов"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView22"
-                    app:layout_constraintStart_toEndOf="@+id/imageView22"
-                    app:layout_constraintTop_toTopOf="@+id/imageView22" />
+                    android:text="@string/delay" />
 
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:contentDescription="@string/set_time_delay"
+                    android:gravity="center" />
+            </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageView22"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/icon_notif_2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switchNotification"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/seekBarLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/switchNotification">
-
-                    <TextView
-                        android:id="@+id/textSeekBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/delay" />
-
-                    <SeekBar
-                        android:id="@+id/seekBar"
-                        android:layout_width="300dp"
-                        android:layout_height="40dp"
-                        android:contentDescription="@string/set_time_delay"
-                        android:gravity="center" />
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

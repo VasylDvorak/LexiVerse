@@ -19,7 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/blue_dark">
+        app:strokeColor="@color/pastel_tiffany_blue"
+        app:strokeWidth="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -42,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/blue_dark"
+                android:backgroundTint="@color/pastel_mint"
                 android:contentDescription="@string/enter_email_reg"
                 android:ems="10"
                 android:hint="Email"
@@ -56,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/blue_dark"
+                android:backgroundTint="@color/pastel_tiffany_blue"
                 android:contentDescription="@string/enter_password"
                 android:ems="10"
                 android:hint="Password"
@@ -70,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/blue_dark"
+                android:backgroundTint="@color/pastel_hot_pink"
                 android:contentDescription="@string/enter_password"
                 android:ems="10"
                 android:hint="Password"

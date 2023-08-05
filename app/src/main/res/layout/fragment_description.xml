@@ -58,7 +58,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             android:contentDescription="@string/header"
-                            android:textColor="@color/pastel_tiffany_blue_dark"
+                            android:textColor="@color/pastel_mint_dark"
                             android:textIsSelectable="true"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
