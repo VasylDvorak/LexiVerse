@@ -1,11 +1,11 @@
 package com.diplomproject.utils
 
-import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.data_description_request.DescriptionAppState
+import com.diplomproject.model.data_description_request.Example
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.data_word_request.Meanings
 import com.diplomproject.model.data_word_request.Translation
-import com.diplomproject.model.data_description_request.DescriptionAppState
-import com.diplomproject.model.data_description_request.Example
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.room.favorite.FavoriteEntity
 import com.diplomproject.room.history.HistoryEntity
 import com.google.gson.Gson
@@ -133,64 +133,67 @@ private fun parseOnlineResult(
 
 
 fun parseResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>): ArrayList<DataModel> {
-    if (!dataModel.text.isNullOrBlank() && !dataModel.meanings.isNullOrEmpty()) {
-        val newMeanings = arrayListOf<Meanings>()
-        for (meaning in dataModel.meanings) {
-            if (meaning.translation != null && !meaning.translation.translation.isNullOrBlank()) {
-                newMeanings.add(
-                    Meanings(
-                        meaning.id,
-                        meaning.translation,
-                        meaning.imageUrl,
-                        meaning.transcription,
-                        meaning.soundUrl
-                    )
+    if (dataModel.text.isNullOrBlank() || dataModel.meanings.isNullOrEmpty()) {
+        return newDataModels
+    }
+    val newMeanings = arrayListOf<Meanings>()
+    for (meaning in dataModel.meanings) {
+        if (meaning.translation != null && !meaning.translation.translation.isNullOrBlank()) {
+            newMeanings.add(
+                Meanings(
+                    meaning.id,
+                    meaning.translation,
+                    meaning.imageUrl,
+                    meaning.transcription,
+                    meaning.soundUrl
                 )
-            }
+            )
         }
+    }
 
 
-        if (newMeanings.isNotEmpty()) {
-            newDataModels.add(DataModel(dataModel.id, dataModel.text, newMeanings))
-        }
+    if (newMeanings.isNotEmpty()) {
+        newDataModels.add(DataModel(dataModel.id, dataModel.text, newMeanings))
     }
     return newDataModels
 }
 
 fun mapHistoryEntityToSearchResult(list: List<HistoryEntity>): List<DataModel> {
     val searchResult = ArrayList<DataModel>()
-    if (!list.isNullOrEmpty()) {
-        for (entity in list) {
-            val meanings = Meanings(
-                entity.id,
-                Translation(entity.translation),
-                entity.imageUrl,
-                entity.transcription,
-                entity.soundUrl
-            )
-            val type = object : TypeToken<List<Example?>?>() {}.type
-            val exampleList = Gson().fromJson(entity.examples, type) as List<Example>
-            searchResult.add(DataModel(entity.id, entity.word, listOf(meanings), exampleList))
-        }
+    if (list.isNullOrEmpty()) {
+        return searchResult
+    }
+    for (entity in list) {
+        val meanings = Meanings(
+            entity.id,
+            Translation(entity.translation),
+            entity.imageUrl,
+            entity.transcription,
+            entity.soundUrl
+        )
+        val type = object : TypeToken<List<Example?>?>() {}.type
+        val exampleList = Gson().fromJson(entity.examples, type) as List<Example>
+        searchResult.add(DataModel(entity.id, entity.word, listOf(meanings), exampleList))
     }
     return searchResult
 }
 
 fun mapFavoriteEntityToSearchResult(list: List<FavoriteEntity>): List<DataModel> {
     val searchResult = ArrayList<DataModel>()
-    if (!list.isNullOrEmpty()) {
-        for (entity in list) {
-            val meanings = Meanings(
-                entity.id,
-                Translation(entity.translation),
-                entity.imageUrl,
-                entity.transcription,
-                entity.soundUrl
-            )
-            val type = object : TypeToken<List<Example?>?>() {}.type
-            val exampleList = Gson().fromJson(entity.examples, type) as List<Example>
-            searchResult.add(DataModel(entity.id, entity.word, listOf(meanings), exampleList))
-        }
+    if (list.isNullOrEmpty()) {
+        return searchResult
+    }
+    for (entity in list) {
+        val meanings = Meanings(
+            entity.id,
+            Translation(entity.translation),
+            entity.imageUrl,
+            entity.transcription,
+            entity.soundUrl
+        )
+        val type = object : TypeToken<List<Example?>?>() {}.type
+        val exampleList = Gson().fromJson(entity.examples, type) as List<Example>
+        searchResult.add(DataModel(entity.id, entity.word, listOf(meanings), exampleList))
     }
     return searchResult
 }

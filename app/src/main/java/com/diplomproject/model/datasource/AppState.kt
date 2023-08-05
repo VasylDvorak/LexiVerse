@@ -1,6 +1,7 @@
-package com.diplomproject.model.data_word_request
+package com.diplomproject.model.datasource
 
 import android.os.Parcelable
+import com.diplomproject.model.data_word_request.DataModel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

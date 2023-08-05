@@ -19,7 +19,7 @@ import com.diplomproject.model.repository.RepositoryImplementation
 import com.diplomproject.model.repository.RepositoryImplementationLocal
 import com.diplomproject.model.repository.RepositoryLocal
 import com.diplomproject.room.HistoryFavoriteDataBase
-import com.diplomproject.utils.network.OnlineRepository
+import com.diplomproject.view.OnlineRepository
 import com.diplomproject.view.description.DescriptionFragment
 import com.diplomproject.view.description.DescriptionInteractor
 import com.diplomproject.view.description.DescriptionViewModel
@@ -38,11 +38,18 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import org.koin.mp.KoinPlatform.getKoin
 
+
+const val dataBaseName = "HistoryDB"
+const val historyScreenScopeName = "historyScreenScope"
+const val favoriteScreenScopeName = "favoriteScreenScope"
+const val mainScreenScopeName = "mainScreenScope"
+const val descriptionScreenScopeName = "descriptionScreenScope"
+
 object ConnectKoinModules {
 
     val application = module {
         single {
-            Room.databaseBuilder(get(), HistoryFavoriteDataBase::class.java, "HistoryDB").build()
+            Room.databaseBuilder(get(), HistoryFavoriteDataBase::class.java, dataBaseName).build()
         }
         single { get<HistoryFavoriteDataBase>().historyDao() }
         single { get<HistoryFavoriteDataBase>().favoriteDao() }
@@ -62,7 +69,7 @@ object ConnectKoinModules {
 
     val historyScreenScope by lazy {
         getKoin()
-            .getOrCreateScope("historyScreenScope", named<HistoryFragment>())
+            .getOrCreateScope(historyScreenScopeName, named<HistoryFragment>())
     }
 
 
@@ -74,7 +81,7 @@ object ConnectKoinModules {
     }
     val favoriteScreenScope by lazy {
         getKoin()
-            .getOrCreateScope("favoriteScreenScope", named<FavoriteFragment>())
+            .getOrCreateScope(favoriteScreenScopeName, named<FavoriteFragment>())
     }
 
 
@@ -87,7 +94,7 @@ object ConnectKoinModules {
 
     val mainScreenScope by lazy {
         getKoin()
-            .getOrCreateScope("mainScreenScope", named<MainFragment>())
+            .getOrCreateScope(mainScreenScopeName, named<MainFragment>())
     }
 
     val descriptionScreen = module {
@@ -99,7 +106,7 @@ object ConnectKoinModules {
 
     val descriptionScreenScope by lazy {
         getKoin()
-            .getOrCreateScope("descriptionScreenScope", named<DescriptionFragment>())
+            .getOrCreateScope(descriptionScreenScopeName, named<DescriptionFragment>())
     }
 
 

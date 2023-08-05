@@ -1,6 +1,5 @@
 package com.diplomproject.view.settings_menu
 
-import android.app.ActivityManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -8,34 +7,28 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.SeekBar
-import androidx.core.content.ContextCompat.getSystemService
-import com.bumptech.glide.util.Util
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentSettingsNotificationBinding
 import com.diplomproject.di.ConnectKoinModules
-import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.datasource.AppState
+import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.notification.NotificationService
 import com.diplomproject.view.notification.REFERENCE
-import com.diplomproject.view.favorite.FavoriteViewModel
-import com.diplomproject.view.widget.NEW_DATA
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import org.koin.android.ext.android.getKoin
-import java.lang.reflect.Type
-import kotlin.properties.Delegates
 
 const val minimum = 1
 const val maximum = 15
 const val timeStepMinutes = 20
 const val NOTIFICATION_SETTINGS = "NOTIFICATION_SETTINGS"
 
-class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
+class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNotificationBinding>(
+    FragmentSettingsNotificationBinding::inflate
+) {
+
     lateinit var model: FavoriteViewModel
     private val intentService by lazy {
         Intent(
@@ -47,16 +40,7 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
     private var notificationOn = false
     private var emptyList = false
     private var setRepeatTime = minimum
-    private var _binding: FragmentSettingsNotificationBinding? = null
-    private val binding
-        get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSettingsNotificationBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -73,16 +57,9 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
         binding.apply {
 
             switchNotification.apply {
-                // on below line we are
-                // checking the status of switch
                 if (isChecked) {
-                    // on below line we are setting text
-                    // if switch is checked.
                     notificationOn = true
-
                 } else {
-                    // on below line we are setting the
-                    // text if switch is un checked
                     notificationOn = false
                 }
                 seekBarLayout.apply {
@@ -93,19 +70,14 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
                         visibility = View.GONE
                     }
                 }
-                // on below line we are adding check change listener for our switch.
                 setOnCheckedChangeListener { buttonView, isChecked ->
-                    // on below line we are checking
-                    // if switch is checked or not.
                     if (isChecked) {
-                        // on below line we are setting text
-                        // if switch is checked.
+
                         notificationOn = true
                         seekBarLayout.visibility = View.VISIBLE
                         initiateSeekBar()
                     } else {
-                        // on below line we are setting text
-                        // if switch is unchecked.
+
                         notificationOn = false
                         seekBarLayout.visibility = View.GONE
                     }
@@ -137,8 +109,8 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onStop() {
+        super.onStop()
 
         if (notificationOn && !emptyList) {
             val appSharedPrefs =
@@ -193,7 +165,6 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
                             } else {
                                 doEmptyList()
                             }
-
                         }
                     }
 
@@ -212,12 +183,6 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu() {
             emptyListText.visibility = View.VISIBLE
             cardLayout.visibility = View.GONE
         }
-    }
-
-    fun isMyServiceRunning(serviceClass: Class<*>): Boolean {
-        val manager = activity?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        return manager.getRunningServices(Integer.MAX_VALUE)
-            .any { it.service.className == serviceClass.name }
     }
 
     companion object {

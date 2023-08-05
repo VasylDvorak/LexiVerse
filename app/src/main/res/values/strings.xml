@@ -108,4 +108,5 @@
     <string name="to_application">В приложение</string>
     <string name="notificator_name">Dictionary</string>
     <string name="empty_list">Список избрнных слов пуст</string>
+    <string name="no_connection_internet">Нет соединения с интернетом</string>
 </resources>

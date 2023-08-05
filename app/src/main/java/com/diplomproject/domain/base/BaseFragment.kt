@@ -6,24 +6,35 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
+import androidx.viewbinding.ViewBinding
 import com.diplomproject.R
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
-import com.diplomproject.utils.network.OnlineRepository
 import com.diplomproject.utils.ui.AlertDialogFragment
 import com.diplomproject.view.AnimatorTranslator
+import com.diplomproject.view.OnlineRepository
 import com.diplomproject.viewmodel.BaseViewModel
-import com.diplomproject.viewmodel.Interactor
 import com.github.terrakok.cicerone.Router
+import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
 import java.io.IOException
 
 
-abstract class BaseFragment<T : AppState> : Fragment(), ViewLayout {
+abstract class BaseFragment<T : AppState, B : ViewBinding>(
+    private val inflateBinding: (
+        inflater: LayoutInflater, root: ViewGroup?, attachToRoot: Boolean
+    ) -> B
+) : Fragment(), ViewLayout {
+    private var _binding: B? = null
+
+    protected val binding: B
+        get() = _binding!!
 
     var mMediaPlayer: MediaPlayer? = null
     private var snack: Snackbar? = null
@@ -45,20 +56,20 @@ abstract class BaseFragment<T : AppState> : Fragment(), ViewLayout {
     private fun subscribeToNetworkChange() {
 
         checkConnection.observe(
-            this@BaseFragment,
-            {
-                isNetworkAvailable = it
-                if (!isNetworkAvailable) {
-                    snack = Snackbar.make(
-                        requireView(),
-                        R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
-                    )
-                    snack?.show()
-                } else {
-                    snack?.dismiss()
-                    snack = null
-                }
-            })
+            this@BaseFragment
+        ) {
+            isNetworkAvailable = it
+            if (!isNetworkAvailable) {
+                snack = Snackbar.make(
+                    requireView(),
+                    R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
+                )
+                snack?.show()
+            } else {
+                snack?.dismiss()
+                snack = null
+            }
+        }
         checkConnection.currentStatus()
 
     }
@@ -82,7 +93,7 @@ abstract class BaseFragment<T : AppState> : Fragment(), ViewLayout {
     }
 
 
-  abstract fun setDataToAdapter(data: List<DataModel>)
+    abstract fun setDataToAdapter(data: List<DataModel>)
     protected open fun renderData(appState: T) {
 
         when (appState) {
@@ -125,16 +136,30 @@ abstract class BaseFragment<T : AppState> : Fragment(), ViewLayout {
     }
 
     fun releaseMediaPlayer() {
-        if (mMediaPlayer?.isPlaying == true) {
-            mMediaPlayer?.stop()
-            mMediaPlayer?.release()
-            mMediaPlayer = null
+        mMediaPlayer?.apply {
+            if (isPlaying == true) {
+                stop()
+                release()
+                mMediaPlayer = null
+            }
         }
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = inflateBinding.invoke(inflater, container, false)
+        return binding.root
     }
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
         return AnimatorTranslator().setAnimator(transit, enter)
     }
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+        releaseMediaPlayer()
+    }
     companion object {
         const val DIALOG_FRAGMENT_TAG = "dialog_fragment_tag"
     }

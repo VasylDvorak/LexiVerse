@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
 import com.diplomproject.di.ConnectKoinModules
-import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
 import com.diplomproject.view.DictionaryActivity
 import com.diplomproject.view.favorite.FavoriteViewModel
@@ -145,6 +145,7 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
                         prefsEditor.apply()
                     }
                 }
+
                 else -> {}
             }
         }

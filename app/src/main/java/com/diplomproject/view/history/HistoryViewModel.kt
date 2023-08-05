@@ -1,8 +1,8 @@
 package com.diplomproject.view.history
 
 import androidx.lifecycle.LiveData
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.parseLocalSearchResults
 import com.diplomproject.utils.parseWordSearchResults
 import com.diplomproject.viewmodel.BaseViewModel
@@ -68,7 +68,7 @@ class HistoryViewModel(var interactor: HistoryInteractor) :
                     return@filter true
                 }
             }
-               // .debounce(500)
+                // .debounce(500)
                 .distinctUntilChanged()
                 .flatMapLatest { query ->
                     findWordFromHistory(query)

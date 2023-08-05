@@ -3,31 +3,27 @@ package com.diplomproject.view.history
 import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentHistoryFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.historyScreenScope
 import com.diplomproject.domain.base.BaseFragment
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
 import com.diplomproject.view.SearchDialogFragment
 
 
-class HistoryFragment : BaseFragment<AppState>() {
+class HistoryFragment : BaseFragment<AppState,
+        FragmentHistoryFavoriteBinding>(FragmentHistoryFavoriteBinding::inflate) {
 
 
-    private var _binding: FragmentHistoryFavoriteBinding? = null
-    private val binding
-        get() = _binding!!
     private val observerFindWord = Observer<DataModel> { showWordInHistory(it) }
 
     private val observer = Observer<AppState> { renderData(it) }
@@ -57,25 +53,11 @@ class HistoryFragment : BaseFragment<AppState>() {
         playContentUrl(url)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHistoryFavoriteBinding.inflate(inflater, container, false)
-        return binding.root
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iniViewModel()
         initViews()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        releaseMediaPlayer()
     }
 
 

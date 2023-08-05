@@ -1,9 +1,10 @@
 package com.diplomproject.di.koin_modules
 
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.diplomproject.BuildConfig
 import com.diplomproject.model.datasource.ApiService
 import com.diplomproject.model.datasource.BaseInterceptor
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -17,7 +18,7 @@ class ApiModule {
         return createRetrofit(BaseInterceptor.interceptor).create(ApiService::class.java)
     }
 
-    val baseUrl = "https://dictionary.skyeng.ru/api/public/v1/"
+    val baseUrl = BuildConfig.BASE_URL
 
     fun createRetrofit(interceptor: Interceptor): Retrofit {
         return Retrofit.Builder()

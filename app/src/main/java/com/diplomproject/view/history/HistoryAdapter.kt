@@ -1,13 +1,10 @@
 package com.diplomproject.view.history
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatImageButton
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
+import com.diplomproject.databinding.RecyclerviewItemBinding
 import com.diplomproject.model.data_word_request.DataModel
 
 class HistoryAdapter(
@@ -24,11 +21,12 @@ class HistoryAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerItemViewHolder {
-        return RecyclerItemViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.recyclerview_item, parent, false) as View
-        )
+        val binding =
+            RecyclerviewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+        return RecyclerItemViewHolder(binding)
     }
+
 
     override fun onBindViewHolder(holder: RecyclerItemViewHolder, position: Int) {
         holder.bind(data.get(position))
@@ -38,29 +36,28 @@ class HistoryAdapter(
         return data.size
     }
 
-    inner class RecyclerItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class RecyclerItemViewHolder(val binding: RecyclerviewItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: DataModel) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 itemView.apply {
+                    binding.apply {
+                        cardView.setCardBackgroundColor(resources.getColor(R.color.colorHistoryCard))
+                        headerTextviewRecyclerItem.text = data.text
 
-                    findViewById<CardView>(R.id.card_view)
-                        .setCardBackgroundColor(resources.getColor(R.color.colorHistoryCard))
+                        descriptionTextviewRecyclerItem.text =
+                            data.meanings?.get(0)?.translation?.translation
 
-                    findViewById<TextView>(R.id.header_textview_recycler_item).text = data.text
+                        transcriptionTextviewRecyclerItem.text =
+                            "[" + data.meanings?.get(0)?.transcription + "]"
 
-                    findViewById<TextView>(R.id.description_textview_recycler_item).text =
-                        data.meanings?.get(0)?.translation?.translation
-
-                    findViewById<TextView>(R.id.transcription_textview_recycler_item).text =
-                        "[" + data.meanings?.get(0)?.transcription + "]"
-                    findViewById<AppCompatImageButton>(R.id.set_favorite).setOnClickListener {
-                        putInFavoriteList(data)
-                    }
-                    setOnClickListener { openInNewWindow(data) }
-                    findViewById<AppCompatImageButton>(R.id.play_articulation).setOnClickListener {
-                        data.meanings?.get(0)?.soundUrl?.let { sound_url ->
-                            playArticulationClickListener(sound_url)
+                        setFavorite.setOnClickListener { putInFavoriteList(data) }
+                        setOnClickListener { openInNewWindow(data) }
+                        playArticulation.setOnClickListener {
+                            data.meanings?.get(0)?.soundUrl?.let { sound_url ->
+                                playArticulationClickListener(sound_url)
+                            }
                         }
                     }
                 }
