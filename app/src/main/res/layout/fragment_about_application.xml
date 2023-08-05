@@ -13,12 +13,13 @@
         android:layout_marginEnd="32dp"
         app:cardBackgroundColor="@color/color_white"
         app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/blue_dark">
+        app:strokeColor="@color/pastel_tiffany_blue"
+        app:strokeWidth="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,7 +34,9 @@
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
                 android:text="@string/about_app"
+                android:textColor="@color/pastel_tiffany_blue_dark"
                 android:textSize="@dimen/default_text"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/cod_version"
+                android:textColor="@color/pastel_yellow_dark"
                 android:textSize="@dimen/default_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +60,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/version"
+                android:textColor="@color/pastel_hot_pink_dark"
                 android:textSize="@dimen/default_text"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
