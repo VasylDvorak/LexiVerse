@@ -25,6 +25,7 @@ class PlaySoundService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         readData(PLAY_URL)?.let { playContentUrl(it) }
         onDestroy()
+        stopSelf()
         return Service.START_NOT_STICKY
     }
 
