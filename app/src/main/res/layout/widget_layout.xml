@@ -1,73 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/gradient"
-    android:padding="@dimen/widget_padding"
-    android:orientation="vertical">
+    android:padding="@dimen/widget_padding">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/top_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
 
         <ImageButton
             android:id="@+id/play_articulation_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/baseline_volume_up_24"
             android:contentDescription="@string/pronounce" />
 
         <ImageButton
             android:id="@+id/start_main_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/baseline_keyboard_double_arrow_right_24"
             android:contentDescription="@string/start_main_activity" />
-    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/text_unit_layout_widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_button_layout"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/header_textview_widget"
+            style="@style/HeaderTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:contentDescription="@string/header"
+            android:textIsSelectable="true"
+            tools:text="@string/header" />
+
+        <TextView
+            android:id="@+id/transcription_textview_widget"
+            style="@style/TranscriptionTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:contentDescription="@string/transcription"
+            tools:text="@string/transcription" />
+
+        <TextView
+            android:id="@+id/description_textview_widget"
+            style="@style/BaseTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:contentDescription="@string/translation"
+            android:textIsSelectable="true"
+            tools:text="@string/translation" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/information_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text_unit_layout_widget"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/text_unit_layout_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/header_textview_widget"
-                style="@style/HeaderTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/header"
-                android:textIsSelectable="true"
-                tools:text="@string/header" />
-
-            <TextView
-                android:id="@+id/transcription_textview_widget"
-                style="@style/TranscriptionTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/transcription"
-                tools:text="@string/transcription" />
-
-
-            <TextView
-                android:id="@+id/description_textview_widget"
-                style="@style/BaseTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/translation"
-                android:textIsSelectable="true"
-                tools:text="@string/translation" />
-
-        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

@@ -29,6 +29,17 @@
     <color name="blue_medium">#5B91F4</color>
     <color name="blue_light">#A0BFF9</color>
 
+    <!-- pastel colors -->
+    <color name="pastel_yellow">#FBE7C6</color>
+    <color name="pastel_mint">#B4F8C8</color>
+    <color name="pastel_tiffany_blue">#A0E7E5</color>
+    <color name="pastel_hot_pink">#FFAEBC</color>
+
+    <!-- pastel dark colors -->
+    <color name="pastel_yellow_dark">#fdd79b</color>
+    <color name="pastel_mint_dark">#94f5b2</color>
+    <color name="pastel_tiffany_blue_dark">#62d6d2</color>
+    <color name="pastel_hot_pink_dark">#f67a90</color>
 
 
 </resources>
