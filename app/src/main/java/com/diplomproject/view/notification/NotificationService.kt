@@ -28,7 +28,7 @@ import java.lang.reflect.Type
 const val REFERENCE = "REFERENCE"
 
 class NotificationService : Service() {
-    private val TAG = "ServiceExample"
+
     val database = Firebase.database
     var notificatorsCounter = 1
     val myRef = database.getReference(REFERENCE)
@@ -136,8 +136,10 @@ class NotificationService : Service() {
                         setSmallIcon(R.drawable.baseline_app_shortcut_24)
                         setContentTitle(title)
                         setContentText(message)
-                        addAction(R.drawable.baseline_volume_up_24, getString(R.string.listen),
-                            pendingIntentPlay)
+                        addAction(
+                            R.drawable.baseline_volume_up_24, getString(R.string.listen),
+                            pendingIntentPlay
+                        )
                         addAction(
                             R.drawable.baseline_keyboard_double_arrow_right_24,
                             getString(R.string.to_application),
@@ -153,6 +155,5 @@ class NotificationService : Service() {
 
     companion object {
         const val CHANNEL_ID = "channel_id"
-        private const val NOTIFICATION_ID = 42
     }
 }

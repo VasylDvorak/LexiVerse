@@ -1,7 +1,7 @@
 package com.diplomproject.view.favorite
 
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.model.repository.RepositoryLocal
 import com.diplomproject.viewmodel.Interactor
 import kotlinx.coroutines.flow.Flow

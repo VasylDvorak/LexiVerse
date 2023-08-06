@@ -27,8 +27,15 @@ subprojects {
                     sourceCompatibility Config.java_version
                     targetCompatibility Config.java_version
                 }
+                buildTypes.each {
+                    Properties properties = new Properties()
+                    properties.load(project.rootProject.file( "url.properties" ).newDataInputStream ())
+                    def url = properties.getProperty( "baseUrl" , "" )
+                    it.buildConfigField "String" , "BASE_URL" , url
+                }
                 buildFeatures {
                     viewBinding = true
+                    buildConfig = true
                 }
             }
             dependencies {

@@ -10,21 +10,22 @@ import org.koin.java.KoinJavaComponent
 import java.io.IOException
 
 const val PLAY_URL = "PLAY_URL"
+
 class PlaySoundService : Service() {
     var mMediaPlayer: MediaPlayer? = null
 
     private val sharedPreferences by lazy {
-    PreferenceManager.getDefaultSharedPreferences(
-        KoinJavaComponent.getKoin().get()
-    )
-}
+        PreferenceManager.getDefaultSharedPreferences(
+            KoinJavaComponent.getKoin().get()
+        )
+    }
 
-    fun readData(callingKey: String)= sharedPreferences.getString(callingKey, null)
+    fun readData(callingKey: String) = sharedPreferences.getString(callingKey, null)
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         readData(PLAY_URL)?.let { playContentUrl(it) }
-       // intent?.getStringExtra(PLAY_URL)?.let { playContentUrl(it) }
         onDestroy()
+        stopSelf()
         return Service.START_NOT_STICKY
     }
 
@@ -46,11 +47,14 @@ class PlaySoundService : Service() {
             }
         }
     }
+
     fun releaseMediaPlayer() {
-        if (mMediaPlayer?.isPlaying == true) {
-            mMediaPlayer?.stop()
-            mMediaPlayer?.release()
-            mMediaPlayer = null
+        mMediaPlayer?.apply {
+            if (isPlaying == true) {
+                stop()
+                release()
+                mMediaPlayer = null
+            }
         }
     }
 

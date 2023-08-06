@@ -5,9 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.telephony.SmsManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -15,19 +13,9 @@ import com.diplomproject.R
 import com.diplomproject.databinding.FragmentShareBinding
 
 
-class ShareApplicationFragment : BaseFragmentSettingsMenu() {
-
-    private var _binding: FragmentShareBinding? = null
-    private val binding
-        get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentShareBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class ShareApplicationFragment : BaseFragmentSettingsMenu<FragmentShareBinding>(
+    FragmentShareBinding::inflate
+) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,10 +46,14 @@ class ShareApplicationFragment : BaseFragmentSettingsMenu() {
                             1
                         );
                     } else {
-                        smsManager.sendTextMessage(phoneNumber, null, message,
-                            null, null)
-                        Toast.makeText(context, getString(R.string.message_were_sent),
-                            Toast.LENGTH_LONG).show()
+                        smsManager.sendTextMessage(
+                            phoneNumber, null, message,
+                            null, null
+                        )
+                        Toast.makeText(
+                            context, getString(R.string.message_were_sent),
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 } catch (e: Exception) {
                     Toast.makeText(context, getString(R.string.enter_all_data), Toast.LENGTH_LONG)
@@ -71,10 +63,6 @@ class ShareApplicationFragment : BaseFragmentSettingsMenu() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
     companion object {
         fun newInstance() = ShareApplicationFragment()
