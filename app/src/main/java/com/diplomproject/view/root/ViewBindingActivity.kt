@@ -3,6 +3,7 @@ package com.diplomproject.view.root
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewbinding.ViewBinding
 
 open class ViewBindingActivity<T : ViewBinding>(
@@ -15,7 +16,13 @@ open class ViewBindingActivity<T : ViewBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //SplashScreen
+        Thread.sleep(3000)
+        installSplashScreen()
+
         _binding = inflateBinding.invoke(layoutInflater)
+
         setContentView(binding.root)
     }
 

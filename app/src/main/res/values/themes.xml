@@ -13,6 +13,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/pastel_tiffany_blue_dark</item>
     </style>
+
     <style name="Theme.Translator" parent="Base.Theme.Translator" />
+
 
 </resources>

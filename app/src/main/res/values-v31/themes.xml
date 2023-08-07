@@ -7,4 +7,6 @@
         <item name="android:windowSplashScreenIconBackgroundColor">@color/colorHistoryCard</item>
         <item name="android:windowSplashScreenBrandingImage">@drawable/icon</item>
     </style>
+
+
 </resources>
