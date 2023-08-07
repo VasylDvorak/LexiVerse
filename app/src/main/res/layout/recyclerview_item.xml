@@ -23,8 +23,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/pastel_tiffany_blue"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/purple_dark"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,24 +34,23 @@
                 android:id="@+id/play_articulation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/baseline_volume_up_24"
                 android:contentDescription="@string/pronounce"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/set_favorite" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_textview_recycler_item" />
 
             <ImageButton
                 android:id="@+id/set_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/baseline_favorite_24"
                 android:contentDescription="@string/pronounce"
+                app:layout_constraintBottom_toBottomOf="@+id/play_articulation"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/play_articulation" />
 
             <TextView
                 android:id="@+id/header_textview_recycler_item"
@@ -61,9 +60,9 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:contentDescription="@string/header"
-                android:textColor="@color/pastel_mint_dark"
+                android:textColor="@color/purple_dark"
                 android:textIsSelectable="true"
-                android:textSize="26sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@+id/set_favorite"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -74,15 +73,15 @@
                 style="@style/TranscriptionTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@string/transcription"
-                android:textColor="@color/pastel_yellow_dark"
-                android:textSize="20sp"
-                android:textStyle="italic"
+                android:textColor="@color/purple_light"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/play_articulation"
                 app:layout_constraintEnd_toStartOf="@+id/set_favorite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/header_textview_recycler_item"
+                app:layout_constraintStart_toEndOf="@+id/play_articulation"
+                app:layout_constraintTop_toTopOf="@+id/play_articulation"
                 tools:text="@string/transcription" />
 
             <TextView
@@ -91,17 +90,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp"
                 android:contentDescription="@string/translation"
-                android:textColor="@color/pastel_hot_pink_dark"
+                android:textColor="@color/purple_middle"
                 android:textIsSelectable="true"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/set_favorite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transcription_textview_recycler_item"
+                app:layout_constraintTop_toBottomOf="@+id/play_articulation"
                 tools:text="@string/translation" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

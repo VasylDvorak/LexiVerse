@@ -24,8 +24,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/pastel_tiffany_blue"
-            app:strokeWidth="2dp">
+            app:strokeColor="@color/purple_dark"
+            app:strokeWidth="1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:strokeColor="@color/pastel_hot_pink">
+                    app:strokeColor="@color/purple_light">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -55,10 +55,10 @@
                             style="@style/HeaderTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="24dp"
                             android:layout_marginTop="16dp"
                             android:contentDescription="@string/header"
-                            android:textColor="@color/pastel_mint_dark"
+                            android:textColor="@color/purple_dark"
                             android:textIsSelectable="true"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -68,8 +68,8 @@
                             android:id="@+id/play_articulation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="8dp"
                             android:background="@drawable/baseline_volume_up_24"
                             android:contentDescription="@string/pronounce"
                             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginEnd="16dp"
                             android:contentDescription="@string/transcription"
-                            android:textColor="@color/pastel_yellow_dark"
+                            android:textColor="@color/purple_light"
                             android:textIsSelectable="true"
                             app:layout_constraintBottom_toBottomOf="@+id/play_articulation"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -96,10 +96,10 @@
                             style="@style/BaseTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="8dp"
                             android:layout_marginBottom="16dp"
-                            android:textColor="@color/pastel_hot_pink"
+                            android:textColor="@color/purple_middle"
                             android:textIsSelectable="true"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -144,8 +144,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView5"
-            app:strokeColor="@color/pastel_mint"
-            app:strokeWidth="2dp">
+            app:strokeColor="@color/purple_dark"
+            app:strokeWidth="1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
