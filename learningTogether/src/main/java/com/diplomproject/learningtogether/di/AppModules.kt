@@ -22,6 +22,7 @@ import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.domain.repos.CoursesRepo
 import com.diplomproject.learningtogether.domain.repos.FavoriteLessonsRepo
 import com.diplomproject.learningtogether.ui.courses.CoursesViewModel
+import com.diplomproject.learningtogether.ui.learning.LearningViewModel
 import com.diplomproject.learningtogether.ui.lessons.LessonsViewModel
 import com.diplomproject.learningtogether.ui.task.TaskViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -48,6 +49,14 @@ val appModuleLearningTogether = module {
     viewModel { parameters -> LessonsViewModel(get(), parameters.get()) }
     viewModel { parameters ->
         TaskViewModel(
+            get(),
+            courseId = parameters[0],
+            lessonId = parameters[1],
+            get()
+        )
+    }
+    viewModel { parameters ->
+        LearningViewModel(
             get(),
             courseId = parameters[0],
             lessonId = parameters[1],

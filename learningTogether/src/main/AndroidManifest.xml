@@ -8,10 +8,6 @@
         <activity
             android:name="com.diplomproject.learningtogether.ui.TogetherActivity"
             android:exported="false" />
-
-        <activity
-            android:name="com.diplomproject.learningtogether.LearningTogetherActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

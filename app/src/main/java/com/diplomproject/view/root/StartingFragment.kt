@@ -25,11 +25,11 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
                     }
 
                     learningTogetherButton.setOnClickListener {
-                        getController().openLearningTogether()
+                        getController().openLearningTogether(true)
                     }
 
                     knowledgeCheckButton.setOnClickListener {
-                        navigateTo(startKnowledgeCheckFragment())
+                        getController().openLearningTogether(false)
                     }
                 }
             }
@@ -38,7 +38,7 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
 
     interface Controller {
         fun openDictionary()
-        fun openLearningTogether()
+        fun openLearningTogether(flagLearningOrTest: Boolean)
     }
 
     private fun getController(): Controller = activity as Controller

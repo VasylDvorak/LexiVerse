@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.diplomproject.learningtogether.Key
+import com.diplomproject.learningtogether.Key.LEARNING_TOGETHER_REQUEST_KOD
+import com.diplomproject.learningtogether.Key.TEG_COURSES_CONTAINER_KEY
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.ViewBindingActivity
 import com.diplomproject.learningtogether.databinding.ActivityTogetherBinding
@@ -11,6 +13,7 @@ import com.diplomproject.learningtogether.domain.entities.CourseWithFavoriteLess
 import com.diplomproject.learningtogether.domain.entities.FavoriteLessonEntity
 import com.diplomproject.learningtogether.ui.courses.CoursesFragment
 import com.diplomproject.learningtogether.ui.favorites.FavouritesFragment
+import com.diplomproject.learningtogether.ui.learning.LearningFragment
 import com.diplomproject.learningtogether.ui.lessons.LessonFragment
 import com.diplomproject.learningtogether.ui.task.TaskFragment
 
@@ -21,11 +24,13 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
     SuccessFragment.Controller,
     CoursesFragment.Controller,
     LessonFragment.Controller,
-    FavouritesFragment.Controller {
+    FavouritesFragment.Controller,
+    LearningFragment.Controller {
 
     private val defaultTitle: String by lazy { getString(R.string.app_name) }
 
-    var backPressedTime: Long = 0
+    private var backPressedTime: Long = 0
+    private var flagLearningOrTest: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,16 +38,19 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
 
         title = defaultTitle
 
-        if (savedInstanceState == null)//проверяем какой запуск первый или нет (например, после поворота экрана)
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.container_layout, CoursesFragment())
-                .commit()
+        flagLearningOrTest =
+            intent.getBooleanExtra(LEARNING_TOGETHER_REQUEST_KOD, false)
+
+        if (savedInstanceState == null)
+            openCourses(flagLearningOrTest)
     }
 
-    //для созранения состояния экрана (как вариант)
-    override fun onRetainCustomNonConfigurationInstance(): Any? {
-        return super.onRetainCustomNonConfigurationInstance()
+    private fun openCourses(flagLearningOrTest: Boolean) {
+        val fragment: Fragment = CoursesFragment.newInstance(flagLearningOrTest)
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.container_layout, fragment, TEG_COURSES_CONTAINER_KEY)
+            .commit()
     }
 
     private fun openTaskFragment(courseId: Long, lessonId: Long) {
@@ -50,6 +58,15 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
         supportFragmentManager
             .beginTransaction()
             .add(R.id.container_layout, fragment, Key.TEG_TASK_CONTAINER_KEY)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun openLearningFragment(courseId: Long, lessonId: Long) {
+        val fragment: Fragment = LearningFragment.newInstance(courseId, lessonId)
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.container_layout, fragment, Key.TEG_LEARNING_CONTAINER_KEY)
             .addToBackStack(null)
             .commit()
     }
@@ -120,7 +137,11 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
     }
 
     override fun openLesson(courseId: Long, lessonEntity: FavoriteLessonEntity) {
-        openTaskFragment(courseId, lessonEntity.id)
+        if (!flagLearningOrTest) {
+            openTaskFragment(courseId, lessonEntity.id)
+        } else {
+            openLearningFragment(courseId, lessonEntity.id)
+        }
         title = lessonEntity.name
     }
 

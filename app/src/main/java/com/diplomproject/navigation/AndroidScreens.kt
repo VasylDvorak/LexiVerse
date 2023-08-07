@@ -9,7 +9,6 @@ import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.root.StartingFragment
 import com.diplomproject.view.root.favorite.FavoritesElementFragment
 import com.diplomproject.view.root.grade.GradeFragment
-import com.diplomproject.view.root.knowledgecheck.KnowledgeCheckFragment
 import com.diplomproject.view.settings_menu.AboutApplicationFragment
 import com.diplomproject.view.settings_menu.ChoosingThemeFragment
 import com.diplomproject.view.settings_menu.EnterExitFragment
@@ -53,9 +52,6 @@ class AndroidScreens : IScreens {
 
     override fun startStartingFragment(): Screen =
         FragmentScreen { StartingFragment.newInstance() }
-
-    override fun startKnowledgeCheckFragment(): Screen =
-        FragmentScreen { KnowledgeCheckFragment.newInstance() }
 
     override fun startFavoritesElementFragment(): Screen =
         FragmentScreen { FavoritesElementFragment.newInstance() }

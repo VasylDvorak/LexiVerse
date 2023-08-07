@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.KeyEvent
 import android.view.View
-import androidx.fragment.app.Fragment
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
 import com.diplomproject.di.ConnectKoinModules
@@ -21,9 +20,8 @@ import com.google.gson.Gson
 import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
 
-private const val TAG_ROOT_CONTAINER_LAYOUT_KEY = "TAG_ROOT_CONTAINER_LAYOUT_KEY"
 private const val DICTIONARY_REQUEST_KOD = 100
-private const val LEARNING_TOGETHER_REQUEST_KOD = 200
+private const val TOGETHER_ACTIVITY_REQUEST_CODE = 200
 
 class RootActivity : ViewBindingActivity<ActivityRootBinding>(
     ActivityRootBinding::inflate
@@ -36,6 +34,8 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
     private val navigatorHolder: NavigatorHolder by inject()
     private val navigator = AppNavigator(this, R.id.fragment_container_frame_layout)
     lateinit var model: FavoriteViewModel
+
+    private var flagLearningOrTest = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,34 +81,6 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
         }
     }
 
-    // Анимация перехода между фрагментами
-    private fun navigateTo(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().setCustomAnimations(
-            R.anim.slide_in,
-            R.anim.fade_out,
-            R.anim.fade_in,
-            R.anim.slide_out
-        ).replace(
-            binding.fragmentContainerFrameLayout.id, fragment,
-            TAG_ROOT_CONTAINER_LAYOUT_KEY
-        ).commit()
-    }
-
-    // Анимация перехода между фрагментами с BackStack
-    private fun navigateWithBackStack(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().setCustomAnimations(
-            R.anim.slide_in,
-            R.anim.fade_out,
-            R.anim.fade_in,
-            R.anim.slide_out
-        ).replace(
-            binding.fragmentContainerFrameLayout.id, fragment,
-            TAG_ROOT_CONTAINER_LAYOUT_KEY
-        )
-            .addToBackStack(null)
-            .commit()
-    }
-
     private fun onDictionary() {
         val intent = Intent(this, DictionaryActivity::class.java)
         startActivityForResult(intent, DICTIONARY_REQUEST_KOD)
@@ -145,25 +117,33 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
                         prefsEditor.apply()
                     }
                 }
+
                 else -> {}
             }
         }
         model.getData("", false)
     }
 
-    private fun onLearningTogether() {
+    private fun onLearningTogether(flagLearningOrTest: Boolean) {
         val intent =
-//            Intent(this, com.diplomproject.learningtogether.LearningTogetherActivity::class.java)
-            Intent(this, com.diplomproject.learningtogether.ui.TogetherActivity::class.java)
-        startActivityForResult(intent, LEARNING_TOGETHER_REQUEST_KOD)
+            Intent(
+                this,
+                com.diplomproject.learningtogether.ui.TogetherActivity::class.java
+            ).apply {
+                putExtra(
+                    com.diplomproject.learningtogether.Key.LEARNING_TOGETHER_REQUEST_KOD,
+                    flagLearningOrTest
+                )
+            }
+        startActivityForResult(intent, TOGETHER_ACTIVITY_REQUEST_CODE)
     }
 
     override fun openDictionary() {
         onDictionary()
     }
 
-    override fun openLearningTogether() {
-        onLearningTogether()
+    override fun openLearningTogether(flagLearningOrTest: Boolean) {
+        onLearningTogether(flagLearningOrTest)
     }
 
     @Deprecated("Deprecated in Java")
