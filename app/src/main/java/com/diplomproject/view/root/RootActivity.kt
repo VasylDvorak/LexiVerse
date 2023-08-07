@@ -41,8 +41,6 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //SplashScreen
-//        installSplashScreen()
 
         onBottomNaviBar()
 
