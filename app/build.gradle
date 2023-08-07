@@ -97,4 +97,7 @@ dependencies {
     kapt Room.kapt_compiler
     annotationProcessor Room.annotation_processor_compiler
     implementation Room.room_ktx
+
+    //Firebase authentication
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
 }
