@@ -19,6 +19,8 @@ open class ViewBindingActivity<T : ViewBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //SplashScreen
+        Thread.sleep(3000)
         installSplashScreen().apply {
             setKeepOnScreenCondition{
                 viewModel.isLoading.value

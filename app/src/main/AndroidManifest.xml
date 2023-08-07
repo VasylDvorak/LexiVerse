@@ -39,6 +39,7 @@
         <activity
             android:name=".view.DictionaryActivity"
             android:configChanges="screenSize|screenLayout|keyboardHidden"
+            android:theme="@style/Theme.Translator"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
