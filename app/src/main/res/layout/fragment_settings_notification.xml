@@ -18,8 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/pastel_hot_pink"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/example"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_mail" />
+                app:srcCompat="@drawable/ic_mail" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Уведомление по почте"
+                android:textColor="@color/example_dark"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView15"
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toTopOf="@+id/imageView15" />
@@ -67,7 +68,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView15"
-                app:srcCompat="@drawable/icon_notif_1" />
+                app:srcCompat="@drawable/ic_notif_setting" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -76,6 +77,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Уведомление по смс"
+                android:textColor="@color/example_dark"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView19"
                 app:layout_constraintStart_toEndOf="@+id/imageView19"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -106,8 +108,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView3"
-        app:strokeColor="@color/pastel_tiffany_blue"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/example"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardLayout"
@@ -122,6 +124,7 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="@string/empty_list"
+                android:textColor="@color/example_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -132,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Напоминания слов"
+                android:textColor="@color/example_middle"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView22"
                 app:layout_constraintStart_toEndOf="@+id/imageView22"
                 app:layout_constraintTop_toTopOf="@+id/imageView22" />
@@ -145,7 +149,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emptyListText"
-                app:srcCompat="@drawable/icon_notif_2" />
+                app:srcCompat="@drawable/ic_mess" />
 
 
             <com.google.android.material.switchmaterial.SwitchMaterial
@@ -174,12 +178,14 @@
                     android:id="@+id/textSeekBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/delay" />
+                    android:text="@string/delay"
+                    android:textColor="@color/example_dark" />
 
                 <SeekBar
                     android:id="@+id/seekBar"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
+                    android:backgroundTint="@color/example_dark"
                     android:contentDescription="@string/set_time_delay"
                     android:gravity="center" />
             </LinearLayout>

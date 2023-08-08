@@ -19,8 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/pastel_tiffany_blue"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/color_white"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,8 +36,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/pastel_yellow"
-                app:strokeWidth="2dp">
+                app:strokeColor="@color/example"
+                app:strokeWidth="1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
                         android:text="@string/first_theme"
-                        android:textColor="@color/pastel_hot_pink_dark"
+                        android:textColor="@color/example_dark"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +65,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="16dp"
                         android:text="@string/second_theme"
-                        android:textColor="@color/pastel_tiffany_blue_dark"
+                        android:textColor="@color/example_dark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
