@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.KeyEvent
 import android.view.View
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
@@ -26,6 +27,7 @@ private const val DICTIONARY_REQUEST_KOD = 100
 private const val LEARNING_TOGETHER_REQUEST_KOD = 200
 
 class RootActivity : ViewBindingActivity<ActivityRootBinding>(
+
     ActivityRootBinding::inflate
 ),
     StartingFragment.Controller {

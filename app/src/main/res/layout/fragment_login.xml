@@ -19,8 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_white"
-        app:strokeWidth="1dp">
+        app:strokeColor="@color/pastel_tiffany_blue"
+        app:strokeWidth="2dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -66,33 +66,20 @@
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/editTextNumberPassword2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/pastel_hot_pink"
-                android:contentDescription="@string/enter_password"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
+
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/example"
-                android:text="Регистрация"
-                android:textColor="@color/example_dark"
+                android:background="@null"
+                android:text="Войти"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

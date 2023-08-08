@@ -22,6 +22,7 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
     private val liveDataForViewToObserve: LiveData<AppState> = _liveDataForViewToObserve
     private val liveDataFindWordInHistory: LiveData<DataModel> = _liveDataFindWordInHistory
 
+
     fun subscribe(): LiveData<AppState> {
         return liveDataForViewToObserve
     }
