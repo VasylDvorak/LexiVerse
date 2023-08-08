@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewbinding.ViewBinding
-import com.diplomproject.model.splash_fetching_data.SplashViewModel
+import com.diplomproject.learningtogether.model.splash_fetching_data.SplashViewModel
 
 open class ViewBindingActivity<T : ViewBinding>(
     private val inflateBinding: (inflater: LayoutInflater) -> T) : AppCompatActivity() {
@@ -20,7 +20,6 @@ open class ViewBindingActivity<T : ViewBinding>(
         super.onCreate(savedInstanceState)
 
         //SplashScreen
-        Thread.sleep(3000)
         installSplashScreen().apply {
             setKeepOnScreenCondition{
                 viewModel.isLoading.value
