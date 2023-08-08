@@ -4,6 +4,7 @@
     android:id="@+id/bottom_sheet_dialog_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/example_back"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.card.MaterialCardView
@@ -20,8 +21,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/pastel_tiffany_blue"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/color_white"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,10 +32,10 @@
                 android:id="@+id/search_input_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
                 android:hint="@string/search_hint"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -44,7 +45,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:text="@string/button_search"
-                    android:textColor="@color/pastel_hot_pink_dark"
+                    android:textColor="@color/example_dark"
                     android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,6 +73,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:hint="Введите слово"
+                android:textColor="@color/example_middle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
