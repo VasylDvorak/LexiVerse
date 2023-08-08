@@ -13,6 +13,7 @@ import com.diplomproject.view.root.knowledgecheck.KnowledgeCheckFragment
 import com.diplomproject.view.settings_menu.AboutApplicationFragment
 import com.diplomproject.view.settings_menu.ChoosingThemeFragment
 import com.diplomproject.view.settings_menu.EnterExitFragment
+import com.diplomproject.view.settings_menu.LoginFragment
 import com.diplomproject.view.settings_menu.RegistrationFragment
 import com.diplomproject.view.settings_menu.SettingsFragment
 import com.diplomproject.view.settings_menu.SettingsNotificationFragment
@@ -62,6 +63,9 @@ class AndroidScreens : IScreens {
 
     override fun startGradeFragment(): Screen =
         FragmentScreen { GradeFragment.newInstance() }
+
+    override fun startLoginFragment(): Screen =
+        FragmentScreen{LoginFragment.newInstance()}
 }
 
 

@@ -23,6 +23,10 @@ class SettingsFragment : ViewBindingFragment<FragmentSettingsBinding>(
                         navigateTo(startRegistrationFragment())
                     }
 
+                    login.setOnClickListener{
+                        navigateTo(startLoginFragment())
+                    }
+
                     settingsNotification.setOnClickListener {
                         navigateTo(startSettingsNotificationFragment())
                     }
