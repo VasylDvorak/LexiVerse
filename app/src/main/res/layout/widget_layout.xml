@@ -43,8 +43,9 @@
             style="@style/HeaderTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:contentDescription="@string/header"
+            android:gravity="center_horizontal"
+            android:textColor="@color/example_dark"
             android:textIsSelectable="true"
             tools:text="@string/header" />
 
@@ -53,8 +54,9 @@
             style="@style/TranscriptionTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:contentDescription="@string/transcription"
+            android:gravity="center_horizontal"
+            android:textColor="@color/example"
             tools:text="@string/transcription" />
 
         <TextView
@@ -62,8 +64,9 @@
             style="@style/BaseTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:contentDescription="@string/translation"
+            android:gravity="center_horizontal"
+            android:textColor="@color/example_middle"
             android:textIsSelectable="true"
             tools:text="@string/translation" />
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_starting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/example_back"
     tools:context=".view.root.StartingFragment">
 
     <com.google.android.material.card.MaterialCardView
@@ -17,13 +17,13 @@
         android:layout_marginBottom="16dp"
         app:cardBackgroundColor="@color/color_white"
         app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
+        app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/pastel_tiffany_blue"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/color_white"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,13 +38,13 @@
                 android:padding="16dp"
                 app:cardBackgroundColor="@color/color_white"
                 app:cardCornerRadius="15dp"
-                app:cardElevation="5dp"
+                app:cardElevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_marginBaseline="16dp"
-                app:strokeColor="@color/pastel_yellow"
-                app:strokeWidth="2dp">
+                app:strokeColor="@color/example"
+                app:strokeWidth="1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/dictionary"
-                        android:textColor="@color/pastel_yellow_dark"
+                        android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +80,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView5"
                         app:layout_constraintVertical_bias="1.0"
-                        app:strokeColor="@color/pastel_yellow"
+                        app:strokeColor="@color/color_white"
                         app:strokeWidth="2dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -95,12 +95,12 @@
                 android:backgroundTint="@color/color_white"
                 app:cardBackgroundColor="@color/color_white"
                 app:cardCornerRadius="15dp"
-                app:cardElevation="5dp"
+                app:cardElevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView"
-                app:strokeColor="@color/pastel_mint"
-                app:strokeWidth="2dp">
+                app:strokeColor="@color/example"
+                app:strokeWidth="1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -128,13 +128,13 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/learning_together"
-                        android:textColor="@color/pastel_mint_dark"
+                        android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-                        app:strokeColor="@color/pastel_mint"
+                        app:strokeColor="@color/color_white"
                         app:strokeWidth="2dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -149,13 +149,13 @@
                 android:backgroundTint="@color/color_white"
                 app:cardBackgroundColor="@color/color_white"
                 app:cardCornerRadius="15dp"
-                app:cardElevation="5dp"
+                app:cardElevation="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView2"
-                app:strokeColor="@color/pastel_hot_pink"
-                app:strokeWidth="2dp">
+                app:strokeColor="@color/example"
+                app:strokeWidth="1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -171,13 +171,13 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/knowledge_check"
-                        android:textColor="@color/pastel_hot_pink_dark"
+                        android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-                        app:strokeColor="@color/pastel_hot_pink"
+                        app:strokeColor="@color/color_white"
                         app:strokeWidth="2dp" />
 
                     <ImageView
