@@ -18,8 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/pastel_tiffany_blue"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/example"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/pastel_tiffany_blue_dark"
+                android:backgroundTint="@color/example"
                 android:contentDescription="@string/enter_phone_number"
                 android:freezesText="true"
                 android:hint="@string/enter_phone_number"
@@ -52,7 +52,7 @@
                 android:autoLink="web"
                 android:clickable="false"
                 android:text="@string/title_link"
-                android:textColor="@color/pastel_tiffany_blue_dark"
+                android:textColor="@color/example_middle"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,8 @@
                 android:padding="5dp"
                 android:text="@string/button_send_sms"
                 android:textAllCaps="false"
-                android:textColor="@color/color_white"
+                android:textColor="@color/example_dark"
+                app:backgroundTint="@color/example"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -112,7 +113,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Поделится..."
-                android:textColor="@color/pastel_yellow_dark"
+                android:textColor="@color/example_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView14"
