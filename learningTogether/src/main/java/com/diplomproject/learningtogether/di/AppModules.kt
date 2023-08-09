@@ -17,10 +17,12 @@ import com.diplomproject.learningtogether.data.AssetsCoursesRepoImpl
 import com.diplomproject.learningtogether.data.CoursesWithFavoriteLessonInteractorImpl
 import com.diplomproject.learningtogether.data.FavoriteInteractionImpl
 import com.diplomproject.learningtogether.data.FavoriteRepoImpl
+import com.diplomproject.learningtogether.data.retrofit.MeaningRetrofitImpl
 import com.diplomproject.learningtogether.domain.interactor.CoursesWithFavoriteLessonInteractor
 import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.domain.repos.CoursesRepo
 import com.diplomproject.learningtogether.domain.repos.FavoriteLessonsRepo
+import com.diplomproject.learningtogether.domain.repos.MeaningRepo
 import com.diplomproject.learningtogether.ui.courses.CoursesViewModel
 import com.diplomproject.learningtogether.ui.learning.LearningViewModel
 import com.diplomproject.learningtogether.ui.lessons.LessonsViewModel
@@ -44,6 +46,8 @@ val appModuleLearningTogether = module {
 
     single<FavoriteInteractor> { FavoriteInteractionImpl(get()) }
 
+    single<MeaningRepo> { MeaningRetrofitImpl() }
+
     //секция viewModel
     viewModel { CoursesViewModel(get()) }
     viewModel { parameters -> LessonsViewModel(get(), parameters.get()) }
@@ -60,6 +64,7 @@ val appModuleLearningTogether = module {
             get(),
             courseId = parameters[0],
             lessonId = parameters[1],
+            get(),
             get()
         )
     }

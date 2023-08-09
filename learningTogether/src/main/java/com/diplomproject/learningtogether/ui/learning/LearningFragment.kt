@@ -15,7 +15,9 @@ import com.diplomproject.learningtogether.Key.DEFAULT_LESSON_ID_KEY
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.ViewBindingFragment
 import com.diplomproject.learningtogether.databinding.FragmentLearningBinding
+import com.diplomproject.learningtogether.domain.repos.MeaningRepo
 import com.squareup.picasso.Picasso
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -32,6 +34,8 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
         parametersOf(courseId, lessonId)
     }
 
+    private val meaningRepo: MeaningRepo by inject()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -47,23 +51,16 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
             binding.nameEnglishTextView.text = meaning.task
             binding.nameTranslationTextView.text = meaning.rightAnswer
 
+            viewModelCoroutineScope.launch {
+                meaningRepo.getImageUrl(meaning.task)
+            }
+
+
             Picasso.get().load(meaning.taskImageUrl).into(binding.learningImageView)
             binding.learningImageView.scaleType = ImageView.ScaleType.FIT_CENTER
-
-//            // Обновите значение индекса текущего значения
-//            viewModel.currentValueIndex.value = meaningIndex
-//
-//            // Обновите флаг достижения последнего значения
-//            viewModel.isLastValue.value = meaningIndex == viewModel.learningList.size - 1
         }
 
-
-        viewModel.currentValueIndex.observe(viewLifecycleOwner) { index ->
-            // Обновите значениe learningLiveData
-//            viewModel.learningLiveData.value = viewModel.learningList[index] // todo ошибка здесь
-        }
-
-        viewModel.isLastValue.observe(viewLifecycleOwner) { isLast ->
+        viewModel.needShowFinishScreen.observe(viewLifecycleOwner) { isLast ->
             // Отобразите финишный экран, если значение true
             if (isLast) {
                 // Показать финишный экран
@@ -78,32 +75,6 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
         binding.forwardCardButton.setOnClickListener {
             viewModel.navigateToNextValue()
         }
-
-//        binding.backCardButton.setOnClickListener {
-//            // Получение индекса текущего значения
-//            val currentIndex = viewModel.currentValueIndex.value ?: 0
-//
-//            // Проверка, является ли текущее значение первым значением
-//            if (currentIndex > 0) {
-//                // Перейдите к предыдущему значению
-//                viewModel.currentValueIndex.value = currentIndex - 1
-//            }
-//        }
-//
-//        binding.forwardCardButton.setOnClickListener {
-//            // Получение индекса текущего значения
-//            val currentIndex = viewModel.currentValueIndex.value ?: 0
-//
-//            // Проверка, достигнуто ли последнее значение
-//            val isLastValue = viewModel.isLastValue.value ?: false
-//            if (isLastValue) {
-//                // Показать финишный экран и предложите перейти к тестам или продолжить изучение
-//                showFinishScreen()
-//            } else {
-//                // Перейдите к следующему значению
-//                viewModel.currentValueIndex.value = currentIndex + 1
-//            }
-//        }
     }
 
     private fun showFinishScreen() {
