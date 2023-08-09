@@ -36,6 +36,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/login_button"
                 app:srcCompat="@drawable/signup_log" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -44,9 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/pastel_mint"
-                android:contentDescription="@string/enter_email_reg"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
@@ -58,15 +58,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/pastel_tiffany_blue"
-                android:contentDescription="@string/enter_password"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/password_hint"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
-
-
 
             <Button
                 android:id="@+id/buttonLogin"
@@ -75,7 +72,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@null"
-                android:text="Войти"
+                android:text="@string/button_logIn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"
                 app:layout_constraintStart_toStartOf="@+id/imageView17"

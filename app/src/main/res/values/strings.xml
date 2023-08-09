@@ -118,4 +118,17 @@
     <string name="text_6">Команда разработчиков</string>
     <string name="dvorak1981_yandex_ru">dvorak1981@yandex.ru</string>
     <string name="no_connection_internet">Нет соединения с интернетом</string>
+    <string name="listen_button">listen</string>
+    <string name="login_button">login_button</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="button_logIn">Войти</string>
+    <string name="button_reg">Регистрация</string>
+    <string name="profile_user_setting">Профиль</string>
+    <string name="login_setting">Войти</string>
+    <string name="notif_email">Уведомление по почте</string>
+    <string name="notif_sms">Уведомление по смс</string>
+    <string name="notif_word">Напоминания слов</string>
+    <string name="share">Поделится…</string>
+    <string name="enter_word_search">Введите слово</string>
 </resources>
