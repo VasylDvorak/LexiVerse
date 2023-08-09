@@ -92,7 +92,8 @@
         android:src="@drawable/baseline_favorite_24"
         app:layout_constraintBottom_toTopOf="@+id/card_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/card_view" />
+        app:layout_constraintTop_toTopOf="@+id/card_view"
+        app:tint="@color/image_favorite_button_colors" />
 
     <ImageButton
         android:id="@+id/play_articulation"
@@ -104,6 +105,7 @@
         android:src="@drawable/baseline_volume_up_24"
         app:layout_constraintBottom_toTopOf="@+id/card_view"
         app:layout_constraintEnd_toStartOf="@+id/set_favorite"
-        app:layout_constraintTop_toTopOf="@+id/card_view" />
+        app:layout_constraintTop_toTopOf="@+id/card_view"
+        app:tint="@color/image_sound_button_colors"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
