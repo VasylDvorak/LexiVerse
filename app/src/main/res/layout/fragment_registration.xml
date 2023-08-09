@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/example_back">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -33,10 +33,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:contentDescription="@string/button_logIn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/button_logIn"
                 app:srcCompat="@drawable/signup_log" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/pastel_mint"
+                android:backgroundTint="@color/example"
                 android:ems="10"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/pastel_tiffany_blue"
+                android:backgroundTint="@color/example"
                 android:ems="10"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/pastel_hot_pink"
+                android:backgroundTint="@color/example"
                 android:ems="10"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
@@ -86,7 +86,7 @@
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/example"
                 android:text="@string/button_reg"
-                android:textColor="@color/example_dark"
+                android:textColor="@color/color_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
