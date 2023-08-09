@@ -96,7 +96,6 @@
 
     <!-- Exception info -->
     <string name="fragment_exception">Такого фрагмента нет </string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="example_absent">Примеров употребления нету</string>
     <string name="example">Пример</string>
@@ -120,8 +119,8 @@
     <string name="no_connection_internet">Нет соединения с интернетом</string>
     <string name="listen_button">listen</string>
     <string name="login_button">login_button</string>
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Password</string>
+    <string name="email_hint">Почта</string>
+    <string name="password_hint">Пароль</string>
     <string name="button_logIn">Войти</string>
     <string name="button_reg">Регистрация</string>
     <string name="profile_user_setting">Профиль</string>
