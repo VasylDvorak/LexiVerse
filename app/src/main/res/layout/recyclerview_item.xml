@@ -17,7 +17,6 @@
         android:layout_marginBottom="8dp"
         app:cardBackgroundColor="@color/color_white"
         app:cardCornerRadius="15dp"
-
         app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,13 +84,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_button"
-        android:contentDescription="@string/pronounce"
         android:elevation="15dp"
         android:src="@drawable/baseline_favorite_24"
         app:layout_constraintBottom_toTopOf="@+id/card_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/card_view"
-        app:tint="@color/image_favorite_button_colors"/>
+        android:importantForAccessibility="no"
+        app:tint="@color/image_favorite_button_colors" />
 
     <ImageButton
         android:id="@+id/play_articulation"
@@ -104,6 +103,6 @@
         app:layout_constraintBottom_toTopOf="@+id/card_view"
         app:layout_constraintEnd_toStartOf="@+id/set_favorite"
         app:layout_constraintTop_toTopOf="@+id/card_view"
-        app:tint="@color/image_sound_button_colors"/>
-
+        android:importantForAccessibility="no"
+        app:tint="@color/image_sound_button_colors" />
 </androidx.constraintlayout.widget.ConstraintLayout>
