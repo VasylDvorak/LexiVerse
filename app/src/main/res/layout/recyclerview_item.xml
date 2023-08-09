@@ -7,7 +7,6 @@
     android:alpha="0.8"
     android:background="@color/color_white">
 
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
@@ -78,7 +77,6 @@
                 tools:text="@string/translation" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.card.MaterialCardView>
 
     <ImageButton
@@ -93,7 +91,7 @@
         app:layout_constraintBottom_toTopOf="@+id/card_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/card_view"
-        app:tint="@color/image_favorite_button_colors" />
+        app:tint="@color/image_favorite_button_colors"/>
 
     <ImageButton
         android:id="@+id/play_articulation"

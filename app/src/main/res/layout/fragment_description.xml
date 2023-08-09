@@ -57,11 +57,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/baseline_volume_up_24"
+                    android:src="@drawable/baseline_volume_up_24"
+                    android:background="@drawable/rounded_button"
                     android:contentDescription="@string/pronounce"
                     app:layout_constraintEnd_toEndOf="@+id/description_imageview"
                     app:layout_constraintStart_toStartOf="@+id/description_imageview"
-                    app:layout_constraintTop_toBottomOf="@+id/transcription" />
+                    app:layout_constraintTop_toBottomOf="@+id/transcription"
+                    app:tint="@color/image_sound_button_colors" />
 
                 <TextView
                     android:id="@+id/transcription"
