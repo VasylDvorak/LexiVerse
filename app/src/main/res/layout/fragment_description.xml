@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/description_screen_swipe_refresh_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/example_back">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,65 +13,30 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView5"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/color_white"
             app:cardCornerRadius="15dp"
-            app:cardElevation="2dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/color_white"
-            app:strokeWidth="1dp">
+            app:strokeColor="@color/pastel_tiffany_blue"
+            app:strokeWidth="2dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/description_header"
-                    style="@style/HeaderTextStyle"
-                    android:layout_width="match_parent"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardView3"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/header"
-                    android:gravity="center"
-                    android:textColor="@color/example_dark"
-                    android:textIsSelectable="true"
-                    android:textSize="34sp"
-                    app:layout_constraintEnd_toEndOf="@+id/description_imageview"
-                    app:layout_constraintStart_toStartOf="@+id/description_imageview"
-                    app:layout_constraintTop_toBottomOf="@+id/description_imageview"
-                    tools:text="@string/header" />
-
-                <ImageButton
-                    android:id="@+id/play_articulation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:src="@drawable/baseline_volume_up_24"
-                    android:background="@drawable/rounded_button"
-                    android:contentDescription="@string/pronounce"
-                    app:layout_constraintEnd_toEndOf="@+id/description_imageview"
-                    app:layout_constraintStart_toStartOf="@+id/description_imageview"
-                    app:layout_constraintTop_toBottomOf="@+id/transcription"
-                    app:tint="@color/image_sound_button_colors" />
-
-                <TextView
-                    android:id="@+id/transcription"
-                    style="@style/TranscriptionTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-
                     app:cardBackgroundColor="@color/color_white"
                     app:cardCornerRadius="15dp"
                     app:cardElevation="5dp"
@@ -157,32 +121,58 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-
                 <com.diplomproject.utils.ui.EquilateralImageView
                     android:id="@+id/description_imageview"
-                    android:layout_width="200dp"
+                    android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
                     android:contentDescription="@string/image_stub"
                     android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView3"
                     app:srcCompat="@drawable/ic_no_photo_vector"
                     tools:visibility="visible" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/color_white"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView5"
+            app:strokeColor="@color/pastel_mint"
+            app:strokeWidth="2dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/translation_textview">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ProgressBar
                         android:id="@+id/progress_bar_round_description"
@@ -193,10 +183,11 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/description_recyclerview"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:scrollbars="vertical"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </FrameLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
