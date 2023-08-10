@@ -18,13 +18,15 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/baseline_volume_up_24"
+            android:layout_marginEnd="8dp"
             android:contentDescription="@string/pronounce" />
 
         <ImageButton
             android:id="@+id/start_main_activity"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/baseline_keyboard_double_arrow_right_24"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ic_input_app"
             android:contentDescription="@string/start_main_activity" />
     </LinearLayout>
 
@@ -43,8 +45,9 @@
             style="@style/HeaderTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:contentDescription="@string/header"
+            android:gravity="center_horizontal"
+            android:textColor="@color/example_dark"
             android:textIsSelectable="true"
             tools:text="@string/header" />
 
@@ -53,8 +56,9 @@
             style="@style/TranscriptionTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:contentDescription="@string/transcription"
+            android:gravity="center_horizontal"
+            android:textColor="@color/example"
             tools:text="@string/transcription" />
 
         <TextView
@@ -62,8 +66,9 @@
             style="@style/BaseTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:contentDescription="@string/translation"
+            android:gravity="center_horizontal"
+            android:textColor="@color/example_middle"
             android:textIsSelectable="true"
             tools:text="@string/translation" />
 

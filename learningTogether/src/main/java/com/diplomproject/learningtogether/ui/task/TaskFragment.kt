@@ -16,16 +16,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.learningtogether.Key
+import com.diplomproject.learningtogether.Key.DEFAULT_COURSE_ID_KEY
+import com.diplomproject.learningtogether.Key.DEFAULT_LESSON_ID_KEY
 import com.diplomproject.learningtogether.R
-import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.ui.task.answer.AnswerAdapter
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
-import org.koin.java.KoinJavaComponent
-
-internal const val DEFAULT_COURSE_ID_KEY = -1L
-internal const val DEFAULT_LESSON_ID_KEY = -1L
 
 class TaskFragment : Fragment(R.layout.fragment_task_v2) {
 
@@ -38,8 +35,6 @@ class TaskFragment : Fragment(R.layout.fragment_task_v2) {
     private lateinit var adapter: AnswerAdapter
 
     private lateinit var favoriteMenuItem: MenuItem
-
-    private val likeInteractor: FavoriteInteractor by KoinJavaComponent.inject(FavoriteInteractor::class.java)
 
     private val viewModel: TaskViewModel by viewModel {
         val courseId = arguments?.getLong(Key.THEME_ID_ARGS_KEY) ?: DEFAULT_COURSE_ID_KEY
@@ -65,7 +60,7 @@ class TaskFragment : Fragment(R.layout.fragment_task_v2) {
             taskTv.text = task.task
 
             Picasso.get().load(task.taskImageUrl).into(taskImageView)
-            taskImageView.scaleType = ImageView.ScaleType.FIT_XY
+            taskImageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
             task?.let {
                 adapter.setData(it.variantsAnswer)
@@ -82,18 +77,6 @@ class TaskFragment : Fragment(R.layout.fragment_task_v2) {
         viewModel.wrongAnswerLiveData.observe(viewLifecycleOwner) {
             Toast.makeText(context, Key.SHOW_NOTICE_TASK_FRAGMENT_KEY, Toast.LENGTH_SHORT).show()
         }
-
-        /**
-         * лайки (в данном случае приложение не стабильно работает. Иногда меню не успевает первым
-         * создастся, а данные уже приходят, поэтому приложение падает. Подписку делаем в методе
-         * onCreateOptionsMenu)
-         */
-//        viewModel.isFavoriteLiveData.observe(viewLifecycleOwner) {
-//            favoriteMenuItem.setIcon(
-//                if (it) R.drawable.favourites_icon_filled
-//                else R.drawable.favourites_icon
-//            )
-//        }
     }
 
     private fun initView(view: View) {

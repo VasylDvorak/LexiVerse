@@ -23,4 +23,10 @@
     <string name="statistics">Статистика</string>
     <string name="settings">Настройки</string>
     <string name="about_app">О приложении</string>
+
+
+    <string name="back_card">Назад</string>
+    <string name="forward_card">Вперед</string>
+    <string name="name_english">Значение</string>
+    <string name="name_translation">Перевод</string>
 </resources>

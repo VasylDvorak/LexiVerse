@@ -18,4 +18,8 @@
     <color name="sea">#DAEFEC</color>
     <color name="green_wave">#88F88C</color>
     <color name="light_green2">#34CF37</color>
+
+    <!-- Кнопки nav -->
+    <color name="blue_dark">#276EF1</color>
+
 </resources>

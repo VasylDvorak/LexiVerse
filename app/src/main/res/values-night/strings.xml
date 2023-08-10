@@ -8,4 +8,8 @@
     <string name="text_5">С наилучшими пожеланиями,</string>
     <string name="text_6">Команда разработчиков</string>
     <string name="dvorak1981_yandex_ru">dvorak1981@yandex.ru</string>
+    <string name="listen_button">listen</string>
+    <string name="login_button">login_button</string>
+    <string name="email_hint">Почта</string>
+    <string name="password_hint">Пароль</string>
 </resources>

@@ -41,5 +41,15 @@
     <color name="pastel_tiffany_blue_dark">#62d6d2</color>
     <color name="pastel_hot_pink_dark">#f67a90</color>
 
+    <!-- purple pastel colors -->
+    <color name="purple_background">#efeaf9</color>
+    <color name="purple_light">#d6cbef</color>
+    <color name="purple_middle">#A084DC</color>
+    <color name="purple_dark">#645CBB</color>
+
+    <color name="example_back">#e0f7fd</color>
+    <color name="example">#77DDF9</color>
+    <color name="example_middle">#00c3f9</color>
+    <color name="example_dark">#00aaec</color>
 
 </resources>

@@ -18,8 +18,8 @@ interface IScreens {
     fun startEnterExitFragment(): Screen
     fun startAboutApplicationFragment(): Screen
     fun startStartingFragment(): Screen
-    fun startKnowledgeCheckFragment(): Screen
     fun startFavoritesElementFragment(): Screen
     fun startGradeFragment(): Screen
+    fun startLoginFragment(): Screen
 
 }

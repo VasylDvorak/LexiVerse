@@ -11,9 +11,10 @@ import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.ui.viewById
 
 class MainAdapter(
+
     private var onListItemClickListener: (DataModel) -> Unit,
     private var putInFavoriteListListener: (DataModel) -> Unit,
-    private var playArticulationClickListener: (String) -> Unit
+    private var playArticulationClickListener: (String) -> Unit,
 ) : RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
 
     private var data: List<DataModel> = listOf()
@@ -51,7 +52,9 @@ class MainAdapter(
                     data.meanings?.get(0)?.translation?.translation
                 transcription_textview_recycler_item.text =
                     "[" + data.meanings?.get(0)?.transcription + "]"
-                set_favorite.setOnClickListener { putInFavoriteList(data) }
+                set_favorite.setOnClickListener {
+                    putInFavoriteList(data)
+                }
                 play_articulation.setOnClickListener {
                     it?.apply {
                         isEnabled = false
@@ -73,5 +76,4 @@ class MainAdapter(
     private fun openInNewWindow(listItemData: DataModel) {
         onListItemClickListener(listItemData)
     }
-
 }

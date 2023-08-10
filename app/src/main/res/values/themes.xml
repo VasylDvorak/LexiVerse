@@ -1,17 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Translator" parent="Theme.Material3.DayNight">
-        <item name="colorPrimary">@color/pastel_tiffany_blue</item>
-        <item name="colorPrimaryVariant">@color/pastel_tiffany_blue_dark</item>
-        <item name="colorOnPrimary">@color/pastel_hot_pink</item>
+    <style name="Base.Theme.Translator" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/example</item>
+        <item name="colorPrimaryVariant">@color/example_dark</item>
+        <item name="colorOnPrimary">@color/example_back</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/pastel_tiffany_blue_dark</item>
-        <item name="colorSecondaryVariant">@color/pastel_tiffany_blue</item>
+        <item name="colorSecondary">@color/example</item>
+        <item name="colorSecondaryVariant">@color/example_back</item>
         <item name="colorOnSecondary">@color/color_black</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/pastel_tiffany_blue_dark</item>
+        <item name="android:statusBarColor">@color/example_middle</item>
     </style>
 
     <style name="Theme.Translator" parent="Base.Theme.Translator" />
