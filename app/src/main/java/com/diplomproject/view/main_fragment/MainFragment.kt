@@ -7,12 +7,10 @@ import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -24,8 +22,8 @@ import com.diplomproject.R
 import com.diplomproject.databinding.FragmentMainBinding
 import com.diplomproject.di.ConnectKoinModules.mainScreenScope
 import com.diplomproject.domain.base.BaseFragment
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
@@ -34,7 +32,7 @@ import com.diplomproject.view.SearchDialogFragment
 
 const val LIST_KEY = "list_key"
 
-class MainFragment : BaseFragment<AppState, MainInteractor>() {
+class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBinding::inflate){
 
     override lateinit var model: MainViewModel
     private lateinit var preferences: SharedPreferences
@@ -42,11 +40,6 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
     private val observerFindWord = Observer<DataModel> { showWordInHistory(it) }
     private val mainFragmentRecyclerview by viewById<RecyclerView>(R.id.main_activity_recyclerview)
     private val loadingFrameLayout by viewById<FrameLayout>(R.id.loading_frame_layout)
-
-
-    private var _binding: FragmentMainBinding? = null
-    private val binding
-        get() = _binding!!
 
 
     private val adapter: MainAdapter by lazy {
@@ -69,14 +62,7 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
         playContentUrl(url)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-        return binding.root
 
-    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -152,11 +138,6 @@ class MainFragment : BaseFragment<AppState, MainInteractor>() {
         mainFragmentRecyclerview.adapter = adapter
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        releaseMediaPlayer()
-    }
 
     override fun responseEmpty() {
 

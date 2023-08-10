@@ -1,8 +1,8 @@
 package com.diplomproject.view.main_fragment
 
 import androidx.lifecycle.LiveData
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.parseSearchResults
 import com.diplomproject.utils.parseWordSearchResults
 import com.diplomproject.viewmodel.BaseViewModel
@@ -21,6 +21,7 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
 
     private val liveDataForViewToObserve: LiveData<AppState> = _liveDataForViewToObserve
     private val liveDataFindWordInHistory: LiveData<DataModel> = _liveDataFindWordInHistory
+
 
     fun subscribe(): LiveData<AppState> {
         return liveDataForViewToObserve
@@ -58,7 +59,7 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
                     return@filter true
                 }
             }
-               // .debounce(500)
+                // .debounce(500)
                 .distinctUntilChanged()
                 .flatMapLatest { query ->
                     findWordFromHistory(query)
@@ -83,15 +84,14 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
                 if (query.first.isEmpty()) {
                     _liveDataForViewToObserve.postValue(AppState.Error(Throwable("Пустая строка")))
                     return@filter false
-                }
-                else {
+                } else {
                     return@filter true
                 }
             }
-               // .debounce(500)
+                // .debounce(500)
                 .distinctUntilChanged()
                 .flatMapLatest { query ->
-                  dataFromNetwork(query)
+                    dataFromNetwork(query)
                         .catch {
                             emit(AppState.Error(Throwable("Ошибка")))
                         }
@@ -108,13 +108,16 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
 
     fun dataFromNetwork(query: Pair<String, Boolean>): Flow<AppState> {
         return flow {
-         emit(
+            emit(
                 parseSearchResults(
                     interactor.getData(
                         query.first,
                         query.second
-                    )))
-}}
+                    )
+                )
+            )
+        }
+    }
 
 
     private fun findWordFromHistory(query: String): Flow<DataModel> {

@@ -1,6 +1,7 @@
 package com.diplomproject.application
 
 import android.app.Application
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.diplomproject.di.ConnectKoinModules.apiModule
 import com.diplomproject.di.ConnectKoinModules.appModule
 import com.diplomproject.di.ConnectKoinModules.application
@@ -23,7 +24,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@App)
@@ -45,6 +45,7 @@ class App : Application() {
                 )
             )
         }
+
     }
 }
 

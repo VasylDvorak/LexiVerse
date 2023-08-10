@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.KeyEvent
 import android.view.View
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.Fragment
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
 import com.diplomproject.di.ConnectKoinModules
-import com.diplomproject.model.data_word_request.AppState
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
 import com.diplomproject.view.DictionaryActivity
 import com.diplomproject.view.favorite.FavoriteViewModel
@@ -24,6 +26,7 @@ private const val DICTIONARY_REQUEST_KOD = 100
 private const val TOGETHER_ACTIVITY_REQUEST_CODE = 200
 
 class RootActivity : ViewBindingActivity<ActivityRootBinding>(
+
     ActivityRootBinding::inflate
 ),
     StartingFragment.Controller {

@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <dist:module dist:instant="true" />
 
@@ -22,30 +23,45 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Translator">
+        android:theme="@style/Theme.App.Starting"
+        tools:replace="android:name">
+
+        <service
+            android:name=".view.notification.PlaySoundService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".view.notification.NotificationService"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity
             android:name=".view.DictionaryActivity"
             android:configChanges="screenSize|screenLayout|keyboardHidden"
+            android:theme="@style/Theme.Translator"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.root.RootActivity"
             android:configChanges="screenSize|screenLayout|keyboardHidden"
+            android:theme="@style/Theme.App.Starting"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <receiver
             android:name=".view.widget.WidgetForDictionary"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info" />

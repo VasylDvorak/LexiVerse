@@ -29,6 +29,7 @@ android {
         }
     }
 
+
     buildTypes {
         release {
             minifyEnabled false
@@ -37,6 +38,7 @@ android {
         }
 
     }
+
     compileOptions {
         sourceCompatibility Config.java_version
         targetCompatibility Config.java_version
@@ -55,6 +57,8 @@ dependencies {
     implementation Koin.koin_android
     implementation Koin.koin_core
     implementation Koin.koin_compat
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
 
     //TestImpl
     testImplementation TestImpl.junit
@@ -93,4 +97,7 @@ dependencies {
     kapt Room.kapt_compiler
     annotationProcessor Room.annotation_processor_compiler
     implementation Room.room_ktx
+
+    //Firebase authentication
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
 }

@@ -11,27 +11,27 @@ class AnimatorTranslator {
     fun setAnimator(transit: Int, enter: Boolean): Animator? {
         return when (transit) {
             FragmentTransaction.TRANSIT_FRAGMENT_FADE -> if (enter) {
-                AnimatorInflater.loadAnimator(getKoin().get(), android.R.animator.fade_in)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_in)
             } else {
-                AnimatorInflater.loadAnimator(getKoin().get(), android.R.animator.fade_out)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_out)
             }
 
             FragmentTransaction.TRANSIT_FRAGMENT_CLOSE -> if (enter) {
-                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.fragment_pop_enter)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_in)
             } else {
-                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.fragment_pop_exit)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_out)
             }
 
             FragmentTransaction.TRANSIT_FRAGMENT_OPEN -> if (enter) {
-                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.fragment_enter)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_in)
             } else {
-                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.fragment_exit)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_out)
             }
 
             else -> if (enter) {
-                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.fragment_enter)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_in)
             } else {
-                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.fragment_exit)
+                AnimatorInflater.loadAnimator(getKoin().get(), R.animator.slide_out)
             }
         }
     }

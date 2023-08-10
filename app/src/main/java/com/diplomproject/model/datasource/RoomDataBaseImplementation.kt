@@ -1,6 +1,5 @@
 package com.diplomproject.model.datasource
 
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.data_description_request.DataModelId
 import com.diplomproject.room.favorite.FavoriteDao

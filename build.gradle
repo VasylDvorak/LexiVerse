@@ -1,7 +1,11 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.14'
+    }
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id 'com.android.application' version '8.0.0' apply false
-    id 'com.android.library' version '8.0.0' apply false
+    id 'com.android.application' version '8.0.2' apply false
+    id 'com.android.library' version '8.0.2' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
     id 'com.google.gms.google-services' version '4.3.13' apply false
     id 'com.google.firebase.crashlytics' version '2.9.1' apply false
@@ -23,11 +27,21 @@ subprojects {
                     sourceCompatibility Config.java_version
                     targetCompatibility Config.java_version
                 }
+                buildTypes.each {
+                    Properties properties = new Properties()
+                    properties.load(project.rootProject.file( "url.properties" ).newDataInputStream ())
+                    def url = properties.getProperty( "baseUrl" , "" )
+                    it.buildConfigField "String" , "BASE_URL" , url
+                }
                 buildFeatures {
                     viewBinding = true
+                    buildConfig = true
                 }
             }
             dependencies {
+
+                //SplashScreen API
+                implementation("androidx.core:core-splashscreen:1.0.1")
 
                 //Design
                 implementation Design.appcompat

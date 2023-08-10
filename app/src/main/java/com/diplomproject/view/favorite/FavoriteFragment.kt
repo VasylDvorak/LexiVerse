@@ -1,26 +1,19 @@
 package com.diplomproject.view.favorite
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentHistoryFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.favoriteScreenScope
 import com.diplomproject.domain.base.BaseFragment
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.ui.viewById
 
-class FavoriteFragment : BaseFragment<AppState, FavoriteInteractor>() {
-
-
-    private var _binding: FragmentHistoryFavoriteBinding? = null
-    private val binding
-        get() = _binding!!
-
+class FavoriteFragment : BaseFragment<AppState,
+        FragmentHistoryFavoriteBinding>(FragmentHistoryFavoriteBinding::inflate) {
 
     private val historyActivityRecyclerview by viewById<RecyclerView>(R.id.history_activity_recyclerview)
     override lateinit var model: FavoriteViewModel
@@ -60,26 +53,12 @@ class FavoriteFragment : BaseFragment<AppState, FavoriteInteractor>() {
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHistoryFavoriteBinding.inflate(inflater, container, false)
-        return binding.root
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iniViewModel()
         initViews()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        releaseMediaPlayer()
-    }
 
     override fun onResume() {
         super.onResume()

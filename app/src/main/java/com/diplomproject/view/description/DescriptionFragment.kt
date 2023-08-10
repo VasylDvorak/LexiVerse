@@ -5,9 +5,7 @@ import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -24,32 +22,27 @@ import com.bumptech.glide.request.target.Target
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentDescriptionBinding
 import com.diplomproject.di.ConnectKoinModules.descriptionScreenScope
-import com.diplomproject.domain.base.BaseFragment
-import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.data_description_request.DescriptionAppState
 import com.diplomproject.model.data_description_request.Example
-import com.diplomproject.utils.network.OnlineRepository
-import com.diplomproject.utils.ui.AlertDialogFragment
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.AnimatorTranslator
+import com.diplomproject.view.OnlineRepository
 import com.diplomproject.view.settings_menu.BaseFragmentSettingsMenu
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import java.io.IOException
 
 
-class DescriptionFragment : BaseFragmentSettingsMenu() {
+class DescriptionFragment :
+    BaseFragmentSettingsMenu<FragmentDescriptionBinding>(FragmentDescriptionBinding::inflate) {
 
     private var snack: Snackbar? = null
     protected var isNetworkAvailable: Boolean = false
     private val checkConnection: OnlineRepository by inject()
     private val descriptionFragmentRecyclerview by viewById<RecyclerView>(R.id.description_recyclerview)
-    var mMediaPlayer: MediaPlayer? = null
     lateinit var model: DescriptionViewModel
     private val observer = Observer<DescriptionAppState> { renderData(it) }
-    private var _binding: FragmentDescriptionBinding? = null
-    private val binding
-        get() = _binding!!
 
     private val adapter: DiscriptionFragmentAdapter by lazy { DiscriptionFragmentAdapter(::onPlayClick) }
 
@@ -58,14 +51,6 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
         playContentUrl(url)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentDescriptionBinding.inflate(inflater, container, false)
-        return binding.root
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -104,7 +89,7 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                 }
                 val imageLink = currentDataModel.meanings?.get(0)?.imageUrl
                 if (imageLink.isNullOrBlank()) {
-                //    stopRefreshAnimationIfNeeded()
+                    //    stopRefreshAnimationIfNeeded()
                 } else {
                     useGlideToLoadPhoto(descriptionImageview, imageLink)
                 }
@@ -139,7 +124,6 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
 
 
     private fun updateAdapter(examples: List<Example>?) {
-        //  showViewSuccess()
         adapter?.setData(examples)
     }
 
@@ -151,33 +135,23 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
 
     private fun showError() {
         checkConnection.observe(
-            viewLifecycleOwner,
-            {
-                isNetworkAvailable = it
-                if (isNetworkAvailable) {
-                    snack?.dismiss()
-                    snack = null
-                    setData()
-                } else {
-                    snack = Snackbar.make(
-                        requireView(),
-                        R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
-                    )
-                    snack?.show()
-                  //  stopRefreshAnimationIfNeeded()
-                }
-            })
-        checkConnection.currentStatus()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-        if (mMediaPlayer?.isPlaying == true) {
-            mMediaPlayer?.stop()
-            mMediaPlayer?.release()
-            mMediaPlayer = null
+            viewLifecycleOwner
+        ) {
+            isNetworkAvailable = it
+            if (isNetworkAvailable) {
+                snack?.dismiss()
+                snack = null
+                setData()
+            } else {
+                snack = Snackbar.make(
+                    requireView(),
+                    R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
+                )
+                snack?.show()
+                //  stopRefreshAnimationIfNeeded()
+            }
         }
+        checkConnection.currentStatus()
     }
 
 
@@ -206,7 +180,7 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-                 //   stopRefreshAnimationIfNeeded()
+                    //   stopRefreshAnimationIfNeeded()
                     imageView.setImageResource(R.drawable.ic_load_error_vector)
                     return false
                 }
@@ -218,7 +192,7 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                 //  stopRefreshAnimationIfNeeded()
+                    //  stopRefreshAnimationIfNeeded()
                     return false
                 }
             })
@@ -232,26 +206,23 @@ class DescriptionFragment : BaseFragmentSettingsMenu() {
             .into(imageView)
     }
 
-    protected fun showNoInternetConnectionDialog() {
-        showAlertDialog(
-            getString(R.string.dialog_title_device_is_offline),
-            getString(R.string.dialog_message_device_is_offline)
-        )
-    }
-
-    protected fun showAlertDialog(title: String?, message: String?) {
-        activity?.let {
-            AlertDialogFragment.newInstance(title, message)
-                .show(it.supportFragmentManager, BaseFragment.DIALOG_FRAGMENT_TAG)
-        }
-    }
 
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
         return AnimatorTranslator().setAnimator(transit, enter)
     }
 
-    companion object {
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mMediaPlayer?.apply {
+            if (isPlaying == true) {
+                stop()
+                release()
+                mMediaPlayer = null
+            }
+        }
+    }
 
+    companion object {
         fun newInstance(bundle: Bundle): DescriptionFragment {
             val fragment = DescriptionFragment()
             fragment.arguments = bundle

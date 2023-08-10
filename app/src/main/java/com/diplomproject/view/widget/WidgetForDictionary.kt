@@ -1,5 +1,6 @@
 package com.diplomproject.view.widget
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -76,6 +77,7 @@ class WidgetForDictionary : AppWidgetProvider() {
     }
 
 
+    @SuppressLint("RemoteViewLayout")
     private fun receiveData(
         context: Context, withPendingIntent: Boolean
     ) {

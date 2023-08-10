@@ -1,4 +1,6 @@
 <resources>
+    <string name="splash_screen_title1">"Русско - Английский"</string>
+    <string name="splash_screen_title2">"Словарь"</string>
     <string name="app_name">"Словарь RU/EN"</string>
     <string name="error_textview_stub">Ошибка</string>
     <string name="enter_word">Введите слово</string>
@@ -66,7 +68,6 @@
     <string name="enter_all_data">Пожалуйста введите все данные..</string>
 
 
-
     <!--bottom SettingsFragment-->
     <string name="dictionary">Словарь</string>
     <string name="learning_together">Учимся вместе</string>
@@ -95,10 +96,38 @@
 
     <!-- Exception info -->
     <string name="fragment_exception">Такого фрагмента нет </string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="example_absent">Примеров употребления нету</string>
     <string name="example">Пример</string>
     <string name="enter_email_reg">enter_email</string>
     <string name="enter_password">enter_password</string>
+    <string name="set_time_delay">Установить задержку времени</string>
+    <string name="delay">Задержка</string>
+    <string name="show_notification_every">Показывать нотификацию каждые</string>
+    <string name="listen">Прослушать</string>
+    <string name="to_application">В приложение</string>
+    <string name="notificator_name">Dictionary</string>
+    <string name="empty_list">Список избрнных слов пуст</string>
+
+    <string name="dear_user">Дорогой пользователь!</string>
+    <string name="text_1">Благодарим вас за проявленный интерес к нашему приложению и за ваше желание поделиться своими мыслями и предложениями. Ваше мнение важно для нас, так как оно помогает сделать наше приложение еще лучше!</string>
+    <string name="text_2">Если у вас есть какие-либо вопросы, замечания или пожелания, мы с удовольствием выслушаем каждое слово, которое вы хотите нам передать. Ваше содействие в улучшении нашего продукта — это неоценимый вклад, который будет вдохновлять нас двигаться вперед.</string>
+    <string name="text_3">Спасибо, что выбрали наше приложение, и благодарим вас за доверие к нам. Мы стремимся создавать продукт, который отвечает вашим ожиданиям и делает ваш опыт использования незабываемым.</string>
+    <string name="text_5">С наилучшими пожеланиями,</string>
+    <string name="text_6">Команда разработчиков</string>
+    <string name="dvorak1981_yandex_ru">dvorak1981@yandex.ru</string>
+    <string name="no_connection_internet">Нет соединения с интернетом</string>
+    <string name="listen_button">listen</string>
+    <string name="login_button">login_button</string>
+    <string name="email_hint">Почта</string>
+    <string name="password_hint">Пароль</string>
+    <string name="button_logIn">Войти</string>
+    <string name="button_reg">Регистрация</string>
+    <string name="profile_user_setting">Профиль</string>
+    <string name="login_setting">Войти</string>
+    <string name="notif_email">Уведомление по почте</string>
+    <string name="notif_sms">Уведомление по смс</string>
+    <string name="notif_word">Напоминания слов</string>
+    <string name="share">Поделится…</string>
+    <string name="enter_word_search">Введите слово</string>
 </resources>

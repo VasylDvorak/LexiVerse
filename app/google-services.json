@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "380307172171",
-    "project_id": "learningtogether-f18a6",
-    "storage_bucket": "learningtogether-f18a6.appspot.com"
+    "project_number": "661213756750",
+    "project_id": "diplomproject-8465d",
+    "storage_bucket": "diplomproject-8465d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:380307172171:android:3698e5729bd368701416ce",
+        "mobilesdk_app_id": "1:661213756750:android:2978cdca66fbd523c2b21f",
         "android_client_info": {
           "package_name": "com.diplomproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "380307172171-vpnlv2s3v55jen3nrf6geg1tqm8c2e72.apps.googleusercontent.com",
+          "client_id": "661213756750-pbpefq04qjqlpmjtg0vgds3q07rfgeqd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCaF1qL3VCc-gXNKTFIEzgp55UYztoKuNY"
+          "current_key": "AIzaSyDFxr-WgNSqte5SPBVARD_Mqb4O9xUytMQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "380307172171-vpnlv2s3v55jen3nrf6geg1tqm8c2e72.apps.googleusercontent.com",
+              "client_id": "661213756750-pbpefq04qjqlpmjtg0vgds3q07rfgeqd.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,6 +1,10 @@
 package com.diplomproject.view
 
 import android.animation.ObjectAnimator
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkRequest
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,11 +15,12 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
+import androidx.lifecycle.LiveData
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityMainBinding
 import com.diplomproject.di.ConnectKoinModules
-import com.diplomproject.model.data_word_request.AppState
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
 import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.widget.NEW_DATA
@@ -33,7 +38,7 @@ private const val COUNTDOWN_INTERVAL = 1000L
 const val SHOW_DETAILS = "SHOW_DETAILS"
 
 class DictionaryActivity : AppCompatActivity() {
-
+    private val gson = Gson()
     private val navigatorHolder: NavigatorHolder by inject()
     private val router: Router by KoinJavaComponent.inject(Router::class.java)
     private val screen = KoinJavaComponent.getKoin().get<IScreens>()
@@ -48,9 +53,8 @@ class DictionaryActivity : AppCompatActivity() {
         vb = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vb?.root)
 
-        val fromWidget = intent.extras?.getString(SHOW_DETAILS)
+        val fromWidget = intent.extras?.getString(SHOW_DETAILS, null)
         val showDataModel = Gson().fromJson(fromWidget, DataModel::class.java)
-
         if (showDataModel != null) {
             router.replaceScreen(screen.startDescriptionFragment(showDataModel))
         } else {
@@ -71,18 +75,19 @@ class DictionaryActivity : AppCompatActivity() {
                         val appSharedPrefs =
                             PreferenceManager.getDefaultSharedPreferences(applicationContext)
                         val prefsEditor = appSharedPrefs.edit()
-                        val gson = Gson()
+
                         val json = gson.toJson(it)
                         prefsEditor.putString(NEW_DATA, json)
                         prefsEditor.apply()
                     }
                 }
+
                 else -> {}
             }
         }
         model.getData("", false)
-
     }
+
 
     override fun onResumeFragments() {
         super.onResumeFragments()
@@ -147,4 +152,46 @@ class DictionaryActivity : AppCompatActivity() {
 
     }
 
+}
+
+class OnlineRepository : LiveData<Boolean>() {
+
+    private val context: Context = KoinJavaComponent.getKoin().get()
+    private val availableNetworks = mutableSetOf<Network>()
+    private val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    private val request: NetworkRequest = NetworkRequest.Builder().build()
+    private val callback = object : ConnectivityManager.NetworkCallback() {
+        override fun onLost(network: Network) {
+            availableNetworks.remove(network)
+            update(availableNetworks.isNotEmpty())
+        }
+
+        override fun onAvailable(network: Network) {
+            availableNetworks.add(network)
+            update(availableNetworks.isNotEmpty())
+        }
+    }
+
+
+    override fun onActive() {
+        connectivityManager.registerNetworkCallback(request, callback)
+    }
+
+    override fun onInactive() {
+        connectivityManager.unregisterNetworkCallback(callback)
+    }
+
+    private fun update(online: Boolean) {
+        if (online != value) {
+            postValue(online)
+        }
+    }
+
+    fun currentStatus(): Boolean {
+        onActive()
+        val hasNetwork = availableNetworks.isNotEmpty()
+        postValue(hasNetwork)
+        return hasNetwork
+    }
 }
