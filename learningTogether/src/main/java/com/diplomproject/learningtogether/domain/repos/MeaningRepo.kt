@@ -2,5 +2,5 @@ package com.diplomproject.learningtogether.domain.repos
 
 interface MeaningRepo {
 
-    suspend fun getImageUrl(word: String): String
+    fun getImageUrl(word: String, onSuccess: (String?) -> Unit)
 }

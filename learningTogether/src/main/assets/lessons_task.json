@@ -6,7 +6,7 @@
     "lessons": [
       {
         "id": 10,
-        "name": "English Lesson 1",
+        "name": "English Lesson 1.1",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English1.jpg?alt=media&token=cce3804b-aca0-48f5-9854-f9e62efc28f7",
         "victory_image_url": "https://avatars.mds.yandex.net/get-zen_doc/1244179/pub_5c7f8fe55b0ac200b3abd1ad_5c7f912362b23d00b4837dc3/scale_1200",
         "tasks": [
@@ -98,8 +98,8 @@
       },
       {
         "id": 20,
-        "name": "English Lesson 2",
-        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
+        "name": "English Lesson 1.2 ACTIONS",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1_2.jpg?alt=media&token=f62b8af6-d790-4051-bfb8-c1e19b954291",
         "victory_image_url": "",
         "tasks": [
           {
@@ -246,8 +246,8 @@
       },
       {
         "id": 30,
-        "name": "English Lesson 3",
-        "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
+        "name": "English Lesson 1.3 ACTIONS",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours3%2FLesson3_2.jpg?alt=media&token=921dbfa0-03f1-4c2b-a84a-011e47078be9",
         "victory_image_url": "",
         "tasks": [
           {
@@ -436,7 +436,7 @@
       },
       {
         "id": 40,
-        "name": "English Lesson 2",
+        "name": "English Lesson 1.4",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
         "victory_image_url": "",
         "tasks": [
@@ -486,7 +486,7 @@
       },
       {
         "id": 50,
-        "name": "English Lesson 3",
+        "name": "English Lesson 1.5",
         "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
         "victory_image_url": "",
         "tasks": [
@@ -1396,60 +1396,444 @@
   {
     "id": 3,
     "name": "English Course 3",
-    "logo_url": "https://desano.ru/img/?i=DDtSNlJnU2tQKlJLAAZXeVFlADRSbwcwBDRXf1Y1V3kEaFB1VDU.2.jpg",
+    "logo_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FCours2.jpeg?alt=media&token=9f828915-55ac-4d31-8709-b7095e417497",
     "lessons": [
       {
-        "id": 99,
-        "name": "Kotlin Basic",
-        "image_url": "https://www.pvsm.ru/images/2016/02/25/piter-vstrecha-JUG-ru-s-razrabotchikami-Kotlin.jpg",
+        "id": 10212,
+        "name": "English Lesson 3.1 BODY PARTS",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2FLesson2_3.png?alt=media&token=3d8bc2e8-2a2a-435c-a804-37b0755e13aa",
         "victory_image_url": "",
         "tasks": [
           {
-            "id": 121,
-            "task": "Что такое object в Kotlin?",
-            "right_answer": "Синглтон",
+            "id": 10010410,
+            "task": "Arm",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Farm.png?alt=media&token=1dabe319-09a4-4aa8-a479-9120330f07bd",
+            "right_answer": "Рука",
             "variants_answer": [
-              "Синглтон",
-              "Базовый класс Java",
-              "Поток",
-              "Переменная"
-            ],
-            "level": 1,
-            "favourites": false
-          },
-          {
-            "id": 212,
-            "task": "Проверка на равенство позволяющая сравнивать данные, содержащиеся в переменных",
-            "right_answer": "equals",
-            "variants_answer": [
-              "toString",
-              "equals",
-              "true",
-              "argument"
-            ],
-            "level": 1,
-            "favourites": false
-          },
-          {
-            "id": 312,
-            "task": "что это за конструкция?\nval str = \"abcd\"",
-            "right_answer": "это объявление неизменяемой String переменной",
-            "variants_answer": [
-              "это объявление неизменяемой String переменной",
-              "это объявление изменяемой String переменной",
-              "это массив",
-              "это вызов класса"
+              "Рука",
+              "Кисть",
+              "Нога",
+              "Локоть"
             ],
             "level": 2,
             "favourites": false
           },
           {
-            "id": 412,
-            "task": "Является ли true значением Boolean?",
-            "right_answer": "Да",
+            "id": 10010411,
+            "task": "Back",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fback.png?alt=media&token=d9404a2b-82a5-4d4d-8072-927a07841304",
+            "right_answer": "Спина",
             "variants_answer": [
-              "Да",
-              "Нет"
+              "Позвоночник",
+              "Спина",
+              "Живот",
+              "Нога"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010412,
+            "task": "Blood",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fblood.png?alt=media&token=dd32a2f2-9f4a-4468-aa44-1252b7f8e134",
+            "right_answer": "Кровь",
+            "variants_answer": [
+              "Рука",
+              "Палец",
+              "Капля",
+              "Кровь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010413,
+            "task": "Body parts",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fbody%20parts.png?alt=media&token=5bb2e863-1904-4030-8d84-59d1e8a1be8a",
+            "right_answer": "Части тела",
+            "variants_answer": [
+              "Рука",
+              "Части тела",
+              "Ухо",
+              "Стопа"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010414,
+            "task": "Body",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fbody.png?alt=media&token=bdcc754d-cb43-4b15-8b2f-ef4428100e07",
+            "right_answer": "Тело",
+            "variants_answer": [
+              "Рука",
+              "Голова",
+              "Нога",
+              "Тело"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010415,
+            "task": "Bone",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fbone.png?alt=media&token=ec352b6c-2cbc-4ccb-8a8f-75adabbc8e67",
+            "right_answer": "Кость",
+            "variants_answer": [
+              "Кость",
+              "Бедро",
+              "Рука",
+              "Палец"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010416,
+            "task": "Bottom",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fbottom.png?alt=media&token=bd80cfe1-afb9-4124-8f85-374610ad0dd0",
+            "right_answer": "Зад",
+            "variants_answer": [
+              "Зад",
+              "Попа",
+              "Бедра",
+              "Туловище"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010417,
+            "task": "Cheek",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fcheek.png?alt=media&token=32472576-94b4-4346-ace0-1f52a9b2e09c",
+            "right_answer": "Щека",
+            "variants_answer": [
+              "Голова",
+              "Лицо",
+              "Щека",
+              "Яйцо"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010418,
+            "task": "Chin",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fchin.png?alt=media&token=b43443d5-d4e3-459b-ae3e-717a7d10091a",
+            "right_answer": "Подбородок",
+            "variants_answer": [
+              "Лицо",
+              "Щёки",
+              "Голова",
+              "Подбородок"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010419,
+            "task": "Ear",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fear.png?alt=media&token=2b83bf65-4413-4931-ab7f-33f22fa6dc9c",
+            "right_answer": "Ухо",
+            "variants_answer": [
+              "Тело",
+              "Ухо",
+              "Мочка уха",
+              "Нос"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010420,
+            "task": "Elbow",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Felbow.png?alt=media&token=68edae8f-2c35-468d-8092-c4c03548678f",
+            "right_answer": "Локоть",
+            "variants_answer": [
+              "Рука",
+              "Колено",
+              "Нога",
+              "Локоть"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010421,
+            "task": "Eyes",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Feyes.png?alt=media&token=4a3231fa-5620-4a52-a3c8-7fe459f709ac",
+            "right_answer": "Глаза",
+            "variants_answer": [
+              "Брови",
+              "Зрачки",
+              "Глаза",
+              "Ресницы"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010422,
+            "task": "Facial hair",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Ffacial%20hair.png?alt=media&token=4438cbab-2ded-4d08-acc4-a3a6bfa1d977",
+            "right_answer": "Волосы на лице",
+            "variants_answer": [
+              "Шея",
+              "Голова",
+              "Волосы на лице",
+              "Нос"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010423,
+            "task": "Finger",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Ffinger.png?alt=media&token=22d11b92-4636-4a17-8f73-00592188ddd3",
+            "right_answer": "Палец",
+            "variants_answer": [
+              "Рука",
+              "Части тела",
+              "Палец",
+              "Лодонь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010424,
+            "task": "Fingernail",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Ffingernail.png?alt=media&token=c8a43fc0-486a-4e05-9a6d-945b135d7684",
+            "right_answer": "Ноготь",
+            "variants_answer": [
+              "Ноготь",
+              "Палец",
+              "Рука",
+              "Тело"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010425,
+            "task": "Foot",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Ffoot.png?alt=media&token=1091a887-8dec-4fde-955e-f8b9da60ef61",
+            "right_answer": "Стопа",
+            "variants_answer": [
+              "Палец",
+              "Стопа",
+              "Бедро",
+              "Нога"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010426,
+            "task": "Forehead",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fforehead.png?alt=media&token=c00a1035-1f04-4172-8723-c6f99d10dcf1",
+            "right_answer": "Лоб",
+            "variants_answer": [
+              "Брови",
+              "Попа",
+              "Лицо",
+              "Лоб"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010427,
+            "task": "Hair",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fhair.png?alt=media&token=933e9c61-29fc-44c3-a69e-40e8a413e665",
+            "right_answer": "Волосы",
+            "variants_answer": [
+              "Голова",
+              "Волосы",
+              "Ухо",
+              "Лицо"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010428,
+            "task": "Hand",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fhand.png?alt=media&token=03a5a464-925a-4cca-9495-ccdd70a941b9",
+            "right_answer": "Рука",
+            "variants_answer": [
+              "Лодонь",
+              "Ноготь",
+              "Палец",
+              "Рука"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010429,
+            "task": "Head",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fhead.png?alt=media&token=9750eeb7-f4df-4fac-8088-34da508977fa",
+            "right_answer": "Голова",
+            "variants_answer": [
+              "Тело",
+              "Ухо",
+              "Голова",
+              "Лицо"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010430,
+            "task": "Hip",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fhip.png?alt=media&token=668be063-c465-47b2-91b2-d2065005ac9b",
+            "right_answer": "Бедро",
+            "variants_answer": [
+              "Талия",
+              "Бедро",
+              "Тело",
+              "Нога"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010431,
+            "task": "Knee",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fknee.png?alt=media&token=09870b73-1a49-47b3-bef0-ba8703573728",
+            "right_answer": "Колено",
+            "variants_answer": [
+              "Нога",
+              "Бедро",
+              "Рука",
+              "Колено"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010432,
+            "task": "Left",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fleft.png?alt=media&token=89522ab8-60da-4e35-bb61-0166bf0eef8d",
+            "right_answer": "Слева",
+            "variants_answer": [
+              "Пальцы",
+              "Слева",
+              "Рука",
+              "Лодонь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010433,
+            "task": "Leg",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fleg.png?alt=media&token=16173e03-22d1-4d16-ae55-e1bf103d3d67",
+            "right_answer": "Нога",
+            "variants_answer": [
+              "Нога",
+              "Стопа",
+              "Бедро",
+              "Колено"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010434,
+            "task": "Missing tooth",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fmissing%20tooth.png?alt=media&token=0301bd9a-5290-47f5-8598-370122792d0a",
+            "right_answer": "Отсутствующий зуб",
+            "variants_answer": [
+              "Зуб",
+              "Лицо",
+              "Отсутствующий зуб",
+              "Глаза"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010435,
+            "task": "Mouth",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fmouth.png?alt=media&token=9ddcc0d3-c7ea-4c76-b047-d808b9e46282",
+            "right_answer": "Рот",
+            "variants_answer": [
+              "Зубы",
+              "Рот",
+              "Губы",
+              "Язык"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010436,
+            "task": " Muscle",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fmuscle.png?alt=media&token=937e5d33-4287-4e37-b345-954a7e24728e",
+            "right_answer": "Мускул",
+            "variants_answer": [
+              "Рука",
+              "Мускул",
+              "Локото",
+              "Лодонь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010437,
+            "task": "Neck",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fneck.png?alt=media&token=6f10ed3e-574e-4671-a47b-37d4b2591a74",
+            "right_answer": "Шея",
+            "variants_answer": [
+              "Шея",
+              "Голова",
+              "Лицо",
+              "Плечи"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010438,
+            "task": "Nose",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fnose.png?alt=media&token=53b6d4c6-7e86-4a06-ad18-e0a97df8381f",
+            "right_answer": "Нос",
+            "variants_answer": [
+              "Голова",
+              "Лицо",
+              "Ноздри",
+              "Нос"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010439,
+            "task": "Right",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fright.png?alt=media&token=a4b74cd5-878d-4fa2-8940-9647580fd22f",
+            "right_answer": "Право",
+            "variants_answer": [
+              "Лодонь",
+              "Право",
+              "Палец",
+              "Рука"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10010440,
+            "task": "Shoulder",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fshoulder.png?alt=media&token=3297dde3-ec39-4519-b3f9-d4c1beb85c93",
+            "right_answer": "Плечо",
+            "variants_answer": [
+              "Тело",
+              "Рука",
+              "Локоть",
+              "Плечо"
             ],
             "level": 2,
             "favourites": false
@@ -1457,57 +1841,189 @@
         ]
       },
       {
-        "id": 77,
-        "name": "Kotlin Lesson 2",
-        "image_url": "https://www.explore-group.com/storage/images-processed/w-1500_h-auto_m-fit_s-any__highres_476144970.jpeg",
+        "id": 30,
+        "name": "English Lesson 3.2 ACTIONS",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours3%2FLesson3_2.jpg?alt=media&token=921dbfa0-03f1-4c2b-a84a-011e47078be9",
         "victory_image_url": "",
         "tasks": [
           {
-            "id": 123,
-            "task": "Что такое object в Kotlin?",
-            "right_answer": "Синглтон",
+            "id": 100031,
+            "task": "Drink",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fdrink.png?alt=media&token=d1d3266b-3b4e-409c-8e21-d0c418d97bb7",
+            "right_answer": "Пить",
             "variants_answer": [
-              "Синглтон",
-              "Базовый класс Java",
-              "Поток",
-              "Переменная"
-            ],
-            "level": 1,
-            "favourites": false
-          },
-          {
-            "id": 223,
-            "task": "Проверка на равенство позволяющая сравнивать данные, содержащиеся в переменных",
-            "right_answer": "equals",
-            "variants_answer": [
-              "toString",
-              "equals",
-              "true",
-              "argument"
-            ],
-            "level": 1,
-            "favourites": false
-          },
-          {
-            "id": 323,
-            "task": "что это за конструкция?\nval str = \"abcd\"",
-            "right_answer": "это объявление неизменяемой String переменной",
-            "variants_answer": [
-              "это объявление неизменяемой String переменной",
-              "это объявление изменяемой String переменной",
-              "это массив",
-              "это вызов класса"
+              "Пить",
+              "Поднимать",
+              "Читать",
+              "Прыгать"
             ],
             "level": 2,
             "favourites": false
           },
           {
-            "id": 423,
-            "task": "Является ли true значением Boolean?",
-            "right_answer": "Да",
+            "id": 100032,
+            "task": "Eat",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Feat.png?alt=media&token=23b079e1-5420-48c8-b1ef-295aa16b19da",
+            "right_answer": "Есть",
             "variants_answer": [
-              "Да",
-              "Нет"
+              "Танцевать",
+              "Есть",
+              "Бегать",
+              "Рисовать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100033,
+            "task": "Jump",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fjump.png?alt=media&token=b282bd88-b543-46ab-9dc0-1906b0521d96",
+            "right_answer": "Прыгать",
+            "variants_answer": [
+              "Пинать",
+              "Играть",
+              "Прыгать",
+              "Зевать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100034,
+            "task": "Kick",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fkick.png?alt=media&token=38e2ab83-ef22-4a28-9407-4ec998675af3",
+            "right_answer": "Пинать",
+            "variants_answer": [
+              "Давать",
+              "Гулять",
+              "Пинать",
+              "Прыгать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100035,
+            "task": "Lift",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Flift.png?alt=media&token=92e68a82-9f47-47a8-bf01-32aabf60cad2",
+            "right_answer": "Поднимать",
+            "variants_answer": [
+              "Петь",
+              "Играть",
+              "Кататся",
+              "Поднимать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100036,
+            "task": "Read",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fread.png?alt=media&token=0eea017c-17ca-4435-b34c-bdcfeb92b713",
+            "right_answer": "Читать",
+            "variants_answer": [
+              "Пинать",
+              "Играть",
+              "Читать",
+              "Прыгать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100037,
+            "task": "Run",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Frun.png?alt=media&token=31566ccd-a2e1-44f3-b4cf-34d941fe4e51",
+            "right_answer": "Бегать",
+            "variants_answer": [
+              "Бегать",
+              "Сидеть",
+              "Стоять",
+              "Видеть"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100038,
+            "task": "Sind",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fsing.png?alt=media&token=f1c7cb16-cb7e-4f5d-9372-bf8891acf6bd",
+            "right_answer": "Петь",
+            "variants_answer": [
+              "Танцевать",
+              "Брать",
+              "Нюхать",
+              "Петь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100039,
+            "task": "Sit",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fsit.png?alt=media&token=830de8e0-f01b-45f8-8072-4a66051ac2f9",
+            "right_answer": "Сидеть",
+            "variants_answer": [
+              "Трогать",
+              "Стоять",
+              "Сидеть",
+              "Кататься"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000391,
+            "task": "Smell",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fsmell.png?alt=media&token=9665d03f-9823-417b-9377-1f242230a0ea",
+            "right_answer": "Нюхать",
+            "variants_answer": [
+              "Давать",
+              "Брать",
+              "Зевать",
+              "Нюхать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000392,
+            "task": "Stand",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fstand.png?alt=media&token=75892810-c0eb-4486-9bbd-6b0a19258688",
+            "right_answer": "Стоять",
+            "variants_answer": [
+              "Стоять",
+              "Есть",
+              "Нюхать",
+              "Петь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000393,
+            "task": "Taste",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Ftaste.png?alt=media&token=c6736ff3-d3e9-4bc1-9e1c-47e4ca5e727d",
+            "right_answer": "Пробовал",
+            "variants_answer": [
+              "Пробовал",
+              "Стоять",
+              "Пить",
+              "Кататься"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000394,
+            "task": "Walk",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fwalk.png?alt=media&token=d26b0e71-2e44-44b5-a6f3-90c52aada62a",
+            "right_answer": "Гулять",
+            "variants_answer": [
+              "Гулять",
+              "Брать",
+              "Зевать",
+              "Нюхать"
             ],
             "level": 2,
             "favourites": false
@@ -1522,91 +2038,147 @@
     "logo_url": "https://www.nicolasalvatore.com/web/wp-content/uploads/2015/09/traduzione-italiano-inglese-1022x1024.png",
     "lessons": [
       {
-        "id": 55,
-        "name": "English Lesson 1",
-        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English1.jpg?alt=media&token=cce3804b-aca0-48f5-9854-f9e62efc28f7",
-        "victory_image_url": "https://avatars.mds.yandex.net/get-zen_doc/1244179/pub_5c7f8fe55b0ac200b3abd1ad_5c7f912362b23d00b4837dc3/scale_1200",
+        "id": 20,
+        "name": "English Lesson 4.1 ACTIONS",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1_2.jpg?alt=media&token=f62b8af6-d790-4051-bfb8-c1e19b954291",
+        "victory_image_url": "",
         "tasks": [
           {
-            "id": 155,
-            "task": "Good afternoon",
-            "task_image_url": "https://yur-gazeta.ru/wp-content/uploads/2021/02/sposoby-privetstvija-v-raznyh-stranah-mira-46d45df.jpg",
-            "right_answer": "Добрый день",
+            "id": 1000,
+            "task": "Hear",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fhear.png?alt=media&token=17f9e642-5550-46ea-98c7-2edced3c6a98",
+            "right_answer": "Слышать",
             "variants_answer": [
-              "Добрый день",
-              "Привет",
-              "Добрый вечер",
-              "До свидания"
-            ],
-            "level": 1,
-            "favourites": false
-          },
-          {
-            "id": 255,
-            "task": "Table",
-            "task_image_url": "https://garantanapa.ru/wp-content/uploads/2021/02/xt_120213_02.jpg",
-            "right_answer": "Стол",
-            "variants_answer": [
-              "Стул",
-              "Стол",
-              "Ручка",
-              "Таблица"
-            ],
-            "level": 1,
-            "favourites": false
-          },
-          {
-            "id": 355,
-            "task": "Sofa",
-            "task_image_url": "https://www.sunhome.ru/i/wallpapers/60/oranzhevii-divan.orig.jpg",
-            "right_answer": "Диван",
-            "variants_answer": [
-              "Стол",
-              "Кресло",
-              "Диван",
-              "Ваза"
-            ],
-            "level": 1,
-            "favourites": false
-          },
-          {
-            "id": 455,
-            "task": "Pencil",
-            "task_image_url": "https://all-t-shirts.ru/goods_images/ru130894II000cb37cd61f64c542399c1a831c84de5d5.jpg",
-            "right_answer": "Карандаш",
-            "variants_answer": [
-              "Ручка",
-              "Линейка",
-              "Пенал",
-              "Карандаш"
+              "Рисовать",
+              "Слышать",
+              "Спать",
+              "Играть"
             ],
             "level": 2,
             "favourites": false
           },
           {
-            "id": 555,
-            "task": "Telephone",
-            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
-            "right_answer": "Телефон",
+            "id": 2000,
+            "task": "Dance",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fdance.png?alt=media&token=c141aa9e-1684-472d-a40e-66e24bb9db33",
+            "right_answer": "Танцевать",
             "variants_answer": [
-              "Телега",
-              "Телефон",
-              "Ручка",
-              "Телевизор"
+              "Танцевать",
+              "Зевать",
+              "Кататся",
+              "Рисовать"
             ],
             "level": 2,
             "favourites": false
           },
           {
-            "id": 655,
-            "task": "Mouse",
-            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
-            "right_answer": "Мышь",
+            "id": 3000,
+            "task": "Draw",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fdraw.png?alt=media&token=ed1913dc-398b-43f8-b6cf-c09657215104",
+            "right_answer": "Рисовать",
             "variants_answer": [
-              "Мышь",
-              "Собака",
-              "Скунс",
-              "Змея"
+              "Рисовать",
+              "Играть",
+              "Смотреть",
+              "Зевать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 4000,
+            "task": "Give",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fgive.png?alt=media&token=109f24d0-038c-42ac-87e9-2463e8c3688d",
+            "right_answer": "Давать",
+            "variants_answer": [
+              "Давать",
+              "Брать",
+              "Спать",
+              "Видеть"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 5000,
+            "task": "Play",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fplay.png?alt=media&token=6313d1cb-2248-42b2-9983-f68074b4b52d",
+            "right_answer": "Играть",
+            "variants_answer": [
+              "Танцевать",
+              "Играть",
+              "Кататся",
+              "Слушать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 6000,
+            "task": "Ride",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fride.png?alt=media&token=863db4ba-6a6c-48a5-a606-49e660253de1",
+            "right_answer": "Кататся",
+            "variants_answer": [
+              "Трогать",
+              "Играть",
+              "Кататся",
+              "Танцевать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 7000,
+            "task": "See",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fsee.png?alt=media&token=23935257-79ca-4ed0-8117-3cb7d1d748d8",
+            "right_answer": "Видеть",
+            "variants_answer": [
+              "Рисовать",
+              "Слышать",
+              "Давать",
+              "Видеть"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 8000,
+            "task": "Take",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Ftake.png?alt=media&token=1443e9bf-4311-4f6a-9037-bbc0b91b3469",
+            "right_answer": "Брать",
+            "variants_answer": [
+              "Танцевать",
+              "Брать",
+              "Нюхать",
+              "Видеть"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 9000,
+            "task": "Touch",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Ftouch.png?alt=media&token=b4227f07-07ec-4062-9b9f-7893cfb9e8fe",
+            "right_answer": "Трогать",
+            "variants_answer": [
+              "Трогать",
+              "Зевать",
+              "Смотреть",
+              "Кататься"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 10000,
+            "task": "Yawn",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fyawn.png?alt=media&token=3cf6528f-220e-43b8-b959-dcaf57fca8cb",
+            "right_answer": "Зевать",
+            "variants_answer": [
+              "Давать",
+              "Брать",
+              "Зевать",
+              "Видеть"
             ],
             "level": 2,
             "favourites": false
@@ -1614,13 +2186,203 @@
         ]
       },
       {
-        "id": 277,
-        "name": "English Lesson 2",
+        "id": 30,
+        "name": "English Lesson 4.2 ACTIONS",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours3%2FLesson3_2.jpg?alt=media&token=921dbfa0-03f1-4c2b-a84a-011e47078be9",
+        "victory_image_url": "",
+        "tasks": [
+          {
+            "id": 100031,
+            "task": "Drink",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fdrink.png?alt=media&token=d1d3266b-3b4e-409c-8e21-d0c418d97bb7",
+            "right_answer": "Пить",
+            "variants_answer": [
+              "Пить",
+              "Поднимать",
+              "Читать",
+              "Прыгать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100032,
+            "task": "Eat",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Feat.png?alt=media&token=23b079e1-5420-48c8-b1ef-295aa16b19da",
+            "right_answer": "Есть",
+            "variants_answer": [
+              "Танцевать",
+              "Есть",
+              "Бегать",
+              "Рисовать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100033,
+            "task": "Jump",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fjump.png?alt=media&token=b282bd88-b543-46ab-9dc0-1906b0521d96",
+            "right_answer": "Прыгать",
+            "variants_answer": [
+              "Пинать",
+              "Играть",
+              "Прыгать",
+              "Зевать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100034,
+            "task": "Kick",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fkick.png?alt=media&token=38e2ab83-ef22-4a28-9407-4ec998675af3",
+            "right_answer": "Пинать",
+            "variants_answer": [
+              "Давать",
+              "Гулять",
+              "Пинать",
+              "Прыгать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100035,
+            "task": "Lift",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Flift.png?alt=media&token=92e68a82-9f47-47a8-bf01-32aabf60cad2",
+            "right_answer": "Поднимать",
+            "variants_answer": [
+              "Петь",
+              "Играть",
+              "Кататся",
+              "Поднимать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100036,
+            "task": "Read",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fread.png?alt=media&token=0eea017c-17ca-4435-b34c-bdcfeb92b713",
+            "right_answer": "Читать",
+            "variants_answer": [
+              "Пинать",
+              "Играть",
+              "Читать",
+              "Прыгать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100037,
+            "task": "Run",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Frun.png?alt=media&token=31566ccd-a2e1-44f3-b4cf-34d941fe4e51",
+            "right_answer": "Бегать",
+            "variants_answer": [
+              "Бегать",
+              "Сидеть",
+              "Стоять",
+              "Видеть"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100038,
+            "task": "Sind",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fsing.png?alt=media&token=f1c7cb16-cb7e-4f5d-9372-bf8891acf6bd",
+            "right_answer": "Петь",
+            "variants_answer": [
+              "Танцевать",
+              "Брать",
+              "Нюхать",
+              "Петь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 100039,
+            "task": "Sit",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fsit.png?alt=media&token=830de8e0-f01b-45f8-8072-4a66051ac2f9",
+            "right_answer": "Сидеть",
+            "variants_answer": [
+              "Трогать",
+              "Стоять",
+              "Сидеть",
+              "Кататься"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000391,
+            "task": "Smell",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fsmell.png?alt=media&token=9665d03f-9823-417b-9377-1f242230a0ea",
+            "right_answer": "Нюхать",
+            "variants_answer": [
+              "Давать",
+              "Брать",
+              "Зевать",
+              "Нюхать"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000392,
+            "task": "Stand",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fstand.png?alt=media&token=75892810-c0eb-4486-9bbd-6b0a19258688",
+            "right_answer": "Стоять",
+            "variants_answer": [
+              "Стоять",
+              "Есть",
+              "Нюхать",
+              "Петь"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000393,
+            "task": "Taste",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Ftaste.png?alt=media&token=c6736ff3-d3e9-4bc1-9e1c-47e4ca5e727d",
+            "right_answer": "Пробовал",
+            "variants_answer": [
+              "Пробовал",
+              "Стоять",
+              "Пить",
+              "Кататься"
+            ],
+            "level": 2,
+            "favourites": false
+          },
+          {
+            "id": 1000394,
+            "task": "Walk",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fwalk.png?alt=media&token=d26b0e71-2e44-44b5-a6f3-90c52aada62a",
+            "right_answer": "Гулять",
+            "variants_answer": [
+              "Гулять",
+              "Брать",
+              "Зевать",
+              "Нюхать"
+            ],
+            "level": 2,
+            "favourites": false
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "name": "English Lesson 4.3",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
         "victory_image_url": "",
         "tasks": [
           {
-            "id": 177,
+            "id": 1001,
             "task": "Telephone",
             "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
             "right_answer": "Телефон",
@@ -1634,7 +2396,7 @@
             "favourites": false
           },
           {
-            "id": 277,
+            "id": 2002,
             "task": "Mouse",
             "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
             "right_answer": "Мышь",
@@ -1648,107 +2410,7 @@
             "favourites": false
           },
           {
-            "id": 377,
-            "task": "Chair",
-            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
-            "right_answer": "Стул",
-            "variants_answer": [
-              "Стул",
-              "Диван",
-              "Ваза",
-              "Ручка"
-            ],
-            "level": 2,
-            "favourites": false
-          }
-        ]
-      },
-      {
-        "id": 388,
-        "name": "English Lesson 3",
-        "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
-        "victory_image_url": "",
-        "tasks": [
-          {
-            "id": 188,
-            "task": "Telephone",
-            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
-            "right_answer": "Телефон",
-            "variants_answer": [
-              "Телега",
-              "Телефон",
-              "Ручка",
-              "Телевизор"
-            ],
-            "level": 2,
-            "favourites": false
-          },
-          {
-            "id": 288,
-            "task": "Mouse",
-            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
-            "right_answer": "Мышь",
-            "variants_answer": [
-              "Мышь",
-              "Собака",
-              "Скунс",
-              "Змея"
-            ],
-            "level": 2,
-            "favourites": false
-          },
-          {
-            "id": 388,
-            "task": "Chair",
-            "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
-            "right_answer": "Стул",
-            "variants_answer": [
-              "Стул",
-              "Диван",
-              "Ваза",
-              "Ручка"
-            ],
-            "level": 2,
-            "favourites": false
-          }
-        ]
-      },
-      {
-        "id": 444,
-        "name": "English Lesson 2",
-        "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
-        "victory_image_url": "",
-        "tasks": [
-          {
-            "id": 144,
-            "task": "Telephone",
-            "task_image_url": "https://fotodes.ru/upload/img1342087661.jpg",
-            "right_answer": "Телефон",
-            "variants_answer": [
-              "Телега",
-              "Телефон",
-              "Ручка",
-              "Телевизор"
-            ],
-            "level": 2,
-            "favourites": false
-          },
-          {
-            "id": 244,
-            "task": "Mouse",
-            "task_image_url": "https://grizun-off.ru/wp-content/uploads/f/8/5/f85b86be6fa0485eb4178cf26a9ac35f.jpg",
-            "right_answer": "Мышь",
-            "variants_answer": [
-              "Мышь",
-              "Собака",
-              "Скунс",
-              "Змея"
-            ],
-            "level": 2,
-            "favourites": false
-          },
-          {
-            "id": 344,
+            "id": 3003,
             "task": "Chair",
             "task_image_url": "https://spb.actual-d.ru/wp-content/uploads/sites/5/2017/10/1-stul-9t.png",
             "right_answer": "Стул",
@@ -1765,7 +2427,7 @@
       },
       {
         "id": 511,
-        "name": "English Lesson 3",
+        "name": "English Lesson 4.4",
         "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
         "victory_image_url": "",
         "tasks": [

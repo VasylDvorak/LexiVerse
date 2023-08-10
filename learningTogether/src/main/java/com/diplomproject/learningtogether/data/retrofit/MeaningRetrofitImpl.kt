@@ -1,9 +1,12 @@
 package  com.diplomproject.learningtogether.data.retrofit
 
+import com.diplomproject.learningtogether.domain.entities.SkyengWordEntity
 import com.diplomproject.learningtogether.domain.repos.MeaningRepo
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -11,8 +14,50 @@ private const val BASE_URL_LOCATIONS = "https://dictionary.skyeng.ru/api/public/
 
 class MeaningRetrofitImpl : MeaningRepo {
 
-    override suspend fun getImageUrl(word: String): String {
-        return getService().wordAsync(word).await().first().meanings.first().imageUrl
+    private fun findImageUrlForWord(wordEntities: List<SkyengWordEntity>, word: String): String? {
+        for (wordEntity in wordEntities) {
+            if (wordEntity.text == word) {
+                return wordEntity.meanings.getOrNull(0)?.imageUrl
+            }
+        }
+        return null
+    }
+
+    override fun getImageUrl(word: String, onSuccess: (String?) -> Unit) {
+        getService().wordAsync(word).enqueue(
+            object : Callback<List<SkyengWordEntity>> {
+                override fun onResponse(
+                    call: Call<List<SkyengWordEntity>>,
+                    response: Response<List<SkyengWordEntity>>
+                ) {
+
+//                    val wordEntities = response.body()
+//
+//                    if (wordEntities != null) {
+//                        val imageUrl = findImageUrlForWord(wordEntities, word)
+//                        val cleanedUrl = imageUrl?.replace("^.*?(https?://.*)".toRegex(), "$1")
+//                        onSuccess.invoke(cleanedUrl)
+//                    } else {
+//                        onSuccess(null)
+//                    }
+
+
+                    val imageUrl = response.body()!!.first().meanings.first().imageUrl
+
+                    val cleanedUrl = imageUrl!!.replace("^.*?(https?://.*)".toRegex(), "$1")
+
+                    if (response.isSuccessful && cleanedUrl != null) {
+                        onSuccess.invoke(cleanedUrl)
+                    } else {
+                        onSuccess(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<List<SkyengWordEntity>>, t: Throwable) {
+                    onSuccess(null)
+                }
+            }
+        )
     }
 
     private fun getService(): ApiService {
@@ -23,7 +68,6 @@ class MeaningRetrofitImpl : MeaningRepo {
         return Retrofit.Builder()
             .baseUrl(BASE_URL_LOCATIONS)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(createOkHttpClient())
             .build()
     }

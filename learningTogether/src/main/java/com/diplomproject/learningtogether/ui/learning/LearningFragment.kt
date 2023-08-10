@@ -51,11 +51,6 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
             binding.nameEnglishTextView.text = meaning.task
             binding.nameTranslationTextView.text = meaning.rightAnswer
 
-            viewModelCoroutineScope.launch {
-                meaningRepo.getImageUrl(meaning.task)
-            }
-
-
             Picasso.get().load(meaning.taskImageUrl).into(binding.learningImageView)
             binding.learningImageView.scaleType = ImageView.ScaleType.FIT_CENTER
         }

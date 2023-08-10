@@ -1,7 +1,7 @@
 package  com.diplomproject.learningtogether.data.retrofit
 
 import com.diplomproject.learningtogether.domain.entities.SkyengWordEntity
-import kotlinx.coroutines.Deferred
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -21,5 +21,5 @@ interface ApiService {
     @GET("words/search?search=")
     fun wordAsync(
         @Query("word") word: String?
-    ): Deferred<List<SkyengWordEntity>>
+    ): Call<List<SkyengWordEntity>>
 }

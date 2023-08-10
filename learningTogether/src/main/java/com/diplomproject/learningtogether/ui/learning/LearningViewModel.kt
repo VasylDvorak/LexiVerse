@@ -3,14 +3,12 @@ package com.diplomproject.learningtogether.ui.learning
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.diplomproject.learningtogether.domain.entities.LessonIdEntity
 import com.diplomproject.learningtogether.domain.entities.TaskEntity
 import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.domain.repos.CoursesRepo
 import com.diplomproject.learningtogether.domain.repos.MeaningRepo
 import com.diplomproject.learningtogether.utils.SingleLiveEvent
-import kotlinx.coroutines.launch
 
 class LearningViewModel(
     private val coursesRepo: CoursesRepo,
@@ -42,6 +40,9 @@ class LearningViewModel(
                 it?.let {
                     inProgressLiveData.mutable().postValue(false)
                     learningList = it.tasks//сохранили список на старте запуска
+
+//                    postTaskByIndex(it.tasks.lastIndex)
+
                     learningLiveData.mutable().postValue(learningList[0])
                 }
             }
@@ -52,11 +53,6 @@ class LearningViewModel(
             isFavoriteLiveData.mutable().postValue(it)
         }
     }
-
-//    val viewModelCoroutineScope: CoroutineScope = CoroutineScope(
-//        Dispatchers.Main
-//                + SupervisorJob()
-//        )
 
     private fun <T> LiveData<T>.mutable(): MutableLiveData<T> {
         return this as MutableLiveData
@@ -78,6 +74,7 @@ class LearningViewModel(
         val currentIndex = currentValueIndex
         if (currentIndex > 0) {
             currentValueIndex = currentIndex - 1
+//            postTaskByIndex(currentIndex)
             learningLiveData.mutable().postValue(learningList[currentValueIndex])
         }
     }
@@ -87,18 +84,29 @@ class LearningViewModel(
         val currentIndex = currentValueIndex
         if (currentIndex < learningList.size - 1) {
             currentValueIndex = currentIndex + 1
+//            postTaskByIndex(currentIndex)
             learningLiveData.mutable().postValue(learningList[currentValueIndex])
+
         } else {
             needShowFinishScreen.value = true
         }
     }
 
-    fun mapTask(taskEntity: TaskEntity): TaskEntity {
-        viewModelScope.launch {
-            val imageUrl = meaningRepo.getImageUrl(taskEntity.task)
+    private fun postTaskByIndex(index: Int) {
+        val task = learningList[index]
 
-            taskEntity.taskImageUrl = imageUrl
-            return taskEntity
+        meaningRepo.getImageUrl(task.task) {
+            task.taskImageUrl = it
+            learningLiveData.mutable().postValue(task)
         }
     }
+
+//    fun mapTask(taskEntity: TaskEntity): TaskEntity {
+//        viewModelScope.launch {
+//            val imageUrl = meaningRepo.getImageUrl(taskEntity.task)
+//
+//            taskEntity.taskImageUrl = imageUrl
+//            return taskEntity
+//        }
+//    }
 }
