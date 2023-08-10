@@ -42,6 +42,10 @@ class DiscriptionFragmentAdapter(
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 item_des_rw.text = example.text
                 play_articulation.setOnClickListener {
+                    it?.apply {
+                        isEnabled = false
+                        postDelayed({ isEnabled = true }, 1000)
+                    }
                     example?.soundUrl?.let { sound_url ->
                         playArticulationClickListener(sound_url)
                     }

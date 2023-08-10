@@ -23,8 +23,6 @@ import com.github.terrakok.cicerone.Router
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
-import java.io.IOException
-
 
 abstract class BaseFragment<T : AppState, B : ViewBinding>(
     private val inflateBinding: (
@@ -121,20 +119,18 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
     }
 
     fun playContentUrl(url: String) {
-        mMediaPlayer = MediaPlayer()
+        mMediaPlayer= MediaPlayer()
         mMediaPlayer?.apply {
             try {
                 setDataSource(url)
                 setAudioStreamType(AudioManager.STREAM_MUSIC)
-                setOnPreparedListener { start() }
+                    setOnPreparedListener { start() }
                 prepareAsync()
-            } catch (exception: IOException) {
+            } catch (exception: Exception) {
                 release()
                 null
             }
-        }
-    }
-
+    }}
     fun releaseMediaPlayer() {
         mMediaPlayer?.apply {
             if (isPlaying == true) {
@@ -144,6 +140,7 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
             }
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -156,11 +153,13 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
         return AnimatorTranslator().setAnimator(transit, enter)
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
         releaseMediaPlayer()
     }
+
     companion object {
         const val DIALOG_FRAGMENT_TAG = "dialog_fragment_tag"
     }

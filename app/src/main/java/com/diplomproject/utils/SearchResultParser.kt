@@ -14,6 +14,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 
 private val gson by lazy { Gson() }
+
+enum class PartOfSpeech(val value: String) {
+    n("Имя существительное"), v("Глагол"), j("Прилагательное"),
+    r("Наречие"), prp("Предлог"), prn("Местоимение"),
+    crd("Количественное числительное"), cjc("Союз"), exc("Междометие"),
+    det("Артикль"), abb("Аббревиатура"), x("Частица"), ord("Порядковый номер"),
+    md("Модальный глагол"), ph("Фраза"), phi("Идиома")
+}
+
 suspend fun parseSearchResults(state: Flow<AppState>): AppState {
     var newSearchResults = ArrayList<DataModel>()
     var appState = state.first()
@@ -21,12 +30,12 @@ suspend fun parseSearchResults(state: Flow<AppState>): AppState {
     when (appState) {
         is AppState.Success -> {
             var searchResults = appState.data!!
-
             if (!searchResults.isNullOrEmpty()) {
                 for (searchResult in searchResults) {
                     parseResult(searchResult, newSearchResults)
                 }
             }
+
             appState = AppState.Success(searchResults)
         }
 
@@ -117,6 +126,7 @@ private fun parseOnlineResult(
                 newMeanings.add(
                     Meanings(
                         meaning.id,
+                        meaning.partOfSpeechCode,
                         meaning.translation,
                         meaning.imageUrl,
                         meaning.transcription,
@@ -142,6 +152,7 @@ fun parseResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>): Arra
             newMeanings.add(
                 Meanings(
                     meaning.id,
+                    meaning.partOfSpeechCode,
                     meaning.translation,
                     meaning.imageUrl,
                     meaning.transcription,
@@ -166,6 +177,7 @@ fun mapHistoryEntityToSearchResult(list: List<HistoryEntity>): List<DataModel> {
     for (entity in list) {
         val meanings = Meanings(
             entity.id,
+            entity.partOfSpeechCode,
             Translation(entity.translation),
             entity.imageUrl,
             entity.transcription,
@@ -186,6 +198,7 @@ fun mapFavoriteEntityToSearchResult(list: List<FavoriteEntity>): List<DataModel>
     for (entity in list) {
         val meanings = Meanings(
             entity.id,
+            entity.partOfSpeechCode,
             Translation(entity.translation),
             entity.imageUrl,
             entity.transcription,
@@ -213,7 +226,8 @@ fun convertDataModelSuccessToEntity(appState: AppState): HistoryEntity? {
                     meanings?.transcription,
                     meanings?.soundUrl,
                     meanings?.translation!!.translation,
-                    gson.toJson(searchResult[0].exampleDataModel)
+                    gson.toJson(searchResult[0].exampleDataModel),
+                    meanings.partOfSpeechCode
                 )
             }
         }
@@ -231,7 +245,8 @@ fun converterDataModelToFavoriteEntity(sourse: DataModel): FavoriteEntity {
         meanings?.transcription,
         meanings?.soundUrl,
         meanings?.translation!!.translation,
-        gson.toJson(sourse.exampleDataModel)
+        gson.toJson(sourse.exampleDataModel),
+        meanings.partOfSpeechCode
     )
 
 }

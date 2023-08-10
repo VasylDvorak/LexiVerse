@@ -72,31 +72,91 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/transcription"
-                    android:gravity="center"
-                    android:textColor="@color/example"
-                    android:textIsSelectable="true"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toEndOf="@+id/description_imageview"
-                    app:layout_constraintStart_toStartOf="@+id/description_imageview"
-                    app:layout_constraintTop_toBottomOf="@+id/description_header"
-                    tools:text="@string/transcription" />
 
-                <TextView
-                    android:id="@+id/translation_textview"
-                    style="@style/BaseTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="center"
-                    android:textColor="@color/example_middle"
-                    android:textIsSelectable="true"
-                    android:textSize="30sp"
-                    app:layout_constraintEnd_toEndOf="@+id/description_imageview"
-                    app:layout_constraintStart_toStartOf="@+id/description_imageview"
-                    app:layout_constraintTop_toBottomOf="@+id/play_articulation" />
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/pastel_hot_pink">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/description_header"
+                            style="@style/HeaderTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:contentDescription="@string/header"
+                            android:textColor="@color/pastel_mint_dark"
+                            android:textIsSelectable="true"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/header" />
+
+                        <TextView
+                            android:id="@+id/description_part_of_speech"
+                            style="@style/BaseTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:contentDescription="@string/part_of_speach"
+                            android:textColor="@color/bnv_default"
+                            android:textIsSelectable="true"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/description_header"
+                            tools:text="@string/part_of_speach" />
+
+                        <ImageButton
+                            android:id="@+id/play_articulation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/baseline_volume_up_24"
+                            android:contentDescription="@string/pronounce"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/description_part_of_speech" />
+
+                        <TextView
+                            android:id="@+id/transcription"
+                            style="@style/TranscriptionTextStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:contentDescription="@string/transcription"
+                            android:textColor="@color/pastel_yellow_dark"
+                            android:textIsSelectable="true"
+                            app:layout_constraintBottom_toBottomOf="@+id/play_articulation"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/play_articulation"
+                            app:layout_constraintTop_toTopOf="@+id/play_articulation"
+                            tools:text="@string/transcription" />
+
+                        <TextView
+                            android:id="@+id/translation_textview"
+                            style="@style/BaseTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textIsSelectable="true"
+                            android:textSize="20sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/play_articulation" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
 
                 <com.diplomproject.utils.ui.EquilateralImageView
                     android:id="@+id/description_imageview"
