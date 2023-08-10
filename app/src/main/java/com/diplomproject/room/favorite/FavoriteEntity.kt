@@ -17,6 +17,7 @@ data class FavoriteEntity(
     @field:ColumnInfo(name = "transcription") var transcription: String?,
     @field:ColumnInfo(name = "soundUrl") var soundUrl: String?,
     @field:ColumnInfo(name = "translation") var translation: String?,
-    @field:ColumnInfo(name = "examples") var examples: String? ="[]"
+    @field:ColumnInfo(name = "examples") var examples: String? ="[]",
+    @field:ColumnInfo(name = "partOfSpeechCode") var partOfSpeechCode: String? = ""
 )
 

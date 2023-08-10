@@ -53,6 +53,10 @@ class MainAdapter(
                     "[" + data.meanings?.get(0)?.transcription + "]"
                 set_favorite.setOnClickListener { putInFavoriteList(data) }
                 play_articulation.setOnClickListener {
+                    it?.apply {
+                        isEnabled = false
+                        postDelayed({ isEnabled = true }, 400)
+                    }
                     data.meanings?.get(0)?.soundUrl?.let { sound_url ->
                         playArticulationClickListener(sound_url)
                     }

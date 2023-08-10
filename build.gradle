@@ -37,7 +37,15 @@ subprojects {
                     viewBinding = true
                     buildConfig = true
                 }
+                testOptions {
+                    unitTests {
+                        includeAndroidResources = true
+                    }
+                }
             }
+
+
+
             dependencies {
 
                 //SplashScreen API
@@ -92,6 +100,19 @@ subprojects {
                 implementation 'com.google.firebase:firebase-analytics-ktx'
                 //Firebase -> database
                 implementation 'com.google.firebase:firebase-database-ktx'
+
+                //Robolectric
+                testImplementation 'org.robolectric:robolectric:4.10.3'
+                testImplementation 'androidx.test:core:1.5.0'
+                testImplementation 'androidx.test:runner:1.5.2'
+                testImplementation 'androidx.test.ext:junit:1.1.5'
+                testImplementation 'androidx.test.ext:truth:1.5.0'
+                testImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+                testImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
+
+                //Fragment
+                debugImplementation 'androidx.fragment:fragment-testing:1.6.1'
+
             }
         }
     }

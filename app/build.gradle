@@ -46,6 +46,12 @@ android {
     kotlinOptions {
         jvmTarget = Config.jvmTarget
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -59,6 +65,7 @@ dependencies {
     implementation Koin.koin_compat
     implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.ar:core:1.37.0'
 
     //TestImpl
     testImplementation TestImpl.junit
@@ -97,4 +104,14 @@ dependencies {
     kapt Room.kapt_compiler
     annotationProcessor Room.annotation_processor_compiler
     implementation Room.room_ktx
+
+    //Robolectric
+    testImplementation 'org.robolectric:robolectric:4.10.3'
+    testImplementation 'androidx.test:core:1.5.0'
+    testImplementation 'androidx.test:runner:1.5.2'
+    testImplementation 'androidx.test.ext:junit:1.1.5'
+    testImplementation 'androidx.test.ext:truth:1.5.0'
+    testImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
+
 }
