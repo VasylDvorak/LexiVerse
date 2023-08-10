@@ -35,7 +35,6 @@ class WidgetForDictionary : AppWidgetProvider() {
 
 
     private val scope = CoroutineScope(Dispatchers.IO)
-    private var counter by Delegates.notNull<Int>()
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
 
@@ -45,11 +44,8 @@ class WidgetForDictionary : AppWidgetProvider() {
             }
 
             PLAY_PRONUNCIATION -> {
-                counter++
-                if (counter == 1) {
                     widgetLoader.readCurrentData()
                         ?.let { playContentUrl(it.meanings?.get(0)?.soundUrl) }
-                }
             }
 
             START_DICTIONARY_ACTIVITY -> {
