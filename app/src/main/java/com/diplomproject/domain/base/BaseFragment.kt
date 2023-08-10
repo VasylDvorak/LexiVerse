@@ -152,6 +152,7 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
         _binding = inflateBinding.invoke(inflater, container, false)
         return binding.root
     }
+
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
         return AnimatorTranslator().setAnimator(transit, enter)
     }

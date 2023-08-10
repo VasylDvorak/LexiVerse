@@ -6,17 +6,14 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.diplomproject.learningtogether.AppLearningTogether
 import com.diplomproject.learningtogether.Key
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.domain.entities.LessonIdEntity
 import com.diplomproject.learningtogether.domain.repos.FavoriteLessonsRepo
+import org.koin.android.ext.android.inject
 
 class FavouritesFragment : Fragment(R.layout.fragment_lesson) {
 
-    private val appLearningTogether: AppLearningTogether by lazy {
-        requireActivity().application as AppLearningTogether
-    }
 
     private lateinit var favoriteList: MutableList<LessonIdEntity>//кэшируем данные
 
@@ -28,9 +25,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_lesson) {
 
     private lateinit var recyclerView: RecyclerView
 
-    private val favoriteRepo: FavoriteLessonsRepo by lazy {
-        appLearningTogether.lessonFavoriteRepo
-    }
+    private val favoriteRepo: FavoriteLessonsRepo by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

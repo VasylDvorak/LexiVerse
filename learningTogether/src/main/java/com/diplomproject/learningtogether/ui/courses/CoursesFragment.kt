@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.diplomproject.learningtogether.Key
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.domain.entities.CourseWithFavoriteLessonEntity
 import com.diplomproject.learningtogether.domain.entities.FavoriteLessonEntity
@@ -27,10 +28,7 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
 
         initViews()
 
-        //observe - это наблюдатель
-        // подписываемся на inProgressLiveData
         viewModel.inProgressLiveData.observe(viewLifecycleOwner) { inProgress ->
-            //сюда приходит значение
             coursesRecyclerView.isVisible = !inProgress
             progressBar.isVisible = inProgress
         }
@@ -82,5 +80,14 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         getController()  //Вариант 2. агресивный способ проверки наличия контроллера. Если нет контроллера, приложение свалтится на присоединение к фрагмента к активити
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(flagLearningOrTest: Boolean) = CoursesFragment().apply {
+            arguments = Bundle().apply {
+                putBoolean(Key.THEME_ID_ARGS_KEY, flagLearningOrTest)
+            }
+        }
     }
 }
