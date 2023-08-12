@@ -22,4 +22,11 @@
     <!-- Кнопки nav -->
     <color name="blue_dark">#276EF1</color>
 
+
+    <color name="example_back">#e0f7fd</color>
+    <color name="example">#77DDF9</color>
+    <color name="example_middle">#00c3f9</color>
+    <color name="example_dark">#00aaec</color>
+
+
 </resources>
