@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
+import com.diplomproject.R
 import com.diplomproject.databinding.FragmentRegistrationBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -25,6 +26,9 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
             button.setOnClickListener {
                 createUser()
             }
+            privacyTextView.setOnClickListener{
+                router.navigateTo(screen.startPoliticFragment())
+            }
         }
     }
 
@@ -44,6 +48,8 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
             } else if (!password.equals(binding?.editTextNumberPassword2?.text?.toString())) {
                 binding?.editTextNumberPassword2?.setError("Passwords must be match!")
                 binding?.editTextNumberPassword2?.requestFocus()
+            } else if (true){
+                binding?.privacyCheckBox?.setBackgroundColor(resources.getColor(R.color.color_error) )
             }
             else {
                 auth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
