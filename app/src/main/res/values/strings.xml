@@ -117,6 +117,7 @@
     <string name="text_6">Команда разработчиков</string>
     <string name="dvorak1981_yandex_ru">dvorak1981@yandex.ru</string>
     <string name="no_connection_internet">Нет соединения с интернетом</string>
+    <string name="part_of_speach">Часть речи</string>
     <string name="listen_button">listen</string>
     <string name="login_button">login_button</string>
     <string name="email_hint">Почта</string>

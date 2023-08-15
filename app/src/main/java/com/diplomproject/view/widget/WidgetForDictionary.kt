@@ -21,6 +21,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
+import kotlin.properties.Delegates
 
 private const val CHANGE_WORD = "CHANGE_WORD"
 private const val PLAY_PRONUNCIATION = "PLAY_PRONUNCIATION"
@@ -34,17 +35,17 @@ class WidgetForDictionary : AppWidgetProvider() {
 
 
     private val scope = CoroutineScope(Dispatchers.IO)
-
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
+
         when (intent.action) {
             CHANGE_WORD -> {
                 receiveData(context, false)
             }
 
             PLAY_PRONUNCIATION -> {
-                widgetLoader.readCurrentData()
-                    ?.let { playContentUrl(it.meanings?.get(0)?.soundUrl) }
+                    widgetLoader.readCurrentData()
+                        ?.let { playContentUrl(it.meanings?.get(0)?.soundUrl) }
             }
 
             START_DICTIONARY_ACTIVITY -> {
@@ -98,10 +99,27 @@ class WidgetForDictionary : AppWidgetProvider() {
 
                     setOnClickPendingIntent(R.id.text_unit_layout_widget, pendingIntentChangeText)
                     setOnClickPendingIntent(R.id.header_textview_widget, pendingIntentChangeText)
-                    setOnClickPendingIntent(
-                        R.id.play_articulation_widget,
-                        pendingIntentPlayPronunciation
-                    )
+
+                    setOnClickPendingIntent(R.id.play_articulation_widget,
+                        pendingIntentPlayPronunciation)
+                    //            counter=0
+//                                .apply {
+//                                setBoolean(R.id.play_articulation_widget, "setEnabled", false)
+//
+//                                Thread.sleep(400L)
+//                                    setBoolean(R.id.play_articulation_widget, "setEnabled", true)
+//
+//                            }
+
+
+//                                object : CountDownTimer(400, 100) {
+//                                    override fun onTick(millisUntilFinished: Long) {}
+//                                    override fun onFinish() {
+//                                        this@apply.setBoolean(R.id.play_articulation_widget, "setEnabled", true)
+//                                    }
+//                                }.start()
+
+
                     setOnClickPendingIntent(
                         R.id.start_main_activity,
                         pendingIntentStartMainActivity

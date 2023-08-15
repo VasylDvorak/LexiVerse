@@ -71,6 +71,10 @@ class FavoriteAdapter(
                         setFavorite.visibility = View.GONE
                         setOnClickListener { openInNewWindow(data) }
                         playArticulation.setOnClickListener {
+                            it?.apply {
+                                isEnabled = false
+                                postDelayed({ isEnabled = true }, 400)
+                            }
                             data.meanings?.get(0)?.soundUrl?.let { sound_url ->
                                 playArticulationClickListener(sound_url)
                             }

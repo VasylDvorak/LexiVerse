@@ -79,8 +79,27 @@
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="@+id/description_imageview"
                     app:layout_constraintStart_toStartOf="@+id/description_imageview"
-                    app:layout_constraintTop_toBottomOf="@+id/description_header"
+                    app:layout_constraintTop_toBottomOf="@+id/description_part_of_speech"
                     tools:text="@string/transcription" />
+
+                <TextView
+                    android:id="@+id/description_part_of_speech"
+                    style="@style/BaseTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/part_of_speach"
+                    android:gravity="center"
+                    android:textColor="@color/pastel_yellow_dark"
+                    android:textIsSelectable="true"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="@+id/description_imageview"
+                    app:layout_constraintStart_toStartOf="@+id/description_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/description_header"
+                    tools:text="@string/part_of_speach" />
 
                 <TextView
                     android:id="@+id/translation_textview"

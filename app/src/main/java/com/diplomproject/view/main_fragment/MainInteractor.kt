@@ -15,7 +15,7 @@ class MainInteractor(
 ) : Interactor<AppState> {
 
     override suspend fun getData(word: String, fromRemoteSource: Boolean): StateFlow<AppState> {
-        val appState: AppState
+        var appState: AppState
 
         if (fromRemoteSource) {
             appState = AppState.Success(repositoryRemote.getData(word))

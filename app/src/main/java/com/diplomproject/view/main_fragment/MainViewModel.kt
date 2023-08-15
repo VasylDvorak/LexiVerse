@@ -98,7 +98,6 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
                 }
                 .filterNotNull()
                 .collect { result ->
-                    result
                     _liveDataForViewToObserve.postValue(result)
                 }
         }
