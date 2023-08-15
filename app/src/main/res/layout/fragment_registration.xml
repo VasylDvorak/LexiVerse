@@ -28,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/imageView17"
-                android:layout_width="350dp"
-                android:layout_height="350dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
@@ -43,7 +43,6 @@
                 android:id="@+id/editTextTextEmailAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:backgroundTint="@color/example"
                 android:ems="10"
                 android:hint="@string/email_hint"
@@ -78,6 +77,38 @@
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
 
+
+
+            <RelativeLayout
+                android:layout_marginStart="120dp"
+                android:id="@+id/privacyCheckBoxContainer"
+                app:layout_constraintEnd_toEndOf="@+id/imageView17"
+                app:layout_constraintStart_toStartOf="@+id/imageView17"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/privacyCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/privacyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/privacyCheckBox"
+                    android:text="Я согласен с Политикой конфиденциальности"
+                    android:textColor="@color/blue_dark"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+
+
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
@@ -90,7 +121,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2" />
+                app:layout_constraintTop_toBottomOf="@+id/privacyCheckBoxContainer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
