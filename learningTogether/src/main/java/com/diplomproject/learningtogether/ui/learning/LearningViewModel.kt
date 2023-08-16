@@ -20,15 +20,18 @@ class LearningViewModel(
 
     private val _inProgressLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
-    private var currentValueIndex = 0 // Индекс текущего значения
+    var currentValueIndex = 0 // Индекс текущего значения
     val needShowFinishScreen =
         SingleLiveEvent<Boolean>() // Флаг, указывающий, достигнуто ли последнее значение
+
+    val needShowBackButton: LiveData<Int> =
+        MutableLiveData() // Флаг, указывающий, первое (0) ли значение
 
     // сразу когда чтото будет кластся в inProgressLiveData, сразу все подписчики будут получать изменения
     val inProgressLiveData: LiveData<Boolean> = _inProgressLiveData
 
     val learningLiveData: LiveData<TaskEntity> = MutableLiveData()
-    private var learningList: MutableList<TaskEntity> = mutableListOf()
+    var learningList: MutableList<TaskEntity> = mutableListOf()
 
     //изменение лайка
     val isFavoriteLiveData: LiveData<Boolean> = MutableLiveData()
@@ -41,9 +44,7 @@ class LearningViewModel(
                     inProgressLiveData.mutable().postValue(false)
                     learningList = it.tasks//сохранили список на старте запуска
 
-//                    postTaskByIndex(it.tasks.lastIndex)
-
-                    learningLiveData.mutable().postValue(learningList[0])
+                    postTaskByIndex(it.tasks.lastIndex)
                 }
             }
         }
@@ -63,32 +64,46 @@ class LearningViewModel(
     }
 
 
-    // Метод для инициализации значений
     fun initValues() {
         currentValueIndex = 0
         needShowFinishScreen.value = false
+        visibilityBackButton(currentValueIndex)
     }
 
-    // Метод для переключения на предыдущее значение
     fun navigateToPreviousValue() {
         val currentIndex = currentValueIndex
+
         if (currentIndex > 0) {
+
+            visibilityBackButton(currentIndex)
+
             currentValueIndex = currentIndex - 1
-//            postTaskByIndex(currentIndex)
-            learningLiveData.mutable().postValue(learningList[currentValueIndex])
+
+            postTaskByIndex(currentIndex)
         }
     }
 
     // Метод для переключения на следующее значение
     fun navigateToNextValue() {
         val currentIndex = currentValueIndex
-        if (currentIndex < learningList.size - 1) {
-            currentValueIndex = currentIndex + 1
-//            postTaskByIndex(currentIndex)
-            learningLiveData.mutable().postValue(learningList[currentValueIndex])
 
+        if (currentIndex < learningList.size - 1) {
+
+            visibilityBackButton(currentIndex)
+
+            currentValueIndex = currentIndex + 1
+
+            postTaskByIndex(currentIndex)
         } else {
             needShowFinishScreen.value = true
+        }
+    }
+
+    private fun visibilityBackButton(index: Int) {
+        if (index == 0) {
+            needShowBackButton.mutable().postValue(0)
+        } else {
+            needShowBackButton.mutable().postValue(1)
         }
     }
 
@@ -100,13 +115,4 @@ class LearningViewModel(
             learningLiveData.mutable().postValue(task)
         }
     }
-
-//    fun mapTask(taskEntity: TaskEntity): TaskEntity {
-//        viewModelScope.launch {
-//            val imageUrl = meaningRepo.getImageUrl(taskEntity.task)
-//
-//            taskEntity.taskImageUrl = imageUrl
-//            return taskEntity
-//        }
-//    }
 }

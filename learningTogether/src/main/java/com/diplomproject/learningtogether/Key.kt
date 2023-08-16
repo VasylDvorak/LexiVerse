@@ -9,6 +9,8 @@ object Key {
     internal const val TEG_SUCCESS_CONTAINER_KEY = "TEG_SUCCESS_CONTAINER_KEY"
     internal const val TEG_FAVOURITE_CONTAINER_KEY = "TEG_SUCCESS_CONTAINER_KEY"
     internal const val SHOW_ALL_CONTAINER_KEY = "SHOW_ALL_CONTAINER_KEY"
+    internal const val TOGETHER_ACTIVITY_REQUEST_CODE = 200
+
 
     //
     internal const val THEME_ID_ARGS_KEY = "THEME_ARGS_KEY"
