@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "name": "English Course 1",
+    "name": "Курс 1",
     "logo_url": "https://www.nicolasalvatore.com/web/wp-content/uploads/2015/09/traduzione-italiano-inglese-1022x1024.png",
     "lessons": [
       {
         "id": 10,
-        "name": "English Lesson 1.1",
+        "name": "Урок 1.1",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English1.jpg?alt=media&token=cce3804b-aca0-48f5-9854-f9e62efc28f7",
         "victory_image_url": "https://avatars.mds.yandex.net/get-zen_doc/1244179/pub_5c7f8fe55b0ac200b3abd1ad_5c7f912362b23d00b4837dc3/scale_1200",
         "tasks": [
@@ -98,7 +98,7 @@
       },
       {
         "id": 20,
-        "name": "English Lesson 1.2 ACTIONS",
+        "name": "Урок 1.2 АКТИВНОСТЬ",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1_2.jpg?alt=media&token=f62b8af6-d790-4051-bfb8-c1e19b954291",
         "victory_image_url": "",
         "tasks": [
@@ -246,7 +246,7 @@
       },
       {
         "id": 30,
-        "name": "English Lesson 1.3 ACTIONS",
+        "name": "Урок 1.3 ДЕЙСТВИЯ",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours3%2FLesson3_2.jpg?alt=media&token=921dbfa0-03f1-4c2b-a84a-011e47078be9",
         "victory_image_url": "",
         "tasks": [
@@ -436,7 +436,7 @@
       },
       {
         "id": 40,
-        "name": "English Lesson 1.4",
+        "name": "Урок 1.4",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
         "victory_image_url": "",
         "tasks": [
@@ -486,7 +486,7 @@
       },
       {
         "id": 50,
-        "name": "English Lesson 1.5",
+        "name": "Урок 1.5",
         "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
         "victory_image_url": "",
         "tasks": [
@@ -538,12 +538,12 @@
   },
   {
     "id": 2,
-    "name": "English Course 2",
+    "name": "Курс 2",
     "logo_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FCours2.jpeg?alt=media&token=9f828915-55ac-4d31-8709-b7095e417497",
     "lessons": [
       {
         "id": 10210,
-        "name": "English Lesson 2.1 ANIMALS",
+        "name": "Урок 2.1 ЖИВОТНЫЕ",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_1%2FLesson2_1.png?alt=media&token=3e4967b5-e6e1-4741-9308-f6d99df7634c",
         "victory_image_url": "https://avatars.mds.yandex.net/get-zen_doc/1244179/pub_5c7f8fe55b0ac200b3abd1ad_5c7f912362b23d00b4837dc3/scale_1200",
         "tasks": [
@@ -775,7 +775,7 @@
       },
       {
         "id": 10211,
-        "name": "English Lesson 2.2 FAMILI",
+        "name": "Урок 2.2 СЕМЬЯ",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_2%2FLesson2_2.png?alt=media&token=c1612e56-13c2-4a64-b653-fcb450ae12a9",
         "victory_image_url": "",
         "tasks": [
@@ -951,7 +951,7 @@
       },
       {
         "id": 10212,
-        "name": "English Lesson 2.3 BODY PARTS",
+        "name": "Урок 2.3 ЧИСТИ ТЕЛА",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2FLesson2_3.png?alt=media&token=3d8bc2e8-2a2a-435c-a804-37b0755e13aa",
         "victory_image_url": "",
         "tasks": [
@@ -1395,12 +1395,12 @@
   },
   {
     "id": 3,
-    "name": "English Course 3",
+    "name": "Курс 3",
     "logo_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FCours2.jpeg?alt=media&token=9f828915-55ac-4d31-8709-b7095e417497",
     "lessons": [
       {
         "id": 10212,
-        "name": "English Lesson 3.1 BODY PARTS",
+        "name": "Урок 3.1 ЧИСТИ ТЕЛА",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2FLesson2_3.png?alt=media&token=3d8bc2e8-2a2a-435c-a804-37b0755e13aa",
         "victory_image_url": "",
         "tasks": [
@@ -1842,7 +1842,7 @@
       },
       {
         "id": 30,
-        "name": "English Lesson 3.2 ACTIONS",
+        "name": "Урок 3.2 ДЕЙСТВИЯ",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours3%2FLesson3_2.jpg?alt=media&token=921dbfa0-03f1-4c2b-a84a-011e47078be9",
         "victory_image_url": "",
         "tasks": [
@@ -2034,12 +2034,12 @@
   },
   {
     "id": 4,
-    "name": "English Course 4",
+    "name": "Курс 4",
     "logo_url": "https://www.nicolasalvatore.com/web/wp-content/uploads/2015/09/traduzione-italiano-inglese-1022x1024.png",
     "lessons": [
       {
         "id": 20,
-        "name": "English Lesson 4.1 ACTIONS",
+        "name": "Урок 4.1 ДЕЙСТВИЯ",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1_2.jpg?alt=media&token=f62b8af6-d790-4051-bfb8-c1e19b954291",
         "victory_image_url": "",
         "tasks": [
@@ -2187,7 +2187,7 @@
       },
       {
         "id": 30,
-        "name": "English Lesson 4.2 ACTIONS",
+        "name": "Урок 4.2 ДЕЙСТВИЯ",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours3%2FLesson3_2.jpg?alt=media&token=921dbfa0-03f1-4c2b-a84a-011e47078be9",
         "victory_image_url": "",
         "tasks": [
@@ -2377,7 +2377,7 @@
       },
       {
         "id": 40,
-        "name": "English Lesson 4.3",
+        "name": "Урок 4.3",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/lessons-147e1.appspot.com/o/English2.jpg?alt=media&token=55209264-5eba-4457-8514-018920702de7",
         "victory_image_url": "",
         "tasks": [
@@ -2427,7 +2427,7 @@
       },
       {
         "id": 511,
-        "name": "English Lesson 4.4",
+        "name": "Урок 4.4",
         "image_url": "https://www.mogtahed.com/wp-content/uploads/2019/11/mypicture.jpg",
         "victory_image_url": "",
         "tasks": [

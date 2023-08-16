@@ -18,8 +18,8 @@ interface ApiService {
 //    ): Deferred<List<DataEntity>>
 
     // https://dictionary.skyeng.ru/api/public/v1/words/search?search=dog
-    @GET("words/search?search=")
+    @GET("words/search")
     fun wordAsync(
-        @Query("word") word: String?
+        @Query("search") word: String?
     ): Call<List<SkyengWordEntity>>
 }

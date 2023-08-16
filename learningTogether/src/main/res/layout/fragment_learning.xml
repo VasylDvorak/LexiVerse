@@ -10,6 +10,16 @@
     android:orientation="vertical"
     tools:context=".ui.task.TaskFragment">
 
+    <TextView
+        android:id="@+id/records_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="0"
+        android:gravity="center"
+        android:hint="@string/progress_counter"
+        android:textSize="@dimen/progress_counter_text" />
+
     <LinearLayout
         android:id="@+id/learning_liner_layout"
         android:layout_width="match_parent"
@@ -17,6 +27,7 @@
         android:layout_weight="4"
         android:gravity="center"
         android:orientation="vertical">
+
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -68,6 +79,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/back_card"
             android:textColor="@color/blue_dark"
+            android:visibility="invisible"
             android:textSize="@dimen/default_text"
             app:strokeColor="@color/blue_dark" />
 

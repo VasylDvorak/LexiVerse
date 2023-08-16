@@ -29,4 +29,17 @@
     <string name="forward_card">Вперед</string>
     <string name="name_english">Значение</string>
     <string name="name_translation">Перевод</string>
+
+    <!-- Dialog showFinishAlertDialog (LearningFragment) -->
+    <string name="message_finish_finish">Вы закончили просмотр карточек.
+        \n\nХотите продолжить изучения языка или перейти к тестам?</string>
+    <string name="continue_studying">Продолжить изучение!</string>
+    <string name="back_tests">К тестам!</string>
+    <string name="start_fragment">В главное меню!</string>
+    <string name="still_lesson">Остатся в этом уроке</string>
+    <string name="title_dialog">Заголовок</string>
+    <string name="selection_error">Выберети один из пунктов мееню</string>
+
+    <!-- layout -> default -->
+    <string name="progress_counter">0/0</string>
 </resources>

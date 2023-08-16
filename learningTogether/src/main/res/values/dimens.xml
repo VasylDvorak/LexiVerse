@@ -8,4 +8,8 @@
     <dimen name="default_text">18sp</dimen>
     <dimen name="margin_answer">8dp</dimen>
     <dimen name="margin_lesson">5dp</dimen>
+
+    <!-- layout -> default -->
+    <dimen name="progress_counter_text">20sp</dimen>
+    <dimen name="default_text_button">16sp</dimen>
 </resources>

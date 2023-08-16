@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.KeyEvent
 import android.view.View
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.fragment.app.Fragment
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityRootBinding
 import com.diplomproject.di.ConnectKoinModules
@@ -37,8 +35,6 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
     private val navigatorHolder: NavigatorHolder by inject()
     private val navigator = AppNavigator(this, R.id.fragment_container_frame_layout)
     lateinit var model: FavoriteViewModel
-
-    private var flagLearningOrTest = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -145,8 +141,12 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
         onDictionary()
     }
 
-    override fun openLearningTogether(flagLearningOrTest: Boolean) {
-        onLearningTogether(flagLearningOrTest)
+    override fun openLearning() {
+        onLearningTogether(true)
+    }
+
+    override fun openTest() {
+        onLearningTogether(false)
     }
 
     @Deprecated("Deprecated in Java")

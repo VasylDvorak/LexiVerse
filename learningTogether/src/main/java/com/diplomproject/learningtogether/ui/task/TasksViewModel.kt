@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.diplomproject.learningtogether.domain.entities.LessonIdEntity
 import com.diplomproject.learningtogether.domain.entities.TaskEntity
+import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
 import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.domain.repos.CoursesRepo
 import com.diplomproject.learningtogether.utils.SingleLiveEvent
@@ -13,8 +14,11 @@ class TaskViewModel(
     private val coursesRepo: CoursesRepo,
     private val courseId: Long,
     private val lessonId: Long,
-    private val favoriteInteractor: FavoriteInteractor
+    private val favoriteInteractor: FavoriteInteractor,
+    private val answerCounterInteractor: AnswerCounterInteractor
 ) : ViewModel() {
+
+    var currentValueIndex = 0 // Индекс текущего значения
 
     //одно из решений над Mutable (это стандартно принятый этот метод)
     private val _inProgressLiveData: MutableLiveData<Boolean> = MutableLiveData()
@@ -23,7 +27,7 @@ class TaskViewModel(
     val inProgressLiveData: LiveData<Boolean> = _inProgressLiveData
 
     val tasksLiveData: LiveData<TaskEntity> = MutableLiveData()
-    private var tasks: MutableList<TaskEntity> = mutableListOf()
+    var tasks: MutableList<TaskEntity> = mutableListOf()
 
     val selectedSuccessLiveData: LiveData<Unit> = SingleLiveEvent()
     val wrongAnswerLiveData: LiveData<Unit> = SingleLiveEvent()
@@ -32,6 +36,8 @@ class TaskViewModel(
     val isFavoriteLiveData: LiveData<Boolean> = MutableLiveData()
 
     init {
+        currentValueIndex = 0
+
         if (tasksLiveData.value == null) {
             _inProgressLiveData.postValue(true)
             coursesRepo.getLesson(courseId, lessonId) {
@@ -50,19 +56,31 @@ class TaskViewModel(
     }
 
     fun onAnswerSelect(userAnswer: String) {
+        val currentIndex = currentValueIndex
+
         if (checkingAnswer(userAnswer, tasksLiveData.value!!.rightAnswer)) {
             val taskEntity = getNextTask()
+
+            currentValueIndex = currentIndex + 1
+
+            answerCounterInteractor.logRightAnswer()
+
+//            answerCounterInteractor.getRightCounter() // todo количество положительных ответов
+
             if (taskEntity == null) {
                 selectedSuccessLiveData.mutable().postValue(Unit)
             } else {
                 tasksLiveData.mutable().postValue(taskEntity)
             }
         } else {
+            answerCounterInteractor.logErrorAnswer()
             wrongAnswerLiveData.mutable().postValue(Unit)
+            tasksLiveData.mutable().postValue(getNextTask())
         }
     }
 
     private fun checkingAnswer(userAnswer: String, rightAnswer: String): Boolean {
+
         return rightAnswer == userAnswer
     }
 

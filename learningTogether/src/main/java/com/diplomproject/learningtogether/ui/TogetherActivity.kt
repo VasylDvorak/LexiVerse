@@ -1,5 +1,6 @@
 package com.diplomproject.learningtogether.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -53,6 +54,19 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
             .commit()
     }
 
+    private fun onLearningTogether(flagLearningOrTest: Boolean) {
+        val intent =
+            Intent(
+                this, TogetherActivity::class.java
+            ).apply {
+                putExtra(
+                    Key.LEARNING_TOGETHER_REQUEST_KOD,
+                    flagLearningOrTest
+                )
+            }
+        startActivityForResult(intent, Key.TOGETHER_ACTIVITY_REQUEST_CODE)
+    }
+
     private fun openTaskFragment(courseId: Long, lessonId: Long) {
         val fragment: Fragment = TaskFragment.newInstance(courseId, lessonId)
         supportFragmentManager
@@ -86,10 +100,6 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
         supportFragmentManager
             .beginTransaction()
             .add(R.id.container_layout, fragment, Key.SHOW_ALL_CONTAINER_KEY)
-
-            //заменить лояут другим лояутов (фрагментом) во избежания бага
-            // в представленим нового фрагмента на экране
-//            .replace(R.id.container_layout, fragment, Key.SHOW_ALL_CONTAINER_KEY)
             .addToBackStack(null)
             .commit()
     }
@@ -105,6 +115,10 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
             .commit()
     }
 
+    override fun openLearningOrTest(flagLearningOrTest: Boolean) {
+        onLearningTogether(flagLearningOrTest)
+    }
+
     override fun finishSuccessFragment() {
         supportFragmentManager.findFragmentByTag(Key.TEG_SUCCESS_CONTAINER_KEY)?.let {
             supportFragmentManager
@@ -115,9 +129,9 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
         }
     }
 
-    override fun onBackPressed() {
-        exitingApplicationDoubleClick()
-    }
+//    override fun onBackPressed() {
+//        exitingApplicationDoubleClick()
+//    }
 
     //выход из приложения по двойному нажатию на кнопку
     private fun exitingApplicationDoubleClick() {
