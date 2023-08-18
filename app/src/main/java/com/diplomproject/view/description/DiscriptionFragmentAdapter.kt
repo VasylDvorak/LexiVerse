@@ -16,7 +16,7 @@ class DiscriptionFragmentAdapter(
 
     private var data: List<Example> = listOf()
     fun setData(examples: List<Example>?) {
-        this.data = examples?: listOf()
+        this.data = examples ?: listOf()
         notifyDataSetChanged()
     }
 
@@ -44,7 +44,7 @@ class DiscriptionFragmentAdapter(
                 play_articulation.setOnClickListener {
                     it?.apply {
                         isEnabled = false
-                        postDelayed({ isEnabled = true }, 1000)
+                        postDelayed({ isEnabled = true }, 5000)
                     }
                     example?.soundUrl?.let { sound_url ->
                         playArticulationClickListener(sound_url)

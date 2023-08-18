@@ -10,6 +10,7 @@ import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.RemoteViews
 import com.diplomproject.R
@@ -21,7 +22,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
-import kotlin.properties.Delegates
+
 
 private const val CHANGE_WORD = "CHANGE_WORD"
 private const val PLAY_PRONUNCIATION = "PLAY_PRONUNCIATION"
@@ -44,8 +45,10 @@ class WidgetForDictionary : AppWidgetProvider() {
             }
 
             PLAY_PRONUNCIATION -> {
-                    widgetLoader.readCurrentData()
-                        ?.let { playContentUrl(it.meanings?.get(0)?.soundUrl) }
+                widgetLoader.readCurrentData()
+                    ?.let {
+                        it.meanings?.get(0)?.soundUrl?.let { url -> playContentUrl(url, context) }
+                    }
             }
 
             START_DICTIONARY_ACTIVITY -> {
@@ -91,7 +94,8 @@ class WidgetForDictionary : AppWidgetProvider() {
             scope.launch {
                 if (withPendingIntent) {
 
-                    val pendingIntentChangeText = createPendingIntend(CHANGE_WORD, context)
+                    val pendingIntentChangeText =
+                        createPendingIntend(CHANGE_WORD, context)
                     val pendingIntentPlayPronunciation =
                         createPendingIntend(PLAY_PRONUNCIATION, context)
                     val pendingIntentStartMainActivity =
@@ -100,25 +104,10 @@ class WidgetForDictionary : AppWidgetProvider() {
                     setOnClickPendingIntent(R.id.text_unit_layout_widget, pendingIntentChangeText)
                     setOnClickPendingIntent(R.id.header_textview_widget, pendingIntentChangeText)
 
-                    setOnClickPendingIntent(R.id.play_articulation_widget,
-                        pendingIntentPlayPronunciation)
-                    //            counter=0
-//                                .apply {
-//                                setBoolean(R.id.play_articulation_widget, "setEnabled", false)
-//
-//                                Thread.sleep(400L)
-//                                    setBoolean(R.id.play_articulation_widget, "setEnabled", true)
-//
-//                            }
-
-
-//                                object : CountDownTimer(400, 100) {
-//                                    override fun onTick(millisUntilFinished: Long) {}
-//                                    override fun onFinish() {
-//                                        this@apply.setBoolean(R.id.play_articulation_widget, "setEnabled", true)
-//                                    }
-//                                }.start()
-
+                    setOnClickPendingIntent(
+                        R.id.play_articulation_widget,
+                        pendingIntentPlayPronunciation
+                    )
 
                     setOnClickPendingIntent(
                         R.id.start_main_activity,
@@ -178,20 +167,52 @@ class WidgetForDictionary : AppWidgetProvider() {
         super.onDeleted(context, appWidgetIds)
     }
 
-    fun playContentUrl(url: String?) {
+    fun playContentUrl(url: String, context: Context) {
+
+        val audioManager = context.applicationContext
+            .getSystemService(Context.AUDIO_SERVICE) as AudioManager
+
         mMediaPlayer = MediaPlayer()
-        mMediaPlayer?.apply {
-            try {
-                setDataSource(url)
-                setAudioStreamType(AudioManager.STREAM_MUSIC)
-                setOnPreparedListener { start() }
-                prepareAsync()
-            } catch (exception: IOException) {
-                release()
-                null
+        if (audioManager.isStreamMute(AudioManager.STREAM_MUSIC)) {
+            mMediaPlayer = null
+        } else {
+            mMediaPlayer?.apply {
+                try {
+                    setDataSource(url)
+                    setAudioStreamType(AudioManager.STREAM_MUSIC)
+                    setOnPreparedListener { start() }
+                    prepareAsync()
+                } catch (exception: IOException) {
+                    releaseMediaPlayer()
+                    null
+                }
             }
+
+            val timerMute = object : CountDownTimer(
+                mMediaPlayer!!.duration.toLong(),
+                100
+            ) {
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true)
+                    val timer = object : CountDownTimer(
+                        mMediaPlayer!!.duration.toLong(),
+                        100
+                    ) {
+                        override fun onTick(millisUntilFinished: Long) {}
+                        override fun onFinish() {
+                            audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false)
+                        }
+                    }
+                    timer.start()
+                }
+            }
+            timerMute.start()
+
         }
     }
+
 
     fun releaseMediaPlayer() {
         if (mMediaPlayer?.isPlaying == true) {

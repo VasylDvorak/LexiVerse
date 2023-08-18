@@ -10,4 +10,5 @@ interface Interactor<T : Any> {
     suspend fun getWordFromDB(word: String): Flow<DataModel> = flow {}
     suspend fun putFavorite(favorite: DataModel) {}
     suspend fun removeFavoriteItem(removeFavorite: DataModel) {}
+    suspend fun updateHistory(word: String, inFavoriteList: Boolean){}
 }

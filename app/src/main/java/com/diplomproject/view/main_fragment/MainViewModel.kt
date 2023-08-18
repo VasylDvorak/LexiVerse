@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.parseSearchResults
-import com.diplomproject.utils.parseWordSearchResults
 import com.diplomproject.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -20,15 +19,10 @@ private const val QUERY = "query"
 class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() {
 
     private val liveDataForViewToObserve: LiveData<AppState> = _liveDataForViewToObserve
-    private val liveDataFindWordInHistory: LiveData<DataModel> = _liveDataFindWordInHistory
 
 
     fun subscribe(): LiveData<AppState> {
         return liveDataForViewToObserve
-    }
-
-    fun subscribeFindWord(): LiveData<DataModel> {
-        return liveDataFindWordInHistory
     }
 
     fun getRestoredData(): AppState? = savedStateHandle[QUERY]
@@ -44,35 +38,7 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
 
     public override fun onCleared() {
         _liveDataForViewToObserve.value = AppState.Success(null)
-        _liveDataFindWordInHistory.value = null
         super.onCleared()
-    }
-
-    override fun findWordInHistory(word: String): LiveData<DataModel> {
-        queryStateFlowFindWordFromHistory.value = word
-        coroutineScope.launch {
-            queryStateFlowFindWordFromHistory.filter { query ->
-                if (query.isEmpty() || (query == "")) {
-                    _liveDataFindWordInHistory.postValue(DataModel())
-                    return@filter false
-                } else {
-                    return@filter true
-                }
-            }
-                // .debounce(500)
-                .distinctUntilChanged()
-                .flatMapLatest { query ->
-                    findWordFromHistory(query)
-                        .catch {
-                            emit(DataModel())
-                        }
-                }
-                .filterNotNull()
-                .collect { result ->
-                    _liveDataFindWordInHistory.postValue(result)
-                }
-        }
-        return super.findWordInHistory(word)
     }
 
 
@@ -118,15 +84,10 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
         }
     }
 
-
-    private fun findWordFromHistory(query: String): Flow<DataModel> {
-        return flow {
-            emit(
-                parseWordSearchResults(
-                    interactor.getWordFromDB(
-                        query
-                    )
-                )
+    fun removeFromFavorite(dataModel: DataModel) {
+        coroutineScope.launch {
+            interactor.removeFavoriteItem(
+                dataModel
             )
         }
     }

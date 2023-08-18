@@ -14,10 +14,10 @@
         tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/history"
+            android:id="@+id/favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_title_history"
+            android:text="@string/favorite"
             android:textColor="@color/search_icon_color"
             android:textSize="@dimen/title_history_size" />
 

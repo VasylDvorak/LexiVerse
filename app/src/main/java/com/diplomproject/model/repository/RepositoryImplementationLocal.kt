@@ -20,13 +20,10 @@ class RepositoryImplementationLocal(private val dataSource: DataSourceLocal<List
         dataSource.saveToDB(appState)
     }
 
-    override suspend fun findWordInDB(word: String): DataModel {
-        return dataSource.findWordFromDB(word)
-    }
-
     override suspend fun putFavorite(favorite: DataModel) {
         dataSource.putFavorite(favorite)
     }
+
 
     override suspend fun removeFavoriteItem(favorite: DataModel) {
         dataSource.removeFavoriteItem(favorite)

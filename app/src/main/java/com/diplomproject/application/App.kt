@@ -1,7 +1,6 @@
 package com.diplomproject.application
 
 import android.app.Application
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.diplomproject.di.ConnectKoinModules.apiModule
 import com.diplomproject.di.ConnectKoinModules.appModule
 import com.diplomproject.di.ConnectKoinModules.application
@@ -10,8 +9,6 @@ import com.diplomproject.di.ConnectKoinModules.descriptionFragmentModule
 import com.diplomproject.di.ConnectKoinModules.descriptionScreen
 import com.diplomproject.di.ConnectKoinModules.favoriteFragmentModule
 import com.diplomproject.di.ConnectKoinModules.favoriteScreen
-import com.diplomproject.di.ConnectKoinModules.historyFragmentModule
-import com.diplomproject.di.ConnectKoinModules.historyScreen
 import com.diplomproject.di.ConnectKoinModules.mainFragmentModule
 import com.diplomproject.di.ConnectKoinModules.mainScreen
 import com.diplomproject.learningtogether.di.appModuleLearningTogether
@@ -35,8 +32,6 @@ class App : Application() {
                     appModule,
                     mainFragmentModule,
                     ciceroneModule,
-                    historyScreen,
-                    historyFragmentModule,
                     favoriteFragmentModule,
                     favoriteScreen,
                     descriptionFragmentModule,

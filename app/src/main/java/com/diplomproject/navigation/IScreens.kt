@@ -7,7 +7,6 @@ interface IScreens {
 
     fun startMainFragment(): Screen
     fun startDescriptionFragment(dataModel: DataModel): Screen
-    fun startHistoryFragment(): Screen
     fun startFavoriteFragment(): Screen
     fun startSettingsFragment(): Screen
     fun startRegistrationFragment(): Screen

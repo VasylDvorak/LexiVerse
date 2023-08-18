@@ -1,20 +1,22 @@
 package com.diplomproject.view.favorite
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
-import com.diplomproject.databinding.FragmentHistoryFavoriteBinding
+import com.diplomproject.databinding.FragmentFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.favoriteScreenScope
 import com.diplomproject.domain.base.BaseFragment
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
+import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
+import com.diplomproject.view.main_fragment.LIST_KEY
 
 class FavoriteFragment : BaseFragment<AppState,
-        FragmentHistoryFavoriteBinding>(FragmentHistoryFavoriteBinding::inflate) {
-
+        FragmentFavoriteBinding>(FragmentFavoriteBinding::inflate) {
     private val historyActivityRecyclerview by viewById<RecyclerView>(R.id.history_activity_recyclerview)
     override lateinit var model: FavoriteViewModel
     private val adapter: FavoriteAdapter by lazy {
@@ -25,7 +27,23 @@ class FavoriteFragment : BaseFragment<AppState,
         )
     }
 
+    private fun saveListInSharedPref(dataModel: DataModel) {
+        val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        var listFromJson: List<DataModel> by SharedPreferencesDelegate(preferences, LIST_KEY)
+        if (!listFromJson.isNullOrEmpty()) {
+            var saveToSharedPreference = listFromJson
+            saveToSharedPreference.forEach {
+                if (it.text == dataModel.text) {
+                    it.inFavoriteList = false
+                }
+            }
+            listFromJson = saveToSharedPreference
+        }
+    }
+
+
     private fun onRemove(i: Int, dataModel: DataModel) {
+        saveListInSharedPref(dataModel)
         model.remove(dataModel)
         model.subscribe().observe(viewLifecycleOwner) { appState ->
             when (appState) {
@@ -95,7 +113,6 @@ class FavoriteFragment : BaseFragment<AppState,
     }
 
     private fun initViews() {
-        binding.history.text = getString(R.string.favorites)
         historyActivityRecyclerview.adapter = adapter
         ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(
             historyActivityRecyclerview

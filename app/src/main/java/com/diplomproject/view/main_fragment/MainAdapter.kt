@@ -13,7 +13,7 @@ import com.diplomproject.utils.ui.viewById
 class MainAdapter(
 
     private var onListItemClickListener: (DataModel) -> Unit,
-    private var putInFavoriteListListener: (DataModel) -> Unit,
+    private var putInFavoriteListListener: (DataModel, Int, Boolean) -> Unit,
     private var playArticulationClickListener: (String) -> Unit,
 ) : RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
 
@@ -52,8 +52,22 @@ class MainAdapter(
                     data.meanings?.get(0)?.translation?.translation
                 transcription_textview_recycler_item.text =
                     "[" + data.meanings?.get(0)?.transcription + "]"
-                set_favorite.setOnClickListener {
-                    putInFavoriteList(data)
+
+                set_favorite.apply {
+                    if (data.inFavoriteList) {
+                        setImageResource(R.drawable.baseline_favorite_24)
+                    } else {
+                        setImageResource(R.drawable.baseline_favorite_border_24)
+                    }
+                    setOnClickListener {
+                        data.inFavoriteList = !data.inFavoriteList
+                        if (data.inFavoriteList) {
+                            setImageResource(R.drawable.baseline_favorite_24)
+                        } else {
+                            setImageResource(R.drawable.baseline_favorite_border_24)
+                        }
+                        putInFavoriteList(data, position, data.inFavoriteList)
+                    }
                 }
                 play_articulation.setOnClickListener {
                     it?.apply {
@@ -64,14 +78,16 @@ class MainAdapter(
                         playArticulationClickListener(sound_url)
                     }
                 }
+
                 itemView.setOnClickListener { openInNewWindow(data) }
             }
         }
     }
 
-    private fun putInFavoriteList(favoriteData: DataModel) {
-        putInFavoriteListListener(favoriteData)
+    private fun putInFavoriteList(favoriteData: DataModel, position: Int, inFavoriteList: Boolean) {
+        putInFavoriteListListener(favoriteData, position, inFavoriteList)
     }
+
 
     private fun openInNewWindow(listItemData: DataModel) {
         onListItemClickListener(listItemData)

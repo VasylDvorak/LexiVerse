@@ -3,8 +3,6 @@ package com.diplomproject.view.main_fragment
 import android.app.SearchManager
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.RenderEffect
-import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -26,18 +24,16 @@ import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
-import com.diplomproject.view.BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
-import com.diplomproject.view.SearchDialogFragment
 
 
 const val LIST_KEY = "list_key"
 
-class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBinding::inflate){
+class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     override lateinit var model: MainViewModel
     private lateinit var preferences: SharedPreferences
+    private var dataWithFavorite: List<DataModel> = listOf()
     private val observer = Observer<AppState> { renderData(it) }
-    private val observerFindWord = Observer<DataModel> { showWordInHistory(it) }
     private val mainFragmentRecyclerview by viewById<RecyclerView>(R.id.main_activity_recyclerview)
     private val loadingFrameLayout by viewById<FrameLayout>(R.id.loading_frame_layout)
 
@@ -47,9 +43,14 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
         MainAdapter(::onItemClick, ::putInFavorite, ::onPlayClick)
     }
 
-    private fun putInFavorite(favorite: DataModel) {
-        model.putInFavorite(favorite)
-
+    private fun putInFavorite(favorite: DataModel, position: Int, inFavoriteList: Boolean) {
+        dataWithFavorite[position].inFavoriteList = inFavoriteList
+        saveListForAdapter(dataWithFavorite)
+        if (inFavoriteList) {
+            model.putInFavorite(favorite)
+        } else {
+            model.removeFromFavorite(favorite)
+        }
     }
 
     private fun onItemClick(dataModel: DataModel) {
@@ -63,8 +64,6 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
     }
 
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
@@ -75,52 +74,10 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
         preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val listFromJson: List<DataModel> by SharedPreferencesDelegate(preferences, LIST_KEY)
         if (!listFromJson.isNullOrEmpty()) {
+            dataWithFavorite = listFromJson
             updateAdapter(listFromJson)
         }
 
-    }
-
-    private fun findWordInHistory() {
-        val searchDialogFragment = SearchDialogFragment.newInstance()
-        searchDialogFragment.setRecyclerView(mainFragmentRecyclerview)
-        searchDialogFragment.setOnSearchClickListener(object :
-            SearchDialogFragment.OnSearchClickListener {
-            override fun onClick(searchWord: String) {
-                model.apply {
-                    subscribeFindWord().observe(viewLifecycleOwner, observerFindWord)
-                    findWordInHistory(searchWord)
-                    subscribe().observe(viewLifecycleOwner, observer)
-                }
-
-            }
-        })
-        searchDialogFragment.show(
-            requireActivity().supportFragmentManager,
-            BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
-        )
-        if (checkSDKversion) {
-            val blurEffect = RenderEffect.createBlurEffect(
-                16f, 16f,
-                Shader.TileMode.CLAMP
-            )
-            mainFragmentRecyclerview.setRenderEffect(blurEffect)
-        }
-
-
-    }
-
-
-    private fun showWordInHistory(findWord: DataModel) {
-        if ((findWord.text == "") || findWord.text.isNullOrBlank() || findWord.text.isNullOrEmpty()) {
-            showAlertDialog(
-                getString(R.string.dialog_tittle_sorry),
-                getString(R.string.no_word_in_history)
-            )
-        } else {
-            findWord.let {
-                router.navigateTo(screen.startDescriptionFragment(it))
-            }
-        }
     }
 
     private fun initViewModel() {
@@ -250,16 +207,6 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_history -> {
-                router.navigateTo(screen.startHistoryFragment())
-                true
-            }
-
-            R.id.find_word_in_history -> {
-                findWordInHistory()
-                true
-            }
-
             R.id.favorite -> {
                 router.navigateTo(screen.startFavoriteFragment())
                 true
@@ -305,6 +252,7 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
     }
 
     override fun setDataToAdapter(data: List<DataModel>) {
+        dataWithFavorite = data
         saveListForAdapter(data)
         showViewSuccess()
         adapter?.setData(data)

@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.view.description.DescriptionFragment
 import com.diplomproject.view.favorite.FavoriteFragment
-import com.diplomproject.view.history.HistoryFragment
 import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.root.StartingFragment
 import com.diplomproject.view.root.favorite.FavoritesElementFragment
@@ -33,7 +32,6 @@ class AndroidScreens : IScreens {
         })
     }
 
-    override fun startHistoryFragment() = FragmentScreen { HistoryFragment.newInstance() }
     override fun startFavoriteFragment() = FragmentScreen { FavoriteFragment.newInstance() }
     override fun startSettingsFragment() = FragmentScreen { SettingsFragment.newInstance() }
     override fun startRegistrationFragment() = FragmentScreen { RegistrationFragment.newInstance() }

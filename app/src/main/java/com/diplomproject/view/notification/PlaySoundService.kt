@@ -1,9 +1,11 @@
 package com.diplomproject.view.notification
 
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.os.CountDownTimer
 import android.os.IBinder
 import android.preference.PreferenceManager
 import org.koin.java.KoinJavaComponent
@@ -34,17 +36,41 @@ class PlaySoundService : Service() {
     }
 
     fun playContentUrl(url: String) {
+        val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
         mMediaPlayer = MediaPlayer()
-        mMediaPlayer?.apply {
-            try {
-                setDataSource(url)
-                setAudioStreamType(AudioManager.STREAM_MUSIC)
-                setOnPreparedListener { start() }
-                prepareAsync()
-            } catch (exception: IOException) {
-                releaseMediaPlayer()
-                null
+        if (audioManager.isStreamMute(AudioManager.STREAM_MUSIC)) {
+            mMediaPlayer = null
+        } else {
+            mMediaPlayer?.apply {
+                try {
+                    setDataSource(url)
+                    setAudioStreamType(AudioManager.STREAM_MUSIC)
+                    setOnPreparedListener { start() }
+                    prepareAsync()
+                } catch (exception: IOException) {
+                    releaseMediaPlayer()
+                    null
+                }
             }
+
+            val timerMute = object : CountDownTimer(mMediaPlayer!!.duration.toLong(),
+                100) {
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true)
+                    val timer = object : CountDownTimer(mMediaPlayer!!.duration.toLong(),
+                        100) {
+                        override fun onTick(millisUntilFinished: Long) {}
+                        override fun onFinish() {
+                            audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false)
+                        }
+                    }
+                    timer.start()
+                }
+            }
+            timerMute.start()
+
         }
     }
 

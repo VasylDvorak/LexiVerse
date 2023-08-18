@@ -7,7 +7,6 @@ import com.diplomproject.model.data_word_request.Meanings
 import com.diplomproject.model.data_word_request.Translation
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.room.favorite.FavoriteEntity
-import com.diplomproject.room.history.HistoryEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.Flow
@@ -64,9 +63,6 @@ suspend fun parseLocalSearchResults(appState: Flow<AppState>): AppState {
     return AppState.Success(mapResult(appState.first(), false))
 }
 
-suspend fun parseWordSearchResults(findWordFlow: Flow<DataModel>): DataModel {
-    return findWordFlow.first()
-}
 
 private fun mapResult(
     appState: AppState,
@@ -169,26 +165,7 @@ fun parseResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>): Arra
     return newDataModels
 }
 
-fun mapHistoryEntityToSearchResult(list: List<HistoryEntity>): List<DataModel> {
-    val searchResult = ArrayList<DataModel>()
-    if (list.isNullOrEmpty()) {
-        return searchResult
-    }
-    for (entity in list) {
-        val meanings = Meanings(
-            entity.id,
-            entity.partOfSpeechCode,
-            Translation(entity.translation),
-            entity.imageUrl,
-            entity.transcription,
-            entity.soundUrl
-        )
-        val type = object : TypeToken<List<Example?>?>() {}.type
-        val exampleList = Gson().fromJson(entity.examples, type) as List<Example>
-        searchResult.add(DataModel(entity.id, entity.word, listOf(meanings), exampleList))
-    }
-    return searchResult
-}
+
 
 fun mapFavoriteEntityToSearchResult(list: List<FavoriteEntity>): List<DataModel> {
     val searchResult = ArrayList<DataModel>()
@@ -211,30 +188,6 @@ fun mapFavoriteEntityToSearchResult(list: List<FavoriteEntity>): List<DataModel>
     return searchResult
 }
 
-fun convertDataModelSuccessToEntity(appState: AppState): HistoryEntity? {
-    return when (appState) {
-        is AppState.Success -> {
-            val searchResult = appState.data
-            if (searchResult.isNullOrEmpty() || searchResult[0].text.isNullOrEmpty()) {
-                null
-            } else {
-                var meanings = searchResult[0].meanings?.get(0)
-                HistoryEntity(
-                    meanings?.id,
-                    searchResult[0].text!!,
-                    meanings?.imageUrl,
-                    meanings?.transcription,
-                    meanings?.soundUrl,
-                    meanings?.translation!!.translation,
-                    gson.toJson(searchResult[0].exampleDataModel),
-                    meanings.partOfSpeechCode
-                )
-            }
-        }
-
-        else -> null
-    }
-}
 
 fun converterDataModelToFavoriteEntity(sourse: DataModel): FavoriteEntity {
     var meanings = sourse.meanings?.get(0)

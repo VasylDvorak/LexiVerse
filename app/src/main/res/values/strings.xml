@@ -28,7 +28,6 @@
     <string name="dialog_tittle_sorry">Извините</string>
     <string name="pronounce">Произношение</string>
     <string name="empty_string">Пустая строка</string>
-    <string name="menu_title_history">ИСТОРИЯ</string>
     <string name="favorite">Избранные</string>
     <string name="favorites">ИЗБРАННЫЕ</string>
     <string name="find_in_history">Найти в истории</string>
@@ -75,7 +74,7 @@
 
     <!-- bottom nav root menu -->
     <string name="root_menu">Меню</string>
-    <string name="favorites_elements">Избраное</string>
+    <string name="favorites_elements">Избранное</string>
     <string name="grade">Успеваемость</string>
     <string name="settings">Настройки</string>
 
@@ -103,7 +102,7 @@
     <string name="enter_password">enter_password</string>
     <string name="set_time_delay">Установить задержку времени</string>
     <string name="delay">Задержка</string>
-    <string name="show_notification_every">Показывать нотификацию каждые</string>
+    <string name="show_notification_every">Показывать уведомления каждые</string>
     <string name="listen">Прослушать</string>
     <string name="to_application">В приложение</string>
     <string name="notificator_name">Dictionary</string>
@@ -129,6 +128,6 @@
     <string name="notif_email">Уведомление по почте</string>
     <string name="notif_sms">Уведомление по смс</string>
     <string name="notif_word">Напоминания слов</string>
-    <string name="share">Поделится…</string>
+    <string name="share">Поделиться…</string>
     <string name="enter_word_search">Введите слово</string>
 </resources>

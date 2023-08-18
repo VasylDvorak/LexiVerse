@@ -8,7 +8,6 @@ import com.diplomproject.di.koin_modules.AppModule
 import com.diplomproject.di.koin_modules.CiceroneModule
 import com.diplomproject.di.koin_modules.DescriptionFragmentModule
 import com.diplomproject.di.koin_modules.FavoriteFragmentModule
-import com.diplomproject.di.koin_modules.HistoryFragmentModule
 import com.diplomproject.di.koin_modules.MainFragmentModule
 import com.diplomproject.di.koin_modules.NAME_CICERONE_MODULE_CICERONE
 import com.diplomproject.model.data_word_request.DataModel
@@ -18,7 +17,7 @@ import com.diplomproject.model.repository.Repository
 import com.diplomproject.model.repository.RepositoryImplementation
 import com.diplomproject.model.repository.RepositoryImplementationLocal
 import com.diplomproject.model.repository.RepositoryLocal
-import com.diplomproject.room.HistoryFavoriteDataBase
+import com.diplomproject.room.FavoriteDataBase
 import com.diplomproject.view.OnlineRepository
 import com.diplomproject.view.description.DescriptionFragment
 import com.diplomproject.view.description.DescriptionInteractor
@@ -26,9 +25,6 @@ import com.diplomproject.view.description.DescriptionViewModel
 import com.diplomproject.view.favorite.FavoriteFragment
 import com.diplomproject.view.favorite.FavoriteInteractor
 import com.diplomproject.view.favorite.FavoriteViewModel
-import com.diplomproject.view.history.HistoryFragment
-import com.diplomproject.view.history.HistoryInteractor
-import com.diplomproject.view.history.HistoryViewModel
 import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.main_fragment.MainInteractor
 import com.diplomproject.view.main_fragment.MainViewModel
@@ -40,7 +36,6 @@ import org.koin.mp.KoinPlatform.getKoin
 
 
 const val dataBaseName = "HistoryDB"
-const val historyScreenScopeName = "historyScreenScope"
 const val favoriteScreenScopeName = "favoriteScreenScope"
 const val mainScreenScopeName = "mainScreenScope"
 const val descriptionScreenScopeName = "descriptionScreenScope"
@@ -49,29 +44,15 @@ object ConnectKoinModules {
 
     val application = module {
         single {
-            Room.databaseBuilder(get(), HistoryFavoriteDataBase::class.java, dataBaseName).build()
+            Room.databaseBuilder(get(), FavoriteDataBase::class.java, dataBaseName).build()
         }
-        single { get<HistoryFavoriteDataBase>().historyDao() }
-        single { get<HistoryFavoriteDataBase>().favoriteDao() }
+        single { get<FavoriteDataBase>().favoriteDao() }
         single<Repository<List<DataModel>>> { RepositoryImplementation(RetrofitImplementation()) }
         single<RepositoryLocal<List<DataModel>>> {
-            RepositoryImplementationLocal(RoomDataBaseImplementation(get(), get()))
+            RepositoryImplementationLocal(RoomDataBaseImplementation(get()))
         }
         single { OnlineRepository() }
     }
-
-    val historyScreen = module {
-        scope(named<HistoryFragment>()) {
-            scoped { HistoryInteractor(get()) }
-            viewModel { HistoryViewModel(get()) }
-        }
-    }
-
-    val historyScreenScope by lazy {
-        getKoin()
-            .getOrCreateScope(historyScreenScopeName, named<HistoryFragment>())
-    }
-
 
     val favoriteScreen = module {
         scope(named<FavoriteFragment>()) {
@@ -136,10 +117,6 @@ object ConnectKoinModules {
 
     val mainFragmentModule = module {
         single { MainFragmentModule().mainFragment() }
-
-    }
-    val historyFragmentModule = module {
-        single { HistoryFragmentModule().historyFragment() }
 
     }
 
