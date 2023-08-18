@@ -12,6 +12,7 @@ import com.diplomproject.view.settings_menu.AboutApplicationFragment
 import com.diplomproject.view.settings_menu.ChoosingThemeFragment
 import com.diplomproject.view.settings_menu.EnterExitFragment
 import com.diplomproject.view.settings_menu.LoginFragment
+import com.diplomproject.view.settings_menu.PrivacyPoliticFragment
 import com.diplomproject.view.settings_menu.RegistrationFragment
 import com.diplomproject.view.settings_menu.SettingsFragment
 import com.diplomproject.view.settings_menu.SettingsNotificationFragment
@@ -60,6 +61,11 @@ class AndroidScreens : IScreens {
 
     override fun startLoginFragment(): Screen =
         FragmentScreen{LoginFragment.newInstance()}
+
+    override fun startPoliticFragment(): Screen =
+        FragmentScreen{ PrivacyPoliticFragment.newInstance()}
+
+
 }
 
 

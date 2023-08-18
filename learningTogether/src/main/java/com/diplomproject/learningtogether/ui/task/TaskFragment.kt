@@ -7,29 +7,24 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.learningtogether.Key
 import com.diplomproject.learningtogether.Key.DEFAULT_COURSE_ID_KEY
 import com.diplomproject.learningtogether.Key.DEFAULT_LESSON_ID_KEY
 import com.diplomproject.learningtogether.R
+import com.diplomproject.learningtogether.ViewBindingFragment
+import com.diplomproject.learningtogether.databinding.FragmentTaskV2Binding
 import com.diplomproject.learningtogether.ui.task.answer.AnswerAdapter
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class TaskFragment : Fragment(R.layout.fragment_task_v2) {
-
-    private lateinit var taskTv: TextView
-    private lateinit var taskImageView: ImageView
-    private lateinit var progressBar: ProgressBar
-    private lateinit var linerLayout: LinearLayout
+class TaskFragment : ViewBindingFragment<FragmentTaskV2Binding>(
+    FragmentTaskV2Binding::inflate
+) {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: AnswerAdapter
@@ -52,15 +47,20 @@ class TaskFragment : Fragment(R.layout.fragment_task_v2) {
         // подписываемся на inProgressLiveData
         viewModel.inProgressLiveData.observe(viewLifecycleOwner) { inProgress ->
             //сюда приходит значение
-            recyclerView.isVisible = !inProgress
-            progressBar.isVisible = inProgress
+            binding.taskAnswerRecyclerView.isVisible = !inProgress
+            binding.progressTaskBar.isVisible = inProgress
         }
 
         viewModel.tasksLiveData.observe(viewLifecycleOwner) { task ->
-            taskTv.text = task.task
+            binding.taskTextView.text = task.task
 
-            Picasso.get().load(task.taskImageUrl).into(taskImageView)
-            taskImageView.scaleType = ImageView.ScaleType.FIT_CENTER
+            Picasso.get().load(task.taskImageUrl).into(binding.taskImageView)
+            binding.taskImageView.scaleType = ImageView.ScaleType.FIT_CENTER
+
+            val textTask = "Всего осталось ответить: "
+            val learningList = viewModel.tasks.size + 1
+
+            binding.recordsTextView.text = "$textTask $learningList "
 
             task?.let {
                 adapter.setData(it.variantsAnswer)
@@ -80,11 +80,6 @@ class TaskFragment : Fragment(R.layout.fragment_task_v2) {
     }
 
     private fun initView(view: View) {
-        taskTv = view.findViewById(R.id.task_text_view)
-        taskImageView = view.findViewById(R.id.task_image_view)
-        progressBar = view.findViewById(R.id.progress_task_bar)
-        linerLayout = view.findViewById(R.id.task_liner_layout)
-
         recyclerView = view.findViewById(R.id.task_answer_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = AnswerAdapter()
