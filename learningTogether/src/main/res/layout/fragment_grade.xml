@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/example_back"
-    tools:context=".view.root.grade.GradeFragment">
+    tools:context=".ui.grade.GradeFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -14,15 +14,21 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/color_white"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="15dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_white"
+        app:strokeColor="@color/white"
         app:strokeWidth="1dp">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingClass" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

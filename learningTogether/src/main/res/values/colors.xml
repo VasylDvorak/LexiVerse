@@ -22,4 +22,9 @@
     <!-- Кнопки nav -->
     <color name="blue_dark">#276EF1</color>
 
+    <!-- Для графика успеваимости -->
+    <color name="example_back">#e0f7fd</color>
+    <color name="green">#079A27</color>
+    <color name="red">#FF7E7E</color>
+
 </resources>

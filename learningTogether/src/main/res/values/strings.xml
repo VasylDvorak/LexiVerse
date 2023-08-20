@@ -42,4 +42,11 @@
 
     <!-- layout -> default -->
     <string name="progress_counter">0/0</string>
+
+    <!-- Для графика успеваимости -->
+    <string name="language_acquisition">Прогресс обучения</string>
+    <string name="positive_chart">Отлично</string>
+    <string name="negative_chart">Плохо</string>
+    <string name="grade_chart">Успеваемость</string>
+
 </resources>
