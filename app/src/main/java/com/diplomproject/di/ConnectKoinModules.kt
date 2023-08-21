@@ -10,6 +10,7 @@ import com.diplomproject.di.koin_modules.DescriptionFragmentModule
 import com.diplomproject.di.koin_modules.FavoriteFragmentModule
 import com.diplomproject.di.koin_modules.MainFragmentModule
 import com.diplomproject.di.koin_modules.NAME_CICERONE_MODULE_CICERONE
+import com.diplomproject.di.koin_modules.TestEnglishFragmentModule
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.RetrofitImplementation
 import com.diplomproject.model.datasource.RoomDataBaseImplementation
@@ -28,6 +29,9 @@ import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.main_fragment.MainInteractor
 import com.diplomproject.view.main_fragment.MainViewModel
+import com.diplomproject.view.test_english.TestEnglishFragment
+import com.diplomproject.view.test_english.TestEnglishInteractor
+import com.diplomproject.view.test_english.TestEnglishViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -127,6 +131,20 @@ object ConnectKoinModules {
 
     val descriptionFragmentModule = module {
         single { DescriptionFragmentModule().descriptionFragment() }
+    }
 
+    val testEnglishFragmentModule = module {
+        single { TestEnglishFragmentModule().testEnglishFragment() }
+    }
+    val testEnglishFragmentScreen = module {
+        scope(named<TestEnglishFragment>()) {
+            scoped { TestEnglishInteractor(get()) }
+            viewModel { TestEnglishViewModel(get()) }
+        }
+    }
+
+    val testEnglishFragmentScreenScope by lazy {
+        getKoin()
+            .getOrCreateScope(descriptionScreenScopeName, named<DescriptionFragment>())
     }
 }

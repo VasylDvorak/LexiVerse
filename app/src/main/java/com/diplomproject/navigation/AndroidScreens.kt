@@ -18,8 +18,10 @@ import com.diplomproject.view.settings_menu.SettingsFragment
 import com.diplomproject.view.settings_menu.SettingsNotificationFragment
 import com.diplomproject.view.settings_menu.ShareApplicationFragment
 import com.diplomproject.view.settings_menu.SupportFragment
+import com.diplomproject.view.test_english.TestEnglishFragment
 import com.github.terrakok.cicerone.Screen
 import com.github.terrakok.cicerone.androidx.FragmentScreen
+import com.google.gson.Gson
 
 class AndroidScreens : IScreens {
     override fun startMainFragment() = FragmentScreen { MainFragment.newInstance() }
@@ -60,12 +62,20 @@ class AndroidScreens : IScreens {
         FragmentScreen { GradeFragment.newInstance() }
 
     override fun startLoginFragment(): Screen =
-        FragmentScreen{LoginFragment.newInstance()}
+        FragmentScreen { LoginFragment.newInstance() }
 
     override fun startPoliticFragment(): Screen =
-        FragmentScreen{ PrivacyPoliticFragment.newInstance()}
+        FragmentScreen { PrivacyPoliticFragment.newInstance() }
 
-
+    override fun startTestEnglishFragment(listDataModel: List<DataModel>): Screen = FragmentScreen {
+        val listDataModelGson = Gson().toJson(listDataModel)
+        TestEnglishFragment.newInstance(Bundle().apply {
+            putString(
+                TestEnglishFragment.LIST_DATA_MODELS,
+                listDataModelGson
+            )
+        })
+    }
 }
 
 

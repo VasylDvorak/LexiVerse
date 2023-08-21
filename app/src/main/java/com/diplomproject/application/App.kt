@@ -11,6 +11,8 @@ import com.diplomproject.di.ConnectKoinModules.favoriteFragmentModule
 import com.diplomproject.di.ConnectKoinModules.favoriteScreen
 import com.diplomproject.di.ConnectKoinModules.mainFragmentModule
 import com.diplomproject.di.ConnectKoinModules.mainScreen
+import com.diplomproject.di.ConnectKoinModules.testEnglishFragmentModule
+import com.diplomproject.di.ConnectKoinModules.testEnglishFragmentScreen
 import com.diplomproject.learningtogether.di.appModuleLearningTogether
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -36,7 +38,9 @@ class App : Application() {
                     favoriteScreen,
                     descriptionFragmentModule,
                     descriptionScreen,
-                    appModuleLearningTogether
+                    appModuleLearningTogether,
+                    testEnglishFragmentModule,
+                    testEnglishFragmentScreen
                 )
             )
         }

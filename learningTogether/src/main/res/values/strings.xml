@@ -42,4 +42,6 @@
 
     <!-- layout -> default -->
     <string name="progress_counter">0/0</string>
+    <string name="enterWordForTest">Введите слово для теста</string>
+    <string name="startTest">Запустить тест</string>
 </resources>
