@@ -20,6 +20,7 @@ interface IScreens {
     fun startFavoritesElementFragment(): Screen
     fun startGradeFragment(): Screen
     fun startLoginFragment(): Screen
-    fun startPoliticFragment() : Screen
+    fun startPoliticFragment(): Screen
+    fun startTestEnglishFragment(listDataModel: List<DataModel>): Screen
 
 }

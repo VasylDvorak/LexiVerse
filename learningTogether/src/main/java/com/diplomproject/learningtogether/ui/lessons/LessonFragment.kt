@@ -3,27 +3,45 @@ package com.diplomproject.learningtogether.ui.lessons
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.diplomproject.di.ConnectKoinModules.mainScreenScope
+import com.diplomproject.domain.base.BaseFragment
 import com.diplomproject.learningtogether.Key
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.domain.entities.FavoriteLessonEntity
+import com.diplomproject.learningtogether.ui.courses.CoursesFragment
+import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
+import com.diplomproject.navigation.IScreens
+import com.diplomproject.utils.ui.AlertDialogFragment
+import com.diplomproject.view.main_fragment.MainViewModel
+import com.diplomproject.view.test_english.TestEnglishFragment
+import com.github.terrakok.cicerone.Router
+import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import org.koin.java.KoinJavaComponent
 
 internal const val DEFAULT_COURSE_KEY = -1L
 
 class LessonFragment : Fragment(R.layout.fragment_lesson) {
-
+    lateinit var model: MainViewModel
+    private val observer = Observer<AppState> { renderData(it) }
     private lateinit var adapter: LessonsAdapter
     private lateinit var progressBar: ProgressBar
     private val viewModel: LessonsViewModel by viewModel {
         parametersOf(courseId)
     }
+    val router: Router by KoinJavaComponent.inject(Router::class.java)
+    val screen = KoinJavaComponent.getKoin().get<IScreens>()
 
     private lateinit var lessonsRecyclerView: RecyclerView
 
@@ -54,6 +72,63 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
 
         view.findViewById<TextView>(R.id.fragment_id_text_view).text = courseId.toString()
         view.findViewById<TextView>(R.id.fragment_id_text_view).visibility = View.GONE
+        testWords()
+    }
+
+    private fun testWords() {
+        view?.findViewById<Button>(R.id.test_word_button)?.setOnClickListener {
+
+            val searchWord=view?.findViewById<EditText>(R.id.test_word)?.text.toString()
+            val viewModel: MainViewModel by lazy { mainScreenScope.get() }
+            model.apply {
+            model = viewModel
+            subscribe().observe(viewLifecycleOwner, observer)
+            getData(searchWord, true)
+        }
+    }
+}
+
+    fun renderData(appState: AppState) {
+        model.setQuery(appState)
+        when (appState) {
+            is AppState.Success -> {
+                val data = appState.data
+                if (data.isNullOrEmpty()) {
+                    showAlertDialog(
+                        getString(com.diplomproject.R.string.dialog_tittle_sorry),
+                        getString(com.diplomproject.R.string.empty_server_response_on_success)
+                    )
+                } else {
+                    router.navigateTo(screen.startTestEnglishFragment(data))
+                }
+            }
+
+            is AppState.Loading -> {
+//                showViewLoading()
+//                binding.apply {
+//                    if (appState.progress != null) {
+//                        progressBarRound.visibility = View.GONE
+//                    } else {
+//                        progressBarRound.visibility = View.VISIBLE
+//                    }
+//                }
+            }
+
+            is AppState.Error -> {
+                showAlertDialog(
+                    getString(com.diplomproject.R.string.dialog_tittle_sorry),
+                    getString(com.diplomproject.R.string.empty_server_response_on_success)
+                )
+            }
+        }
+    }
+
+
+    protected fun showAlertDialog(title: String?, message: String?) {
+        activity?.let {
+            AlertDialogFragment.newInstance(title, message)
+                .show(it.supportFragmentManager, BaseFragment.DIALOG_FRAGMENT_TAG)
+        }
     }
 
     private fun initViews(view: View) {

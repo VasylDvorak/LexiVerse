@@ -23,4 +23,5 @@ dependencies {
 
     //picasso
     implementation("com.squareup.picasso:picasso:2.71828")
+    implementation(project(mapOf("path" to ":app")))
 }

@@ -6,6 +6,7 @@ import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.data_word_request.Meanings
 import com.diplomproject.model.data_word_request.Translation
 import com.diplomproject.model.datasource.AppState
+import com.diplomproject.model.test_english_request.TestEnglishAppState
 import com.diplomproject.room.favorite.FavoriteEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -56,6 +57,21 @@ suspend fun parseSearchResultsDescription(state: Flow<DescriptionAppState>): Des
         else -> {}
     }
     return descriptionAppState
+}
+
+suspend fun parseSearchResultsTestEnglish(state: Flow<TestEnglishAppState>): TestEnglishAppState {
+    var testEnglishAppState = state.first()
+
+
+    when (testEnglishAppState) {
+        is TestEnglishAppState.Success -> {
+            var searchResults = testEnglishAppState.data!!
+            testEnglishAppState = TestEnglishAppState.Success(searchResults)
+        }
+
+        else -> {}
+    }
+    return testEnglishAppState
 }
 
 
@@ -164,7 +180,6 @@ fun parseResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>): Arra
     }
     return newDataModels
 }
-
 
 
 fun mapFavoriteEntityToSearchResult(list: List<FavoriteEntity>): List<DataModel> {
