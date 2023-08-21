@@ -17,11 +17,15 @@ import com.diplomproject.domain.base.BaseFragment
 import com.diplomproject.learningtogether.Key
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.domain.entities.FavoriteLessonEntity
+import com.diplomproject.learningtogether.ui.courses.CoursesFragment
+import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.ui.AlertDialogFragment
 import com.diplomproject.view.main_fragment.MainViewModel
+import com.diplomproject.view.test_english.TestEnglishFragment
 import com.github.terrakok.cicerone.Router
+import com.google.gson.Gson
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.java.KoinJavaComponent
@@ -36,13 +40,13 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
     private val viewModel: LessonsViewModel by viewModel {
         parametersOf(courseId)
     }
+    val router: Router by KoinJavaComponent.inject(Router::class.java)
+    val screen = KoinJavaComponent.getKoin().get<IScreens>()
 
     private lateinit var lessonsRecyclerView: RecyclerView
 
     private var courseId: Long = DEFAULT_COURSE_KEY
 
-    val router: Router by KoinJavaComponent.inject(Router::class.java)
-    val screen = KoinJavaComponent.getKoin().get<IScreens>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -76,12 +80,13 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
 
             val searchWord=view?.findViewById<EditText>(R.id.test_word)?.text.toString()
             val viewModel: MainViewModel by lazy { mainScreenScope.get() }
+            model.apply {
             model = viewModel
-            model.subscribe().observe(viewLifecycleOwner, observer)
-            model.getData(searchWord, true)
+            subscribe().observe(viewLifecycleOwner, observer)
+            getData(searchWord, true)
         }
     }
-
+}
 
     fun renderData(appState: AppState) {
         model.setQuery(appState)
@@ -117,6 +122,7 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
             }
         }
     }
+
 
     protected fun showAlertDialog(title: String?, message: String?) {
         activity?.let {

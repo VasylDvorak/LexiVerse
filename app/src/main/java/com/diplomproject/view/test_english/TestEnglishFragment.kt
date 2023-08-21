@@ -141,32 +141,33 @@ class TestEnglishFragment() :
                     )
                 }
             }
-            sentence.text = transformQuestionString ?: ""
+            sentence.text = transformQuestionString?:""
 
-            descriptionHeader.text = currentDataModel.text
-            if (currentDataModel.meanings?.size != 0) {
-                descriptionPartOfSpeech.text =
-                    currentDataModel.meanings?.get(0)?.partOfSpeechCode
-                translationTextview.text =
-                    currentDataModel.meanings?.get(0)?.translation?.translation
-                transcription.text =
-                    "[" + currentDataModel.meanings?.get(0)?.transcription + "]"
+          //  descriptionHeader.text = currentDataModel.text
+         //   if (currentDataModel.meanings?.size != 0) {
+          //      descriptionPartOfSpeech.text =
+          //          currentDataModel.meanings?.get(0)?.partOfSpeechCode
+          //      translationTextview.text =
+           //         currentDataModel.meanings?.get(0)?.translation?.translation
+           //     transcription.text =
+          //          "[" + currentDataModel.meanings?.get(0)?.transcription + "]"
 
                 playArticulation.setOnClickListener {
                     it?.apply {
                         isEnabled = false
                         postDelayed({ isEnabled = true }, 400)
                     }
-                    currentDataModel.meanings?.get(0)?.soundUrl?.let { sound_url ->
-                        playContentUrl(sound_url)
-                    }
+//                    currentDataModel.meanings?.get(0)?.soundUrl?.let { sound_url ->
+//                        playContentUrl(sound_url)
+//                    }
                 }
-                val imageLink = currentDataModel.meanings?.get(0)?.imageUrl
+             //   val imageLink = currentDataModel.meanings?.get(0)?.imageUrl
+            val imageLink = example.imageUrl
                 if (imageLink.isNullOrBlank()) {
                     //    stopRefreshAnimationIfNeeded()
                 } else {
                     useGlideToLoadPhoto(descriptionImageview, imageLink)
-                }
+        //        }
             }
         }
 

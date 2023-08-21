@@ -132,4 +132,6 @@
     <string name="enter_word_search">Введите слово</string>
     <string name="find_word_for_sense">Найди слово подходящее по смыслу</string>
     <string name="find_exclude_word">Найди пропущенное слово</string>
+    <string name="test_sentance">Тестовое предложение</string>
+    <string name="right_answer_show">Показать правильный ответ</string>
 </resources>

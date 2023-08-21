@@ -8,4 +8,5 @@ import kotlinx.android.parcel.Parcelize
 class TestEnglishSample(
     var sampleDataModel: DataModel = DataModel(),
     var rightAnswer:Boolean?=false,
+    var selected:Boolean?=false
 ) : Parcelable

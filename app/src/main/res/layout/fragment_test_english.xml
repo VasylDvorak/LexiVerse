@@ -35,20 +35,22 @@
                 <TextView
                     android:id="@+id/test_english_header"
                     style="@style/HeaderTextStyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/header"
-                    android:gravity="center"
+                    android:contentDescription="@string/right_answer_show"
+                    android:gravity="left"
                     android:textColor="@color/example_dark"
                     android:textIsSelectable="true"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@+id/description_imageview"
-                    app:layout_constraintStart_toStartOf="@+id/description_imageview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/play_articulation"
                     app:layout_constraintTop_toBottomOf="@+id/description_imageview"
-                    tools:text="@string/header" />
+                    tools:text="@string/right_answer_show" />
 
                 <ImageButton
                     android:id="@+id/play_articulation"
@@ -58,19 +60,18 @@
                     android:src="@drawable/baseline_volume_up_24"
                     android:background="@drawable/rounded_button"
                     android:contentDescription="@string/pronounce"
-                    app:layout_constraintEnd_toEndOf="@+id/description_imageview"
-                    app:layout_constraintStart_toStartOf="@+id/description_imageview"
-                    app:layout_constraintTop_toBottomOf="@+id/sentence"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/test_english_header"
                     app:tint="@color/image_sound_button_colors" />
                 <TextView
                     android:id="@+id/sentence"
                     style="@style/BaseTextStyle"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/part_of_speach"
+                    android:contentDescription="@string/test_sentance"
                     android:gravity="center"
                     android:textColor="@color/pastel_yellow_dark"
                     android:textIsSelectable="true"
@@ -78,7 +79,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/description_imageview"
                     app:layout_constraintStart_toStartOf="@+id/description_imageview"
                     app:layout_constraintTop_toBottomOf="@+id/test_english_header"
-                    tools:text="@string/part_of_speach" />
+                    tools:text="@string/test_sentance" />
 
 
                 <com.diplomproject.utils.ui.EquilateralImageView
