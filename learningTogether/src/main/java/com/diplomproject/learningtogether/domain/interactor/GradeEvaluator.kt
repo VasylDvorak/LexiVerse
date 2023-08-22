@@ -4,5 +4,5 @@ import com.diplomproject.learningtogether.domain.GradeEvaluation
 
 interface GradeEvaluator {
 
-    fun evaluator(answer: AnswerCounterInteractor): GradeEvaluation
+    fun evaluator(listTasks: Int, positiveTasks: Int): GradeEvaluation
 }

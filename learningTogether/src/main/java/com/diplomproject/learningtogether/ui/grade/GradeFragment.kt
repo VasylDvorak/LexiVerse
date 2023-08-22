@@ -42,23 +42,18 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
     private fun getData() {
         val date = Calendar.getInstance().timeInMillis
 
-        val positiveAnswer = answer.getRightCounter(date).toFloat()
-        val negativeAnswer = answer.getAllCounter(date).toFloat()
-        val unknownAnswer = 0F
+        val positiveCounter = answer.getRightCounter(date)
+        val allCounter = answer.getAllCounter(date)
+
+        val negativeCounter = allCounter - positiveCounter
 
         val positiveText = getText(R.string.positive_chart).toString()
         val negativeText = getText(R.string.negative_chart).toString()
 
-        when (gradeEvaluator.evaluator(answer)) {
-            GradeEvaluation.POSITIVE -> positiveAnswer
-            GradeEvaluation.NEGATIVE -> negativeAnswer
-            GradeEvaluation.UNKNOWN -> unknownAnswer
-        }
-
         pieEntries = listOf<PieEntry>(
 
-            PieEntry(positiveAnswer, positiveText),
-            PieEntry(negativeAnswer, negativeText)
+            PieEntry(positiveCounter.toFloat(), positiveText),
+            PieEntry(negativeCounter.toFloat(), negativeText)
         )
     }
 
