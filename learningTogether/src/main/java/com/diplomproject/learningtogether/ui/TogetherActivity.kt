@@ -105,10 +105,17 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
     }
 
     //открываем фрагмент при завершении заданий
-    override fun openSuccessScreen() {
+    override fun openSuccessScreen(
+        listTasks: Int,
+        positiveTasks: Int,
+        negativeTasks: Int,
+        percentIncorrect: Double
+    ) {
         supportFragmentManager.popBackStack()//чистит стэк, после появления данного фрагмента нельзя будет вернутся
 
-        val successFragment: Fragment = SuccessFragment()
+        val successFragment: Fragment =
+            SuccessFragment.newInstance(listTasks, positiveTasks, negativeTasks, percentIncorrect)
+
         supportFragmentManager
             .beginTransaction()
             .add(R.id.container_layout, successFragment, Key.TEG_SUCCESS_CONTAINER_KEY)

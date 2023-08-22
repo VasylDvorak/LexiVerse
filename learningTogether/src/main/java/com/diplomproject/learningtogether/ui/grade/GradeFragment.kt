@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import org.koin.android.ext.android.inject
+import java.util.Calendar
 
 class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
     FragmentGradeBinding::inflate
@@ -39,9 +40,10 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
     }
 
     private fun getData() {
+        val date = Calendar.getInstance().timeInMillis
 
-        val positiveAnswer = answer.getRightCounter().toFloat()
-        val negativeAnswer = answer.getAllCounter().toFloat()
+        val positiveAnswer = answer.getRightCounter(date).toFloat()
+        val negativeAnswer = answer.getAllCounter(date).toFloat()
         val unknownAnswer = 0F
 
         val positiveText = getText(R.string.positive_chart).toString()

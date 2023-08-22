@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
+import com.diplomproject.learningtogether.utils.bpDataFormatter
+import java.util.Calendar
 
 private const val ANSWER_COUNTER = "answer_counter"
 private const val ALL_ANSWER_COUNTER = "all_answer_counter"
@@ -18,27 +20,37 @@ class AnswerCounterInteractorImpl(
     private val dataStore: SharedPreferences =
         context.getSharedPreferences(ANSWER_COUNTER, MODE_PRIVATE)
 
+    private fun getAllAnswerCounterKey(date: Long): String {
+        return ALL_ANSWER_COUNTER + bpDataFormatter.format(date)
+    }
+
+    private fun getRightAnswerCounterKey(date: Long): String {
+        return RIGHT_ANSWER_COUNTER + bpDataFormatter.format(date)
+    }
+
     override fun logErrorAnswer() {
-        val allCounter = dataStore.getInt(ALL_ANSWER_COUNTER, VALUE_DEFAULT)
+        val date = Calendar.getInstance().timeInMillis
+        val allCounter = dataStore.getInt(getAllAnswerCounterKey(date), VALUE_DEFAULT)
         val edit: SharedPreferences.Editor = dataStore.edit()
-        edit.putInt(ALL_ANSWER_COUNTER, allCounter + BASIC_SCORE_ANSWER)
+        edit.putInt(getAllAnswerCounterKey(date), allCounter + BASIC_SCORE_ANSWER)
         edit.apply()
     }
 
     override fun logRightAnswer() {
-        val rightCounter = dataStore.getInt(RIGHT_ANSWER_COUNTER, VALUE_DEFAULT)
-        val allCounter = dataStore.getInt(ALL_ANSWER_COUNTER, VALUE_DEFAULT)
+        val date = Calendar.getInstance().timeInMillis
+        val rightCounter = dataStore.getInt(getRightAnswerCounterKey(date), VALUE_DEFAULT)
+        val allCounter = dataStore.getInt(getAllAnswerCounterKey(date), VALUE_DEFAULT)
         val edit: SharedPreferences.Editor = dataStore.edit()
-        edit.putInt(ALL_ANSWER_COUNTER, allCounter + BASIC_SCORE_ANSWER)
-        edit.putInt(RIGHT_ANSWER_COUNTER, rightCounter + BASIC_SCORE_ANSWER)
+        edit.putInt(getAllAnswerCounterKey(date), allCounter + BASIC_SCORE_ANSWER)
+        edit.putInt(getRightAnswerCounterKey(date), rightCounter + BASIC_SCORE_ANSWER)
         edit.apply()
     }
 
-    override fun getAllCounter(): Int {
-        return dataStore.getInt(ALL_ANSWER_COUNTER, VALUE_DEFAULT)
+    override fun getAllCounter(date: Long): Int {
+        return dataStore.getInt(getAllAnswerCounterKey(date), VALUE_DEFAULT)
     }
 
-    override fun getRightCounter(): Int {
-        return dataStore.getInt(RIGHT_ANSWER_COUNTER, VALUE_DEFAULT)
+    override fun getRightCounter(date: Long): Int {
+        return dataStore.getInt(getRightAnswerCounterKey(date), VALUE_DEFAULT)
     }
 }

@@ -169,7 +169,6 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
     }
 
     interface Controller {
-        fun openSuccessScreen()
         fun openLearningOrTest(flagLearningOrTest: Boolean)
     }
 

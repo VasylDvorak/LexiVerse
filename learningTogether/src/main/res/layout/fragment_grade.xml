@@ -24,6 +24,14 @@
         app:strokeColor="@color/white"
         app:strokeWidth="1dp">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reset_statistics_button"
+            android:layout_width="@dimen/button_finish_width_size"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pomidorko_cyr_ru"
+            android:text="@string/reset_statistics"
+            app:cornerRadius="@dimen/radius_button_default" />
+
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pie_chart"
             android:layout_width="match_parent"
