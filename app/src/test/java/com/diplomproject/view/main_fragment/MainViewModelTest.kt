@@ -30,7 +30,7 @@ import org.mockito.MockitoAnnotations
 import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
-@Config(sdk = [Build.VERSION_CODES.O_MR1], manifest = Config.NONE)
+@Config(sdk = [28], manifest = Config.NONE)
 @ExperimentalCoroutinesApi
 class MainViewModelTest {
 
@@ -77,8 +77,8 @@ class MainViewModelTest {
                 liveData.observeForever(observer)
 
                 val answer = listOf(
-                    DataModel(text = "first", listOf(Meanings(imageUrl = "firstImage"))),
-                    DataModel(text = "first", listOf(Meanings(imageUrl = "secondImage")))
+                    DataModel(text = "first",  meanings =  listOf(Meanings(imageUrl = "firstImage"))),
+                    DataModel(text = "first",  meanings =  listOf(Meanings(imageUrl = "secondImage")))
                 )
 
                 `when`(interactor.repositoryRemote.getData(SEARCH_QUERY)).thenReturn(answer)
@@ -167,85 +167,13 @@ class MainViewModelTest {
         }
     }
 
-    @Test
-    fun coroutines_FromHistory_TestReturnValueIsEquals() {
-        testCoroutineRule.runBlockingTest {
-            val observer = Observer<DataModel> {}
-            val liveData = mainViewModel.subscribeFindWord()
 
-            try {
-                liveData.observeForever(observer)
-
-                val answer = DataModel(text = "first", listOf(Meanings(imageUrl = "firstImage")))
-
-                `when`(interactor.repositoryLocal.findWordInDB(SEARCH_QUERY)).thenReturn(answer)
-
-                mainViewModel.findWordInHistory(SEARCH_QUERY)
-
-                Assert.assertNotNull(liveData)
-
-                liveData.value?.let { Assert.assertEquals(it, answer) }
-
-            } finally {
-                liveData.removeObserver(observer)
-            }
-
-        }
-    }
-
-    @Test
-    fun coroutines_FromHistory_TestReturnValueIsErrorEmptyRequestString() {
-        testCoroutineRule.runBlockingTest {
-            val observer = Observer<DataModel> {}
-            val liveData = mainViewModel.subscribeFindWord()
-
-            try {
-                liveData.observeForever(observer)
-
-                val answer = DataModel()
-
-                mainViewModel.findWordInHistory(SEARCH_QUERY)
-
-                Assert.assertNotNull(liveData)
-
-                liveData.value?.let { Assert.assertEquals(it, answer) }
-
-            } finally {
-                liveData.removeObserver(observer)
-            }
-
-        }
-    }
-
-    @Test
-    fun coroutines_FromHistory_TestException() {
-        testCoroutineRule.runBlockingTest {
-            val observer = Observer<DataModel> {}
-            val liveData = mainViewModel.subscribeFindWord()
-
-            try {
-                liveData.observeForever(observer)
-
-                val answer = DataModel()
-                `when`(interactor.repositoryLocal.findWordInDB(SEARCH_QUERY)).thenReturn(null)
-
-                mainViewModel.findWordInHistory(SEARCH_QUERY)
-
-                liveData.value?.let { Assert.assertEquals(it, answer) }
-
-            } finally {
-                liveData.removeObserver(observer)
-            }
-
-        }
-
-    }
 
     @Test
     fun coroutines_putFavorite() {
 
         mainViewModel.interactor = mock(MainInteractor::class.java)
-        val sendToFavorite = DataModel(text = "first", listOf(Meanings(imageUrl = "firstImage")))
+        val sendToFavorite = DataModel(text = "first", meanings =  listOf(Meanings(imageUrl = "firstImage")))
 
         testCoroutineRule.runBlockingTest {
             mainViewModel.putInFavorite(sendToFavorite)
@@ -259,11 +187,10 @@ class MainViewModelTest {
             val observerAppState: Observer<AppState?>? = Observer {}
             val liveDataAppState: LiveData<AppState>? = mainViewModel.subscribe()
             val observerDataModel: Observer<DataModel?>? = Observer {}
-            val liveDataDataModel: LiveData<DataModel>? = mainViewModel.subscribeFindWord()
+
 
             try {
                 observerAppState?.let { liveDataAppState?.observeForever(it) }
-                observerDataModel?.let { liveDataDataModel?.observeForever(it) }
 
                 mainViewModel.onCleared()
 
@@ -276,11 +203,9 @@ class MainViewModelTest {
                         Assert.assertTrue(false)
                     }
                 }
-                Assert.assertNull(liveDataDataModel?.value)
 
             } finally {
                 observerAppState?.let { liveDataAppState?.removeObserver(it) }
-                observerDataModel?.let { liveDataDataModel?.removeObserver(it) }
             }
 
     }

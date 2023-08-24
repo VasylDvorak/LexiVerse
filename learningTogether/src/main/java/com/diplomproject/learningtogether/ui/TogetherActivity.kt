@@ -2,6 +2,7 @@ package com.diplomproject.learningtogether.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.diplomproject.learningtogether.Key
@@ -30,6 +31,12 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
 
     private val defaultTitle: String by lazy { getString(R.string.app_name) }
 
+    private val sharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(
+            this.applicationContext
+        )
+    }
+
     private var backPressedTime: Long = 0
     private var flagLearningOrTest: Boolean = false
 
@@ -39,11 +46,26 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
 
         title = defaultTitle
 
-        flagLearningOrTest =
-            intent.getBooleanExtra(LEARNING_TOGETHER_REQUEST_KOD, false)
+        flagLearningOrTest = intent.getBooleanExtra(LEARNING_TOGETHER_REQUEST_KOD, false)
+
+        remoteStartFavorite()
 
         if (savedInstanceState == null)
             openCourses(flagLearningOrTest)
+    }
+
+    private fun remoteStartFavorite() {
+        val startFavorite = sharedPreferences.getBoolean(Key.START_FAVORITES_FRAGMENT,
+            false)
+
+        if (startFavorite) {
+            val appSharedPrefs =
+                PreferenceManager.getDefaultSharedPreferences(this.applicationContext)
+            val prefsEditor = appSharedPrefs.edit()
+            prefsEditor.putBoolean(Key.START_FAVORITES_FRAGMENT, false)
+            prefsEditor.apply()
+            openFavourite()
+        }
     }
 
     private fun openCourses(flagLearningOrTest: Boolean) {

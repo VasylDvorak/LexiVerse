@@ -159,20 +159,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="16dp"
-                        android:src="@drawable/ic_theme"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+                    android:layout_height="55dp">
 
                     <ImageView
                         android:id="@+id/imageView9"
@@ -180,23 +167,11 @@
                         android:layout_height="24dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:importantForAccessibility="no"
                         android:src="@drawable/ic_notif_setting"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/choosing_theme"
-                        style="@style/SettingsFragmentTextStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:contentDescription="@string/choosing_theme"
-                        android:text="@string/choosing_theme"
-                        android:textColor="@color/example_middle"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                        app:layout_constraintStart_toEndOf="@+id/imageView10"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
                     <TextView
                         android:id="@+id/settings_notification"
