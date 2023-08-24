@@ -30,10 +30,11 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/pomidorko_cyr_ru"
             android:text="@string/reset_statistics"
+            android:visibility="gone"
             app:cornerRadius="@dimen/radius_button_default" />
 
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/pie_chart"
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/bar_chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="MissingClass" />

@@ -53,4 +53,8 @@ class AnswerCounterInteractorImpl(
     override fun getRightCounter(date: Long): Int {
         return dataStore.getInt(getRightAnswerCounterKey(date), VALUE_DEFAULT)
     }
+
+    override fun getWrongCounter(date: Long): Int {
+        return getAllCounter(date) - getRightCounter(date)
+    }
 }
