@@ -2,7 +2,6 @@ package com.diplomproject.learningtogether.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.diplomproject.learningtogether.Key
@@ -30,12 +29,6 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
     LearningFragment.Controller {
 
     private val defaultTitle: String by lazy { getString(R.string.app_name) }
-
-    private val sharedPreferences by lazy {
-        PreferenceManager.getDefaultSharedPreferences(
-            this.applicationContext
-        )
-    }
 
     private var backPressedTime: Long = 0
     private var flagLearningOrTest: Boolean = false
