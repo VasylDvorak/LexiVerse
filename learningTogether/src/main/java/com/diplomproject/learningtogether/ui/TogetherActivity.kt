@@ -43,27 +43,18 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_together)
-
         title = defaultTitle
-
         flagLearningOrTest = intent.getBooleanExtra(LEARNING_TOGETHER_REQUEST_KOD, false)
-
         remoteStartFavorite()
-
         if (savedInstanceState == null)
             openCourses(flagLearningOrTest)
     }
 
     private fun remoteStartFavorite() {
-        val startFavorite = sharedPreferences.getBoolean(Key.START_FAVORITES_FRAGMENT,
+        val startFavorite = intent.getBooleanExtra(Key.START_FAVORITES_FRAGMENT,
             false)
-
         if (startFavorite) {
-            val appSharedPrefs =
-                PreferenceManager.getDefaultSharedPreferences(this.applicationContext)
-            val prefsEditor = appSharedPrefs.edit()
-            prefsEditor.putBoolean(Key.START_FAVORITES_FRAGMENT, false)
-            prefsEditor.apply()
+            intent.putExtra(Key.START_FAVORITES_FRAGMENT, false)
             openFavourite()
         }
     }

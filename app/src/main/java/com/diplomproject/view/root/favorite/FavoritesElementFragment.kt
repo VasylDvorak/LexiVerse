@@ -2,7 +2,6 @@ package com.diplomproject.view.root.favorite
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.View
 import com.diplomproject.databinding.FragmentFavoritesElementBinding
 import com.diplomproject.learningtogether.Key
@@ -25,13 +24,8 @@ class FavoritesElementFragment : ViewBindingFragment<FragmentFavoritesElementBin
         }
     }
     private fun startFavoriteFragmentInTogetherActivity() {
-
-        val appSharedPrefs =
-            PreferenceManager.getDefaultSharedPreferences(context)
-        val prefsEditor = appSharedPrefs.edit()
-        prefsEditor.putBoolean(Key.START_FAVORITES_FRAGMENT, true)
-        prefsEditor.apply()
-        val intent = Intent(context, TogetherActivity::class.java)
+        val intent = Intent(context, TogetherActivity::class.java).apply {
+            putExtra(Key.START_FAVORITES_FRAGMENT, true) }
         startActivityForResult(intent, TOGETHER_ACTIVITY_REQUEST_CODE)
     }
 
