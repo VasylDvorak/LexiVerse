@@ -9,6 +9,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Intent
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentShareBinding
 
@@ -60,7 +64,44 @@ class ShareApplicationFragment : BaseFragmentSettingsMenu<FragmentShareBinding>(
                         .show()
                 }
             }
+            copyButton.setOnClickListener {
+                val clipboardManager =
+                    requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clipData = ClipData.newPlainText("Label", getString(R.string.download_link))
+                clipboardManager.setPrimaryClip(clipData)
+                Toast.makeText(context, getString(R.string.copy_toast), Toast.LENGTH_LONG)
+                    .show()
+            }
+
+            imageViewShare2.setOnClickListener {
+                val clipboardManager =
+                    requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clipData = ClipData.newPlainText("Label", getString(R.string.download_link))
+                clipboardManager.setPrimaryClip(clipData)
+                Toast.makeText(context, getString(R.string.copy_toast), Toast.LENGTH_LONG)
+                    .show()
+            }
+
+            sendButton.setOnClickListener {
+                shareApp()
+            }
+
+
         }
+    }
+
+
+    private fun shareApp() {
+        val appUrl = getString(R.string.download_link)
+        val messageForApp = getString(R.string.message_for_app)
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "$messageForApp $appUrl")
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, "Поделиться приложением")
+        startActivity(shareIntent)
     }
 
 
