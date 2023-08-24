@@ -1,6 +1,7 @@
 package com.diplomproject.navigation
 
 import android.os.Bundle
+import com.diplomproject.learningtogether.ui.favorites.FavouritesFragment
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.view.description.DescriptionFragment
 import com.diplomproject.view.favorite.FavoriteFragment
@@ -55,6 +56,9 @@ class AndroidScreens : IScreens {
 
     override fun startFavoritesElementFragment(): Screen =
         FragmentScreen { FavoritesElementFragment.newInstance() }
+
+    override fun startFavouritesFragment(): Screen =
+        FragmentScreen { FavouritesFragment.newInstance() }
 
     override fun startGradeFragment(): Screen =
         FragmentScreen { GradeFragment.newInstance() }

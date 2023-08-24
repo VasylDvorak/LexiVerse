@@ -20,15 +20,15 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
             with(router) {
                 screen.apply {
 
-                    dictionaryButton.setOnClickListener {
+                    cardViewDictionary.setOnClickListener {
                         getController().openDictionary()
                     }
 
-                    learningTogetherButton.setOnClickListener {
+                    cardViewLearningTogether.setOnClickListener {
                         getController().openLearning()
                     }
 
-                    knowledgeCheckButton.setOnClickListener {
+                    cardViewTestingOfKnowlage.setOnClickListener {
                         getController().openTest()
                     }
                 }

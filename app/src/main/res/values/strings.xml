@@ -130,4 +130,6 @@
     <string name="notif_word">Напоминания слов</string>
     <string name="share">Поделиться…</string>
     <string name="enter_word_search">Введите слово</string>
+    <string name="favorites_dictionary">Избранное словарь</string>
+    <string name="favorite_tests">Избранное тесты</string>
 </resources>

@@ -29,7 +29,7 @@ import org.mockito.MockitoAnnotations
 import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
-@Config(sdk = [Build.VERSION_CODES.O_MR1], manifest = Config.NONE)
+@Config(sdk = [28], manifest = Config.NONE)
 @ExperimentalCoroutinesApi
 class FavoriteViewModelTest {
 
@@ -74,8 +74,8 @@ class FavoriteViewModelTest {
                 liveData.observeForever(observer)
 
                 val answer = listOf(
-                    DataModel(text = "first", listOf(Meanings(imageUrl = "firstImage"))),
-                    DataModel(text = "first", listOf(Meanings(imageUrl = "secondImage")))
+                    DataModel(text = "first",  meanings =  listOf(Meanings(imageUrl = "firstImage"))),
+                    DataModel(text = "first", meanings =   listOf(Meanings(imageUrl = "secondImage")))
                 )
 
                 `when`(interactor.repositoryLocal.getFavoriteList()).thenReturn(answer)
@@ -111,7 +111,7 @@ class FavoriteViewModelTest {
     fun coroutines_remove() {
 
         favoriteViewModel.interactor = mock(FavoriteInteractor::class.java)
-        val sendToFavorite = DataModel(text = "first", listOf(Meanings(imageUrl = "firstImage")))
+        val sendToFavorite = DataModel(text = "first", meanings =  listOf(Meanings(imageUrl = "firstImage")))
 
         testCoroutineRule.runBlockingTest {
             favoriteViewModel.remove(sendToFavorite)
