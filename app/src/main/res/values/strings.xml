@@ -132,4 +132,14 @@
     <string name="enter_word_search">Введите слово</string>
     <string name="favorites_dictionary">Избранное словарь</string>
     <string name="favorite_tests">Избранное тесты</string>
+    <string name="copy_toast">Ссылка скопирована в буфер обмена</string>
+    <string name="title_share">Вы можете поделиться нашим приложением одним из следующих способов:</string>
+    <string name="title_downlink">Ссылкой на скачивание:</string>
+    <string name="copy">Копировать</string>
+    <string name="title_send_via_app">Отправить через приложение</string>
+    <string name="subtitle_send_via_app">Нажмите кнопку \"Отправить\" и выберите приложение (например, мессенджер) через которое Вы хотите поделиться ссылкой на скачивание нашего приложения.</string>
+    <string name="send">Отправить</string>
+    <string name="title_send_SMS">Отправить SMS со ссылкой</string>
+    <string name="subtitle_send_sms">При отправке SMS возможно списание денежных средств по условиям тарифного плана Вашего оператора сотовой связи</string>
+    <string name="message_for_app">Отправить SMS со ссылкой</string>
 </resources>
