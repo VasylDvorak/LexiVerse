@@ -52,7 +52,7 @@
     <string name="second_notification_setting">Вторая настройка нотификации</string>
     <string name="send_message">Написать в поддержку</string>
     <string name="send_message_to_developer">Послать письмо разработчику</string>
-    <string name="e_mail">e-mail: dvorak1981@yandex.ru</string>
+    <string name="e_mail">e-mail: dictionaryteam@mail.ru</string>
     <string name="first_theme">Первая тема</string>
     <string name="second_theme">Вторая тема</string>
     <string name="enter">Войти</string>
@@ -114,7 +114,7 @@
     <string name="text_3">Спасибо, что выбрали наше приложение, и благодарим вас за доверие к нам. Мы стремимся создавать продукт, который отвечает вашим ожиданиям и делает ваш опыт использования незабываемым.</string>
     <string name="text_5">С наилучшими пожеланиями,</string>
     <string name="text_6">Команда разработчиков</string>
-    <string name="dvorak1981_yandex_ru">dvorak1981@yandex.ru</string>
+    <string name="support_e_mail">dictionaryteam@mail.ru</string>
     <string name="no_connection_internet">Нет соединения с интернетом</string>
     <string name="part_of_speach">Часть речи</string>
     <string name="listen_button">listen</string>
@@ -130,7 +130,8 @@
     <string name="notif_word">Напоминания слов</string>
     <string name="share">Поделиться…</string>
     <string name="enter_word_search">Введите слово</string>
-
+    <string name="favorites_dictionary">Избранное словарь</string>
+    <string name="favorite_tests">Избранное тесты</string>
     <string name="copy_toast">Ссылка скопирована в буфер обмена</string>
     <string name="title_share">Вы можете поделиться нашим приложением одним из следующих способов:</string>
     <string name="title_downlink">Ссылкой на скачивание:</string>
