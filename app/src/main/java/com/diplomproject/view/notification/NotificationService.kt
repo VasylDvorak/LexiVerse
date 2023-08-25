@@ -26,7 +26,8 @@ import org.koin.android.ext.android.getKoin
 import java.lang.reflect.Type
 
 const val REFERENCE = "REFERENCE"
-
+const val delayFactor = 60000
+const val CHANNEL_ID = "channel_id"
 class NotificationService : Service() {
 
     val database = Firebase.database
@@ -43,7 +44,8 @@ class NotificationService : Service() {
             .getDefaultSharedPreferences(getKoin().get())
         val type: Type = object : TypeToken<Pair<Boolean, Int>>() {}.type
         val gsonString = sharedPreferences.getString(NOTIFICATION_SETTINGS, "[]")
-        val startServiceNotification = gson.fromJson(gsonString, type) as Pair<Boolean, Int>
+        val startServiceNotification = gson.fromJson(gsonString, type)
+                as Pair<Boolean, Int>
 
         if (startServiceNotification.first) {
             myRef.addValueEventListener(object : ValueEventListener {
@@ -55,7 +57,8 @@ class NotificationService : Service() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+                    Log.w(ContentValues.TAG, getString(R.string.failed_to_read_value_message),
+                        error.toException())
                 }
 
             })
@@ -64,7 +67,7 @@ class NotificationService : Service() {
     }
 
     private fun updateNotification(listData: List<DataModel>?, countInterval: Int) {
-        val countIntervalLong = (countInterval * 60 * 1000).toLong()
+        val countIntervalLong = (countInterval * delayFactor).toLong()
         listData?.let {
             val timer = object : CountDownTimer(
                 countIntervalLong * listData.size,
@@ -95,7 +98,8 @@ class NotificationService : Service() {
 
 
     private fun showNotification(dataModel: DataModel) {
-        val notificationIntentStartActivity = Intent(this, DictionaryActivity::class.java)
+        val notificationIntentStartActivity = Intent(this,
+            DictionaryActivity::class.java)
 
 
         notificationIntentStartActivity.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -133,7 +137,7 @@ class NotificationService : Service() {
             message?.let {
                 val notificationBuilder =
                     Notification.Builder(this, CHANNEL_ID).apply {
-                        setSmallIcon(R.drawable.baseline_app_shortcut_24)
+                        setSmallIcon(R.drawable.baseline_menu_book_24)
                         setContentTitle(title)
                         setContentText(message)
                         addAction(
@@ -151,9 +155,5 @@ class NotificationService : Service() {
                 startForeground(notificatorsCounter++, notification)
             }
         }
-    }
-
-    companion object {
-        const val CHANNEL_ID = "channel_id"
     }
 }

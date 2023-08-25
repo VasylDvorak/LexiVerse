@@ -142,4 +142,24 @@
     <string name="title_send_SMS">Отправить SMS со ссылкой</string>
     <string name="subtitle_send_sms">При отправке SMS возможно списание денежных средств по условиям тарифного плана Вашего оператора сотовой связи</string>
     <string name="message_for_app">Отправить SMS со ссылкой</string>
+    <string name="noun">Имя существительное</string>
+    <string name="verb">Глагол</string>
+    <string name="adjective">Прилагательное</string>
+    <string name="adverb">Наречие</string>
+    <string name="pretext">Предлог</string>
+    <string name="pronoun">Местоимение</string>
+    <string name="cardinal_number">Количественное числительное</string>
+    <string name="union">Союз</string>
+    <string name="interjection">Междометие</string>
+    <string name="article">Артикль</string>
+    <string name="abbreviation">Аббревиатура</string>
+    <string name="particle">Частица</string>
+    <string name="serial_number">Порядковый номер</string>
+    <string name="modal_verb">Модальный глагол</string>
+    <string name="phrase">Фраза</string>
+    <string name="idiom">Идиома</string>
+    <string name="exception_error">The ViewModel should be initialised first</string>
+    <string name="empty_string_message">Пустая строка</string>
+    <string name="error_message">Ошибка</string>
+    <string name="failed_to_read_value_message">Failed to read value.</string>
 </resources>

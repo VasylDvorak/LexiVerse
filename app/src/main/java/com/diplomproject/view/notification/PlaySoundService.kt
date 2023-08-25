@@ -53,14 +53,18 @@ class PlaySoundService : Service() {
                 }
             }
 
-            val timerMute = object : CountDownTimer(mMediaPlayer!!.duration.toLong(),
-                100) {
+            val timerMute = object : CountDownTimer(
+                mMediaPlayer!!.duration.toLong(),
+                100
+            ) {
                 override fun onTick(millisUntilFinished: Long) {}
 
                 override fun onFinish() {
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true)
-                    val timer = object : CountDownTimer(mMediaPlayer!!.duration.toLong(),
-                        100) {
+                    val timer = object : CountDownTimer(
+                        mMediaPlayer!!.duration.toLong(),
+                        100
+                    ) {
                         override fun onTick(millisUntilFinished: Long) {}
                         override fun onFinish() {
                             audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false)
@@ -70,7 +74,6 @@ class PlaySoundService : Service() {
                 }
             }
             timerMute.start()
-
         }
     }
 

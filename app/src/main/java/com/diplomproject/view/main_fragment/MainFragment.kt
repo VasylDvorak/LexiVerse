@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentMainBinding
 import com.diplomproject.di.ConnectKoinModules.mainScreenScope
-import com.diplomproject.domain.base.BaseFragment
+import com.diplomproject.view.base_fragment_dictionary.BaseFragment
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.network.SharedPreferencesDelegate
@@ -82,7 +82,7 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
 
     private fun initViewModel() {
         if (mainFragmentRecyclerview.adapter != null) {
-            throw IllegalStateException("The ViewModel should be initialised first")
+            throw IllegalStateException(getString(R.string.exception_error))
         }
         val viewModel: MainViewModel by lazy { mainScreenScope.get() }
         model = viewModel
@@ -158,7 +158,8 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
         inflater.inflate(R.menu.main_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
 
-        val manager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val manager = requireActivity().getSystemService(Context.SEARCH_SERVICE)
+                as SearchManager
         val searchItem = menu.findItem(R.id.search)
         val searchView = searchItem?.actionView as SearchView
 
@@ -272,8 +273,6 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
         fun newInstance() = MainFragment()
 
     }
-
-
 }
 
 
