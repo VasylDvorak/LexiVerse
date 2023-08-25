@@ -55,6 +55,10 @@ android {
 }
 
 dependencies {
+    implementation Design.appcompat
+    implementation Design.material
+    implementation Design.constraintlayout
+    implementation Design.arCore
 
     //Modules
     implementation project(Modules.learningTogether)
@@ -63,9 +67,17 @@ dependencies {
     implementation Koin.koin_android
     implementation Koin.koin_core
     implementation Koin.koin_compat
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
-    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
-    implementation 'com.google.ar:core:1.37.0'
+
+    //Room
+    implementation Room.runtime
+    kapt Room.kapt_compiler
+    annotationProcessor Room.annotation_processor_compiler
+    implementation Room.room_ktx
+
+    //Firebase authentication
+    implementation Firebase.firebaseAuthApp
+    implementation Firebase.messagingKtxApp
+    implementation Firebase.databaseKtxApp
 
     //TestImpl
     testImplementation TestImpl.junit
@@ -96,15 +108,6 @@ dependencies {
     //CoroutineTests
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
 
-    //Room
-    implementation Room.runtime
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    kapt Room.kapt_compiler
-    annotationProcessor Room.annotation_processor_compiler
-    implementation Room.room_ktx
-
 
     //Robolectric
     testImplementation 'org.robolectric:robolectric:4.10.3'
@@ -114,9 +117,5 @@ dependencies {
     testImplementation 'androidx.test.ext:truth:1.5.0'
     testImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     testImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
-
-
-    //Firebase authentication
-    implementation 'com.google.firebase:firebase-auth:21.1.0'
 
 }

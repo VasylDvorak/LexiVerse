@@ -1,4 +1,4 @@
-package com.diplomproject.domain.base
+package com.diplomproject.view.base_fragment_dictionary
 
 
 import android.animation.Animator
@@ -16,7 +16,7 @@ import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.ui.AlertDialogFragment
-import com.diplomproject.view.AnimatorTranslator
+import com.diplomproject.view.AnimatorDictionary
 import com.diplomproject.view.OnlineRepository
 import com.diplomproject.viewmodel.BaseViewModel
 import com.github.terrakok.cicerone.Router
@@ -60,7 +60,8 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
             if (!isNetworkAvailable) {
                 snack = Snackbar.make(
                     requireView(),
-                    R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
+                    R.string.dialog_message_device_is_offline,
+                    Snackbar.LENGTH_INDEFINITE
                 )
                 snack?.show()
             } else {
@@ -119,18 +120,20 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
     }
 
     fun playContentUrl(url: String) {
-        mMediaPlayer= MediaPlayer()
+        mMediaPlayer = MediaPlayer()
         mMediaPlayer?.apply {
             try {
                 setDataSource(url)
                 setAudioStreamType(AudioManager.STREAM_MUSIC)
-                    setOnPreparedListener { start() }
+                setOnPreparedListener { start() }
                 prepareAsync()
             } catch (exception: Exception) {
                 release()
                 null
             }
-    }}
+        }
+    }
+
     fun releaseMediaPlayer() {
         mMediaPlayer?.apply {
             if (isPlaying == true) {
@@ -151,7 +154,7 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
     }
 
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return AnimatorTranslator().setAnimator(transit, enter)
+        return AnimatorDictionary().setAnimator(transit, enter)
     }
 
     override fun onDestroyView() {

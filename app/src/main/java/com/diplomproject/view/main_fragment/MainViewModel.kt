@@ -1,6 +1,8 @@
 package com.diplomproject.view.main_fragment
 
+import android.content.Context
 import androidx.lifecycle.LiveData
+import com.diplomproject.R
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.parseSearchResults
@@ -13,13 +15,14 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
+import org.koin.mp.KoinPlatform
 
 private const val QUERY = "query"
 
 class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() {
 
+    private val contextApp by lazy { KoinPlatform.getKoin().get<Context>() }
     private val liveDataForViewToObserve: LiveData<AppState> = _liveDataForViewToObserve
-
 
     fun subscribe(): LiveData<AppState> {
         return liveDataForViewToObserve
@@ -48,7 +51,8 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
         coroutineScope.launch {
             queryStateFlow.filter { query ->
                 if (query.first.isEmpty()) {
-                    _liveDataForViewToObserve.postValue(AppState.Error(Throwable("Пустая строка")))
+                    _liveDataForViewToObserve.postValue(AppState.Error(Throwable(
+                        contextApp.getString(R.string.empty_string_message))))
                     return@filter false
                 } else {
                     return@filter true
@@ -59,7 +63,8 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
                 .flatMapLatest { query ->
                     dataFromNetwork(query)
                         .catch {
-                            emit(AppState.Error(Throwable("Ошибка")))
+                            emit(AppState.Error(Throwable(contextApp
+                                .getString(R.string.error_message))))
                         }
                 }
                 .filterNotNull()

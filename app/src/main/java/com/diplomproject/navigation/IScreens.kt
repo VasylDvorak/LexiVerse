@@ -17,9 +17,9 @@ interface IScreens {
     fun startAboutApplicationFragment(): Screen
     fun startStartingFragment(): Screen
     fun startFavoritesElementFragment(): Screen
-    fun startFavouritesFragment():Screen
+    fun startFavouritesFragment(): Screen
     fun startGradeFragment(): Screen
     fun startLoginFragment(): Screen
-    fun startPoliticFragment() : Screen
+    fun startPoliticFragment(): Screen
 
 }

@@ -1,4 +1,5 @@
 import org.gradle.api.JavaVersion
+import java.awt.Font
 
 object Config {
     const val application_id = "com.diplomproject"
@@ -23,9 +24,11 @@ object Modules {
 
 
 object Versions {
+    //SplashScreen API
+    const val splashscreen = "1.0.1"
     //Design
     const val appcompat = "1.6.1"
-    const val material = "1.9.0-beta01"
+    const val material = "1.9.0"
     const val savedstate = "2.6.1"
     const val constraintlayout = "2.1.4"
     const val fragmentKtx = "2.5.3"
@@ -33,6 +36,7 @@ object Versions {
     const val swiperefreshlayout = "1.1.0"
     const val recyclerview = "1.3.0"
     const val viewmodelKtx = "1.6.1"
+    const val ar_core = "1.37.0"
 
     //Kotlin
     const val core = "1.10.0"
@@ -60,6 +64,14 @@ object Versions {
     //Cicerone
     const val cicerone = "7.1"
 
+    //Firebase
+    const val bom = "30.3.1"
+    const val auth = "22.1.0"
+    const val database = "20.2.2"
+    const val authApp = "21.1.0"
+    const val messagingKtx = "23.1.0"
+    const val database_ktx= "20.1.0"
+
     //Room
     const val roomKtx = "2.5.1"
     const val runtime = "2.5.1"
@@ -70,6 +82,10 @@ object Versions {
     const val junit_impl = "1.1.5"
     const val espressoCore = "3.5.1"
     const val testing = "2.2.0"
+}
+
+object SplashScreen{
+    const val core_splashscreen = "androidx.core:core-splashscreen:${Versions.splashscreen}"
 }
 
 object Design {
@@ -86,6 +102,7 @@ object Design {
     const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val viewmodel_ktx =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewmodelKtx}"
+    const val arCore = "com.google.ar:core:${Versions.ar_core}"
 
 }
 
@@ -120,6 +137,18 @@ object Cicerone {
 object Glide {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
+}
+
+object Firebase{
+    const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.bom}"
+    const val firebaseAuth = "com.google.firebase:firebase-auth:${Versions.auth}"
+    const val firebaseDatabase = "com.google.firebase:firebase-database:${Versions.database}"
+    const val crashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
+    const val analyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+    const val databaseKtx = "com.google.firebase:firebase-database-ktx"
+    const val firebaseAuthApp = "com.google.firebase:firebase-auth:${Versions.authApp}"
+    const val messagingKtxApp = "com.google.firebase:firebase-messaging-ktx:${Versions.messagingKtx}"
+    const val databaseKtxApp = "com.google.firebase:firebase-database-ktx:${Versions.database_ktx}"
 }
 
 object Room {

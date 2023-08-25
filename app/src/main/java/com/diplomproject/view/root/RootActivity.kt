@@ -43,8 +43,6 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 
         if (savedInstanceState == null) {
             binding.bottomNavBar.selectedItemId = R.id.root_menu_item
-        } else {
-            // todo другое
         }
     }
 

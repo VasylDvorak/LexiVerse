@@ -9,6 +9,7 @@ import com.diplomproject.R
 import com.diplomproject.databinding.RecyclerviewItemBinding
 import com.diplomproject.model.data_word_request.DataModel
 
+private const val delayButton = 400L
 class FavoriteAdapter(
     private var onListItemClickListener: (DataModel) -> Unit,
     private var playArticulationClickListener: (String) -> Unit,
@@ -73,10 +74,10 @@ class FavoriteAdapter(
                         playArticulation.setOnClickListener {
                             it?.apply {
                                 isEnabled = false
-                                postDelayed({ isEnabled = true }, 400)
+                                postDelayed({ isEnabled = true }, delayButton)
                             }
-                            data.meanings?.get(0)?.soundUrl?.let { sound_url ->
-                                playArticulationClickListener(sound_url)
+                            data.meanings?.get(0)?.soundUrl?.let { soundUrl ->
+                                playArticulationClickListener(soundUrl)
                             }
                         }
                     }

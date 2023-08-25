@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.favoriteScreenScope
-import com.diplomproject.domain.base.BaseFragment
+import com.diplomproject.view.base_fragment_dictionary.BaseFragment
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.network.SharedPreferencesDelegate
@@ -90,7 +90,7 @@ class FavoriteFragment : BaseFragment<AppState,
 
     private fun iniViewModel() {
         if (historyActivityRecyclerview.adapter != null) {
-            throw IllegalStateException("The ViewModel should be initialised first")
+            throw IllegalStateException(getString(R.string.exception_error))
         }
 
         val viewModel: FavoriteViewModel by lazy { favoriteScreenScope.get() }
