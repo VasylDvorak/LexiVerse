@@ -93,7 +93,7 @@ class ShareApplicationFragment : BaseFragmentSettingsMenu<FragmentShareBinding>(
 
     private fun shareApp() {
         val appUrl = getString(R.string.download_link)
-        val messageForApp = getString(R.string.message_for_app)
+        val messageForApp = getString(R.string.message_for_share_app)
         val sendIntent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(Intent.EXTRA_TEXT, "$messageForApp $appUrl")

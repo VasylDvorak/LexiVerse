@@ -141,5 +141,5 @@
     <string name="send">Отправить</string>
     <string name="title_send_SMS">Отправить SMS со ссылкой</string>
     <string name="subtitle_send_sms">При отправке SMS возможно списание денежных средств по условиям тарифного плана Вашего оператора сотовой связи</string>
-    <string name="message_for_app">Отправить SMS со ссылкой</string>
+    <string name="message_for_share_app">Перейдите по ссылке для скачивания приложения "Словарь RU/EN":</string>
 </resources>
