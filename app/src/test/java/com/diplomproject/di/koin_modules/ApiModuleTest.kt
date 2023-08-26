@@ -25,7 +25,6 @@ class ApiModuleTest {
         val spyApiModule = spy(apiModule)
         spyApiModule.createRetrofit(interceptor)
         val inOrder = inOrder(spyApiModule)
-        inOrder.verify(spyApiModule).baseUrlLocation()
         inOrder.verify(spyApiModule).createOkHttpClient(interceptor)
     }
 
@@ -33,7 +32,7 @@ class ApiModuleTest {
     fun baseUrlLocation_Test() {
 
         Assert.assertEquals(
-            apiModule.baseUrlLocation(),
+            apiModule.baseUrl,
             "https://dictionary.skyeng.ru/api/public/v1/"
         )
     }

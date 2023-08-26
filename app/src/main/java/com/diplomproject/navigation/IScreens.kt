@@ -12,14 +12,14 @@ interface IScreens {
     fun startRegistrationFragment(): Screen
     fun startSettingsNotificationFragment(): Screen
     fun startSupportFragment(): Screen
-    fun startChoosingThemeFragment(): Screen
     fun startShareApplicationFragment(): Screen
     fun startEnterExitFragment(): Screen
     fun startAboutApplicationFragment(): Screen
     fun startStartingFragment(): Screen
     fun startFavoritesElementFragment(): Screen
+    fun startFavouritesFragment(): Screen
     fun startGradeFragment(): Screen
     fun startLoginFragment(): Screen
-    fun startPoliticFragment() : Screen
+    fun startPoliticFragment(): Screen
 
 }

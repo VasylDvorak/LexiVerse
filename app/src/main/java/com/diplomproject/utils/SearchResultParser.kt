@@ -14,14 +14,6 @@ import kotlinx.coroutines.flow.first
 
 private val gson by lazy { Gson() }
 
-enum class PartOfSpeech(val value: String) {
-    n("Имя существительное"), v("Глагол"), j("Прилагательное"),
-    r("Наречие"), prp("Предлог"), prn("Местоимение"),
-    crd("Количественное числительное"), cjc("Союз"), exc("Междометие"),
-    det("Артикль"), abb("Аббревиатура"), x("Частица"), ord("Порядковый номер"),
-    md("Модальный глагол"), ph("Фраза"), phi("Идиома")
-}
-
 suspend fun parseSearchResults(state: Flow<AppState>): AppState {
     var newSearchResults = ArrayList<DataModel>()
     var appState = state.first()
@@ -164,7 +156,6 @@ fun parseResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>): Arra
     }
     return newDataModels
 }
-
 
 
 fun mapFavoriteEntityToSearchResult(list: List<FavoriteEntity>): List<DataModel> {

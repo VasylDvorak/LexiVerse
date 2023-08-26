@@ -1,14 +1,12 @@
 package com.diplomproject.view.description
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
-import com.diplomproject.R
+import com.diplomproject.databinding.DescriptionItemBinding
 import com.diplomproject.model.data_description_request.Example
-import com.diplomproject.utils.ui.viewById
+
+private const val delayPronunciation = 5000L
 
 class DiscriptionFragmentAdapter(
     private var playArticulationClickListener: (String) -> Unit
@@ -21,10 +19,10 @@ class DiscriptionFragmentAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerItemViewHolder {
-        return RecyclerItemViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.description_item, parent, false) as View
-        )
+        val binding =
+            DescriptionItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+        return RecyclerItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerItemViewHolder, position: Int) {
@@ -35,19 +33,22 @@ class DiscriptionFragmentAdapter(
         return data.size
     }
 
-    inner class RecyclerItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val item_des_rw by viewById<TextView>(R.id.item_des_rw)
-        private val play_articulation by viewById<AppCompatImageButton>(R.id.play_articulation)
+    inner class RecyclerItemViewHolder(val binding: DescriptionItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(example: Example) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
-                item_des_rw.text = example.text
-                play_articulation.setOnClickListener {
-                    it?.apply {
-                        isEnabled = false
-                        postDelayed({ isEnabled = true }, 5000)
-                    }
-                    example?.soundUrl?.let { sound_url ->
-                        playArticulationClickListener(sound_url)
+                itemView.apply {
+                    binding.apply {
+                        itemDesRw.text = example.text
+                        playArticulation.setOnClickListener {
+                            it?.apply {
+                                isEnabled = false
+                                postDelayed({ isEnabled = true }, delayPronunciation)
+                            }
+                            example?.soundUrl?.let { soundUrl ->
+                                playArticulationClickListener(soundUrl)
+                            }
+                        }
                     }
                 }
             }

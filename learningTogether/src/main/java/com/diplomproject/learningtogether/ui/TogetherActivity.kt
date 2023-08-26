@@ -36,12 +36,9 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_together)
-
         title = defaultTitle
-
-        flagLearningOrTest =
-            intent.getBooleanExtra(LEARNING_TOGETHER_REQUEST_KOD, false)
-
+        flagLearningOrTest = intent.getBooleanExtra(LEARNING_TOGETHER_REQUEST_KOD, false)
+        remoteStartFavorite()
         if (savedInstanceState == null)
             openCourses(flagLearningOrTest)
 
@@ -49,6 +46,15 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
             getString(R.string.learning_together)
         } else {
             getString(R.string.knowledge_check)
+        }
+    }
+
+    private fun remoteStartFavorite() {
+        val startFavorite = intent.getBooleanExtra(Key.START_FAVORITES_FRAGMENT,
+            false)
+        if (startFavorite) {
+            intent.putExtra(Key.START_FAVORITES_FRAGMENT, false)
+            openFavourite()
         }
     }
 

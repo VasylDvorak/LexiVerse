@@ -2,14 +2,15 @@ package com.diplomproject.navigation
 
 import android.os.Bundle
 import com.diplomproject.learningtogether.ui.grade.GradeFragment
+import com.diplomproject.learningtogether.ui.favorites.FavouritesFragment
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.view.description.CURRENT_DATA_MODEl
 import com.diplomproject.view.description.DescriptionFragment
 import com.diplomproject.view.favorite.FavoriteFragment
 import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.root.StartingFragment
 import com.diplomproject.view.root.favorite.FavoritesElementFragment
 import com.diplomproject.view.settings_menu.AboutApplicationFragment
-import com.diplomproject.view.settings_menu.ChoosingThemeFragment
 import com.diplomproject.view.settings_menu.EnterExitFragment
 import com.diplomproject.view.settings_menu.LoginFragment
 import com.diplomproject.view.settings_menu.PrivacyPoliticFragment
@@ -26,11 +27,7 @@ class AndroidScreens : IScreens {
 
     override fun startDescriptionFragment(dataModel: DataModel): Screen = FragmentScreen {
         DescriptionFragment.newInstance(Bundle().apply {
-            putParcelable(
-                DescriptionFragment.CURRENT_DATA_MODEl,
-                dataModel
-            )
-        })
+            putParcelable(CURRENT_DATA_MODEl, dataModel) })
     }
 
     override fun startFavoriteFragment() = FragmentScreen { FavoriteFragment.newInstance() }
@@ -40,8 +37,6 @@ class AndroidScreens : IScreens {
         FragmentScreen { SettingsNotificationFragment.newInstance() }
 
     override fun startSupportFragment() = FragmentScreen { SupportFragment.newInstance() }
-    override fun startChoosingThemeFragment() =
-        FragmentScreen { ChoosingThemeFragment.newInstance() }
 
     override fun startShareApplicationFragment() =
         FragmentScreen { ShareApplicationFragment.newInstance() }
@@ -56,14 +51,17 @@ class AndroidScreens : IScreens {
     override fun startFavoritesElementFragment(): Screen =
         FragmentScreen { FavoritesElementFragment.newInstance() }
 
+    override fun startFavouritesFragment(): Screen =
+        FragmentScreen { FavouritesFragment.newInstance() }
+
     override fun startGradeFragment(): Screen =
         FragmentScreen { GradeFragment.newInstance() }
 
     override fun startLoginFragment(): Screen =
-        FragmentScreen{LoginFragment.newInstance()}
+        FragmentScreen { LoginFragment.newInstance() }
 
     override fun startPoliticFragment(): Screen =
-        FragmentScreen{ PrivacyPoliticFragment.newInstance()}
+        FragmentScreen { PrivacyPoliticFragment.newInstance() }
 
 
 }

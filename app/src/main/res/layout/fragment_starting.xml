@@ -30,7 +30,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardView"
+                android:id="@+id/cardViewDictionary"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageView5"
+                        android:id="@+id/imageViewDictionary"
                         android:layout_width="150dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="16dp"
@@ -66,6 +66,7 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/dictionary_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:clickable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -79,7 +80,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewDictionary"
                         app:layout_constraintVertical_bias="1.0"
                         app:strokeColor="@color/color_white"
                         app:strokeWidth="2dp" />
@@ -87,7 +88,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardView2"
+                android:id="@+id/cardViewLearningTogether"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -99,7 +100,7 @@
                 app:cardElevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewDictionary"
                 app:strokeColor="@color/example"
                 app:strokeWidth="1dp">
 
@@ -108,7 +109,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imageViewLearning"
                         android:layout_width="150dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="8dp"
@@ -123,6 +124,7 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/learning_together_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:clickable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -135,13 +137,14 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewLearning"
                         app:strokeColor="@color/color_white"
                         app:strokeWidth="2dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardViewTestingOfKnowlage"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -155,7 +158,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewLearningTogether"
                 app:strokeColor="@color/example"
                 app:strokeWidth="1dp">
 
@@ -166,6 +169,7 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/knowledge_check_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:clickable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -178,12 +182,12 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewTests"
                         app:strokeColor="@color/color_white"
                         app:strokeWidth="2dp" />
 
                     <ImageView
-                        android:id="@+id/imageView7"
+                        android:id="@+id/imageViewTests"
                         android:layout_width="150dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="8dp"

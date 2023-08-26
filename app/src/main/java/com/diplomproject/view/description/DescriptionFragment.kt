@@ -26,25 +26,30 @@ import com.diplomproject.model.data_description_request.DescriptionAppState
 import com.diplomproject.model.data_description_request.Example
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.ui.viewById
-import com.diplomproject.view.AnimatorTranslator
+import com.diplomproject.view.AnimatorDictionary
 import com.diplomproject.view.OnlineRepository
 import com.diplomproject.view.settings_menu.BaseFragmentSettingsMenu
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import java.io.IOException
 
+private const val delayForButtom = 400L
 
+private const val delayImage = 1000
+const val CURRENT_DATA_MODEl = "current_data_model"
 class DescriptionFragment :
     BaseFragmentSettingsMenu<FragmentDescriptionBinding>(FragmentDescriptionBinding::inflate) {
 
     private var snack: Snackbar? = null
-    protected var isNetworkAvailable: Boolean = false
     private val checkConnection: OnlineRepository by inject()
-    private val descriptionFragmentRecyclerview by viewById<RecyclerView>(R.id.description_recyclerview)
+    private val descriptionFragmentRecyclerview by
+    viewById<RecyclerView>(R.id.description_recyclerview)
+
     lateinit var model: DescriptionViewModel
     private val observer = Observer<DescriptionAppState> { renderData(it) }
 
-    private val adapter: DiscriptionFragmentAdapter by lazy { DiscriptionFragmentAdapter(::onPlayClick) }
+    private val adapter: DiscriptionFragmentAdapter
+            by lazy { DiscriptionFragmentAdapter(::onPlayClick) }
 
 
     private fun onPlayClick(url: String) {
@@ -62,7 +67,7 @@ class DescriptionFragment :
 
     private fun initViewModel() {
         if (descriptionFragmentRecyclerview.adapter != null) {
-            throw IllegalStateException("The ViewModel should be initialised first")
+            throw IllegalStateException(getString(R.string.exception_error))
         }
         val viewModel: DescriptionViewModel by lazy { descriptionScreenScope.get() }
         model = viewModel
@@ -87,10 +92,10 @@ class DescriptionFragment :
                 playArticulation.setOnClickListener {
                     it?.apply {
                         isEnabled = false
-                        postDelayed({ isEnabled = true }, 400)
+                        postDelayed({ isEnabled = true }, delayForButtom)
                     }
-                    currentDataModel.meanings?.get(0)?.soundUrl?.let { sound_url ->
-                        playContentUrl(sound_url)
+                    currentDataModel.meanings?.get(0)?.soundUrl?.let { soundUrl ->
+                        playContentUrl(soundUrl)
                     }
                 }
                 val imageLink = currentDataModel.meanings?.get(0)?.imageUrl
@@ -151,10 +156,10 @@ class DescriptionFragment :
             } else {
                 snack = Snackbar.make(
                     requireView(),
-                    R.string.dialog_message_device_is_offline, Snackbar.LENGTH_INDEFINITE
+                    R.string.dialog_message_device_is_offline,
+                    Snackbar.LENGTH_INDEFINITE
                 )
                 snack?.show()
-                //  stopRefreshAnimationIfNeeded()
             }
         }
         checkConnection.currentStatus()
@@ -186,7 +191,6 @@ class DescriptionFragment :
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    //   stopRefreshAnimationIfNeeded()
                     imageView.setImageResource(R.drawable.ic_load_error_vector)
                     return false
                 }
@@ -198,7 +202,6 @@ class DescriptionFragment :
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    //  stopRefreshAnimationIfNeeded()
                     return false
                 }
             })
@@ -207,14 +210,14 @@ class DescriptionFragment :
                     .placeholder(R.drawable.ic_no_photo_vector)
                     .centerCrop()
             )
-            .transition(DrawableTransitionOptions.withCrossFade(1000))
+            .transition(DrawableTransitionOptions.withCrossFade(delayImage))
             .transform(CircleCrop())
             .into(imageView)
     }
 
 
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return AnimatorTranslator().setAnimator(transit, enter)
+        return AnimatorDictionary().setAnimator(transit, enter)
     }
 
     override fun onDestroyView() {
@@ -235,6 +238,5 @@ class DescriptionFragment :
             return fragment
         }
 
-        const val CURRENT_DATA_MODEl = "current_data_model"
     }
 }

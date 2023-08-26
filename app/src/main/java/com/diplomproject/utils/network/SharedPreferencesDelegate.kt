@@ -1,8 +1,8 @@
 package com.diplomproject.utils.network
 
 import android.content.SharedPreferences
-import com.google.gson.Gson
 import com.diplomproject.model.data_word_request.DataModel
+import com.google.gson.Gson
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 

@@ -21,7 +21,7 @@ import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
 
 private const val DICTIONARY_REQUEST_KOD = 100
-private const val TOGETHER_ACTIVITY_REQUEST_CODE = 200
+const val TOGETHER_ACTIVITY_REQUEST_CODE = 200
 
 class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 
@@ -43,8 +43,6 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 
         if (savedInstanceState == null) {
             binding.bottomNavBar.selectedItemId = R.id.root_menu_item
-        } else {
-            // todo другое
         }
     }
 

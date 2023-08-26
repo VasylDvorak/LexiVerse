@@ -35,9 +35,6 @@ class SettingsFragment : ViewBindingFragment<FragmentSettingsBinding>(
                         navigateTo(startSupportFragment())
                     }
 
-                    choosingTheme.setOnClickListener {
-                        navigateTo(startChoosingThemeFragment())
-                    }
 
                     shareApplication.setOnClickListener {
                         navigateTo(startShareApplicationFragment())
