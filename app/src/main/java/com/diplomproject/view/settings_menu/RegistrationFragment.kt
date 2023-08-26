@@ -66,7 +66,6 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
 
             val email: String = binding?.editTextTextEmailAddress?.getText().toString()
             val password: String = binding?.editTextNumberPassword?.getText().toString()
-           // val password: String = binding?.editTextNumberPassword2?.text
 
             if (TextUtils.isEmpty(email)) {
                 binding?.editTextTextEmailAddress?.setError(getString(R.string.error_email_empty))
