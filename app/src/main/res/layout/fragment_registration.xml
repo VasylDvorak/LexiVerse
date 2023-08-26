@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/example_back">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -19,30 +20,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_white"
+        app:strokeColor="@color/example"
         app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <ImageView
                 android:id="@+id/imageView17"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:contentDescription="@string/button_logIn"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.519"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/signup_log" />
+                app:srcCompat="@drawable/golden_key" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/editTextTextEmailAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:backgroundTint="@color/example"
                 android:ems="10"
                 android:hint="@string/email_hint"
@@ -53,7 +57,7 @@
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/editTextNumberPassword"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/example"
@@ -66,7 +70,7 @@
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/editTextNumberPassword2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/example"
@@ -77,36 +81,13 @@
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
 
-
-
             <RelativeLayout
-                android:layout_marginStart="120dp"
                 android:id="@+id/privacyCheckBoxContainer"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="391dp">
 
-                <CheckBox
-                    android:id="@+id/privacyCheckBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true" />
-
-                <TextView
-                    android:id="@+id/privacyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/privacyCheckBox"
-                    android:text="Я согласен с Политикой конфиденциальности"
-                    android:textColor="@color/blue_dark"
-                    android:layout_marginStart="8dp"
-                    android:clickable="true"
-                    android:layout_centerVertical="true"/>
             </RelativeLayout>
-
 
 
             <Button
@@ -121,7 +102,30 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"
                 app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/privacyCheckBoxContainer" />
+                app:layout_constraintTop_toBottomOf="@+id/privacyTextView" />
+
+            <TextView
+                android:id="@+id/privacyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:text="Политика конфиденциальности"
+                android:textColor="@color/example"
+                app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
+                app:layout_constraintTop_toBottomOf="@+id/privacyCheckBox" />
+
+            <CheckBox
+                android:id="@+id/privacyCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text=" Я Согласен"
+                android:textColor="@color/example_dark"
+                app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
