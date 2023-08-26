@@ -39,7 +39,6 @@ class SuccessFragment : Fragment() {
         }
 
         pressingBackStackButton(view)
-
         Picasso.get().load(Key.VICTORY_FINISH_IMAGE_KEY).into(victoryImageView)
     }
 
