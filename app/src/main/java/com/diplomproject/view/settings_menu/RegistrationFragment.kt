@@ -48,8 +48,13 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
             } else if (!password.equals(binding?.editTextNumberPassword2?.text?.toString())) {
                 binding?.editTextNumberPassword2?.setError("Passwords must be match!")
                 binding?.editTextNumberPassword2?.requestFocus()
-            } else if (true){
+            } else if (binding?.privacyCheckBox?.isChecked != true){
                 binding?.privacyCheckBox?.setBackgroundColor(resources.getColor(R.color.color_error) )
+                Toast.makeText(
+                    this@RegistrationFragment.context,
+                    "Подтвердите свое согласие",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             else {
                 auth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
@@ -59,8 +64,7 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
                             "User registered successfully",
                             Toast.LENGTH_SHORT
                         ).show()
-                        //TODO прикрутить переход при успешной авторизации
-                       // startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                        router.navigateTo(screen.startSettingsFragment())
                     } else {
                         Toast.makeText(
                             this@RegistrationFragment.context,

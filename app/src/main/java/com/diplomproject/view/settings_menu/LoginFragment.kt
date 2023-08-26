@@ -46,8 +46,7 @@ class LoginFragment : BaseFragmentSettingsMenu<FragmentLoginBinding>(
                         "User logged in successfully",
                         Toast.LENGTH_SHORT
                     ).show()
-                    //startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    //TODO прикрутить переход при успешной авторизации
+                    router.navigateTo(screen.startSettingsFragment())
                 } else {
                     Toast.makeText(
                         this@LoginFragment.context,
