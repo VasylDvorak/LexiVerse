@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
+import com.diplomproject.R
 import com.diplomproject.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -33,24 +34,24 @@ class LoginFragment : BaseFragmentSettingsMenu<FragmentLoginBinding>(
         val email: String = binding?.editTextTextEmailAddress?.getText().toString()
         val password: String = binding?.editTextNumberPassword?.getText().toString()
         if (TextUtils.isEmpty(email)) {
-            binding?.editTextTextEmailAddress?.setError("Email cannot be empty")
+            binding?.editTextTextEmailAddress?.setError(getString(R.string.error_email_empty))
             binding?.editTextTextEmailAddress?.requestFocus()
         } else if (TextUtils.isEmpty(password)) {
-            binding?.editTextNumberPassword?.setError("Password cannot be empty")
+            binding?.editTextNumberPassword?.setError(getString(R.string.error_password_empty))
             binding?.editTextNumberPassword?.requestFocus()
         } else {
             auth!!.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(
                         this@LoginFragment.context,
-                        "User logged in successfully",
+                        getString(R.string.succesful_login),
                         Toast.LENGTH_SHORT
                     ).show()
                     router.navigateTo(screen.startSettingsFragment())
                 } else {
                     Toast.makeText(
                         this@LoginFragment.context,
-                        "Log in Error: " + task.exception?.message,
+                        getString(R.string.fail_login) + task.exception?.message,
                         Toast.LENGTH_SHORT
                     ).show()
                 }

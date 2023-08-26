@@ -40,19 +40,19 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
            // val password: String = binding?.editTextNumberPassword2?.text
 
             if (TextUtils.isEmpty(email)) {
-                binding?.editTextTextEmailAddress?.setError("Email cannot be empty")
+                binding?.editTextTextEmailAddress?.setError(getString(R.string.error_email_empty))
                 binding?.editTextTextEmailAddress?.requestFocus()
             } else if (TextUtils.isEmpty(password)) {
-                binding?.editTextNumberPassword?.setError("Password cannot be empty")
+                binding?.editTextNumberPassword?.setError(getString(R.string.error_password_empty))
                 binding?.editTextNumberPassword?.requestFocus()
             } else if (!password.equals(binding?.editTextNumberPassword2?.text?.toString())) {
-                binding?.editTextNumberPassword2?.setError("Passwords must be match!")
+                binding?.editTextNumberPassword2?.setError(getString(R.string.error_match_password))
                 binding?.editTextNumberPassword2?.requestFocus()
             } else if (binding?.privacyCheckBox?.isChecked != true){
                 binding?.privacyCheckBox?.setBackgroundColor(resources.getColor(R.color.color_error) )
                 Toast.makeText(
                     this@RegistrationFragment.context,
-                    "Подтвердите свое согласие",
+                    getString(R.string.confirm_polycy),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -61,14 +61,14 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
                     if (task.isSuccessful) {
                         Toast.makeText(
                             this@RegistrationFragment.context,
-                            "User registered successfully",
+                            getString(R.string.registration_succesful),
                             Toast.LENGTH_SHORT
                         ).show()
                         router.navigateTo(screen.startSettingsFragment())
                     } else {
                         Toast.makeText(
                             this@RegistrationFragment.context,
-                            "Registration Error: " + task.exception?.message,
+                            getString(R.string.fail_registration) + task.exception?.message,
                             Toast.LENGTH_SHORT
                         ).show()
                     }

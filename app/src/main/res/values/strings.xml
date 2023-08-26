@@ -142,4 +142,19 @@
     <string name="title_send_SMS">Отправить SMS со ссылкой</string>
     <string name="subtitle_send_sms">При отправке SMS возможно списание денежных средств по условиям тарифного плана Вашего оператора сотовой связи</string>
     <string name="message_for_share_app">Перейдите по ссылке для скачивания приложения "Словарь RU/EN":</string>
+    <string name="exit_message">Вы действительно хотите выйти из своего профиля?</string>
+    <string name="note_welcome">Вы вошли как гость</string>
+    <string name="welcome_text_settings">Здравствуйте, alex@mail.ru !</string>
+    <string name="error_email_empty">Поле e-mail не должно быть пустым</string>
+    <string name="error_password_empty">Поле пароль не должно быть пустым</string>
+    <string name="error_match_password">Пароли должны совпадать!</string>
+    <string name="confirm_polycy">Подтвердите свое согласие</string>
+    <string name="registration_succesful">Успешная регистрация!</string>
+    <string name="fail_registration">"Ошибка при регистрации: "</string>
+    <string name="succesful_login">Успешный вход!</string>
+    <string name="fail_login">"Ошибка входа: "</string>
+    <string name="enter_email">Введите e-mail</string>
+    <string name="enter_password_text">Введите пароль</string>
+    <string name="enter_email_text">Введите e-mail</string>
+    <string name="repeat_password">Повторите пароль</string>
 </resources>

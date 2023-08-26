@@ -2,6 +2,7 @@ package com.diplomproject.utils.ui
 
 import android.app.AlertDialog
 import android.content.Context
+import com.diplomproject.R
 import com.diplomproject.navigation.IScreens
 import com.github.terrakok.cicerone.Router
 import com.google.firebase.auth.FirebaseAuth
@@ -12,7 +13,7 @@ object ExitDialog {
         val builder = AlertDialog.Builder(context)
         val dialog = builder.create()
         dialog.setTitle("Выход")
-        dialog.setMessage("Вы действительно хотите выйти из своего профиля?")
+        dialog.setMessage(context.getString(R.string.exit_message))
         dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Выйти"){
                 _,_ ->
             auth?.signOut()
