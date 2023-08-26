@@ -1,6 +1,7 @@
 package com.diplomproject.navigation
 
 import android.os.Bundle
+import com.diplomproject.learningtogether.ui.grade.GradeFragment
 import com.diplomproject.learningtogether.ui.favorites.FavouritesFragment
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.view.description.CURRENT_DATA_MODEl
@@ -9,7 +10,6 @@ import com.diplomproject.view.favorite.FavoriteFragment
 import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.root.StartingFragment
 import com.diplomproject.view.root.favorite.FavoritesElementFragment
-import com.diplomproject.view.root.grade.GradeFragment
 import com.diplomproject.view.settings_menu.AboutApplicationFragment
 import com.diplomproject.view.settings_menu.EnterExitFragment
 import com.diplomproject.view.settings_menu.LoginFragment

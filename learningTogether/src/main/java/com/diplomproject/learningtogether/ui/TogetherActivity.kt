@@ -41,6 +41,12 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
         remoteStartFavorite()
         if (savedInstanceState == null)
             openCourses(flagLearningOrTest)
+
+        title = if (flagLearningOrTest) {
+            getString(R.string.learning_together)
+        } else {
+            getString(R.string.knowledge_check)
+        }
     }
 
     private fun remoteStartFavorite() {
@@ -110,11 +116,17 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
             .commit()
     }
 
-    //открываем фрагмент при завершении заданий
-    override fun openSuccessScreen() {
-        supportFragmentManager.popBackStack()//чистит стэк, после появления данного фрагмента нельзя будет вернутся
+    override fun openSuccessScreen(
+        listTasks: Int,
+        positiveTasks: Int,
+        negativeTasks: Int,
+        percentIncorrect: Double
+    ) {
+        supportFragmentManager.popBackStack()//чистит стэк
 
-        val successFragment: Fragment = SuccessFragment()
+        val successFragment: Fragment =
+            SuccessFragment.newInstance(listTasks, positiveTasks, negativeTasks, percentIncorrect)
+
         supportFragmentManager
             .beginTransaction()
             .add(R.id.container_layout, successFragment, Key.TEG_SUCCESS_CONTAINER_KEY)
@@ -134,10 +146,6 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
             title = defaultTitle
         }
     }
-
-//    override fun onBackPressed() {
-//        exitingApplicationDoubleClick()
-//    }
 
     //выход из приложения по двойному нажатию на кнопку
     private fun exitingApplicationDoubleClick() {

@@ -19,7 +19,6 @@ class AnswerViewHolder(itemView: View) :
     }
 
     init {
-        //обработка нажатия. при нажатии на элемент происходит вызов listener и передается в него answer который положили в bind
         itemView.setOnClickListener { _ ->
             answer.let {
                 listener.invoke(it)

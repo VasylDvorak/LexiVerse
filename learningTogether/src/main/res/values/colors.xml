@@ -44,5 +44,8 @@
     <color name="example">#77DDF9</color>
     <color name="example_middle">#00c3f9</color>
     <color name="example_dark">#00aaec</color>
+    <color name="green">#079A27</color>
+    <color name="red">#FF7E7E</color>
+
 
 </resources>

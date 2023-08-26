@@ -60,7 +60,6 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
         }
 
         viewModel.needShowFinishScreen.observe(viewLifecycleOwner) { isLast ->
-            // Отобразите финишный экран, если значение true
             if (isLast) {
                 showFinishAlertDialog()
             }
@@ -151,13 +150,13 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
                     if (it == true) {
                         Toast.makeText(
                             requireContext(),
-                            "Удалили из избранного",
+                            getString(R.string.delete_favorites),
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
                         Toast.makeText(
                             requireContext(),
-                            "Добавили в избранное",
+                            getString(R.string.add_favorites),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -169,7 +168,6 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
     }
 
     interface Controller {
-        fun openSuccessScreen()
         fun openLearningOrTest(flagLearningOrTest: Boolean)
     }
 

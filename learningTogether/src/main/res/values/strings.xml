@@ -17,13 +17,19 @@
     <string name="java_level_2_card_view">Level 2</string>
     <string name="name_level_1_card_view">NO NAME 1</string>
     <string name="name_level_2_card_view">NO NAME 2</string>
-    <string name="repeat_button">Повторить</string>
-    <string name="victory_finish">УРА!!!\nВсе правильно!</string>
+    <string name="victory_finish">УРА!!!\nВы завершили тест!</string>
+    <string name="remains_to_answer">Всего осталось ответить: </string>
     <string name="favourites">Избраное</string>
     <string name="statistics">Статистика</string>
     <string name="settings">Настройки</string>
     <string name="about_app">О приложении</string>
 
+    <string name="learning_together">Учимся в месте</string>
+    <string name="knowledge_check">Проверка знаний</string>
+
+    <!-- TaskFragment -->
+    <string name="add_favorites">Добавили в избранное</string>
+    <string name="delete_favorites">Удалили из избранного</string>
 
     <string name="back_card">Назад</string>
     <string name="forward_card">Вперед</string>
@@ -42,4 +48,33 @@
 
     <!-- layout -> default -->
     <string name="progress_counter">0/0</string>
+
+    <!-- Для графика успеваимости -->
+    <string name="language_acquisition">Прогресс обучения</string>
+    <string name="positive_chart">Отлично</string>
+    <string name="negative_chart">Плохо</string>
+    <string name="grade_chart">Успеваемость</string>
+    <string name="reset_statistics">Сбросить статистику!</string>
+    <string name="chart_grade">График успеваемости!</string>
+    <string name="monday">Пн</string>
+    <string name="tuesday">Вт</string>
+    <string name="wednesday">Ср</string>
+    <string name="thursday">Чт</string>
+    <string name="friday">Пт</string>
+    <string name="saturday">Сб</string>
+    <string name="sunday">Вс</string>
+    <string name="right_attempts">Успех</string>
+    <string name="wrong_attempts">Отрицательные ответы</string>
+    <string name="description_legend">Показатели усвоения иностранного языка</string>
+    <string name="delete_data">Удаление данных</string>
+    <string name="yes">ДА</string>
+    <string name="no">НЕТ</string>
+
+    <!-- Success Fragment -->
+    <string name="total_tasks">Всего заданий: </string>
+    <string name="positive_answers">Положительных ответов: </string>
+    <string name="negative_answers">Отрицательных ответов: </string>
+    <string name="material_assimilated">Усвоено: </string>
+    <string name="delete_data_text">Вы уверены что хотите удалить всю статистику?</string>
+
 </resources>

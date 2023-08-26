@@ -58,7 +58,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_lesson) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        getController()//Агресивный способ проверке налмчия контроллера
+        getController()
     }
 
     companion object {
