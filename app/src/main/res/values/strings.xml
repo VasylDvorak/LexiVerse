@@ -157,4 +157,5 @@
     <string name="enter_password_text">Введите пароль</string>
     <string name="enter_email_text">Введите e-mail</string>
     <string name="repeat_password">Повторите пароль</string>
+    <string name="restriction_text">Превышено ограничение на ввод символов</string>
 </resources>
