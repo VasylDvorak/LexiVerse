@@ -44,12 +44,10 @@ subprojects {
                 }
             }
 
-
-
             dependencies {
 
                 //SplashScreen API
-                implementation("androidx.core:core-splashscreen:1.0.1")
+                implementation SplashScreen.core_splashscreen
 
                 //Design
                 implementation Design.appcompat
@@ -82,26 +80,22 @@ subprojects {
                 implementation Glide.glideCompiler
                 implementation Glide.glide
 
-                //RxJava
-                implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-                implementation 'io.reactivex.rxjava2:rxjava:2.2.20'
-                implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
+
+                //Firebase
+                implementation platform (Firebase.firebaseBom)
+                implementation Firebase.firebaseAuth
+                implementation Firebase.firebaseDatabase
+                implementation Firebase.crashlyticsKtx
+                implementation Firebase.analyticsKtx
+                implementation Firebase.databaseKtx
+
+                //Tests
                 testImplementation 'androidx.arch.core:core-testing:2.2.0'
                 implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
                 testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
 
-                //Firebase
-                implementation platform ('com.google.firebase:firebase-bom:30.3.1')
-                implementation "com.google.firebase:firebase-auth:22.1.0"
-                implementation 'com.google.firebase:firebase-database:20.2.2'
-                //Firebase -> crashlytics, analytics
-                implementation 'com.google.firebase:firebase-crashlytics-ktx'
-                implementation 'com.google.firebase:firebase-analytics-ktx'
-                //Firebase -> database
-                implementation 'com.google.firebase:firebase-database-ktx'
-
-                //Robolectric
+                //Robolectric Tests
                 testImplementation 'org.robolectric:robolectric:4.10.3'
                 testImplementation 'androidx.test:core:1.5.0'
                 testImplementation 'androidx.test:runner:1.5.2'
@@ -109,8 +103,7 @@ subprojects {
                 testImplementation 'androidx.test.ext:truth:1.5.0'
                 testImplementation 'androidx.test.espresso:espresso-core:3.5.1'
                 testImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
-
-                //Fragment
+                //Fragment Tests
                 debugImplementation 'androidx.fragment:fragment-testing:1.6.1'
 
             }

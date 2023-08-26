@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.diplomproject.R
 import org.koin.java.KoinJavaComponent.getKoin
 
-class AnimatorTranslator {
+class AnimatorDictionary {
 
     fun setAnimator(transit: Int, enter: Boolean): Animator? {
         return when (transit) {

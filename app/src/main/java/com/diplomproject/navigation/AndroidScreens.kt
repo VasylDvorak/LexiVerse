@@ -3,6 +3,7 @@ package com.diplomproject.navigation
 import android.os.Bundle
 import com.diplomproject.learningtogether.ui.favorites.FavouritesFragment
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.view.description.CURRENT_DATA_MODEl
 import com.diplomproject.view.description.DescriptionFragment
 import com.diplomproject.view.favorite.FavoriteFragment
 import com.diplomproject.view.main_fragment.MainFragment
@@ -26,11 +27,7 @@ class AndroidScreens : IScreens {
 
     override fun startDescriptionFragment(dataModel: DataModel): Screen = FragmentScreen {
         DescriptionFragment.newInstance(Bundle().apply {
-            putParcelable(
-                DescriptionFragment.CURRENT_DATA_MODEl,
-                dataModel
-            )
-        })
+            putParcelable(CURRENT_DATA_MODEl, dataModel) })
     }
 
     override fun startFavoriteFragment() = FragmentScreen { FavoriteFragment.newInstance() }
@@ -61,10 +58,10 @@ class AndroidScreens : IScreens {
         FragmentScreen { GradeFragment.newInstance() }
 
     override fun startLoginFragment(): Screen =
-        FragmentScreen{LoginFragment.newInstance()}
+        FragmentScreen { LoginFragment.newInstance() }
 
     override fun startPoliticFragment(): Screen =
-        FragmentScreen{ PrivacyPoliticFragment.newInstance()}
+        FragmentScreen { PrivacyPoliticFragment.newInstance() }
 
 
 }

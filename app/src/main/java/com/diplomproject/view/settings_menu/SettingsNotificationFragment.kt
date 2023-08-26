@@ -14,6 +14,7 @@ import com.diplomproject.databinding.FragmentSettingsNotificationBinding
 import com.diplomproject.di.ConnectKoinModules
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.view.favorite.FavoriteViewModel
+import com.diplomproject.view.notification.CHANNEL_ID
 import com.diplomproject.view.notification.NotificationService
 import com.diplomproject.view.notification.REFERENCE
 import com.google.firebase.database.ktx.database
@@ -24,6 +25,7 @@ const val minimum = 1
 const val maximum = 15
 const val timeStepMinutes = 20
 const val NOTIFICATION_SETTINGS = "NOTIFICATION_SETTINGS"
+private val appVibrationPattern = longArrayOf(500, 500, 500)
 
 class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNotificationBinding>(
     FragmentSettingsNotificationBinding::inflate
@@ -117,7 +119,8 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNo
                 PreferenceManager.getDefaultSharedPreferences(context?.applicationContext)
             val prefsEditor = appSharedPrefs.edit()
             val gson = Gson()
-            val pair = Pair(notificationOn && !emptyList, setRepeatTime * timeStepMinutes)
+            val pair = Pair(notificationOn && !emptyList,
+                setRepeatTime * timeStepMinutes)
             val json = gson.toJson(pair)
             prefsEditor.putString(NOTIFICATION_SETTINGS, json)
             prefsEditor.apply()
@@ -135,11 +138,11 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNo
                 activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(
-                NotificationService.CHANNEL_ID, getString(R.string.notificator_name),
+                CHANNEL_ID, getString(R.string.notificator_name),
                 importance
             )
             channel.apply {
-                vibrationPattern = longArrayOf(500, 500, 500)
+                vibrationPattern = appVibrationPattern
                 enableVibration(true)
             }
             notificationManager.createNotificationChannel(channel)

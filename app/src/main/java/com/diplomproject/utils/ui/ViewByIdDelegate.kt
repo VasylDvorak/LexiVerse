@@ -55,6 +55,4 @@ fun <T : View> Fragment.viewById(@IdRes viewId: Int): ViewByIdDelegate<T> {
 fun <T : View> RecyclerView.ViewHolder.viewById(@IdRes viewId: Int): ViewByIdDelegate<T> {
     return ViewByIdDelegate({ itemView }, viewId)
 }
-fun <T : View> View.viewById(@IdRes viewId: Int): ViewByIdDelegate<T> {
-    return ViewByIdDelegate({rootView}, viewId)
-}
+

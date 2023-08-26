@@ -158,4 +158,25 @@
     <string name="enter_email_text">Введите e-mail</string>
     <string name="repeat_password">Повторите пароль</string>
     <string name="restriction_text">Превышено ограничение на ввод символов</string>
+    <string name="message_for_app">Отправить SMS со ссылкой</string>
+    <string name="noun">Имя существительное</string>
+    <string name="verb">Глагол</string>
+    <string name="adjective">Прилагательное</string>
+    <string name="adverb">Наречие</string>
+    <string name="pretext">Предлог</string>
+    <string name="pronoun">Местоимение</string>
+    <string name="cardinal_number">Количественное числительное</string>
+    <string name="union">Союз</string>
+    <string name="interjection">Междометие</string>
+    <string name="article">Артикль</string>
+    <string name="abbreviation">Аббревиатура</string>
+    <string name="particle">Частица</string>
+    <string name="serial_number">Порядковый номер</string>
+    <string name="modal_verb">Модальный глагол</string>
+    <string name="phrase">Фраза</string>
+    <string name="idiom">Идиома</string>
+    <string name="exception_error">The ViewModel should be initialised first</string>
+    <string name="empty_string_message">Пустая строка</string>
+    <string name="error_message">Ошибка</string>
+    <string name="failed_to_read_value_message">Failed to read value.</string>
 </resources>
