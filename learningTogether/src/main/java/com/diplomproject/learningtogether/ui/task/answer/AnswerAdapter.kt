@@ -14,10 +14,9 @@ class AnswerAdapter(
     @SuppressLint("NotifyDataSetChanged")
     fun setData(answers: List<String>) {
         data = answers
-        notifyDataSetChanged()//для обнавления
+        notifyDataSetChanged()
     }
 
-    //сохраняем слушитель и передаем его в onCreateViewHolder
     fun setOnItemClickListener(listener: (String) -> Unit) {
         this.listener = listener
     }

@@ -10,7 +10,7 @@
         <item name="android:layout_margin">7dp</item>
     </style>
 
-    <style name="task_tv_style" parent="answer_task_tv_style">
+    <style name="task_title_text_view" parent="answer_task_tv_style">
         <item name="android:background">@color/white</item>
         <item name="android:textSize">25sp</item>
         <item name="android:layout_margin">5dp</item>
@@ -20,4 +20,8 @@
         <item name="android:layout_gravity">center</item>
         <item name="cardCornerRadius">15dp</item>
     </style>
+
+    <style name="CalendarDateTextAppearance">Будни</style>
+
+    <style name="CalendarWeekdayTextAppearance">Выходные</style>
 </resources>

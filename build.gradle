@@ -106,6 +106,8 @@ subprojects {
                 //Fragment Tests
                 debugImplementation 'androidx.fragment:fragment-testing:1.6.1'
 
+                //MPAndroidChart Графики
+//                implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
             }
         }
     }

@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/task_text_view"
-            style="@style/task_tv_style"
+            style="@style/task_title_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_task"

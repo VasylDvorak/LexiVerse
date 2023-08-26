@@ -57,18 +57,22 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
                 when (it.itemId) {
                     R.id.root_menu_item -> {
                         router.replaceScreen(screen.startStartingFragment())
+                        title = getString(R.string.app_name)
                     }
 
                     R.id.favorites_elements_item -> {
                         router.replaceScreen(screen.startFavoritesElementFragment())
+                        title = getString(R.string.favorite)
                     }
 
                     R.id.chart_grade_item -> {
                         router.replaceScreen(screen.startGradeFragment())
+                        title = getString(R.string.grade)
                     }
 
                     R.id.settings_item -> {
                         router.replaceScreen(screen.startSettingsFragment())
+                        title = getString(R.string.title_settings)
                     }
 
                     else -> throw IllegalStateException(getString(R.string.fragment_exception))

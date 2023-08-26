@@ -18,7 +18,9 @@ class TaskViewModel(
     private val answerCounterInteractor: AnswerCounterInteractor
 ) : ViewModel() {
 
-    var currentValueIndex = 0 // Индекс текущего значения
+    var currentValueIndex = 0
+    var negativeTasksIndex = 0
+    var tasksValue = 0
 
     //одно из решений над Mutable (это стандартно принятый этот метод)
     private val _inProgressLiveData: MutableLiveData<Boolean> = MutableLiveData()
@@ -37,13 +39,16 @@ class TaskViewModel(
 
     init {
         currentValueIndex = 0
+        negativeTasksIndex = 0
+        tasksValue = 0
 
         if (tasksLiveData.value == null) {
             _inProgressLiveData.postValue(true)
             coursesRepo.getLesson(courseId, lessonId) {
                 it?.let {
                     inProgressLiveData.mutable().postValue(false)
-                    tasks = it.tasks//сохранили список на старте запуска
+                    tasks = it.tasks
+                    tasksValue = it.tasks.size
                     tasksLiveData.mutable().postValue(getNextTask())
                 }
             }
@@ -57,25 +62,31 @@ class TaskViewModel(
 
     fun onAnswerSelect(userAnswer: String) {
         val currentIndex = currentValueIndex
+        val negativeIndex = negativeTasksIndex
+        val taskEntity = getNextTask()
 
         if (checkingAnswer(userAnswer, tasksLiveData.value!!.rightAnswer)) {
-            val taskEntity = getNextTask()
 
             currentValueIndex = currentIndex + 1
-
-            answerCounterInteractor.logRightAnswer()
-
-//            answerCounterInteractor.getRightCounter() // todo количество положительных ответов
 
             if (taskEntity == null) {
                 selectedSuccessLiveData.mutable().postValue(Unit)
             } else {
                 tasksLiveData.mutable().postValue(taskEntity)
             }
+
+            answerCounterInteractor.logRightAnswer()
+
         } else {
             answerCounterInteractor.logErrorAnswer()
+            negativeTasksIndex = negativeIndex + 1
             wrongAnswerLiveData.mutable().postValue(Unit)
-            tasksLiveData.mutable().postValue(getNextTask())
+
+            if (taskEntity == null) {
+                selectedSuccessLiveData.mutable().postValue(Unit)
+            } else {
+                tasksLiveData.mutable().postValue(taskEntity)
+            }
         }
     }
 
@@ -85,13 +96,11 @@ class TaskViewModel(
     }
 
     private fun getNextTask(): TaskEntity? {
-        val nextTask = tasks.randomOrNull()// означает, что рандом может принять null
-        tasks.remove(nextTask)//удаляем из списка одно задание
+        val nextTask = tasks.randomOrNull()
+        tasks.remove(nextTask)
         return nextTask
     }
 
-    //экстеншен (расширение обычной чужай функции). Можно указать mutable расширение и оно вернет версию MutableLiveData
-    //это сделано чтобы случайно во фрагменте случайно не изменить список (в этом рельной безописности нет)
     private fun <T> LiveData<T>.mutable(): MutableLiveData<T> {
         return this as MutableLiveData
     }

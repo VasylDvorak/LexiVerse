@@ -20,6 +20,16 @@ object Key {
     const val LEARNING_TOGETHER_REQUEST_KOD = "LEARNING_TOGETHER_REQUEST_KOD"
     const val START_FAVORITES_FRAGMENT = "START_FAVORITES_FRAGMENT"
 
+    internal const val TOTAL_TASKS_KEY = "TOTAL_TASKS_KEY"
+    internal const val POSITIVE_TASKS_KEY = "POSITIVE_TASKS_KEY"
+    internal const val NEGATIVE_TASKS_KEY = "NEGATIVE_TASKS_KEY"
+    internal const val PERCENT_INCORRECT_KEY = "PERCENT_INCORRECT_KEY"
+    internal const val DEFAULT_TOTAL_TASKS_KEY = -1L
+    internal const val DEFAULT_POSITIVE_TASKS_KEY = -1L
+    internal const val DEFAULT_NEGATIVE_TASKS_KEY = -1L
+    internal const val DEFAULT_PERCENT_INCORRECT_KEY = -1L
+
+
     internal const val DEFAULT_COURSE_ID_KEY = -1L
     internal const val DEFAULT_LESSON_ID_KEY = -1L
 
@@ -44,5 +54,5 @@ object Key {
     internal const val TAG = "SingleLiveEvent"
 
     //Уведомления
-    internal const val SHOW_NOTICE_TASK_FRAGMENT_KEY = "Вы ошиблись, попробуйте еще раз!!!"
+    internal const val SHOW_NOTICE_TASK_FRAGMENT_KEY = "Вы ошиблись!"
 }

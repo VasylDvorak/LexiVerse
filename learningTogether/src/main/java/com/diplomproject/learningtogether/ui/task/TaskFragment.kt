@@ -43,24 +43,25 @@ class TaskFragment : ViewBindingFragment<FragmentTaskV2Binding>(
         setHasOptionsMenu(true)
 
         initView(view)
-        //observe - это наблюдатель
-        // подписываемся на inProgressLiveData
+
         viewModel.inProgressLiveData.observe(viewLifecycleOwner) { inProgress ->
-            //сюда приходит значение
+
             binding.taskAnswerRecyclerView.isVisible = !inProgress
             binding.progressTaskBar.isVisible = inProgress
         }
 
         viewModel.tasksLiveData.observe(viewLifecycleOwner) { task ->
+
             binding.taskTextView.text = task.task
 
             Picasso.get().load(task.taskImageUrl).into(binding.taskImageView)
             binding.taskImageView.scaleType = ImageView.ScaleType.FIT_CENTER
 
-            val textTask = "Всего осталось ответить: "
+            val textTask = getString(R.string.remains_to_answer)
+
             val learningList = viewModel.tasks.size + 1
 
-            binding.recordsTextView.text = "$textTask $learningList "
+            binding.recordsTextView.text = "$textTask $learningList"
 
             task?.let {
                 adapter.setData(it.variantsAnswer)
@@ -71,7 +72,19 @@ class TaskFragment : ViewBindingFragment<FragmentTaskV2Binding>(
         }
 
         viewModel.selectedSuccessLiveData.observe(viewLifecycleOwner) {
-            getController().openSuccessScreen()
+            val listTasks = viewModel.tasksValue
+            val positiveTasks = viewModel.currentValueIndex
+            val negativeTasks = viewModel.negativeTasksIndex
+
+            val percentCorrect = (negativeTasks.toDouble() / listTasks) * 100
+            val percentIncorrect = 100 - percentCorrect
+
+            getController().openSuccessScreen(
+                listTasks,
+                positiveTasks,
+                negativeTasks,
+                percentIncorrect
+            )
         }
 
         viewModel.wrongAnswerLiveData.observe(viewLifecycleOwner) {
@@ -107,13 +120,13 @@ class TaskFragment : ViewBindingFragment<FragmentTaskV2Binding>(
                     if (it == true) {
                         Toast.makeText(
                             requireContext(),
-                            "Удалили из избранного",
+                            getString(R.string.delete_favorites),
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
                         Toast.makeText(
                             requireContext(),
-                            "Добавили в избранное",
+                            getString(R.string.add_favorites),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -125,7 +138,12 @@ class TaskFragment : ViewBindingFragment<FragmentTaskV2Binding>(
     }
 
     interface Controller {
-        fun openSuccessScreen()
+        fun openSuccessScreen(
+            listTasks: Int,
+            positiveTasks: Int,
+            negativeTasks: Int,
+            percentIncorrect: Double
+        )
     }
 
     private fun getController(): Controller = activity as Controller

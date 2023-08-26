@@ -5,39 +5,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:clickable="true"
-    android:focusable="true"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.task.TaskFragment">
+    tools:context=".ui.SuccessFragment">
 
     <TextView
-        style="@style/task_tv_style"
+        style="@style/task_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pomidorko_cyr_ru"
         android:text="@string/victory_finish" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/repeat_button"
-        android:layout_width="@dimen/button_finish_width_size"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/pomidorko_cyr_ru"
-        android:text="@string/repeat_button"
-        app:cornerRadius="@dimen/radius_button_default" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/victory_image_view"
+    <LinearLayout
+        android:id="@+id/success_text_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY" />
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/progress_success_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/total_tasks_text_view"
+            style="@style/task_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_task"
+            android:hint="@string/total_tasks" />
+
+        <TextView
+            android:id="@+id/positive_answers_text_view"
+            style="@style/task_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_task"
+            android:hint="@string/positive_answers" />
+
+        <TextView
+            android:id="@+id/negative_answers_text_view"
+            style="@style/task_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_task"
+            android:hint="@string/negative_answers" />
+
+        <TextView
+            android:id="@+id/material_assimilated_text_view"
+            style="@style/task_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_task"
+            android:hint="@string/material_assimilated" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/success_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tests_button"
+            android:layout_width="@dimen/button_finish_width_size"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pomidorko_cyr_ru"
+            android:text="@string/back_tests"
+            app:cornerRadius="@dimen/radius_button_default" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_menu_button"
+            android:layout_width="@dimen/button_finish_width_size"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pomidorko_cyr_ru"
+            android:text="@string/start_fragment"
+            app:cornerRadius="@dimen/radius_button_default" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/chart_button"
+            android:layout_width="@dimen/button_finish_width_size"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pomidorko_cyr_ru"
+            android:text="@string/chart_grade"
+            android:visibility="gone"
+            app:cornerRadius="@dimen/radius_button_default" />
+    </LinearLayout>
+
 
 </LinearLayout>
