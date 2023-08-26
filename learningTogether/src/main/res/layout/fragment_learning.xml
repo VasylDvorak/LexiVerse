@@ -39,7 +39,8 @@
                 android:gravity="center"
                 android:hint="@string/progress_counter"
                 android:textColor="@color/example_dark"
-                android:textSize="@dimen/progress_counter_text"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
