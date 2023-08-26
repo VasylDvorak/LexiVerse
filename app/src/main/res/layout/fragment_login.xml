@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_white"
+        app:strokeColor="@color/example"
         app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,14 +37,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/signup_log" />
+                app:srcCompat="@drawable/blue_key" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/editTextTextEmailAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/pastel_mint"
+                android:backgroundTint="@color/example"
                 android:ems="10"
                 android:hint="@string/enter_email"
                 android:inputType="textEmailAddress"
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/pastel_tiffany_blue"
+                android:backgroundTint="@color/example"
                 android:ems="10"
                 android:hint="@string/enter_password_text"
                 android:inputType="textPassword"

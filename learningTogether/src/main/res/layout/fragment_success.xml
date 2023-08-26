@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@color/example_back"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".ui.task.TaskFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
@@ -13,84 +21,83 @@
         style="@style/task_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/pomidorko_cyr_ru"
-        android:text="@string/victory_finish" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/example"
+        app:strokeWidth="1dp">
 
-    <LinearLayout
-        android:id="@+id/success_text_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/total_tasks_text_view"
-            style="@style/task_title_text_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/total_tasks" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/positive_answers_text_view"
-            style="@style/task_title_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/positive_answers" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="@string/victory_finish"
+                android:textColor="@color/example_dark"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/progress_success_bar"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/negative_answers_text_view"
-            style="@style/task_title_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/negative_answers" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/victory_image_view"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/education"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress_success_bar" />
 
-        <TextView
-            android:id="@+id/material_assimilated_text_view"
-            style="@style/task_title_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/material_assimilated" />
+            <ProgressBar
+                android:id="@+id/progress_success_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/repeat_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/repeat_button"
+                android:textAlignment="center"
+                android:textColor="@color/example_dark"
+                android:textSize="18sp"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/victory_image_view"
+                app:strokeColor="@color/example"
+                app:strokeWidth="1dp" />
 
-    <LinearLayout
-        android:id="@+id/success_button_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/tests_button"
-            android:layout_width="@dimen/button_finish_width_size"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pomidorko_cyr_ru"
-            android:text="@string/back_tests"
-            app:cornerRadius="@dimen/radius_button_default" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/main_menu_button"
-            android:layout_width="@dimen/button_finish_width_size"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pomidorko_cyr_ru"
-            android:text="@string/start_fragment"
-            app:cornerRadius="@dimen/radius_button_default" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/chart_button"
-            android:layout_width="@dimen/button_finish_width_size"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pomidorko_cyr_ru"
-            android:text="@string/chart_grade"
-            android:visibility="gone"
-            app:cornerRadius="@dimen/radius_button_default" />
-    </LinearLayout>
-
-
-</LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

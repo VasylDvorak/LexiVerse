@@ -22,9 +22,30 @@
     <!-- Кнопки nav -->
     <color name="blue_dark">#276EF1</color>
 
-    <!-- Для графика успеваимости -->
+    <!-- pastel colors -->
+    <color name="pastel_yellow">#FBE7C6</color>
+    <color name="pastel_mint">#B4F8C8</color>
+    <color name="pastel_tiffany_blue">#A0E7E5</color>
+    <color name="pastel_hot_pink">#FFAEBC</color>
+
+    <!-- pastel dark colors -->
+    <color name="pastel_yellow_dark">#fdd79b</color>
+    <color name="pastel_mint_dark">#94f5b2</color>
+    <color name="pastel_tiffany_blue_dark">#62d6d2</color>
+    <color name="pastel_hot_pink_dark">#f67a90</color>
+
+    <!-- purple pastel colors -->
+    <color name="purple_background">#efeaf9</color>
+    <color name="purple_light">#d6cbef</color>
+    <color name="purple_middle">#A084DC</color>
+    <color name="purple_dark">#645CBB</color>
+
     <color name="example_back">#e0f7fd</color>
+    <color name="example">#77DDF9</color>
+    <color name="example_middle">#00c3f9</color>
+    <color name="example_dark">#00aaec</color>
     <color name="green">#079A27</color>
     <color name="red">#FF7E7E</color>
+
 
 </resources>

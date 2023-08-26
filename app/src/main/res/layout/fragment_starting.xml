@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_white"
+        app:strokeColor="@color/example"
         app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,22 +57,22 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
+                        android:importantForAccessibility="no"
                         android:src="@drawable/book_lite"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/dictionary_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
-                        android:clickable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
+                        android:clickable="false"
                         android:text="@string/dictionary"
                         android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"
@@ -115,22 +115,22 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
+                        android:importantForAccessibility="no"
                         android:src="@drawable/learn_eng"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/learning_together_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
-                        android:clickable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
+                        android:clickable="false"
                         android:text="@string/learning_together"
                         android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"
@@ -169,13 +169,13 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/knowledge_check_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
-                        android:clickable="false"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
+                        android:clickable="false"
                         android:text="@string/knowledge_check"
                         android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"
@@ -191,10 +191,10 @@
                         android:layout_width="150dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="8dp"
+                        android:importantForAccessibility="no"
                         android:src="@drawable/eng_test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:importantForAccessibility="no"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
