@@ -6,6 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Definition(
-    @field:SerializedName("soundUrl")  val soundUrl: String? = "",
-    @field:SerializedName("text")  val text: String? = ""
+    @field:SerializedName("soundUrl") val soundUrl: String? = "",
+    @field:SerializedName("text") val text: String? = ""
 ) : Parcelable

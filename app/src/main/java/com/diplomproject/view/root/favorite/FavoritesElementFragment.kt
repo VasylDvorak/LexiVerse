@@ -23,9 +23,11 @@ class FavoritesElementFragment : ViewBindingFragment<FragmentFavoritesElementBin
             }
         }
     }
+
     private fun startFavoriteFragmentInTogetherActivity() {
         val intent = Intent(context, TogetherActivity::class.java).apply {
-            putExtra(Key.START_FAVORITES_FRAGMENT, true) }
+            putExtra(Key.START_FAVORITES_FRAGMENT, true)
+        }
         startActivityForResult(intent, TOGETHER_ACTIVITY_REQUEST_CODE)
     }
 

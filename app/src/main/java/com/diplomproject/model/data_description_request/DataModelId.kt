@@ -6,6 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class DataModelId(
-    @field:SerializedName("definition")  val definition: Definition? = Definition(),
-    @field:SerializedName("examples")  val examples: List<Example>? = listOf(),
+    @field:SerializedName("definition") val definition: Definition? = Definition(),
+    @field:SerializedName("examples") val examples: List<Example>? = listOf(),
 ) : Parcelable

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.diplomproject.navigation.IScreens
-import com.diplomproject.view.AnimatorTranslator
+import com.diplomproject.view.AnimatorDictionary
 import com.github.terrakok.cicerone.Router
 import org.koin.java.KoinJavaComponent
 
@@ -25,6 +25,7 @@ abstract class BaseFragmentSettingsMenu<B : ViewBinding>(
     var mMediaPlayer: MediaPlayer? = null
     val router: Router by KoinJavaComponent.inject(Router::class.java)
     val screen = KoinJavaComponent.getKoin().get<IScreens>()
+    protected var isNetworkAvailable: Boolean = false
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,7 +41,7 @@ abstract class BaseFragmentSettingsMenu<B : ViewBinding>(
     }
 
     override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return AnimatorTranslator().setAnimator(transit, enter)
+        return AnimatorDictionary().setAnimator(transit, enter)
     }
 
 }

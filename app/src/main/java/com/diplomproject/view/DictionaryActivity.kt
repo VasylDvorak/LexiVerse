@@ -1,20 +1,12 @@
 package com.diplomproject.view
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
-import android.os.Build
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.preference.PreferenceManager
-import android.view.View
-import android.view.ViewTreeObserver
-import android.view.animation.AccelerateDecelerateInterpolator
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.animation.doOnEnd
 import androidx.lifecycle.LiveData
 import com.diplomproject.R
 import com.diplomproject.databinding.ActivityMainBinding
@@ -32,9 +24,6 @@ import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
 
 
-private const val DURATION = 1000L
-private const val COUNTDOWN_DURATION = 2000L
-private const val COUNTDOWN_INTERVAL = 1000L
 const val SHOW_DETAILS = "SHOW_DETAILS"
 
 class DictionaryActivity : AppCompatActivity() {
@@ -49,7 +38,7 @@ class DictionaryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setDefaultSplashScreen()
+
         vb = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vb?.root)
 
@@ -99,59 +88,6 @@ class DictionaryActivity : AppCompatActivity() {
         super.onPause()
         navigatorHolder.removeNavigator()
     }
-
-    private fun setDefaultSplashScreen() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            //   setSplashScreenHideAnimation()
-            setSplashScreenDuration()
-        }
-    }
-
-    @RequiresApi(31)
-    private fun setSplashScreenHideAnimation() {
-
-        splashScreen.setOnExitAnimationListener { splashScreenView ->
-            ObjectAnimator.ofFloat(
-                splashScreenView,
-                View.TRANSLATION_Y,
-                0f,
-                -splashScreenView.height.toFloat()
-            ).apply {
-                interpolator = AccelerateDecelerateInterpolator()
-                duration = DURATION
-                doOnEnd {
-                    splashScreenView.removeAllViews()
-                }
-                start()
-            }
-        }
-
-    }
-
-    private fun setSplashScreenDuration() {
-        var isHideSplashScreen = false
-        object : CountDownTimer(COUNTDOWN_DURATION, COUNTDOWN_INTERVAL) {
-            override fun onTick(millisUntilFinished: Long) {}
-            override fun onFinish() {
-                isHideSplashScreen = true
-            }
-        }.start()
-        val content: View = findViewById(android.R.id.content)
-        content.viewTreeObserver.addOnPreDrawListener(
-            object : ViewTreeObserver.OnPreDrawListener {
-                override fun onPreDraw(): Boolean {
-                    return if (isHideSplashScreen) {
-                        content.viewTreeObserver.removeOnPreDrawListener(this)
-                        true
-                    } else {
-                        false
-                    }
-                }
-            }
-        )
-
-    }
-
 }
 
 class OnlineRepository : LiveData<Boolean>() {
