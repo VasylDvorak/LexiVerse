@@ -1,12 +1,16 @@
 package com.diplomproject.learningtogether.ui.grade
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.ViewBindingFragment
 import com.diplomproject.learningtogether.databinding.FragmentGradeBinding
 import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
-import com.diplomproject.learningtogether.domain.interactor.GradeEvaluator
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
@@ -14,13 +18,14 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import org.koin.android.ext.android.inject
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
     FragmentGradeBinding::inflate
 ) {
     private val answer: AnswerCounterInteractor by inject()
-    private val gradeEvaluator: GradeEvaluator by inject()
 
     private var rightBarEntries = listOf<BarEntry>()
     private var wrongBarEntries = listOf<BarEntry>()
@@ -30,6 +35,12 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
 
         getData()
 
+        dataChar()
+
+        setHasOptionsMenu(true)
+    }
+
+    private fun dataChar() {
         val rightDataSet = BarDataSet(rightBarEntries, getText(R.string.grade_chart).toString())
 
         val wrongDataSet = BarDataSet(wrongBarEntries, getText(R.string.grade_chart).toString())
@@ -81,7 +92,9 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
         rightDataSet: BarDataSet,
         wrongDataSet: BarDataSet
     ) {
+        val barChart = binding.barChart
         val textSize = 15F
+        val textDataSize = 12F
 
         // Настройка осей
         val xAxis = binding.barChart.xAxis
@@ -91,24 +104,21 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
         xAxis.textSize = textSize
         leftAxis.textSize = textSize
         rightAxis.textSize = textSize
+        barData.setValueTextSize(textDataSize)
+        barChart.description.textSize = 12f
+        barChart.description.text = getString(R.string.description_legend)
+        barChart.description.isEnabled = true
 
         // Настройка X-ось
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawGridLines(false)
         xAxis.valueFormatter = object : ValueFormatter() {
             override fun getFormattedValue(value: Float): String {
-                // Настройка меток на X-оси
-                val entryIndex = value.toInt()
-                return when (entryIndex) {
-                    0 -> getText(R.string.monday).toString()
-                    1 -> getText(R.string.tuesday).toString()
-                    2 -> getText(R.string.wednesday).toString()
-                    3 -> getText(R.string.thursday).toString()
-                    4 -> getText(R.string.friday).toString()
-                    5 -> getText(R.string.saturday).toString()
-                    6 -> getText(R.string.sunday).toString()
-                    else -> ""
-                }
+                val index = value.toInt()
+                val currentDateTime = Calendar.getInstance()
+                currentDateTime.add(Calendar.DAY_OF_YEAR, -index)
+                val dateFormat = SimpleDateFormat("dd MMM", Locale("ru"))
+                return dateFormat.format(currentDateTime.time)
             }
         }
 
@@ -122,6 +132,7 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
                 return "${value.toInt()}%"
             }
         }
+
         rightAxis.setDrawAxisLine(false)
         rightAxis.setDrawGridLines(true)
         rightAxis.gridLineWidth = 0.8f
@@ -136,10 +147,8 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
         val legend = binding.barChart.legend
         legend.isEnabled = true
 
-
         val groupCount = barData.entryCount // Количество групп в графике
         val startYear = 0 // Начальная позиция графика по оси X
-
         val groupSpace = 0.2f // Пространство между группами столбцов
         val barSpace = 0.05f // Пространство между столбцами в одной группе
         val barWidth = 0.4f // Ширина столбцов
@@ -152,7 +161,11 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
 
         // Расположение столбцов
         barData.barWidth = barWidth
-        binding.barChart.data = barData // Установка данных
+
+        binding.barChart.data = barData
+
+        barData.dataSets.reverse()// Поменять местами значения данных
+
         binding.barChart.xAxis.axisMinimum = startYear.toFloat()
         binding.barChart.xAxis.axisMaximum =
             startYear + barWidth * groupCount + groupSpace * groupCount + barSpace * (groupCount - 1)
@@ -161,12 +174,46 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
         // Косые надписи на оси X
         binding.barChart.xAxis.labelRotationAngle = 45f
         binding.barChart.xAxis.setCenterAxisLabels(true)
-        binding.barChart.xAxis.granularity = 1f
+        binding.barChart.xAxis.granularity = 1.25f
         binding.barChart.xAxis.isGranularityEnabled = true
 
-        // Прокрутка графика по горизонтали
-        binding.barChart.setVisibleXRangeMaximum(7f) // Отображать максимум 7 дней
-        binding.barChart.moveViewToX(binding.barChart.xChartMax - 6f) // Проскроллить до последних 7 дней
+        binding.barChart.setPinchZoom(false)
+        binding.barChart.isDoubleTapToZoomEnabled = false
+        binding.barChart.setScaleEnabled(false)
+        binding.barChart.setVisibleXRangeMaximum(7f)
+        binding.barChart.setVisibleXRangeMinimum(7f)
+        binding.barChart.isScaleXEnabled = true
+        binding.barChart.isScaleYEnabled = false
+
+        binding.barChart.moveViewToX(binding.barChart.xChartMin - 6f) // Проскроллить до последних 7 дней
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.bottom_menu, menu)
+        menu.findItem(R.id.delete_data_menu_item)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.delete_data_menu_item -> {
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.delete_data_text))
+                    .setPositiveButton(getString(R.string.yes)) { dialogInterface: DialogInterface, i: Int ->
+                        answer.resetCounters()
+                        dialogInterface.dismiss()
+                        getData()
+                        dataChar()
+                    }
+                    .setNegativeButton(getString(R.string.no)) { dialogInterface: DialogInterface, i: Int ->
+                        dialogInterface.dismiss()
+                    }
+                    .show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {

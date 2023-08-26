@@ -20,4 +20,8 @@
         <item name="android:layout_gravity">center</item>
         <item name="cardCornerRadius">15dp</item>
     </style>
+
+    <style name="CalendarDateTextAppearance">Будни</style>
+
+    <style name="CalendarWeekdayTextAppearance">Выходные</style>
 </resources>

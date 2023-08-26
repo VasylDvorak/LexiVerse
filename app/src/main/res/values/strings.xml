@@ -1,7 +1,7 @@
 <resources>
     <string name="splash_screen_title1">"Русско - Английский"</string>
     <string name="splash_screen_title2">"Словарь"</string>
-    <string name="app_name">"Словарь RU/EN"</string>
+    <string name="app_name">"LexiVerse"</string>
     <string name="error_textview_stub">Ошибка</string>
     <string name="enter_word">Введите слово</string>
     <string name="search_space">Область поиска</string>
@@ -95,7 +95,6 @@
 
     <!-- Exception info -->
     <string name="fragment_exception">Такого фрагмента нет </string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="example_absent">Примеров употребления нету</string>
     <string name="example">Пример</string>
     <string name="enter_email_reg">enter_email</string>

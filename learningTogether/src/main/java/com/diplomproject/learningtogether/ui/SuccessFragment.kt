@@ -11,6 +11,7 @@ import com.diplomproject.learningtogether.Key
 import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.ViewBindingFragment
 import com.diplomproject.learningtogether.databinding.FragmentSuccessBinding
+import com.diplomproject.learningtogether.utils.decimalFormat
 
 class SuccessFragment : ViewBindingFragment<FragmentSuccessBinding>(
     FragmentSuccessBinding::inflate
@@ -51,7 +52,9 @@ class SuccessFragment : ViewBindingFragment<FragmentSuccessBinding>(
         binding.totalTasksTextView.text = "$allTasksText $listTasks"
         binding.positiveAnswersTextView.text = "$positiveTasksText $positiveTasks"
         binding.negativeAnswersTextView.text = "$negativeTasksText $negativeTasks"
-        binding.materialAssimilatedTextView.text = "$percent $percentIncorrect %"
+
+        val formattedPercent = decimalFormat.format(percentIncorrect)
+        binding.materialAssimilatedTextView.text = "$percent $formattedPercent %"
 
         if (percentIncorrect.toInt() >= 60) {
             binding.materialAssimilatedTextView.setTextColor(greenColor)
@@ -95,7 +98,7 @@ class SuccessFragment : ViewBindingFragment<FragmentSuccessBinding>(
     }
 
     private fun getController(): Controller = activity as? Controller
-        ?: throw IllegalStateException("Активити должна наследовать контроллер!!!")//проверки, наследует или нет активити контроллер
+        ?: throw IllegalStateException("Активити должна наследовать контроллер!!!")
 
     interface Controller {
         fun finishSuccessFragment()
@@ -103,7 +106,7 @@ class SuccessFragment : ViewBindingFragment<FragmentSuccessBinding>(
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        getController()  // агресивный способ проверки наличия контроллера. Если нет контроллера, приложение свалтится на присоединение к фрагмента к активити
+        getController()
     }
 
     companion object {

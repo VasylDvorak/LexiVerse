@@ -7,4 +7,5 @@ interface AnswerCounterInteractor {
     fun getRightCounter(date: Long): Int
     fun getWrongCounter(date: Long): Int
     fun getAllCounter(date: Long): Int
+    fun resetCounters()
 }

@@ -57,4 +57,10 @@ class AnswerCounterInteractorImpl(
     override fun getWrongCounter(date: Long): Int {
         return getAllCounter(date) - getRightCounter(date)
     }
+
+    override fun resetCounters() {
+        val edit: SharedPreferences.Editor = dataStore.edit()
+        edit.clear()
+        edit.apply()
+    }
 }

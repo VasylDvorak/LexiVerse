@@ -44,6 +44,12 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
 
         if (savedInstanceState == null)
             openCourses(flagLearningOrTest)
+
+        title = if (flagLearningOrTest) {
+            getString(R.string.learning_together)
+        } else {
+            getString(R.string.knowledge_check)
+        }
     }
 
     private fun openCourses(flagLearningOrTest: Boolean) {
@@ -104,14 +110,13 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
             .commit()
     }
 
-    //открываем фрагмент при завершении заданий
     override fun openSuccessScreen(
         listTasks: Int,
         positiveTasks: Int,
         negativeTasks: Int,
         percentIncorrect: Double
     ) {
-        supportFragmentManager.popBackStack()//чистит стэк, после появления данного фрагмента нельзя будет вернутся
+        supportFragmentManager.popBackStack()//чистит стэк
 
         val successFragment: Fragment =
             SuccessFragment.newInstance(listTasks, positiveTasks, negativeTasks, percentIncorrect)
@@ -135,10 +140,6 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
             title = defaultTitle
         }
     }
-
-//    override fun onBackPressed() {
-//        exitingApplicationDoubleClick()
-//    }
 
     //выход из приложения по двойному нажатию на кнопку
     private fun exitingApplicationDoubleClick() {
