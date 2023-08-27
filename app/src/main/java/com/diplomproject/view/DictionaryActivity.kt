@@ -5,7 +5,6 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
 import android.os.Bundle
-import android.preference.PreferenceManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import com.diplomproject.R
@@ -14,6 +13,7 @@ import com.diplomproject.di.ConnectKoinModules
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
+import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.widget.NEW_DATA
 import com.github.terrakok.cicerone.NavigatorHolder
@@ -60,14 +60,9 @@ class DictionaryActivity : AppCompatActivity() {
             when (appState) {
                 is AppState.Success -> {
                     appState.data?.let {
-
-                        val appSharedPrefs =
-                            PreferenceManager.getDefaultSharedPreferences(applicationContext)
-                        val prefsEditor = appSharedPrefs.edit()
-
-                        val json = gson.toJson(it)
-                        prefsEditor.putString(NEW_DATA, json)
-                        prefsEditor.apply()
+                        var listFromSharedPreferences: List<DataModel> by
+                        SharedPreferencesDelegate(NEW_DATA)
+                        listFromSharedPreferences = it
                     }
                 }
 

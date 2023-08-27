@@ -1,17 +1,10 @@
 package com.diplomproject.view.widget
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.preference.PreferenceManager
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import org.koin.java.KoinJavaComponent
-import java.io.IOException
-import java.io.InputStream
-import java.lang.reflect.Type
-import java.net.HttpURLConnection
-import java.net.URL
 
 private const val OLD_DATA = "OLD_DATA"
 private const val COUNTER = "COUNTER"
@@ -25,8 +18,6 @@ class WidgetLoader {
         )
     }
     private val prefsEditor by lazy { sharedPreferences.edit() }
-    private val gson by lazy { Gson() }
-
     fun updateData(): DataModel? {
 
         var newData = readData(NEW_DATA)
@@ -53,40 +44,19 @@ class WidgetLoader {
         if (firstList.size != secondList.size) {
             return false
         }
+        val gson = Gson()
         return gson.toJson(firstList) == gson.toJson(secondList)
     }
 
-
-    private fun getBitmapFromURL(src: String?): Bitmap? {
-        return try {
-            val url = URL(src)
-            val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-            connection.apply {
-                doInput = true
-                connect()
-            }
-            val input: InputStream = connection.inputStream
-            BitmapFactory.decodeStream(input)
-        } catch (e: IOException) {
-            null
-        }
-
-    }
-
-
     fun saveData(oldData: List<DataModel>, callingKey: String) {
-        val json = gson.toJson(oldData)
-        prefsEditor.apply {
-            putString(callingKey, json)
-            apply()
-        }
+        var listFromSharedPreferences: List<DataModel> by SharedPreferencesDelegate(callingKey)
+        listFromSharedPreferences = oldData
     }
 
 
     fun readData(callingKey: String): List<DataModel> {
-        val type: Type = object : TypeToken<List<DataModel?>?>() {}.type
-        val gsonString = sharedPreferences.getString(callingKey, "[]")
-        return gson.fromJson(gsonString, type)
+        var listFromSharedPreferences: List<DataModel> by SharedPreferencesDelegate(callingKey)
+        return listFromSharedPreferences
     }
 
     fun readCurrentData(): DataModel? {

@@ -42,10 +42,7 @@ class FavoriteViewModel(var interactor: FavoriteInteractor) :
             )
             _mutableLiveData.postValue(
                 parseLocalSearchResults(
-                    interactor.getData(
-                        "",
-                        true
-                    )
+                    interactor.getData("", false)
                 )
             )
         }

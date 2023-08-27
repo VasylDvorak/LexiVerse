@@ -19,11 +19,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentMainBinding
 import com.diplomproject.di.ConnectKoinModules.mainScreenScope
-import com.diplomproject.view.base_fragment_dictionary.BaseFragment
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
+import com.diplomproject.view.base_fragment_dictionary.BaseFragment
 
 
 const val LIST_KEY = "list_key"
@@ -39,7 +39,6 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
 
 
     private val adapter: MainAdapter by lazy {
-
         MainAdapter(::onItemClick, ::putInFavorite, ::onPlayClick)
     }
 
@@ -72,10 +71,10 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
         model.getRestoredData()?.let { renderData(it) }
 
         preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val listFromJson: List<DataModel> by SharedPreferencesDelegate(preferences, LIST_KEY)
-        if (!listFromJson.isNullOrEmpty()) {
-            dataWithFavorite = listFromJson
-            updateAdapter(listFromJson)
+        val listFromSharedPreferences: List<DataModel> by SharedPreferencesDelegate(LIST_KEY)
+        if (!listFromSharedPreferences.isNullOrEmpty()) {
+            dataWithFavorite = listFromSharedPreferences
+            updateAdapter(listFromSharedPreferences)
         }
 
     }
@@ -97,13 +96,10 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
 
 
     override fun responseEmpty() {
-
         showErrorScreen(getString(R.string.empty_server_response_on_success))
     }
 
     private fun updateAdapter(dataModel: List<DataModel>) {
-
-
         showViewSuccess()
         adapter?.setData(dataModel)
     }
@@ -149,8 +145,8 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
 
 
     private fun saveListForAdapter(dataModel: List<DataModel>) {
-        var listFromJson: List<DataModel> by SharedPreferencesDelegate(preferences, LIST_KEY)
-        listFromJson = dataModel
+        var listFromSharedPreferences: List<DataModel> by SharedPreferencesDelegate(LIST_KEY)
+        listFromSharedPreferences = dataModel
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -195,7 +191,6 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
                         }
                         return true
                     }
-
                     @RequiresApi(Build.VERSION_CODES.N)
                     override fun onQueryTextChange(newText: String?): Boolean {
                         return false
@@ -212,7 +207,6 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
                 router.navigateTo(screen.startFavoriteFragment())
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }

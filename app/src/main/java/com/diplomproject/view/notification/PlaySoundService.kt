@@ -12,6 +12,7 @@ import org.koin.java.KoinJavaComponent
 import java.io.IOException
 
 const val PLAY_URL = "PLAY_URL"
+private const val COUNT_DOWN_INTERVAL = 100L
 
 class PlaySoundService : Service() {
     var mMediaPlayer: MediaPlayer? = null
@@ -28,7 +29,7 @@ class PlaySoundService : Service() {
         readData(PLAY_URL)?.let { playContentUrl(it) }
         onDestroy()
         stopSelf()
-        return Service.START_NOT_STICKY
+        return START_NOT_STICKY
     }
 
     override fun onBind(intent: Intent?): IBinder? {
@@ -55,7 +56,7 @@ class PlaySoundService : Service() {
 
             val timerMute = object : CountDownTimer(
                 mMediaPlayer!!.duration.toLong(),
-                100
+                COUNT_DOWN_INTERVAL
             ) {
                 override fun onTick(millisUntilFinished: Long) {}
 
@@ -63,7 +64,7 @@ class PlaySoundService : Service() {
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true)
                     val timer = object : CountDownTimer(
                         mMediaPlayer!!.duration.toLong(),
-                        100
+                        COUNT_DOWN_INTERVAL
                     ) {
                         override fun onTick(millisUntilFinished: Long) {}
                         override fun onFinish() {

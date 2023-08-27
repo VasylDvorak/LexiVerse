@@ -1,6 +1,5 @@
 package com.diplomproject.view.favorite
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -8,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.favoriteScreenScope
-import com.diplomproject.view.base_fragment_dictionary.BaseFragment
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
+import com.diplomproject.view.base_fragment_dictionary.BaseFragment
 import com.diplomproject.view.main_fragment.LIST_KEY
 
 class FavoriteFragment : BaseFragment<AppState,
@@ -28,16 +27,15 @@ class FavoriteFragment : BaseFragment<AppState,
     }
 
     private fun saveListInSharedPref(dataModel: DataModel) {
-        val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        var listFromJson: List<DataModel> by SharedPreferencesDelegate(preferences, LIST_KEY)
-        if (!listFromJson.isNullOrEmpty()) {
-            var saveToSharedPreference = listFromJson
+        var listFromSharedPreferences: List<DataModel> by SharedPreferencesDelegate(LIST_KEY)
+        if (!listFromSharedPreferences.isNullOrEmpty()) {
+            var saveToSharedPreference = listFromSharedPreferences
             saveToSharedPreference.forEach {
                 if (it.text == dataModel.text) {
                     it.inFavoriteList = false
                 }
             }
-            listFromJson = saveToSharedPreference
+            listFromSharedPreferences = saveToSharedPreference
         }
     }
 
@@ -54,7 +52,6 @@ class FavoriteFragment : BaseFragment<AppState,
                         }
                     }
                 }
-
                 else -> {}
             }
         }
@@ -95,8 +92,6 @@ class FavoriteFragment : BaseFragment<AppState,
 
         val viewModel: FavoriteViewModel by lazy { favoriteScreenScope.get() }
         model = viewModel
-
-
         model.subscribe().observe(viewLifecycleOwner) { appState ->
             when (appState) {
                 is AppState.Success -> {

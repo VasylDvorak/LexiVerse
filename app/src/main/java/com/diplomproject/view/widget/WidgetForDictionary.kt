@@ -27,6 +27,7 @@ import java.io.IOException
 private const val CHANGE_WORD = "CHANGE_WORD"
 private const val PLAY_PRONUNCIATION = "PLAY_PRONUNCIATION"
 private const val START_DICTIONARY_ACTIVITY = "START_DICTIONARY_ACTIVITY"
+private const val COUNT_DOWN_INTERVAL = 100L
 
 class WidgetForDictionary : AppWidgetProvider() {
 
@@ -51,6 +52,7 @@ class WidgetForDictionary : AppWidgetProvider() {
                     }
             }
 
+
             START_DICTIONARY_ACTIVITY -> {
                 widgetLoader.readCurrentData()?.let {
                     val intent = Intent(context, DictionaryActivity::class.java)
@@ -59,7 +61,6 @@ class WidgetForDictionary : AppWidgetProvider() {
                     context.startActivity(intent)
                 }
             }
-
             else -> {
                 return
             }
@@ -188,18 +189,13 @@ class WidgetForDictionary : AppWidgetProvider() {
                 }
             }
 
-            val timerMute = object : CountDownTimer(
-                mMediaPlayer!!.duration.toLong(),
-                100
-            ) {
+            val lengthPlaying = mMediaPlayer!!.duration.toLong()
+            val timerMute = object : CountDownTimer(lengthPlaying, COUNT_DOWN_INTERVAL) {
                 override fun onTick(millisUntilFinished: Long) {}
 
                 override fun onFinish() {
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true)
-                    val timer = object : CountDownTimer(
-                        mMediaPlayer!!.duration.toLong(),
-                        100
-                    ) {
+                    val timer = object : CountDownTimer(lengthPlaying, COUNT_DOWN_INTERVAL) {
                         override fun onTick(millisUntilFinished: Long) {}
                         override fun onFinish() {
                             audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false)

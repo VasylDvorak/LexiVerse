@@ -21,6 +21,7 @@ import com.diplomproject.view.OnlineRepository
 import com.diplomproject.viewmodel.BaseViewModel
 import com.github.terrakok.cicerone.Router
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
 
@@ -33,6 +34,8 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
 
     protected val binding: B
         get() = _binding!!
+
+    private val gson = Gson()
 
     var mMediaPlayer: MediaPlayer? = null
     private var snack: Snackbar? = null
@@ -97,7 +100,6 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
 
         when (appState) {
             is AppState.Success -> {
-                //  showViewWorking()
                 appState.data?.let {
                     if (it.isEmpty()) {
                         showAlertDialog(
