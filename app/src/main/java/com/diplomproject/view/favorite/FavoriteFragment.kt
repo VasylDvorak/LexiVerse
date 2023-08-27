@@ -26,22 +26,7 @@ class FavoriteFragment : BaseFragment<AppState,
         )
     }
 
-    private fun saveListInSharedPref(dataModel: DataModel) {
-        var listFromSharedPreferences: List<DataModel> by SharedPreferencesDelegate(LIST_KEY)
-        if (!listFromSharedPreferences.isNullOrEmpty()) {
-            var saveToSharedPreference = listFromSharedPreferences
-            saveToSharedPreference.forEach {
-                if (it.text == dataModel.text) {
-                    it.inFavoriteList = false
-                }
-            }
-            listFromSharedPreferences = saveToSharedPreference
-        }
-    }
-
-
     private fun onRemove(i: Int, dataModel: DataModel) {
-        saveListInSharedPref(dataModel)
         model.remove(dataModel)
         model.subscribe().observe(viewLifecycleOwner) { appState ->
             when (appState) {
