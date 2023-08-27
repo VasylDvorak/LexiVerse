@@ -1,9 +1,10 @@
-package com.diplomproject.model.datasource
+package com.diplomproject.model.repository
 
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.datasource.AppState
 
 
-interface DataSourceLocal<T> : DataSource<T> {
+interface RepositoryDataSourceLocal<T> : RepositoryDataSource<T> {
 
     suspend fun saveToDB(appState: AppState) {}
     suspend fun putFavorite(favorite: DataModel)

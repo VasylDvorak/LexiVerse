@@ -4,9 +4,8 @@ import com.diplomproject.model.data_description_request.DataModelId
 import com.diplomproject.model.data_description_request.Example
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.data_word_request.Meanings
-import com.diplomproject.model.datasource.DataSource
 
-class RepositoryImplementation(private val dataSource: DataSource<List<DataModel>>) :
+class RepositoryImplementation(private val dataSource: RepositoryDataSource<List<DataModel>>) :
     Repository<List<DataModel>> {
 
     override suspend fun getData(word: String): List<DataModel> {

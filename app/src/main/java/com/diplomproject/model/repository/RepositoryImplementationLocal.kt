@@ -2,10 +2,9 @@ package com.diplomproject.model.repository
 
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
-import com.diplomproject.model.datasource.DataSourceLocal
 
 
-class RepositoryImplementationLocal(private val dataSource: DataSourceLocal<List<DataModel>>) :
+class RepositoryImplementationLocal(private val dataSource: RepositoryDataSourceLocal<List<DataModel>>) :
     RepositoryLocal<List<DataModel>> {
 
     override suspend fun getData(word: String): List<DataModel> {

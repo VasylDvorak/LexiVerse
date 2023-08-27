@@ -3,11 +3,12 @@ package com.diplomproject.model.datasource
 
 import com.diplomproject.model.data_description_request.DataModelId
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.model.repository.RepositoryDataSource
 import com.diplomproject.utils.PartOfSpeech
 import org.koin.java.KoinJavaComponent.getKoin
 
 
-class RetrofitImplementation : DataSource<List<DataModel>> {
+class RetrofitImplementation : RepositoryDataSource<List<DataModel>> {
 
     override suspend fun getData(word: String): List<DataModel> {
         val getService = getKoin().get<ApiService>()
