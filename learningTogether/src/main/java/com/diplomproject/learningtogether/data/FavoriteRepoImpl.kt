@@ -14,10 +14,10 @@ class FavoriteRepoImpl : FavoriteLessonsRepo {
     private val data: MutableSet<LessonIdEntity> = HashSet()//массив сущьностей
 
     init {
-        data.add(LessonIdEntity(1, 10))
-        data.add(LessonIdEntity(2, 501))
-        data.add(LessonIdEntity(3, 77))
-        data.add(LessonIdEntity(1, 30))
+//        data.add(LessonIdEntity(1, 10))
+//        data.add(LessonIdEntity(2, 501))
+//        data.add(LessonIdEntity(3, 77))
+//        data.add(LessonIdEntity(1, 30))
     }
 
     override fun addFavorite(lessonId: LessonIdEntity) {
