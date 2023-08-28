@@ -82,16 +82,14 @@
     <string name="delete_menu">Удалить</string>
 
     <!-- О приложении -->
-    <string name="about_app">О приложении</string>
+    <string name="about_app">Команда разработчиков</string>
     <string name="cod_version">Код версии:</string>
     <string name="version">Версия:</string>
 
     <!-- Settings info -->
     <string name="version_code">Код версии: </string>
     <string name="version_name">Версии: </string>
-    <string name="app_info">О Приложении\n\nПриложение является результатом выполнения
-                    практических заданий по освоению разработки Android приложений.
-                    \n(Июль 2023 года)</string>
+    <string name="app_info">Команда разработчиков</string>
 
     <!-- Exception info -->
     <string name="fragment_exception">Такого фрагмента нет </string>
