@@ -16,6 +16,9 @@ import com.diplomproject.view.widget.NEW_DATA
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
@@ -29,6 +32,8 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 ),
     StartingFragment.Controller {
 
+    private lateinit var analytics: FirebaseAnalytics
+
     private val router: Router by KoinJavaComponent.inject(Router::class.java)
     private val screen = KoinJavaComponent.getKoin().get<IScreens>()
 
@@ -38,7 +43,7 @@ class RootActivity : ViewBindingActivity<ActivityRootBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        analytics = Firebase.analytics
         onBottomNaviBar()
 
         if (savedInstanceState == null) {
