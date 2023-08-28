@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/example_back"
     tools:context=".view.settings_menu.SettingsFragment">
 
     <com.google.android.material.card.MaterialCardView
@@ -20,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_white"
+        app:strokeColor="@color/example"
         app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,8 +36,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-            </FrameLayout>
+                app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView2"
