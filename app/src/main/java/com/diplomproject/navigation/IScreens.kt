@@ -13,7 +13,6 @@ interface IScreens {
     fun startSettingsNotificationFragment(): Screen
     fun startSupportFragment(): Screen
     fun startShareApplicationFragment(): Screen
-    fun startEnterExitFragment(): Screen
     fun startAboutApplicationFragment(): Screen
     fun startStartingFragment(): Screen
     fun startFavoritesElementFragment(): Screen

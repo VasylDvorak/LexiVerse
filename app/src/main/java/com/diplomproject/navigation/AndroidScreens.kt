@@ -11,7 +11,6 @@ import com.diplomproject.view.main_fragment.MainFragment
 import com.diplomproject.view.root.StartingFragment
 import com.diplomproject.view.root.favorite.FavoritesElementFragment
 import com.diplomproject.view.settings_menu.AboutApplicationFragment
-import com.diplomproject.view.settings_menu.EnterExitFragment
 import com.diplomproject.view.settings_menu.LoginFragment
 import com.diplomproject.view.settings_menu.PrivacyPoliticFragment
 import com.diplomproject.view.settings_menu.RegistrationFragment
@@ -41,7 +40,6 @@ class AndroidScreens : IScreens {
     override fun startShareApplicationFragment() =
         FragmentScreen { ShareApplicationFragment.newInstance() }
 
-    override fun startEnterExitFragment() = FragmentScreen { EnterExitFragment.newInstance() }
     override fun startAboutApplicationFragment() =
         FragmentScreen { AboutApplicationFragment.newInstance() }
 
