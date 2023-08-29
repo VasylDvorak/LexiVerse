@@ -8,28 +8,27 @@
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/MCardMargin_16dp"
+        android:layout_marginTop="@dimen/MCardMargin_24dp"
+        android:layout_marginEnd="@dimen/MCardMargin_16dp"
         app:cardBackgroundColor="@color/color_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/example"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="@dimen/MCardMargin_24dp"
+                android:layout_height="@dimen/MCardMargin_24dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin__8dp"
+                android:layout_marginBottom="@dimen/MCardMargin_16dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_add_user"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -38,10 +37,10 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="@dimen/MCardMargin_24dp"
+                android:layout_height="@dimen/MCardMargin_24dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin__8dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_log_in"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,10 +49,10 @@
 
             <ImageView
                 android:id="@+id/imageView0"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="@dimen/MCardMargin_24dp"
+                android:layout_height="@dimen/MCardMargin_24dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_info"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,12 +60,12 @@
 
             <TextView
                 android:id="@+id/login"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/Ops_0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
                 android:text="@string/login_setting"
                 android:textColor="@color/example_middle"
-                android:textSize="16sp"
+                android:textSize="@dimen/MCard_Text_16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="@+id/imageView" />
@@ -80,7 +79,7 @@
                 android:contentDescription="@string/registration"
                 android:text="@string/registration"
                 android:textColor="@color/pastel_hot_pink"
-                android:textSize="16sp"
+                android:textSize="@dimen/MCard_Text_16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -91,13 +90,11 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/note_welcome"
                 android:textColor="@color/example_middle"
-                android:textSize="16sp"
+                android:textSize="@dimen/MCard_Text_16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView0"
                 app:layout_constraintStart_toEndOf="@+id/imageView0"
                 app:layout_constraintTop_toTopOf="@+id/imageView0" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
