@@ -20,10 +20,10 @@
         android:layout_height="wrap_content"
         android:background="@color/color_white"
         android:visibility="visible"
+        app:itemBackground="@drawable/bottom_nav_item_background"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/color_tab"
         app:itemTextColor="@color/color_tab"
-        app:itemBackground="@drawable/bottom_nav_item_background"
         app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

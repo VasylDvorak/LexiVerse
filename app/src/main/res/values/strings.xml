@@ -176,4 +176,19 @@
     <string name="empty_string_message">Пустая строка</string>
     <string name="error_message">Ошибка</string>
     <string name="failed_to_read_value_message">Failed to read value.</string>
+    <string name="FA_android_developers">Android Developers</string>
+    <string name="FA_vasyl_dvorak">Vasyl Dvorak</string>
+    <string name="FA_dvorak1981_yandex_ru">dvorak1981@yandex.ru</string>
+    <string name="FA_pavel_nayya">Pavel Nayya</string>
+    <string name="FA_naja19255_gmail_com">naja19255@gmail.com</string>
+    <string name="FA_oleg_cusnir">Oleg Cusnir</string>
+    <string name="FA_ocusnir_outlook_com">ocusnir@outlook.com</string>
+    <string name="FA_artem_kovalev">Artem Kovalev</string>
+    <string name="FA_npluzhnikovs_gmail_com">npluzhnikovs@gmail.com</string>
+    <string name="FA_qa_engineer">QA Engineer</string>
+    <string name="FA_daria_fomina">Daria Fomina</string>
+    <string name="FA_darafomina13403_gmail_com">darafomina13403@gmail.com</string>
+    <string name="FA_ux_ui_designer">UX / UI Designer</string>
+    <string name="FA_yuriy_galyaminsky">Yuriy Galyaminsky</string>
+    <string name="FA_jobforandroid_proton_me">jobforandroid@proton.me</string>
 </resources>
