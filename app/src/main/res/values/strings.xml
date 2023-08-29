@@ -28,8 +28,8 @@
     <string name="dialog_tittle_sorry">Извините</string>
     <string name="pronounce">Произношение</string>
     <string name="empty_string">Пустая строка</string>
-    <string name="favorite">Избранные</string>
-    <string name="favorites">ИЗБРАННЫЕ</string>
+    <string name="favorite">Избранное</string>
+    <string name="favorites">ИЗБРАННОЕ</string>
     <string name="find_in_history">Найти в истории</string>
     <string name="translation">перевод</string>
     <string name="empty_list_for_widget">Список пуст, или нажмите для обновления</string>

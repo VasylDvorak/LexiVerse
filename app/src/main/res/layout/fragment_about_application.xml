@@ -68,7 +68,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Android developer"
+                        android:text="Android Developers"
                         android:textColor="@color/pastel_hot_pink_dark"
                         android:textSize="16sp"
                         android:textStyle="bold"

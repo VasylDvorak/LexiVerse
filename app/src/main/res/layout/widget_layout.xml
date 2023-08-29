@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/transcription"
             android:gravity="center_horizontal"
-            android:textColor="@color/example"
+            android:textColor="@color/pastel_yellow_dark"
             tools:text="@string/transcription" />
 
         <TextView

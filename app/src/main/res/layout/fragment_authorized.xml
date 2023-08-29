@@ -53,13 +53,14 @@
                 style="@style/SettingsFragmentTextStyle"
                 android:layout_width="0dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
                 android:contentDescription="@string/enter_exit"
                 android:text="@string/enter_exit"
-                android:textColor="@color/example_middle"
+                android:textColor="@color/pastel_hot_pink"
                 android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView8"
                 app:layout_constraintStart_toEndOf="@+id/imageView8"
-                app:layout_constraintTop_toTopOf="@+id/imageView8" />
+                app:layout_constraintTop_toTopOf="@+id/imageView8"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/welcome_text"
