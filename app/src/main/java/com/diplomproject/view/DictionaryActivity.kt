@@ -19,6 +19,9 @@ import com.diplomproject.view.widget.NEW_DATA
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.koin.android.ext.android.inject
 import org.koin.java.KoinJavaComponent
@@ -27,7 +30,9 @@ import org.koin.java.KoinJavaComponent
 const val SHOW_DETAILS = "SHOW_DETAILS"
 
 class DictionaryActivity : AppCompatActivity() {
-    private val gson = Gson()
+
+    private lateinit var analytics: FirebaseAnalytics
+
     private val navigatorHolder: NavigatorHolder by inject()
     private val router: Router by KoinJavaComponent.inject(Router::class.java)
     private val screen = KoinJavaComponent.getKoin().get<IScreens>()
@@ -38,7 +43,7 @@ class DictionaryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        analytics = Firebase.analytics
         vb = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vb?.root)
 

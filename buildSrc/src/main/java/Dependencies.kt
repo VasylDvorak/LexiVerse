@@ -71,6 +71,7 @@ object Versions {
     const val authApp = "21.1.0"
     const val messagingKtx = "23.1.0"
     const val database_ktx= "20.1.0"
+    const val analytics_ktx = "21.2.0"
 
     //Room
     const val roomKtx = "2.5.1"
@@ -149,6 +150,7 @@ object Firebase{
     const val firebaseAuthApp = "com.google.firebase:firebase-auth:${Versions.authApp}"
     const val messagingKtxApp = "com.google.firebase:firebase-messaging-ktx:${Versions.messagingKtx}"
     const val databaseKtxApp = "com.google.firebase:firebase-database-ktx:${Versions.database_ktx}"
+    const val analyticsKtxVersion = "com.google.firebase:firebase-analytics-ktx:${Versions.analytics_ktx}"
 }
 
 object Room {

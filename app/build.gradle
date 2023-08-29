@@ -74,10 +74,11 @@ dependencies {
     annotationProcessor Room.annotation_processor_compiler
     implementation Room.room_ktx
 
-    //Firebase authentication
+    //Firebase
     implementation Firebase.firebaseAuthApp
     implementation Firebase.messagingKtxApp
     implementation Firebase.databaseKtxApp
+    implementation Firebase.analyticsKtxVersion
 
     //TestImpl
     testImplementation TestImpl.junit
