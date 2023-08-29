@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FA0606"
-        android:textSize="20dp"
+        android:textSize="@dimen/MCard_Text_20sp"
         android:textStyle="bold"
         tools:text="для тестирования" />
 

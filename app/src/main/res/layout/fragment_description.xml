@@ -26,7 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/color_white"
+            app:strokeColor="@color/example"
             app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,9 +56,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/MCardMargin_16dp"
-                    android:src="@drawable/baseline_volume_up_24"
                     android:background="@drawable/rounded_button"
                     android:contentDescription="@string/pronounce"
+                    android:src="@drawable/baseline_volume_up_24"
                     app:layout_constraintEnd_toEndOf="@+id/description_imageview"
                     app:layout_constraintStart_toStartOf="@+id/description_imageview"
                     app:layout_constraintTop_toBottomOf="@+id/transcription"
