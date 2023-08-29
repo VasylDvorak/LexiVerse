@@ -76,6 +76,9 @@
     <string name="negative_answers">Отрицательных ответов: </string>
     <string name="material_assimilated">Усвоено: </string>
     <string name="delete_data_text">Вы уверены что хотите удалить всю статистику?</string>
-    <string name="IC_show_all">show All</string>
+    <string name="IC_show_all">Показать Всё</string>
+    <string name="lesson">Урок</string>
+    <string name="for_testing">для тестирования</string>
+    <string name="answer">Ответ</string>
 
 </resources>

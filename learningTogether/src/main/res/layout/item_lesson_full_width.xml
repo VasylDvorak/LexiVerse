@@ -33,7 +33,7 @@
             android:textSize="@dimen/default_text"
             android:textStyle="bold"
             android:visibility="invisible"
-            tools:text="Lesson" />
+            tools:text="@string/lesson" />
     </FrameLayout>
 
     <androidx.appcompat.widget.AppCompatImageView

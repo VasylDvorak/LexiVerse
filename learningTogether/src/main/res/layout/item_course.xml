@@ -41,7 +41,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Lesson" />
+                tools:text="@string/lesson" />
 
             <TextView
                 android:id="@+id/show_all_text_view"
@@ -54,7 +54,7 @@
                 android:textSize="@dimen/MCard_Text_16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="show All" />
+                tools:text="@string/IC_show_all" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lessons_recycler_view"

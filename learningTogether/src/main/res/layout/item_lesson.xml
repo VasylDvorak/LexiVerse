@@ -33,7 +33,7 @@
             android:textSize="@dimen/default_text"
             android:textStyle="bold"
             android:visibility="invisible"
-            tools:text="Lesson" />
+            tools:text="@string/lesson" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/favorite_image_view"

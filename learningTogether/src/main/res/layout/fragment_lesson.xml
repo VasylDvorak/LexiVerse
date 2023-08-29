@@ -27,6 +27,6 @@
         android:textColor="#FA0606"
         android:textSize="@dimen/MCard_Text_20sp"
         android:textStyle="bold"
-        tools:text="для тестирования" />
+        tools:text="@string/for_testing" />
 
 </FrameLayout>
