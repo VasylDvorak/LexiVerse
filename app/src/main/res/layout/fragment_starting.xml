@@ -11,19 +11,17 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="@dimen/MCardMargin_16dp"
+        android:layout_marginTop="@dimen/MCardMargin_16dp"
+        android:layout_marginEnd="@dimen/MCardMargin_16dp"
         app:cardBackgroundColor="@color/color_white"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+        app:cardElevation="@dimen/MCard_Elevation_1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/example"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,20 +29,20 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewDictionary"
-                android:layout_width="250dp"
+                android:layout_width="@dimen/MCard_Big_Image2_250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/MCardMargin_24dp"
                 android:backgroundTint="@color/color_white"
-                android:padding="16dp"
+                android:padding="@dimen/MCardMargin_16dp"
                 app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="2dp"
+                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                app:cardElevation="@dimen/MCard_Elevation_1dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_marginBaseline="16dp"
                 app:strokeColor="@color/example"
-                app:strokeWidth="1dp">
+                app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -52,11 +50,11 @@
 
                     <ImageView
                         android:id="@+id/imageViewDictionary"
-                        android:layout_width="150dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_width="@dimen/MC_Image_150dp"
+                        android:layout_height="@dimen/MC_Image_100dp"
+                        android:layout_marginStart="@dimen/MCardMargin_16dp"
+                        android:layout_marginTop="@dimen/MCardMargin_16dp"
+                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
                         android:importantForAccessibility="no"
                         android:src="@drawable/book_lite"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -66,12 +64,12 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/dictionary_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/Ops_0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="@dimen/MCardMargin_16dp"
+                        android:layout_marginTop="@dimen/MCardMargin__8dp"
+                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                        android:layout_marginBottom="@dimen/MCardMargin__8dp"
                         android:clickable="false"
                         android:text="@string/dictionary"
                         android:textColor="@color/example_middle"
@@ -83,26 +81,26 @@
                         app:layout_constraintTop_toBottomOf="@+id/imageViewDictionary"
                         app:layout_constraintVertical_bias="1.0"
                         app:strokeColor="@color/color_white"
-                        app:strokeWidth="2dp" />
+                        app:strokeWidth="@dimen/MCard_Stroke_1dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewLearningTogether"
-                android:layout_width="250dp"
+                android:layout_width="@dimen/MCard_Big_Image2_250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="@dimen/MCardMargin__8dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin__8dp"
                 android:backgroundTint="@color/color_white"
                 app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="2dp"
+                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                app:cardElevation="@dimen/MCard_Elevarion_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewDictionary"
                 app:strokeColor="@color/example"
-                app:strokeWidth="1dp">
+                app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -110,11 +108,11 @@
 
                     <ImageView
                         android:id="@+id/imageViewLearning"
-                        android:layout_width="150dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_width="@dimen/MC_Image_150dp"
+                        android:layout_height="@dimen/MC_Image_100dp"
+                        android:layout_marginStart="@dimen/MCardMargin__8dp"
+                        android:layout_marginTop="@dimen/MCardMargin__8dp"
+                        android:layout_marginEnd="@dimen/MCardMargin__8dp"
                         android:importantForAccessibility="no"
                         android:src="@drawable/learn_eng"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -124,12 +122,12 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/learning_together_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/Ops_0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="@dimen/MCardMargin_16dp"
+                        android:layout_marginTop="@dimen/MCardMargin__8dp"
+                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                        android:layout_marginBottom="@dimen/MCardMargin__8dp"
                         android:clickable="false"
                         android:text="@string/learning_together"
                         android:textColor="@color/example_middle"
@@ -139,28 +137,28 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageViewLearning"
                         app:strokeColor="@color/color_white"
-                        app:strokeWidth="2dp" />
+                        app:strokeWidth="@dimen/MCard_Stroke_1dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewTestingOfKnowlage"
-                android:layout_width="250dp"
+                android:layout_width="@dimen/MCard_Big_Image2_250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginStart="@dimen/MCardMargin__8dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin__8dp"
+                android:layout_marginBottom="@dimen/MCardMargin_24dp"
                 android:backgroundTint="@color/color_white"
                 app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="2dp"
+                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                app:cardElevation="@dimen/MCard_Elevation_1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewLearningTogether"
                 app:strokeColor="@color/example"
-                app:strokeWidth="1dp">
+                app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -169,12 +167,12 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/knowledge_check_button"
                         style="@style/Widget.Material3.Button.OutlinedButton"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/Ops_0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="@dimen/MCardMargin_16dp"
+                        android:layout_marginTop="@dimen/MCardMargin__8dp"
+                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                        android:layout_marginBottom="@dimen/MCardMargin__8dp"
                         android:clickable="false"
                         android:text="@string/knowledge_check"
                         android:textColor="@color/example_middle"
@@ -184,13 +182,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageViewTests"
                         app:strokeColor="@color/color_white"
-                        app:strokeWidth="2dp" />
+                        app:strokeWidth="@dimen/MCard_Stroke_1dp" />
 
                     <ImageView
                         android:id="@+id/imageViewTests"
-                        android:layout_width="150dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_width="@dimen/MC_Image_150dp"
+                        android:layout_height="@dimen/MC_Image_100dp"
+                        android:layout_marginTop="@dimen/MCardMargin__8dp"
                         android:importantForAccessibility="no"
                         android:src="@drawable/eng_test"
                         app:layout_constraintEnd_toEndOf="parent"

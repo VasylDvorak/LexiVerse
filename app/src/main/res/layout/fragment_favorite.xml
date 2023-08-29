@@ -1,31 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/example_back">
 
-    <LinearLayout
-        android:id="@+id/working_frame_layout"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
+        android:layout_marginStart="@dimen/MCardMargin_16dp"
+        android:layout_marginTop="@dimen/MCardMargin_16dp"
+        android:layout_marginEnd="@dimen/MCardMargin_16dp"
+        android:layout_marginBottom="@dimen/MCardMargin_16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+        app:cardElevation="@dimen/MCard_Elevation_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/example"
+        app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-        <TextView
-            android:id="@+id/favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/favorite"
-            android:textColor="@color/search_icon_color"
-            android:textSize="@dimen/title_history_size" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/history_activity_recyclerview"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-    </LinearLayout>
-</FrameLayout>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:text="@string/favorite"
+                android:textColor="@color/example_dark"
+                android:textSize="@dimen/title_history_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/history_activity_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/Ops_0dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/favorite" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

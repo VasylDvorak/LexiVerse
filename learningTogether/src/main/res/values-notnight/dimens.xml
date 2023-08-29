@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="MCard_Text_18sp">18sp</dimen>
+    <dimen name="MCard_Text_28sp">28sp</dimen>
+    <dimen name="MCard_Text_26sp">26sp</dimen>
+    <dimen name="MCard_Text_34sp">34sp</dimen>
+    <dimen name="MCardMargin_50dp">50dp</dimen>
+    <dimen name="Big_Image_200dp">200dp</dimen>
+</resources>

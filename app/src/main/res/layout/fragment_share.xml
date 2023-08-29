@@ -4,329 +4,344 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/example_back"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/main_title"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/title_share"
-        android:textColor="@color/example_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/MCardMargin_16dp"
+        android:layout_marginTop="@dimen/MCardMargin_16dp"
+        android:layout_marginEnd="@dimen/MCardMargin_16dp"
+        android:layout_marginBottom="@dimen/MCardMargin_16dp"
+        app:cardBackgroundColor="@color/color_white"
+        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+        app:cardElevation="@dimen/MCard_Elevation_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_title">
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/example"
+        app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/example"
-                app:strokeWidth="1dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imageViewShare2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/baseline_content_copy_24" />
-
-
-                    <TextView
-                        android:id="@+id/textview_title_downlink"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/title_downlink"
-                        android:textColor="@color/example_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageViewShare2"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewShare2"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/web_link"
-                        style="@style/SettingsFragmentTextStyle"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:autoLink="web"
-                        android:clickable="false"
-                        android:freezesText="true"
-                        android:text="@string/download_link"
-                        android:textColor="@color/pastel_hot_pink_dark"
-                        android:textColorLink="@color/pastel_hot_pink_dark"
-                        android:textIsSelectable="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_title_downlink" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/copy_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/button_send_sms"
-                        android:padding="5dp"
-                        android:text="@string/copy"
-                        android:textAllCaps="false"
-                        android:textColor="@color/example_dark"
-                        app:backgroundTint="@color/example"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/web_link" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card1"
-                app:strokeColor="@color/example"
-                app:strokeWidth="1dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imageViewShare1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_share" />
-
-                    <TextView
-                        android:id="@+id/textview_title_share_app"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/title_send_via_app"
-                        android:textColor="@color/example_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageViewShare1"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewShare1"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textview_subtitle_share_app"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:autoLink="web"
-                        android:clickable="false"
-                        android:gravity="center"
-                        android:text="@string/subtitle_send_via_app"
-                        android:textColor="@color/example_middle"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageViewShare1" />
-
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/send_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/button_send_sms"
-                        android:padding="5dp"
-                        android:text="@string/send"
-                        android:textAllCaps="false"
-                        android:textColor="@color/example_dark"
-                        app:backgroundTint="@color/example"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_share_app" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card2"
-                app:strokeColor="@color/example"
-                app:strokeWidth="1dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <EditText
-                        android:id="@+id/enter_phone_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginEnd="16dp"
-                        android:backgroundTint="@color/example"
-                        android:freezesText="true"
-                        android:hint="@string/enter_phone_number"
-                        android:importantForAutofill="no"
-                        android:inputType="phone"
-                        android:textIsSelectable="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
-
-                    <TextView
-                        android:id="@+id/textview_subtitle_sendSMS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:autoLink="web"
-                        android:clickable="false"
-                        android:gravity="center"
-                        android:text="@string/subtitle_send_sms"
-                        android:textColor="@color/example_middle"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/enter_phone_number" />
-
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/send_SMS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/button_send_sms"
-                        android:padding="5dp"
-                        android:text="@string/button_send_sms"
-                        android:textAllCaps="false"
-                        android:textColor="@color/example_dark"
-                        app:backgroundTint="@color/example"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_sendSMS" />
-
-
-                    <ImageView
-                        android:id="@+id/imageView14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_share" />
-
-                    <TextView
-                        android:id="@+id/textview_title_sendSMS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/title_send_SMS"
-                        android:textColor="@color/example_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-                        app:layout_constraintStart_toEndOf="@+id/imageView14"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/empty"
+                android:id="@+id/main_title"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:gravity="center"
+                android:text="@string/title_share"
+                android:textColor="@color/example_dark"
+                android:textSize="@dimen/MCard_Text_16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card3" />
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/Ops_0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_title">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevarion_5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/color_white"
+                    app:strokeWidth="@dimen/MCard_Stroke_1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageViewShare2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:importantForAccessibility="no"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/baseline_content_copy_24" />
+
+                        <TextView
+                            android:id="@+id/textview_title_downlink"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:text="@string/title_downlink"
+                            android:textColor="@color/example_dark"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewShare2"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewShare2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/web_link"
+                            style="@style/SettingsFragmentTextStyle"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:autoLink="web"
+                            android:clickable="false"
+                            android:freezesText="true"
+                            android:text="@string/download_link"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textColorLink="@color/pastel_hot_pink"
+                            android:textIsSelectable="true"
+                            android:textSize="@dimen/MCard_Text_14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textview_title_downlink" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/copy_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:layout_marginBottom="@dimen/MCardMargin__8dp"
+                            android:contentDescription="@string/button_send_sms"
+                            android:padding="@dimen/MCardMargin_5dp"
+                            android:text="@string/copy"
+                            android:textAllCaps="false"
+                            android:textColor="@color/example_middle"
+                            android:textSize="@dimen/MCard_Text_14sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/color_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/web_link"
+                            app:strokeColor="@color/example"
+                            app:strokeWidth="@dimen/MCard_Stroke_1dp" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="@dimen/MCardMargin__8dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevarion_5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card1"
+                    app:strokeColor="@color/color_white"
+                    app:strokeWidth="@dimen/MCard_Stroke_1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageViewShare1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:importantForAccessibility="no"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_share" />
+
+                        <TextView
+                            android:id="@+id/textview_title_share_app"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:text="@string/title_send_via_app"
+                            android:textColor="@color/example_dark"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewShare1"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewShare1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textview_subtitle_share_app"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:autoLink="web"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/subtitle_send_via_app"
+                            android:textColor="@color/example_middle"
+                            android:textSize="@dimen/MCard_Text_14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageViewShare1" />
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/send_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:layout_marginBottom="@dimen/MCardMargin__8dp"
+                            android:contentDescription="@string/button_send_sms"
+                            android:padding="@dimen/MCardMargin_5dp"
+                            android:text="@string/send"
+                            android:textAllCaps="false"
+                            android:textColor="@color/example_middle"
+                            android:textSize="@dimen/MCard_Text_14sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/color_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_share_app"
+                            app:strokeColor="@color/example"
+                            app:strokeWidth="@dimen/MCard_Stroke_1dp" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevarion_5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card2"
+                    app:strokeColor="@color/color_white"
+                    app:strokeWidth="@dimen/MCard_Stroke_1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/enter_phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:backgroundTint="@color/example"
+                            android:freezesText="true"
+                            android:hint="@string/enter_phone_number"
+                            android:importantForAutofill="no"
+                            android:inputType="phone"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textColorHint="@color/pastel_hot_pink"
+                            android:textColorLink="@color/pastel_hot_pink"
+                            android:textIsSelectable="true"
+                            android:textSize="@dimen/MCard_Text_14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+                        <TextView
+                            android:id="@+id/textview_subtitle_sendSMS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:autoLink="web"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="@string/subtitle_send_sms"
+                            android:textColor="@color/example_middle"
+                            android:textSize="@dimen/MCard_Text_14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/enter_phone_number" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/send_SMS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:layout_marginBottom="@dimen/MCardMargin__8dp"
+                            android:contentDescription="@string/button_send_sms"
+                            android:padding="@dimen/MCardMargin_5dp"
+                            android:text="@string/button_send_sms"
+                            android:textAllCaps="false"
+                            android:textColor="@color/example_middle"
+                            android:textSize="@dimen/MCard_Text_14sp"
+                            app:backgroundTint="@color/color_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textview_subtitle_sendSMS"
+                            app:strokeColor="@color/example"
+                            app:strokeWidth="@dimen/MCard_Stroke_1dp" />
+
+                        <ImageView
+                            android:id="@+id/imageView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:importantForAccessibility="no"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_mail" />
+
+                        <TextView
+                            android:id="@+id/textview_title_sendSMS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:text="@string/title_send_SMS"
+                            android:textColor="@color/example_dark"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView14"
+                            app:layout_constraintStart_toEndOf="@+id/imageView14"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

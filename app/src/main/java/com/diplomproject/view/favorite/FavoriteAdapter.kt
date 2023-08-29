@@ -43,7 +43,7 @@ class FavoriteAdapter(
             itemView.setBackgroundColor(
                 ContextCompat.getColor(
                     itemView.context,
-                    R.color.color_error
+                    R.color.color_white
                 )
             )
         }
@@ -53,7 +53,7 @@ class FavoriteAdapter(
                 .setBackgroundColor(
                     ContextCompat.getColor(
                         itemView.context,
-                        R.color.color_favorite_card
+                        R.color.color_white
                     )
                 )
         }
@@ -63,7 +63,7 @@ class FavoriteAdapter(
 
                 itemView.apply {
                     binding.apply {
-                        cardView.setCardBackgroundColor(resources.getColor(R.color.color_favorite_card))
+                        cardView.setCardBackgroundColor(resources.getColor(R.color.color_white))
                         headerTextviewRecyclerItem.text = data.text
                         descriptionTextviewRecyclerItem.text =
                             data.meanings?.get(0)?.translation?.translation

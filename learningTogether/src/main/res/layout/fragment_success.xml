@@ -1,96 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:gravity="center"
-    android:orientation="vertical"
+    android:background="@color/example_back"
     tools:context=".ui.SuccessFragment">
 
-    <TextView
-        style="@style/task_title_text_view"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/pomidorko_cyr_ru"
-        android:text="@string/victory_finish" />
+        android:layout_marginStart="@dimen/MCardMargin_16dp"
+        android:layout_marginTop="@dimen/MCardMargin_16dp"
+        android:layout_marginEnd="@dimen/MCardMargin_16dp"
+        android:background="@color/white"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/example"
+        app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-    <LinearLayout
-        android:id="@+id/success_text_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/total_tasks_text_view"
-            style="@style/task_title_text_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/total_tasks" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/positive_answers_text_view"
-            style="@style/task_title_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/positive_answers" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_32dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/victory_finish"
+                android:textColor="@color/example_middle"
+                android:textSize="@dimen/MCard_Text_34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/negative_answers_text_view"
-            style="@style/task_title_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/negative_answers" />
+            <TextView
+                android:id="@+id/total_tasks_text_view"
+                android:layout_width="@dimen/Ops_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_50dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:gravity="center"
+                android:hint="@string/total_tasks"
+                android:textColor="@color/example"
+                android:textSize="@dimen/MCard_Text_20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <TextView
-            android:id="@+id/material_assimilated_text_view"
-            style="@style/task_title_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_task"
-            android:hint="@string/material_assimilated" />
+            <TextView
+                android:id="@+id/positive_answers_text_view"
+                android:layout_width="@dimen/Ops_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:gravity="center"
+                android:hint="@string/positive_answers"
+                android:textColor="@color/example"
+                android:textSize="@dimen/MCard_Text_20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_tasks_text_view" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/negative_answers_text_view"
+                android:layout_width="@dimen/Ops_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:gravity="center"
+                android:hint="@string/negative_answers"
+                android:textColor="@color/example"
+                android:textSize="@dimen/MCard_Text_20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/positive_answers_text_view" />
 
-    <LinearLayout
-        android:id="@+id/success_button_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
+            <TextView
+                android:id="@+id/material_assimilated_text_view"
+                android:layout_width="@dimen/Ops_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:gravity="center"
+                android:hint="@string/material_assimilated"
+                android:textColor="@color/pastel_hot_pink"
+                android:textSize="@dimen/MCard_Text_20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/negative_answers_text_view" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/tests_button"
-            android:layout_width="@dimen/button_finish_width_size"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pomidorko_cyr_ru"
-            android:text="@string/back_tests"
-            app:cornerRadius="@dimen/radius_button_default" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tests_button"
+                android:layout_width="@dimen/Ops_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_50dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/back_tests"
+                android:textColor="@color/example_middle"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="@dimen/MCard_Radius_15dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/material_assimilated_text_view"
+                app:strokeColor="@color/example"
+                app:strokeWidth="@dimen/MCard_Stroke_1dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/main_menu_button"
-            android:layout_width="@dimen/button_finish_width_size"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pomidorko_cyr_ru"
-            android:text="@string/start_fragment"
-            app:cornerRadius="@dimen/radius_button_default" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/main_menu_button"
+                android:layout_width="@dimen/Ops_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:layout_marginBottom="@dimen/MCardMargin_32dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/start_fragment"
+                android:textColor="@color/example_middle"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="@dimen/MCard_Radius_15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/tests_button"
+                app:strokeColor="@color/example"
+                app:strokeWidth="@dimen/MCard_Stroke_1dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/chart_button"
-            android:layout_width="@dimen/button_finish_width_size"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pomidorko_cyr_ru"
-            android:text="@string/chart_grade"
-            android:visibility="gone"
-            app:cornerRadius="@dimen/radius_button_default" />
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chart_button"
+                android:layout_width="@dimen/Ops_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/chart_grade"
+                android:textColor="@color/example_middle"
+                android:visibility="gone"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="@dimen/MCard_Radius_15dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/main_menu_button"
+                app:strokeColor="@color/example"
+                app:strokeWidth="@dimen/MCard_Stroke_1dp" />
 
-
-</LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,15 +16,14 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_bar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/color_white"
         android:visibility="visible"
-        app:elevation="5dp"
-        app:itemIconSize="28dp"
+        app:itemBackground="@drawable/bottom_nav_item_background"
+        app:itemIconSize="24dp"
         app:itemIconTint="@color/color_tab"
         app:itemTextColor="@color/color_tab"
-        app:itemBackground="@drawable/bottom_nav_item_background"
         app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- layout -> default -->
-    <dimen name="default_padding">10dp</dimen>
-    <dimen name="radius_button_default">20dp</dimen>
-
-    <dimen name="button_finish_width_size">300dp</dimen>
-    <dimen name="margin_task">5dp</dimen>
-    <dimen name="restriction_image">300dp</dimen>
-    <dimen name="default_text">18sp</dimen>
-    <dimen name="margin_answer">8dp</dimen>
-    <dimen name="margin_lesson">5dp</dimen>
-
-    <!-- layout -> default -->
-    <dimen name="progress_counter_text">20sp</dimen>
-    <dimen name="default_text_button">16sp</dimen>
-
-    // Galyaminsky
     <dimen name="MCardMargin_16dp">16dp</dimen>
     <dimen name="MCardMargin__8dp">8dp</dimen>
     <dimen name="MCardMargin_24dp">24dp</dimen>
@@ -45,11 +28,4 @@
     <dimen name="MCardMargin_32dp">32dp</dimen>
     <dimen name="MCardMargin_20dp">20dp</dimen>
     <dimen name="MCardMargin_40dp">40dp</dimen>
-    <dimen name="MCard_Text_18sp">18sp</dimen>
-    <dimen name="MCard_Text_28sp">28sp</dimen>
-    <dimen name="MCard_Text_26sp">26sp</dimen>
-    <dimen name="MCard_Text_34sp">34sp</dimen>
-    <dimen name="MCardMargin_50dp">50dp</dimen>
-    <dimen name="Big_Image_200dp">200dp</dimen>
-
 </resources>

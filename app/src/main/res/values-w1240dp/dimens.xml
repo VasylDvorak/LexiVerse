@@ -1,3 +1,31 @@
 <resources>
     <dimen name="fab_margin">200dp</dimen>
+    <dimen name="MCardMargin_16dp">16dp</dimen>
+    <dimen name="MCardMargin__8dp">8dp</dimen>
+    <dimen name="MCardMargin_24dp">24dp</dimen>
+    <dimen name="MCard_Radius_15dp">15dp</dimen>
+    <dimen name="MCard_Elevation_1dp">1dp</dimen>
+    <dimen name="MCard_Stroke_1dp">1dp</dimen>
+    <dimen name="MCard_Elevarion_5dp">5dp</dimen>
+    <dimen name="MCard_Text_20sp">20sp</dimen>
+    <dimen name="MCard_Text_16sp">16sp</dimen>
+    <dimen name="MCard_Margin_4dp">4dp</dimen>
+    <dimen name="FAA_Image_24dp">24dp</dimen>
+    <dimen name="Ops_0dp">0dp</dimen>
+    <dimen name="MCard_24dp">24dp</dimen>
+    <dimen name="MCard_bigIng_200dp">200dp</dimen>
+    <dimen name="MCard_Big_Image2_250dp">250dp</dimen>
+    <dimen name="MCard_Text_24sp">24sp</dimen>
+    <dimen name="MCard_Elevation_10dp">10dp</dimen>
+    <dimen name="MacrdMargin_48dp">48dp</dimen>
+    <dimen name="SeekBar_300dp">300dp</dimen>
+    <dimen name="SeekBar_40dp">40dp</dimen>
+    <dimen name="MCard_Text_14sp">14sp</dimen>
+    <dimen name="MCardMargin_5dp">5dp</dimen>
+    <dimen name="MC_Image_150dp">150dp</dimen>
+    <dimen name="MC_Image_100dp">100dp</dimen>
+    <dimen name="MCardMargin_48dp">48dp</dimen>
+    <dimen name="MCardMargin_32dp">32dp</dimen>
+    <dimen name="MCardMargin_20dp">20dp</dimen>
+    <dimen name="MCardMargin_40dp">40dp</dimen>
 </resources>

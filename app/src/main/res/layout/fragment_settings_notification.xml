@@ -2,23 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="@color/example_back">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/MCardMargin_16dp"
+        android:layout_marginTop="@dimen/MCardMargin_16dp"
+        android:layout_marginEnd="@dimen/MCardMargin_16dp"
         app:cardBackgroundColor="@color/color_white"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
+        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+        app:cardElevation="@dimen/MCard_Elevation_10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/example"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardLayout"
@@ -29,7 +29,7 @@
                 android:id="@+id/emptyListText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
                 android:gravity="center"
                 android:text="@string/empty_list"
                 android:textColor="@color/example_dark"
@@ -41,7 +41,7 @@
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
                 android:text="@string/notif_word"
                 android:textColor="@color/example_middle"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView22"
@@ -50,20 +50,20 @@
 
             <ImageView
                 android:id="@+id/imageView22"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="@dimen/MCardMargin_24dp"
+                android:layout_height="@dimen/MCardMargin_24dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:importantForAccessibility="no"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emptyListText"
-                app:srcCompat="@drawable/ic_mess"
-                android:importantForAccessibility="no" />
+                app:srcCompat="@drawable/ic_mess" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switchNotification"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="@dimen/MacrdMargin_48dp"
+                android:layout_height="@dimen/MacrdMargin_48dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView22"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imageView22" />
@@ -72,9 +72,9 @@
                 android:id="@+id/seekBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:layout_marginTop="@dimen/MCardMargin_16dp"
+                android:layout_marginEnd="@dimen/MCardMargin_16dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -90,8 +90,8 @@
 
                 <SeekBar
                     android:id="@+id/seekBar"
-                    android:layout_width="300dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/SeekBar_300dp"
+                    android:layout_height="@dimen/SeekBar_40dp"
                     android:backgroundTint="@color/example_dark"
                     android:contentDescription="@string/set_time_delay"
                     android:gravity="center" />

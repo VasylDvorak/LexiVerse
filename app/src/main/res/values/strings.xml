@@ -28,8 +28,8 @@
     <string name="dialog_tittle_sorry">Извините</string>
     <string name="pronounce">Произношение</string>
     <string name="empty_string">Пустая строка</string>
-    <string name="favorite">Избранные</string>
-    <string name="favorites">ИЗБРАННЫЕ</string>
+    <string name="favorite">Избранное</string>
+    <string name="favorites">ИЗБРАННОЕ</string>
     <string name="find_in_history">Найти в истории</string>
     <string name="translation">перевод</string>
     <string name="empty_list_for_widget">Список пуст, или нажмите для обновления</string>
@@ -82,16 +82,14 @@
     <string name="delete_menu">Удалить</string>
 
     <!-- О приложении -->
-    <string name="about_app">О приложении</string>
+    <string name="about_app">Команда разработчиков</string>
     <string name="cod_version">Код версии:</string>
     <string name="version">Версия:</string>
 
     <!-- Settings info -->
     <string name="version_code">Код версии: </string>
     <string name="version_name">Версии: </string>
-    <string name="app_info">О Приложении\n\nПриложение является результатом выполнения
-                    практических заданий по освоению разработки Android приложений.
-                    \n(Июль 2023 года)</string>
+    <string name="app_info">Команда разработчиков</string>
 
     <!-- Exception info -->
     <string name="fragment_exception">Такого фрагмента нет </string>
@@ -178,4 +176,23 @@
     <string name="empty_string_message">Пустая строка</string>
     <string name="error_message">Ошибка</string>
     <string name="failed_to_read_value_message">Failed to read value.</string>
+
+    // Galyaminsky
+    <string name="FA_android_developers">Android Developers</string>
+    <string name="FA_vasyl_dvorak">Vasyl Dvorak</string>
+    <string name="FA_dvorak1981_yandex_ru">dvorak1981@yandex.ru</string>
+    <string name="FA_pavel_nayya">Pavel Nayya</string>
+    <string name="FA_naja19255_gmail_com">naja19255@gmail.com</string>
+    <string name="FA_oleg_cusnir">Oleg Cusnir</string>
+    <string name="FA_ocusnir_outlook_com">ocusnir@outlook.com</string>
+    <string name="FA_artem_kovalev">Artem Kovalev</string>
+    <string name="FA_npluzhnikovs_gmail_com">npluzhnikovs@gmail.com</string>
+    <string name="FA_qa_engineer">QA Engineer</string>
+    <string name="FA_daria_fomina">Daria Fomina</string>
+    <string name="FA_darafomina13403_gmail_com">darafomina13403@gmail.com</string>
+    <string name="FA_ux_ui_designer">UX / UI Designer</string>
+    <string name="FA_yuriy_galyaminsky">Yuriy Galyaminsky</string>
+    <string name="FA_jobforandroid_proton_me">jobforandroid@proton.me</string>
+    <string name="FR_Politic">Политика конфиденциальности</string>
+    <string name="FR_IAgree">Я Согласен</string>
 </resources>

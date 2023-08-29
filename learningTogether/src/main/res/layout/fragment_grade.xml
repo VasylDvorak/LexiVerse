@@ -10,19 +10,20 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="@dimen/MCardMargin_16dp"
+        android:layout_marginTop="@dimen/MCardMargin_16dp"
+        android:layout_marginEnd="@dimen/MCardMargin_16dp"
+        android:layout_marginBottom="@dimen/MCardMargin_16dp"
+        android:background="@color/white"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
+        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+        app:cardElevation="@dimen/MCard_Elevation_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/white"
-        app:strokeWidth="1dp">
+        app:strokeColor="@color/example"
+        app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/reset_statistics_button"
