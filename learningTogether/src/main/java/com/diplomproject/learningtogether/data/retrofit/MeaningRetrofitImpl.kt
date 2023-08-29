@@ -30,17 +30,15 @@ class MeaningRetrofitImpl : MeaningRepo {
                     call: Call<List<SkyengWordEntity>>,
                     response: Response<List<SkyengWordEntity>>
                 ) {
-
-                    if(!response.body().isNullOrEmpty()) {
-                        val imageUrl = response.body()?.first()?.meanings?.first()?.imageUrl
-
-                        val cleanedUrl = imageUrl?.replace("^.*?(https?://.*)".toRegex(), "$1")
-
-                        if (response.isSuccessful && cleanedUrl != null) {
-                            onSuccess.invoke(cleanedUrl)
-                        } else {
-                            onSuccess(null)
-                        }
+                    if (response.isSuccessful) {
+                        val meanings = response.body()?.firstOrNull()?.meanings
+                        val imageUrl = meanings?.firstOrNull()?.imageUrl?.replace(
+                            "^.*?(https?://.*)".toRegex(),
+                            "$1"
+                        )
+                        onSuccess(imageUrl)
+                    } else {
+                        onSuccess(null)
                     }
                 }
 

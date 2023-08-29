@@ -124,7 +124,7 @@
             "variants_answer": [
               "Танцевать",
               "Зевать",
-              "Кататся",
+              "Кататься",
               "Рисовать"
             ],
             "level": 2,
@@ -166,7 +166,7 @@
             "variants_answer": [
               "Танцевать",
               "Играть",
-              "Кататся",
+              "Кататься",
               "Слушать"
             ],
             "level": 2,
@@ -176,11 +176,11 @@
             "id": 6000,
             "task": "Ride",
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fride.png?alt=media&token=863db4ba-6a6c-48a5-a606-49e660253de1",
-            "right_answer": "Кататся",
+            "right_answer": "Кататься",
             "variants_answer": [
               "Трогать",
               "Играть",
-              "Кататся",
+              "Кататься",
               "Танцевать"
             ],
             "level": 2,
@@ -314,7 +314,7 @@
             "variants_answer": [
               "Петь",
               "Играть",
-              "Кататся",
+              "Кататься",
               "Поднимать"
             ],
             "level": 2,
@@ -408,9 +408,9 @@
             "id": 1000393,
             "task": "Taste",
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Ftaste.png?alt=media&token=c6736ff3-d3e9-4bc1-9e1c-47e4ca5e727d",
-            "right_answer": "Пробовал",
+            "right_answer": "пробовать",
             "variants_answer": [
-              "Пробовал",
+              "пробовать",
               "Стоять",
               "Пить",
               "Кататься"
@@ -556,7 +556,7 @@
               "Таракан",
               "Муравей",
               "Букашка",
-              "Бабачка"
+              "Бабочка"
             ],
             "level": 1,
             "favourites": false
@@ -567,7 +567,7 @@
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_1%2Fbat.png?alt=media&token=f816beb5-8d96-415c-ab59-91b6848f319e",
             "right_answer": "Летучая мышь",
             "variants_answer": [
-              "Бабачка",
+              "Бабочка",
               "Летучая мышь",
               "Птица",
               "Кот"
@@ -640,7 +640,7 @@
               "Индюк",
               "Утка",
               "Аист",
-              "Бабачка"
+              "Бабочка"
             ],
             "level": 1,
             "favourites": false
@@ -693,7 +693,7 @@
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_1%2Fmouse.png?alt=media&token=5ba79694-b997-4b6d-af7b-1e2d8671ce1a",
             "right_answer": "Мышь",
             "variants_answer": [
-              "Хамяк",
+              "Хомяк",
               "Пёс",
               "Мышь",
               "Кот"
@@ -760,7 +760,7 @@
           {
             "id": 10010224,
             "task": "Turtle",
-            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_1%2Fduck.png?alt=media&token=d38ead07-a085-495f-b2fe-b79cc6528a74",
+            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_1%2Fturtle.png?alt=media&token=39998a7d-3684-49b2-a751-397c302a467b",
             "right_answer": "Черепаха",
             "variants_answer": [
               "Жаба",
@@ -799,7 +799,7 @@
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_2%2Fboy.png?alt=media&token=64a69eb9-1692-4a11-85bf-8ff42e03d2c7",
             "right_answer": "Мальчик",
             "variants_answer": [
-              "Девачка",
+              "Девочка",
               "Мальчик",
               "Брат",
               "Дядя"
@@ -951,7 +951,7 @@
       },
       {
         "id": 10212,
-        "name": "Урок 2.3 ЧИСТИ ТЕЛА",
+        "name": "Урок 2.3 ЧАСТИ ТЕЛА",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2FLesson2_3.png?alt=media&token=3d8bc2e8-2a2a-435c-a804-37b0755e13aa",
         "victory_image_url": "",
         "tasks": [
@@ -1035,20 +1035,6 @@
               "Бедро",
               "Рука",
               "Палец"
-            ],
-            "level": 2,
-            "favourites": false
-          },
-          {
-            "id": 10010416,
-            "task": "Bottom",
-            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fbottom.png?alt=media&token=bd80cfe1-afb9-4124-8f85-374610ad0dd0",
-            "right_answer": "Зад",
-            "variants_answer": [
-              "Зад",
-              "Попа",
-              "Бедра",
-              "Туловище"
             ],
             "level": 2,
             "favourites": false
@@ -1146,7 +1132,7 @@
               "Рука",
               "Части тела",
               "Палец",
-              "Лодонь"
+              "Ладонь"
             ],
             "level": 2,
             "favourites": false
@@ -1213,7 +1199,7 @@
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fhand.png?alt=media&token=03a5a464-925a-4cca-9495-ccdd70a941b9",
             "right_answer": "Рука",
             "variants_answer": [
-              "Лодонь",
+              "Ладонь",
               "Ноготь",
               "Палец",
               "Рука"
@@ -1272,7 +1258,7 @@
               "Пальцы",
               "Слева",
               "Рука",
-              "Лодонь"
+              "Ладонь"
             ],
             "level": 2,
             "favourites": false
@@ -1327,8 +1313,8 @@
             "variants_answer": [
               "Рука",
               "Мускул",
-              "Локото",
-              "Лодонь"
+              "Локоть",
+              "Ладонь"
             ],
             "level": 2,
             "favourites": false
@@ -1367,7 +1353,7 @@
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fright.png?alt=media&token=a4b74cd5-878d-4fa2-8940-9647580fd22f",
             "right_answer": "Право",
             "variants_answer": [
-              "Лодонь",
+              "Ладонь",
               "Право",
               "Палец",
               "Рука"
@@ -1400,7 +1386,7 @@
     "lessons": [
       {
         "id": 10212,
-        "name": "Урок 3.1 ЧИСТИ ТЕЛА",
+        "name": "Урок 3.1 ЧАСТИ ТЕЛА",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2FLesson2_3.png?alt=media&token=3d8bc2e8-2a2a-435c-a804-37b0755e13aa",
         "victory_image_url": "",
         "tasks": [
@@ -1595,7 +1581,7 @@
               "Рука",
               "Части тела",
               "Палец",
-              "Лодонь"
+              "Ладонь"
             ],
             "level": 2,
             "favourites": false
@@ -1662,7 +1648,7 @@
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fhand.png?alt=media&token=03a5a464-925a-4cca-9495-ccdd70a941b9",
             "right_answer": "Рука",
             "variants_answer": [
-              "Лодонь",
+              "Ладонь",
               "Ноготь",
               "Палец",
               "Рука"
@@ -1721,7 +1707,7 @@
               "Пальцы",
               "Слева",
               "Рука",
-              "Лодонь"
+              "Ладонь"
             ],
             "level": 2,
             "favourites": false
@@ -1776,8 +1762,8 @@
             "variants_answer": [
               "Рука",
               "Мускул",
-              "Локото",
-              "Лодонь"
+              "Локоть",
+              "Ладонь"
             ],
             "level": 2,
             "favourites": false
@@ -1816,7 +1802,7 @@
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fright.png?alt=media&token=a4b74cd5-878d-4fa2-8940-9647580fd22f",
             "right_answer": "Право",
             "variants_answer": [
-              "Лодонь",
+              "Ладонь",
               "Право",
               "Палец",
               "Рука"
@@ -1910,7 +1896,7 @@
             "variants_answer": [
               "Петь",
               "Играть",
-              "Кататся",
+              "Кататься",
               "Поднимать"
             ],
             "level": 2,
@@ -2004,9 +1990,9 @@
             "id": 1000393,
             "task": "Taste",
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Ftaste.png?alt=media&token=c6736ff3-d3e9-4bc1-9e1c-47e4ca5e727d",
-            "right_answer": "Пробовал",
+            "right_answer": "пробовать",
             "variants_answer": [
-              "Пробовал",
+              "пробовать",
               "Стоять",
               "Пить",
               "Кататься"
@@ -2065,7 +2051,7 @@
             "variants_answer": [
               "Танцевать",
               "Зевать",
-              "Кататся",
+              "Кататься",
               "Рисовать"
             ],
             "level": 2,
@@ -2107,7 +2093,7 @@
             "variants_answer": [
               "Танцевать",
               "Играть",
-              "Кататся",
+              "Кататься",
               "Слушать"
             ],
             "level": 2,
@@ -2117,11 +2103,11 @@
             "id": 6000,
             "task": "Ride",
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson1%2Fride.png?alt=media&token=863db4ba-6a6c-48a5-a606-49e660253de1",
-            "right_answer": "Кататся",
+            "right_answer": "Кататься",
             "variants_answer": [
               "Трогать",
               "Играть",
-              "Кататся",
+              "Кататься",
               "Танцевать"
             ],
             "level": 2,
@@ -2255,7 +2241,7 @@
             "variants_answer": [
               "Петь",
               "Играть",
-              "Кататся",
+              "Кататься",
               "Поднимать"
             ],
             "level": 2,
@@ -2291,7 +2277,7 @@
           },
           {
             "id": 100038,
-            "task": "Sind",
+            "task": "Sing",
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Fsing.png?alt=media&token=f1c7cb16-cb7e-4f5d-9372-bf8891acf6bd",
             "right_answer": "Петь",
             "variants_answer": [
@@ -2349,9 +2335,9 @@
             "id": 1000393,
             "task": "Taste",
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours1%2FLesson3%2Ftaste.png?alt=media&token=c6736ff3-d3e9-4bc1-9e1c-47e4ca5e727d",
-            "right_answer": "Пробовал",
+            "right_answer": "пробовать",
             "variants_answer": [
-              "Пробовал",
+              "пробовать",
               "Стоять",
               "Пить",
               "Кататься"
