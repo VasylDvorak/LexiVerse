@@ -3,20 +3,24 @@
     <item
         android:id="@+id/root_menu_item"
         android:icon="@drawable/icon_learning"
+        android:contentDescription="@string/root_menu"
         android:title="@string/root_menu" />
 
     <item
         android:id="@+id/favorites_elements_item"
         android:icon="@drawable/icon_favorite"
+        android:contentDescription="@string/favorites_elements"
         android:title="@string/favorites_elements" />
 
     <item
         android:id="@+id/chart_grade_item"
         android:icon="@drawable/icon_statistic"
+        android:contentDescription="@string/grade"
         android:title="@string/grade" />
 
     <item
         android:id="@+id/settings_item"
         android:icon="@drawable/icon_setting_2"
+        android:contentDescription="@string/settings"
         android:title="@string/settings" />
 </menu>

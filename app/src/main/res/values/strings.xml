@@ -195,4 +195,6 @@
     <string name="FA_jobforandroid_proton_me">jobforandroid@proton.me</string>
     <string name="FR_Politic">Политика конфиденциальности</string>
     <string name="FR_IAgree">Я Согласен</string>
+    <string name="switch_on_notifications">Включить сообщения</string>
+    <string name="to_favorite">В избранное</string>
 </resources>

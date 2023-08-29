@@ -30,6 +30,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewDictionaryFavorite"
+                android:contentDescription="@string/favorites_dictionary"
+                android:clickable="true"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/MCardMargin_24dp"
@@ -82,7 +84,6 @@
                         android:layout_marginEnd="@dimen/MCardMargin_16dp"
                         android:layout_marginBottom="@dimen/MCardMargin_16dp"
                         android:clickable="false"
-                        android:contentDescription="@string/favorites_dictionary"
                         android:text="@string/favorites_dictionary"
                         android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"
@@ -99,6 +100,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewLearningFavorite"
+                android:contentDescription="@string/favorite_tests"
+                android:clickable="true"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/MCardMargin__8dp"
@@ -154,7 +157,6 @@
                         android:layout_marginEnd="@dimen/MCardMargin_16dp"
                         android:layout_marginBottom="@dimen/MCardMargin__8dp"
                         android:clickable="false"
-                        android:contentDescription="@string/favorite_tests"
                         android:text="@string/favorite_tests"
                         android:textColor="@color/example_middle"
                         android:textSize="@dimen/default_text"

@@ -30,6 +30,7 @@
             android:layout_width="@dimen/button_finish_width_size"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pomidorko_cyr_ru"
+            android:contentDescription="@string/reset_statistics"
             android:text="@string/reset_statistics"
             android:visibility="gone"
             app:cornerRadius="@dimen/radius_button_default" />

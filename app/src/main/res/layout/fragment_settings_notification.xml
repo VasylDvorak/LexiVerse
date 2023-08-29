@@ -61,6 +61,7 @@
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switchNotification"
+                android:contentDescription="@string/switch_on_notifications"
                 android:layout_width="@dimen/MacrdMargin_48dp"
                 android:layout_height="@dimen/MacrdMargin_48dp"
                 android:layout_marginEnd="@dimen/MCardMargin_16dp"

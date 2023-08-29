@@ -53,7 +53,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/main_title">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card1"
+                    android:id="@+id/cardDownloadLink"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -73,7 +73,7 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imageViewShare2"
+                            android:id="@+id/imageViewShareLink"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -84,7 +84,7 @@
                             app:srcCompat="@drawable/baseline_content_copy_24" />
 
                         <TextView
-                            android:id="@+id/textview_title_downlink"
+                            android:id="@+id/textviewTitleDownloadLink"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -93,8 +93,8 @@
                             android:textColor="@color/example_dark"
                             android:textSize="@dimen/MCard_Text_16sp"
                             android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imageViewShare2"
-                            app:layout_constraintStart_toEndOf="@+id/imageViewShare2"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewShareLink"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewShareLink"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
@@ -113,7 +113,7 @@
                             android:textSize="@dimen/MCard_Text_14sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textview_title_downlink" />
+                            app:layout_constraintTop_toBottomOf="@+id/textviewTitleDownloadLink" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/copy_button"
@@ -143,7 +143,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card2"
+                    android:id="@+id/cardViaApp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -154,7 +154,7 @@
                     app:cardElevation="@dimen/MCard_Elevarion_5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/card1"
+                    app:layout_constraintTop_toBottomOf="@+id/cardDownloadLink"
                     app:strokeColor="@color/color_white"
                     app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
@@ -163,7 +163,7 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imageViewShare1"
+                            android:id="@+id/imageViewShareViaApp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -183,8 +183,8 @@
                             android:textColor="@color/example_dark"
                             android:textSize="@dimen/MCard_Text_16sp"
                             android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imageViewShare1"
-                            app:layout_constraintStart_toEndOf="@+id/imageViewShare1"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewShareViaApp"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewShareViaApp"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
@@ -202,7 +202,7 @@
                             android:textSize="@dimen/MCard_Text_14sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/imageViewShare1" />
+                            app:layout_constraintTop_toBottomOf="@+id/imageViewShareViaApp" />
 
 
                         <com.google.android.material.button.MaterialButton
@@ -233,7 +233,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card3"
+                    android:id="@+id/cardViaSMS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -245,7 +245,7 @@
                     app:cardElevation="@dimen/MCard_Elevarion_5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/card2"
+                    app:layout_constraintTop_toBottomOf="@+id/cardViaApp"
                     app:strokeColor="@color/color_white"
                     app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
@@ -272,7 +272,7 @@
                             android:textSize="@dimen/MCard_Text_14sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+                            app:layout_constraintTop_toBottomOf="@+id/imageViewViaSMS" />
 
                         <TextView
                             android:id="@+id/textview_subtitle_sendSMS"
@@ -315,11 +315,12 @@
                             app:strokeWidth="@dimen/MCard_Stroke_1dp" />
 
                         <ImageView
-                            android:id="@+id/imageView14"
+                            android:id="@+id/imageViewViaSMS"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/MCardMargin_16dp"
                             android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:contentDescription="@string/button_send_sms"
                             android:importantForAccessibility="no"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -335,8 +336,8 @@
                             android:textColor="@color/example_dark"
                             android:textSize="@dimen/MCard_Text_16sp"
                             android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-                            app:layout_constraintStart_toEndOf="@+id/imageView14"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewViaSMS"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewViaSMS"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

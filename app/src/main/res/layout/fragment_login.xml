@@ -72,6 +72,7 @@
                 android:layout_marginTop="@dimen/MCardMargin_16dp"
                 android:layout_marginBottom="@dimen/MCardMargin_16dp"
                 android:background="@null"
+                android:contentDescription="@string/button_logIn"
                 android:text="@string/button_logIn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView17"

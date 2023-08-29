@@ -5,6 +5,7 @@
     <item
         android:id="@+id/delete_data_menu_item"
         android:icon="@drawable/delete_data_24"
+        android:contentDescription="@string/delete_data"
         android:title="@string/delete_data"
         app:showAsAction="ifRoom" />
 

@@ -29,6 +29,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewDictionary"
+                android:contentDescription="@string/dictionary"
+                android:clickable="true"
                 android:layout_width="@dimen/MCard_Big_Image2_250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/MCardMargin_24dp"
@@ -87,6 +89,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewLearningTogether"
+                android:contentDescription="@string/learning_together"
+                android:clickable="true"
                 android:layout_width="@dimen/MCard_Big_Image2_250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/MCardMargin__8dp"
@@ -143,6 +147,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewTestingOfKnowlage"
+                android:contentDescription="@string/knowledge_check"
+                android:clickable="true"
                 android:layout_width="@dimen/MCard_Big_Image2_250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/MCardMargin__8dp"

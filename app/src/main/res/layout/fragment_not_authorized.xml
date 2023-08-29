@@ -63,6 +63,7 @@
                 android:layout_width="@dimen/Ops_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/MCardMargin_16dp"
+                android:contentDescription="@string/button_logIn"
                 android:text="@string/login_setting"
                 android:textColor="@color/example_middle"
                 android:textSize="@dimen/MCard_Text_16sp"
