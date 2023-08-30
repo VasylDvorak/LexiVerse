@@ -29,7 +29,7 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
     private fun initView() {
         setCharRestriction(binding.editTextTextEmailAddress)
         setCharRestriction(binding.editTextTextEmailAddress)
-        setCharRestriction(binding.editTextNumberPassword2)
+        setCharRestriction(binding.editTextNumberPasswordSecond)
     }
 
     private fun setCharRestriction(editText: AppCompatEditText) {
@@ -73,9 +73,9 @@ class RegistrationFragment : BaseFragmentSettingsMenu<FragmentRegistrationBindin
             } else if (TextUtils.isEmpty(password)) {
                 binding?.editTextNumberPassword?.setError(getString(R.string.error_password_empty))
                 binding?.editTextNumberPassword?.requestFocus()
-            } else if (!password.equals(binding?.editTextNumberPassword2?.text?.toString())) {
-                binding?.editTextNumberPassword2?.setError(getString(R.string.error_match_password))
-                binding?.editTextNumberPassword2?.requestFocus()
+            } else if (!password.equals(binding?.editTextNumberPasswordSecond?.text?.toString())) {
+                binding?.editTextNumberPasswordSecond?.setError(getString(R.string.error_match_password))
+                binding?.editTextNumberPasswordSecond?.requestFocus()
             } else if (binding?.privacyCheckBox?.isChecked != true){
                 binding?.privacyCheckBox?.setBackgroundColor(resources.getColor(R.color.color_error) )
                 Toast.makeText(

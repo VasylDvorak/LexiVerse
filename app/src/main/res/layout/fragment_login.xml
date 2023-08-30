@@ -27,7 +27,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView17"
+                android:id="@+id/imageViewGoldenKey"
                 android:layout_width="350dp"
                 android:layout_height="350dp"
                 android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -48,9 +48,9 @@
                 android:ems="10"
                 android:hint="@string/enter_email"
                 android:inputType="textEmailAddress"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+                app:layout_constraintEnd_toEndOf="@+id/imageViewGoldenKey"
+                app:layout_constraintStart_toStartOf="@+id/imageViewGoldenKey"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewGoldenKey" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/editTextNumberPassword"
@@ -61,8 +61,8 @@
                 android:ems="10"
                 android:hint="@string/enter_password_text"
                 android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewGoldenKey"
+                app:layout_constraintStart_toStartOf="@+id/imageViewGoldenKey"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
             <Button
@@ -75,8 +75,8 @@
                 android:contentDescription="@string/button_logIn"
                 android:text="@string/button_logIn"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewGoldenKey"
+                app:layout_constraintStart_toStartOf="@+id/imageViewGoldenKey"
                 app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

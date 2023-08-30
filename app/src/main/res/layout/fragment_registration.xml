@@ -33,7 +33,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imageView17"
+                    android:id="@+id/imageViewGoldenKey"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:layout_marginStart="@dimen/MCardMargin_16dp"
@@ -56,9 +56,9 @@
                     android:hint="@string/enter_email_text"
                     android:inputType="textEmailAddress"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                    app:layout_constraintStart_toStartOf="@+id/imageView17"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+                    app:layout_constraintEnd_toEndOf="@+id/imageViewGoldenKey"
+                    app:layout_constraintStart_toStartOf="@+id/imageViewGoldenKey"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewGoldenKey" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/editTextNumberPassword"
@@ -70,12 +70,12 @@
                     android:hint="@string/enter_password_text"
                     android:inputType="textPassword"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                    app:layout_constraintStart_toStartOf="@+id/imageView17"
+                    app:layout_constraintEnd_toEndOf="@+id/imageViewGoldenKey"
+                    app:layout_constraintStart_toStartOf="@+id/imageViewGoldenKey"
                     app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/editTextNumberPassword2"
+                    android:id="@+id/editTextNumberPasswordSecond"
                     android:layout_width="@dimen/Ops_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/MCardMargin_16dp"
@@ -84,8 +84,8 @@
                     android:hint="@string/repeat_password"
                     android:inputType="textPassword"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                    app:layout_constraintStart_toStartOf="@+id/imageView17"
+                    app:layout_constraintEnd_toEndOf="@+id/imageViewGoldenKey"
+                    app:layout_constraintStart_toStartOf="@+id/imageViewGoldenKey"
                     app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
 
                 <Button
@@ -99,8 +99,8 @@
                     android:text="@string/button_reg"
                     android:textColor="@color/color_white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                    app:layout_constraintStart_toStartOf="@+id/imageView17"
+                    app:layout_constraintEnd_toEndOf="@+id/imageViewGoldenKey"
+                    app:layout_constraintStart_toStartOf="@+id/imageViewGoldenKey"
                     app:layout_constraintTop_toBottomOf="@+id/privacyTextView" />
 
                 <TextView
@@ -111,8 +111,8 @@
                     android:clickable="true"
                     android:text="@string/FR_Politic"
                     android:textColor="@color/example"
-                    app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
-                    app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
+                    app:layout_constraintEnd_toEndOf="@+id/editTextNumberPasswordSecond"
+                    app:layout_constraintStart_toStartOf="@+id/editTextNumberPasswordSecond"
                     app:layout_constraintTop_toBottomOf="@+id/privacyCheckBox" />
 
                 <CheckBox
@@ -123,9 +123,9 @@
                     android:contentDescription="@string/FR_IAgree"
                     android:text="@string/FR_IAgree"
                     android:textColor="@color/pastel_hot_pink"
-                    app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
-                    app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2" />
+                    app:layout_constraintEnd_toEndOf="@+id/editTextNumberPasswordSecond"
+                    app:layout_constraintStart_toStartOf="@+id/editTextNumberPasswordSecond"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextNumberPasswordSecond" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
