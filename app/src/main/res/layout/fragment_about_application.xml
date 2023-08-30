@@ -1,347 +1,358 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/example_back">
 
-    <com.google.android.material.card.MaterialCardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/MCardMargin_16dp"
-        android:layout_marginTop="@dimen/MCardMargin_16dp"
-        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-        app:cardBackgroundColor="@color/color_white"
-        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-        app:cardElevation="@dimen/MCard_Elevarion_5dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/example"
-        app:strokeWidth="@dimen/MCard_Stroke_1dp">
+        tools:ignore="ScrollViewCount">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/MCardMargin_16dp"
+            android:layout_marginTop="@dimen/MCardMargin_16dp"
+            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+            app:cardBackgroundColor="@color/color_white"
+            app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+            app:cardElevation="@dimen/MCard_Elevarion_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/example"
+            app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-            <TextView
-                android:id="@+id/about_app_text_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/MCardMargin__8dp"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:layout_marginEnd="@dimen/MCardMargin__8dp"
-                android:gravity="center"
-                android:text="@string/about_app"
-                android:textColor="@color/example_dark"
-                android:textSize="@dimen/MCard_Text_20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView3"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/MCardMargin_16dp"
-                android:layout_marginTop="@dimen/MCardMargin__8dp"
-                android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                android:background="@color/color_white"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-                app:cardElevation="@dimen/MCard_Elevarion_5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/about_app_text_view"
-                app:strokeColor="@color/pastel_hot_pink">
+                android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/about_app_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin__8dp"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:layout_marginEnd="@dimen/MCardMargin__8dp"
+                    android:gravity="center"
+                    android:text="@string/about_app"
+                    android:textColor="@color/example_dark"
+                    android:textSize="@dimen/MCard_Text_20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="@dimen/MCardMargin__8dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    android:background="@color/color_white"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevarion_5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/about_app_text_view"
+                    app:strokeColor="@color/pastel_hot_pink">
 
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/FA_android_developers"
-                        android:textColor="@color/pastel_hot_pink_dark"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin__8dp"
-                        android:text="@string/FA_vasyl_dvorak"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/FA_android_developers"
+                            android:textColor="@color/pastel_hot_pink_dark"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCard_Margin_4dp"
-                        android:text="@string/FA_dvorak1981_yandex_ru"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:text="@string/FA_vasyl_dvorak"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin__8dp"
-                        android:text="@string/FA_pavel_nayya"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCard_Margin_4dp"
+                            android:text="@string/FA_dvorak1981_yandex_ru"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCard_Margin_4dp"
-                        android:text="@string/FA_naja19255_gmail_com"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:text="@string/FA_pavel_nayya"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                    <TextView
-                        android:id="@+id/textView7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin__8dp"
-                        android:text="@string/FA_oleg_cusnir"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCard_Margin_4dp"
+                            android:text="@string/FA_naja19255_gmail_com"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCard_Margin_4dp"
-                        android:text="@string/FA_ocusnir_outlook_com"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:text="@string/FA_oleg_cusnir"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin__8dp"
-                        android:text="@string/FA_artem_kovalev"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCard_Margin_4dp"
+                            android:text="@string/FA_ocusnir_outlook_com"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-                    <TextView
-                        android:id="@+id/textView23"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCard_Margin_4dp"
-                        android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                        android:text="@string/FA_npluzhnikovs_gmail_com"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:text="@string/FA_artem_kovalev"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/MCardMargin_16dp"
-                android:layout_marginTop="@dimen/MCardMargin__8dp"
-                android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-                app:cardElevation="@dimen/MCard_Elevarion_5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialCardView3"
-                app:strokeColor="@color/pastel_hot_pink"
-                app:strokeWidth="@dimen/MCard_Stroke_1dp">
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCard_Margin_4dp"
+                            android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                            android:text="@string/FA_npluzhnikovs_gmail_com"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView5"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="@dimen/MCardMargin__8dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevarion_5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardView3"
+                    app:strokeColor="@color/pastel_hot_pink"
+                    app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/FA_qa_engineer"
-                        android:textColor="@color/pastel_hot_pink_dark"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin__8dp"
-                        android:text="@string/FA_daria_fomina"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/FA_qa_engineer"
+                            android:textColor="@color/pastel_hot_pink_dark"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textView19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCard_Margin_4dp"
-                        android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                        android:text="@string/FA_darafomina13403_gmail_com"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:text="@string/FA_daria_fomina"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCard_Margin_4dp"
+                            android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                            android:text="@string/FA_darafomina13403_gmail_com"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/MCardMargin_16dp"
-                android:layout_marginTop="@dimen/MCardMargin__8dp"
-                android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-                app:cardElevation="@dimen/MCard_Elevarion_5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialCardView5"
-                app:strokeColor="@color/pastel_hot_pink"
-                app:strokeWidth="@dimen/MCard_Stroke_1dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView6"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="@dimen/MCardMargin__8dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevarion_5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardView5"
+                    app:strokeColor="@color/pastel_hot_pink"
+                    app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-                    <TextView
-                        android:id="@+id/textView20"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/FA_ux_ui_designer"
-                        android:textColor="@color/pastel_hot_pink_dark"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin__8dp"
-                        android:text="@string/FA_yuriy_galyaminsky"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/FA_ux_ui_designer"
+                            android:textColor="@color/pastel_hot_pink_dark"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textView22"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCard_Margin_4dp"
-                        android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                        android:text="@string/FA_jobforandroid_proton_me"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:text="@string/FA_yuriy_galyaminsky"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-            <TextView
-                android:id="@+id/cod_version_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:text="@string/cod_version"
-                android:textColor="@color/example_dark"
-                android:textSize="@dimen/default_text"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialCardView6" />
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCard_Margin_4dp"
+                            android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                            android:text="@string/FA_jobforandroid_proton_me"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/version_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin__8dp"
-                android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                android:text="@string/version"
-                android:textColor="@color/example_dark"
-                android:textSize="@dimen/default_text"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cod_version_text_view" />
+                <TextView
+                    android:id="@+id/cod_version_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:text="@string/cod_version"
+                    android:textColor="@color/example_dark"
+                    android:textSize="@dimen/default_text"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardView6" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/version_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin__8dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/version"
+                    android:textColor="@color/example_dark"
+                    android:textSize="@dimen/default_text"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cod_version_text_view" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
