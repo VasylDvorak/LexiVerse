@@ -22,6 +22,7 @@ import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.koin.android.ext.android.inject
@@ -43,15 +44,14 @@ class DictionaryActivity : AppCompatActivity() {
     private var vb: ActivityMainBinding? = null
     public override fun onStart(){
         super.onStart()
-        val currentUser = auth.currentUser
-        //  updateUI(currentUser)
+        auth.currentUser
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         analytics = Firebase.analytics
+        auth = Firebase.auth
         vb = ActivityMainBinding.inflate(layoutInflater)
         setContentView(vb?.root)
-
         val fromWidget = intent.extras?.getString(SHOW_DETAILS, null)
         val showDataModel = Gson().fromJson(fromWidget, DataModel::class.java)
         if (showDataModel != null) {

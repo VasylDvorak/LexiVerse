@@ -21,8 +21,7 @@ open class ViewBindingActivity<T : ViewBinding>(
         get() = _binding!!
     public override fun onStart(){
         super.onStart()
-        val currentUser = auth.currentUser
-      //  updateUI(currentUser)
+        auth.currentUser
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
