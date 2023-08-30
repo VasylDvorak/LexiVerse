@@ -70,6 +70,7 @@ dependencies {
 
     //Room
     implementation Room.runtime
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
     kapt Room.kapt_compiler
     annotationProcessor Room.annotation_processor_compiler
     implementation Room.room_ktx

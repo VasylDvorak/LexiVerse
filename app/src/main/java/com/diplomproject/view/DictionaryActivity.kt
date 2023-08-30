@@ -21,6 +21,7 @@ import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.koin.android.ext.android.inject
@@ -32,7 +33,7 @@ const val SHOW_DETAILS = "SHOW_DETAILS"
 class DictionaryActivity : AppCompatActivity() {
 
     private lateinit var analytics: FirebaseAnalytics
-
+    private lateinit var auth: FirebaseAuth
     private val navigatorHolder: NavigatorHolder by inject()
     private val router: Router by KoinJavaComponent.inject(Router::class.java)
     private val screen = KoinJavaComponent.getKoin().get<IScreens>()
@@ -40,7 +41,11 @@ class DictionaryActivity : AppCompatActivity() {
     lateinit var model: FavoriteViewModel
 
     private var vb: ActivityMainBinding? = null
-
+    public override fun onStart(){
+        super.onStart()
+        val currentUser = auth.currentUser
+        //  updateUI(currentUser)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         analytics = Firebase.analytics
