@@ -3,191 +3,205 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/example_back">
 
-    <com.google.android.material.card.MaterialCardView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/MCardMargin_16dp"
-        android:layout_marginTop="@dimen/MCardMargin_16dp"
-        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-        android:layout_marginBottom="@dimen/MCardMargin_16dp"
-        app:cardBackgroundColor="@color/color_white"
-        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-        app:cardElevation="@dimen/MCard_Elevation_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/color_white"
-        app:strokeWidth="@dimen/MCard_Stroke_1dp">
+        tools:ignore="ScrollViewCount">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/MCardMargin_16dp"
+            android:layout_marginTop="@dimen/MCardMargin_16dp"
+            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+            app:cardBackgroundColor="@color/color_white"
+            app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+            app:cardElevation="@dimen/MCard_Elevation_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/example"
+            app:strokeWidth="1dp">
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/Ops_0dp"
-                android:layout_marginStart="@dimen/MCardMargin_16dp"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-                app:cardElevation="@dimen/MCard_Elevation_10dp"
-                app:layout_constraintBottom_toTopOf="@+id/materialCardViewEmail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/example"
-                app:strokeWidth="@dimen/MCard_Stroke_1dp">
+                android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevation_10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/materialCardViewEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/example"
+                    app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="@dimen/Ops_0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/dear_user"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_20sp"
-                        android:textStyle="bold|italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewOne"
-                        android:layout_width="@dimen/Ops_0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin__8dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/text_1"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="@dimen/Ops_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/dear_user"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_20sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textViewTwo"
-                        android:layout_width="@dimen/Ops_0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/text_2"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewOne" />
+                        <TextView
+                            android:id="@+id/textViewOne"
+                            android:layout_width="@dimen/Ops_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin__8dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/text_1"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-                    <TextView
-                        android:id="@+id/textViewThree"
-                        android:layout_width="@dimen/Ops_0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/text_3"
-                        android:textColor="@color/example"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewTwo" />
+                        <TextView
+                            android:id="@+id/textViewTwo"
+                            android:layout_width="@dimen/Ops_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/text_2"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewOne" />
 
-                    <TextView
-                        android:id="@+id/textViewFour"
-                        android:layout_width="@dimen/Ops_0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/text_5"
-                        android:textColor="@color/pastel_hot_pink"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold|italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewThree" />
+                        <TextView
+                            android:id="@+id/textViewThree"
+                            android:layout_width="@dimen/Ops_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/text_3"
+                            android:textColor="@color/example"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="italic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewTwo" />
 
-                    <TextView
-                        android:id="@+id/textViewFive"
-                        android:layout_width="@dimen/Ops_0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                        android:text="@string/text_6"
-                        android:textColor="@color/pastel_hot_pink_dark"
-                        android:textSize="@dimen/MCard_Text_16sp"
-                        android:textStyle="bold|italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewFour" />
+                        <TextView
+                            android:id="@+id/textViewFour"
+                            android:layout_width="@dimen/Ops_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:text="@string/text_5"
+                            android:textColor="@color/pastel_hot_pink"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewThree" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/textViewFive"
+                            android:layout_width="@dimen/Ops_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                            android:layout_marginBottom="16dp"
+                            android:text="@string/text_6"
+                            android:textColor="@color/pastel_hot_pink_dark"
+                            android:textSize="@dimen/MCard_Text_16sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewFour" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardViewEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/MCardMargin_16dp"
-                android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                app:cardBackgroundColor="@color/color_white"
-                app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-                app:cardElevation="@dimen/MCard_Elevation_10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:strokeColor="@color/pastel_hot_pink"
-                app:strokeWidth="@dimen/MCard_Stroke_1dp">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardViewEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+                    app:cardElevation="@dimen/MCard_Elevation_10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:strokeColor="@color/pastel_hot_pink"
+                    app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-                    <ImageView
-                        android:id="@+id/imageViewEmail"
-                        android:layout_width="@dimen/MCardMargin_48dp"
-                        android:layout_height="@dimen/MCardMargin_48dp"
-                        android:layout_marginStart="@dimen/MCardMargin_16dp"
-                        android:layout_marginTop="@dimen/MCardMargin_16dp"
-                        android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                        android:importantForAccessibility="no"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_mail_feedback" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textViewSendEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/MCardMargin__8dp"
-                        android:autoLink="email"
-                        android:text="@string/support_e_mail"
-                        android:textColor="@color/pastel_hot_pink_dark"
-                        android:textColorLink="@color/pastel_hot_pink_dark"
-                        android:textSize="@dimen/MCard_Text_20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageViewEmail"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewEmail"
-                        app:layout_constraintTop_toTopOf="@+id/imageViewEmail" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                        <ImageView
+                            android:id="@+id/imageViewEmail"
+                            android:layout_width="@dimen/MCardMargin_48dp"
+                            android:layout_height="@dimen/MCardMargin_48dp"
+                            android:layout_marginStart="@dimen/MCardMargin_16dp"
+                            android:layout_marginTop="@dimen/MCardMargin_16dp"
+                            android:layout_marginBottom="@dimen/MCardMargin_16dp"
+                            android:importantForAccessibility="no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_mail_feedback" />
+
+                        <TextView
+                            android:id="@+id/textViewSendEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/MCardMargin__8dp"
+                            android:autoLink="email"
+                            android:text="@string/support_e_mail"
+                            android:textColor="@color/pastel_hot_pink_dark"
+                            android:textColorLink="@color/pastel_hot_pink_dark"
+                            android:textSize="@dimen/MCard_Text_20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewEmail"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewEmail"
+                            app:layout_constraintTop_toTopOf="@+id/imageViewEmail" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

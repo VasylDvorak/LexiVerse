@@ -1,123 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/example_back">
 
-    <com.google.android.material.card.MaterialCardView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/MCardMargin_16dp"
-        android:layout_marginTop="@dimen/MCardMargin_16dp"
-        android:layout_marginEnd="@dimen/MCardMargin_16dp"
-        android:layout_marginBottom="@dimen/MCardMargin_16dp"
-        app:cardBackgroundColor="@color/color_white"
-        app:cardCornerRadius="@dimen/MCard_Radius_15dp"
-        app:cardElevation="@dimen/MCard_Elevation_10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/example"
-        app:strokeWidth="@dimen/MCard_Stroke_1dp">
+        tools:ignore="ScrollViewCount">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/MCardMargin_16dp"
+            android:layout_marginTop="@dimen/MCardMargin_16dp"
+            android:layout_marginEnd="@dimen/MCardMargin_16dp"
+            android:layout_marginBottom="@dimen/MCardMargin_16dp"
+            app:cardBackgroundColor="@color/color_white"
+            app:cardCornerRadius="@dimen/MCard_Radius_15dp"
+            app:cardElevation="@dimen/MCard_Elevation_10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/example"
+            app:strokeWidth="@dimen/MCard_Stroke_1dp">
 
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_marginStart="@dimen/MCardMargin_16dp"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:layout_marginEnd="@dimen/MCardMargin_16dp"
-                android:contentDescription="@string/button_logIn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.519"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/golden_key" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/editTextTextEmailAddress"
-                android:layout_width="@dimen/Ops_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:backgroundTint="@color/example"
-                android:ems="10"
-                android:hint="@string/enter_email_text"
-                android:inputType="textEmailAddress"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="@dimen/MCardMargin_16dp"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:layout_marginEnd="@dimen/MCardMargin_16dp"
+                    android:contentDescription="@string/button_logIn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.519"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/golden_key" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/editTextNumberPassword"
-                android:layout_width="@dimen/Ops_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:backgroundTint="@color/example"
-                android:ems="10"
-                android:hint="@string/enter_password_text"
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editTextTextEmailAddress"
+                    android:layout_width="@dimen/Ops_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:backgroundTint="@color/example"
+                    android:ems="10"
+                    android:hint="@string/enter_email_text"
+                    android:inputType="textEmailAddress"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
+                    app:layout_constraintStart_toStartOf="@+id/imageView17"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView17" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/editTextNumberPassword2"
-                android:layout_width="@dimen/Ops_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:backgroundTint="@color/example"
-                android:ems="10"
-                android:hint="@string/repeat_password"
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editTextNumberPassword"
+                    android:layout_width="@dimen/Ops_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:backgroundTint="@color/example"
+                    android:ems="10"
+                    android:hint="@string/enter_password_text"
+                    android:inputType="textPassword"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
+                    app:layout_constraintStart_toStartOf="@+id/imageView17"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:layout_marginBottom="@dimen/MCardMargin_16dp"
-                android:backgroundTint="@color/pastel_hot_pink"
-                android:contentDescription="@string/button_reg"
-                android:text="@string/button_reg"
-                android:textColor="@color/color_white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView17"
-                app:layout_constraintStart_toStartOf="@+id/imageView17"
-                app:layout_constraintTop_toBottomOf="@+id/privacyTextView" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editTextNumberPassword2"
+                    android:layout_width="@dimen/Ops_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:backgroundTint="@color/example"
+                    android:ems="10"
+                    android:hint="@string/repeat_password"
+                    android:inputType="textPassword"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
+                    app:layout_constraintStart_toStartOf="@+id/imageView17"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
 
-            <TextView
-                android:id="@+id/privacyTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin__8dp"
-                android:clickable="true"
-                android:text="@string/FR_Politic"
-                android:textColor="@color/example"
-                app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
-                app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
-                app:layout_constraintTop_toBottomOf="@+id/privacyCheckBox" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/pastel_hot_pink"
+                    android:contentDescription="@string/button_reg"
+                    android:text="@string/button_reg"
+                    android:textColor="@color/color_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView17"
+                    app:layout_constraintStart_toStartOf="@+id/imageView17"
+                    app:layout_constraintTop_toBottomOf="@+id/privacyTextView" />
 
-            <CheckBox
-                android:id="@+id/privacyCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/MCardMargin_16dp"
-                android:contentDescription="@string/FR_IAgree"
-                android:text="@string/FR_IAgree"
-                android:textColor="@color/pastel_hot_pink"
-                app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
-                app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2" />
+                <TextView
+                    android:id="@+id/privacyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin__8dp"
+                    android:clickable="true"
+                    android:text="@string/FR_Politic"
+                    android:textColor="@color/example"
+                    app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
+                    app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
+                    app:layout_constraintTop_toBottomOf="@+id/privacyCheckBox" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <CheckBox
+                    android:id="@+id/privacyCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/MCardMargin_16dp"
+                    android:contentDescription="@string/FR_IAgree"
+                    android:text="@string/FR_IAgree"
+                    android:textColor="@color/pastel_hot_pink"
+                    app:layout_constraintEnd_toEndOf="@+id/editTextNumberPassword2"
+                    app:layout_constraintStart_toStartOf="@+id/editTextNumberPassword2"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
