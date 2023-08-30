@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "835291688749",
-    "firebase_url": "https://dictionary-64d8d-default-rtdb.firebaseio.com",
-    "project_id": "dictionary-64d8d",
-    "storage_bucket": "dictionary-64d8d.appspot.com"
+    "project_number": "661213756750",
+    "project_id": "diplomproject-8465d",
+    "storage_bucket": "diplomproject-8465d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:835291688749:android:70015d509af12e8d392da4",
+        "mobilesdk_app_id": "1:661213756750:android:2978cdca66fbd523c2b21f",
         "android_client_info": {
           "package_name": "com.diplomproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "835291688749-drsvkocnghcmb0n0vmokgkijvpmprfi0.apps.googleusercontent.com",
+          "client_id": "661213756750-pbpefq04qjqlpmjtg0vgds3q07rfgeqd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAycL3276RMD6IRZ6apVWgp2UEPck1smdc"
+          "current_key": "AIzaSyDFxr-WgNSqte5SPBVARD_Mqb4O9xUytMQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "835291688749-drsvkocnghcmb0n0vmokgkijvpmprfi0.apps.googleusercontent.com",
+              "client_id": "661213756750-pbpefq04qjqlpmjtg0vgds3q07rfgeqd.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
