@@ -79,6 +79,7 @@ dependencies {
     implementation Firebase.messagingKtxApp
     implementation Firebase.databaseKtxApp
     implementation Firebase.analyticsKtxVersion
+    implementation Firebase.firebase_auth
 
     //TestImpl
     testImplementation TestImpl.junit
