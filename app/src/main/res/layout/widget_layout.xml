@@ -14,6 +14,14 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/start_main_activity_for_search"
+            android:layout_width="@dimen/MCardMargin_48dp"
+            android:layout_height="@dimen/MCardMargin_48dp"
+            android:layout_marginEnd="@dimen/MCardMargin__8dp"
+            android:background="@drawable/baseline_search_24"
+            android:contentDescription="@string/pronounce" />
+
+        <ImageButton
             android:id="@+id/play_articulation_widget"
             android:layout_width="@dimen/MCardMargin_48dp"
             android:layout_height="@dimen/MCardMargin_48dp"
@@ -22,7 +30,7 @@
             android:contentDescription="@string/pronounce" />
 
         <ImageButton
-            android:id="@+id/start_main_activity"
+            android:id="@+id/start_main_activity_for_description"
             android:layout_width="@dimen/MCardMargin_48dp"
             android:layout_height="@dimen/MCardMargin_48dp"
             android:layout_marginStart="@dimen/MCardMargin__8dp"
@@ -79,6 +87,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_unit_layout_widget"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
-    </LinearLayout>
+        android:orientation="horizontal"></LinearLayout>
 </RelativeLayout>
