@@ -18,7 +18,7 @@ class PrivacyPoliticFragment : BaseFragmentSettingsMenu<FragmentPrivacyPoliticBi
     }
 
     private fun setHtmlText() {
-        val policyHtmlText = getString(R.string.privacy_policy_text)
+        val policyHtmlText = getString(R.string.privacy_policy_and_conditions_eng_text)
         binding.policyTextView.text = Html.fromHtml(policyHtmlText, Html.FROM_HTML_MODE_LEGACY)
     }
 
