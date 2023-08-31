@@ -4,7 +4,7 @@ import java.awt.Font
 object Config {
     const val application_id = "com.diplomproject"
     const val compile_sdk = 33
-    const val min_sdk = 28
+    const val min_sdk = 21
     const val target_sdk = 33
     val java_version = JavaVersion.VERSION_17
     const val jvmTarget = "17"

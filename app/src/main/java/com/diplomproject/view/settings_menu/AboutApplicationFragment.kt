@@ -1,10 +1,12 @@
 package com.diplomproject.view.settings_menu
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import com.diplomproject.BuildConfig
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentAboutApplicationBinding
-import com.google.android.apps.common.testing.accessibility.framework.BuildConfig
+
 
 
 class AboutApplicationFragment : BaseFragmentSettingsMenu<FragmentAboutApplicationBinding>(
@@ -17,6 +19,7 @@ class AboutApplicationFragment : BaseFragmentSettingsMenu<FragmentAboutApplicati
         initClickedViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initClickedViews() {
         binding.apply {
             codVersionTextView.text = getString(R.string.version_code) + BuildConfig.VERSION_CODE
@@ -24,7 +27,6 @@ class AboutApplicationFragment : BaseFragmentSettingsMenu<FragmentAboutApplicati
             aboutAppTextView.text = getString(R.string.app_info)
         }
     }
-
 
     companion object {
         fun newInstance() = AboutApplicationFragment()
