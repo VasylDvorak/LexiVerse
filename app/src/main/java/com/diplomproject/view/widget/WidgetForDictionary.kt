@@ -26,7 +26,9 @@ import java.io.IOException
 
 private const val CHANGE_WORD = "CHANGE_WORD"
 private const val PLAY_PRONUNCIATION = "PLAY_PRONUNCIATION"
-private const val START_DICTIONARY_ACTIVITY = "START_DICTIONARY_ACTIVITY"
+private const val START_DICTIONARY_ACTIVITY_FOR_DESCRIPTION =
+    "START_DICTIONARY_ACTIVITY_FOR_DESCRIPTION "
+private const val START_DICTIONARY_ACTIVITY_FOR_SEARCH = "START_DICTIONARY_ACTIVITY_FOR_SEARCH "
 private const val COUNT_DOWN_INTERVAL = 100L
 
 class WidgetForDictionary : AppWidgetProvider() {
@@ -53,7 +55,7 @@ class WidgetForDictionary : AppWidgetProvider() {
             }
 
 
-            START_DICTIONARY_ACTIVITY -> {
+            START_DICTIONARY_ACTIVITY_FOR_DESCRIPTION -> {
                 widgetLoader.readCurrentData()?.let {
                     val intent = Intent(context, DictionaryActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -61,6 +63,13 @@ class WidgetForDictionary : AppWidgetProvider() {
                     context.startActivity(intent)
                 }
             }
+
+            START_DICTIONARY_ACTIVITY_FOR_SEARCH -> {
+                val intent = Intent(context, DictionaryActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                context.startActivity(intent)
+            }
+
             else -> {
                 return
             }
@@ -99,8 +108,10 @@ class WidgetForDictionary : AppWidgetProvider() {
                         createPendingIntend(CHANGE_WORD, context)
                     val pendingIntentPlayPronunciation =
                         createPendingIntend(PLAY_PRONUNCIATION, context)
-                    val pendingIntentStartMainActivity =
-                        createPendingIntend(START_DICTIONARY_ACTIVITY, context)
+                    val pendingIntentStartMainActivityForDescription =
+                        createPendingIntend(START_DICTIONARY_ACTIVITY_FOR_DESCRIPTION, context)
+                    val pendingIntentStartMainActivityForSearch =
+                        createPendingIntend(START_DICTIONARY_ACTIVITY_FOR_SEARCH, context)
 
                     setOnClickPendingIntent(R.id.text_unit_layout_widget, pendingIntentChangeText)
                     setOnClickPendingIntent(R.id.header_textview_widget, pendingIntentChangeText)
@@ -111,9 +122,15 @@ class WidgetForDictionary : AppWidgetProvider() {
                     )
 
                     setOnClickPendingIntent(
-                        R.id.start_main_activity,
-                        pendingIntentStartMainActivity
+                        R.id.start_main_activity_for_description,
+                        pendingIntentStartMainActivityForDescription
                     )
+                    setOnClickPendingIntent(
+                        R.id.start_main_activity_for_search,
+                        pendingIntentStartMainActivityForSearch
+                    )
+
+
                 }
                 loadLayout(widgetLoader.updateData(), this@apply, context)
                 appWidgetManager.updateAppWidget(appWidgetId, this@apply)
