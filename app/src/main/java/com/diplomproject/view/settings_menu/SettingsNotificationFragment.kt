@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.View
 import android.widget.SeekBar
 import androidx.annotation.RequiresApi
@@ -17,15 +16,10 @@ import com.diplomproject.model.datasource.AppState
 import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.notification.CHANNEL_ID
 import com.diplomproject.view.notification.NotificationService
-import com.diplomproject.view.notification.REFERENCE
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
 
 const val minimum = 1
 const val maximum = 15
 const val timeStepMinutes = 20
-const val NOTIFICATION_SETTINGS = "NOTIFICATION_SETTINGS"
 private val appVibrationPattern = longArrayOf(500, 500, 500)
 
 class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNotificationBinding>(
@@ -74,7 +68,7 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNo
                         visibility = View.GONE
                     }
                 }
-                setOnCheckedChangeListener { buttonView, isChecked ->
+                setOnCheckedChangeListener { _, isChecked ->
                     if (isChecked) {
 
                         notificationOn = true
@@ -117,16 +111,10 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNo
         super.onStop()
 
         if (notificationOn && !emptyList) {
-            val appSharedPrefs =
-                PreferenceManager.getDefaultSharedPreferences(context?.applicationContext)
-            val prefsEditor = appSharedPrefs.edit()
-            val gson = Gson()
             val pair = Pair(notificationOn && !emptyList,
                 setRepeatTime * timeStepMinutes)
-            val json = gson.toJson(pair)
-            prefsEditor.putString(NOTIFICATION_SETTINGS, json)
-            prefsEditor.apply()
 
+            model.setSettingsForNotificator(pair)
             registrateNotification()
             activity?.applicationContext?.startForegroundService(intentService)
         } else {
@@ -164,9 +152,7 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNo
                                 emptyList = false
                                 emptyListText.visibility = View.GONE
                                 cardLayout.visibility = View.VISIBLE
-                                val database = Firebase.database
-                                val myRef = database.getReference(REFERENCE)
-                                myRef.setValue(it)
+                                model.saveInFireBaseDatabase(it)
                             } else {
                                 doEmptyList()
                             }

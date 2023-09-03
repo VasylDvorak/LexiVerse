@@ -2,7 +2,6 @@ package com.diplomproject.view.main_fragment
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -31,7 +30,6 @@ const val LIST_KEY = "list_key"
 class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     override lateinit var model: MainViewModel
-    private lateinit var preferences: SharedPreferences
     private var dataWithFavorite: List<DataModel> = listOf()
     private val observer = Observer<AppState> { renderData(it) }
     private val mainFragmentRecyclerview by viewById<RecyclerView>(R.id.main_activity_recyclerview)
@@ -69,15 +67,13 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
         initViewModel()
         initViews()
         model.getRestoredData()?.let { renderData(it) }
-
-        preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val listFromSharedPreferences: List<DataModel> by SharedPreferencesDelegate(LIST_KEY)
         if (!listFromSharedPreferences.isNullOrEmpty()) {
             dataWithFavorite = listFromSharedPreferences
             updateAdapter(listFromSharedPreferences)
         }
-
     }
+
 
     private fun initViewModel() {
         if (mainFragmentRecyclerview.adapter != null) {

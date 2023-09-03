@@ -47,7 +47,9 @@ class FavoriteViewModel(var interactor: FavoriteInteractor) :
             )
         }
     }
-
+   fun saveInFireBaseDatabase(listDataModels: List<DataModel>){
+       interactor.saveInFireBaseDatabase(listDataModels)
+   }
     fun playContentUrl(url: String) {
         interactor.playContentUrl(url)
     }
@@ -55,6 +57,8 @@ class FavoriteViewModel(var interactor: FavoriteInteractor) :
     fun releaseMediaPlayer() {
         interactor.releaseMediaPlayer()
     }
-
+    fun setSettingsForNotificator(pair: Pair<Boolean, Int>){
+        interactor.setSettingsForNotificator(pair)
+    }
 }
 
