@@ -74,8 +74,14 @@ class DescriptionViewModel(var interactor: DescriptionInteractor) : ViewModel() 
                 .flatMapLatest { query ->
                     dataFromNetwork(query)
                         .catch {
-                            emit(DescriptionAppState.Error(Throwable(contextApp
-                                .getString(R.string.error_message))))
+                            emit(
+                                DescriptionAppState.Error(
+                                    Throwable(
+                                        contextApp
+                                            .getString(R.string.error_message)
+                                    )
+                                )
+                            )
                         }
                 }
                 .filterNotNull()
@@ -103,5 +109,13 @@ class DescriptionViewModel(var interactor: DescriptionInteractor) : ViewModel() 
 
     protected fun cancelJob() {
         queryStateFlow = MutableStateFlow(Pair(listOf(), true))
+    }
+
+    fun playContentUrl(url: String) {
+        interactor.playContentUrl(url)
+    }
+
+    fun releaseMediaPlayer() {
+        interactor.releaseMediaPlayer()
     }
 }

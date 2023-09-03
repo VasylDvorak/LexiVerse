@@ -7,10 +7,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.media.AudioManager
-import android.media.MediaPlayer
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
 import android.widget.RemoteViews
 import com.diplomproject.R
@@ -21,7 +18,6 @@ import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.IOException
 
 
 private const val CHANGE_WORD = "CHANGE_WORD"
@@ -29,11 +25,8 @@ private const val PLAY_PRONUNCIATION = "PLAY_PRONUNCIATION"
 private const val START_DICTIONARY_ACTIVITY_FOR_DESCRIPTION =
     "START_DICTIONARY_ACTIVITY_FOR_DESCRIPTION "
 private const val START_DICTIONARY_ACTIVITY_FOR_SEARCH = "START_DICTIONARY_ACTIVITY_FOR_SEARCH "
-private const val COUNT_DOWN_INTERVAL = 100L
 
 class WidgetForDictionary : AppWidgetProvider() {
-
-    var mMediaPlayer: MediaPlayer? = null
 
     private val widgetLoader by lazy { WidgetLoader() }
 
@@ -50,7 +43,9 @@ class WidgetForDictionary : AppWidgetProvider() {
             PLAY_PRONUNCIATION -> {
                 widgetLoader.readCurrentData()
                     ?.let {
-                        it.meanings?.get(0)?.soundUrl?.let { url -> playContentUrl(url, context) }
+                        it.meanings?.get(0)?.soundUrl?.let { url ->
+                            widgetLoader.playContentUrl(url)
+                        }
                     }
             }
 
@@ -176,65 +171,14 @@ class WidgetForDictionary : AppWidgetProvider() {
     }
 
     override fun onDisabled(context: Context?) {
-        releaseMediaPlayer()
+        widgetLoader.releaseMediaPlayer()
         super.onDisabled(context)
     }
 
     override fun onDeleted(context: Context?, appWidgetIds: IntArray?) {
-        releaseMediaPlayer()
+        widgetLoader.releaseMediaPlayer()
         super.onDeleted(context, appWidgetIds)
     }
-
-    fun playContentUrl(url: String, context: Context) {
-
-        val audioManager = context.applicationContext
-            .getSystemService(Context.AUDIO_SERVICE) as AudioManager
-
-        mMediaPlayer = MediaPlayer()
-        if (audioManager.isStreamMute(AudioManager.STREAM_MUSIC)) {
-            mMediaPlayer = null
-        } else {
-            mMediaPlayer?.apply {
-                try {
-                    setDataSource(url)
-                    setAudioStreamType(AudioManager.STREAM_MUSIC)
-                    setOnPreparedListener { start() }
-                    prepareAsync()
-                } catch (exception: IOException) {
-                    releaseMediaPlayer()
-                    null
-                }
-            }
-
-            val lengthPlaying = mMediaPlayer!!.duration.toLong()
-            val timerMute = object : CountDownTimer(lengthPlaying, COUNT_DOWN_INTERVAL) {
-                override fun onTick(millisUntilFinished: Long) {}
-
-                override fun onFinish() {
-                    audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true)
-                    val timer = object : CountDownTimer(lengthPlaying, COUNT_DOWN_INTERVAL) {
-                        override fun onTick(millisUntilFinished: Long) {}
-                        override fun onFinish() {
-                            audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false)
-                        }
-                    }
-                    timer.start()
-                }
-            }
-            timerMute.start()
-
-        }
-    }
-
-
-    fun releaseMediaPlayer() {
-        if (mMediaPlayer?.isPlaying == true) {
-            mMediaPlayer?.stop()
-            mMediaPlayer?.release()
-            mMediaPlayer = null
-        }
-    }
-
 
 }
 

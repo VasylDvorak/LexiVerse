@@ -1,5 +1,6 @@
 package com.diplomproject.view.favorite
 
+import android.media.MediaPlayer
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.model.repository.RepositoryLocal
@@ -13,6 +14,7 @@ class FavoriteInteractor(
     val repositoryLocal: RepositoryLocal<List<DataModel>>
 ) : Interactor<AppState> {
 
+    override var mMediaPlayer: MediaPlayer? = null
     override suspend fun getData(word: String, fromRemoteSource: Boolean): Flow<AppState> {
         return MutableStateFlow(
             AppState.Success(
@@ -38,5 +40,4 @@ class FavoriteInteractor(
             listFromSharedPreferences = saveToSharedPreference
         }
     }
-
 }

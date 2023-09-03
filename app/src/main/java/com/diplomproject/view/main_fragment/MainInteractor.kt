@@ -1,5 +1,6 @@
 package com.diplomproject.view.main_fragment
 
+import android.media.MediaPlayer
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.model.repository.Repository
@@ -12,6 +13,7 @@ class MainInteractor(
     var repositoryRemote: Repository<List<DataModel>>,
     var repositoryLocal: RepositoryLocal<List<DataModel>>
 ) : Interactor<AppState> {
+    override var mMediaPlayer: MediaPlayer? = null
 
     override suspend fun getData(word: String, fromRemoteSource: Boolean): StateFlow<AppState> {
         var appState: AppState

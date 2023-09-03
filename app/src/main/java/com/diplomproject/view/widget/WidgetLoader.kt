@@ -1,16 +1,27 @@
 package com.diplomproject.view.widget
 
+import android.content.Context
+import android.media.AudioManager
 import android.preference.PreferenceManager
 import com.diplomproject.model.data_word_request.DataModel
+import com.diplomproject.utils.PronunciationPlayer
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.google.gson.Gson
 import org.koin.java.KoinJavaComponent
+import org.koin.mp.KoinPlatform.getKoin
 
 private const val OLD_DATA = "OLD_DATA"
 private const val COUNTER = "COUNTER"
 const val NEW_DATA = "NEW_DATA"
 
 class WidgetLoader {
+
+    val pronunciationPlayer by lazy {
+        PronunciationPlayer(
+            getKoin().get<Context>().applicationContext
+                .getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        )
+    }
 
     private val sharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(
@@ -77,5 +88,13 @@ class WidgetLoader {
 
     fun readCounter(callingKey: String): Int {
         return sharedPreferences.getInt(callingKey, 0)
+    }
+
+    fun playContentUrl(url: String) {
+        pronunciationPlayer.playContentUrl(url)
+    }
+
+    fun releaseMediaPlayer() {
+        pronunciationPlayer.releaseMediaPlayer()
     }
 }

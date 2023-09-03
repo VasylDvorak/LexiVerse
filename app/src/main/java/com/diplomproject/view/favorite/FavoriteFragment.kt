@@ -9,10 +9,8 @@ import com.diplomproject.databinding.FragmentFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.favoriteScreenScope
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
-import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.utils.ui.viewById
 import com.diplomproject.view.base_fragment_dictionary.BaseFragment
-import com.diplomproject.view.main_fragment.LIST_KEY
 
 class FavoriteFragment : BaseFragment<AppState,
         FragmentFavoriteBinding>(FragmentFavoriteBinding::inflate) {
@@ -49,7 +47,7 @@ class FavoriteFragment : BaseFragment<AppState,
     }
 
     private fun onPlayClick(url: String) {
-        playContentUrl(url)
+        model.playContentUrl(url)
     }
 
 
@@ -99,6 +97,10 @@ class FavoriteFragment : BaseFragment<AppState,
         )
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        model.releaseMediaPlayer()
+    }
     companion object {
         fun newInstance() = FavoriteFragment()
     }
