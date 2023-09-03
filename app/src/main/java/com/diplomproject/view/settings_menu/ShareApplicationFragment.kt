@@ -34,7 +34,8 @@ class ShareApplicationFragment : BaseFragmentSettingsMenu<FragmentShareBinding>(
             imageViewShareLink.setOnClickListener {
                 val clipboardManager =
                     requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                val clipData = ClipData.newPlainText("Label", getString(R.string.download_link))
+                val clipData = ClipData.newPlainText("Label",
+                    getString(R.string.download_link))
                 clipboardManager.setPrimaryClip(clipData)
                 Toast.makeText(context, getString(R.string.copy_toast), Toast.LENGTH_LONG)
                     .show()

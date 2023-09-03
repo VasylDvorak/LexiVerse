@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
 import android.widget.SeekBar
+import androidx.annotation.RequiresApi
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentSettingsNotificationBinding
 import com.diplomproject.di.ConnectKoinModules
@@ -44,6 +45,7 @@ class SettingsNotificationFragment : BaseFragmentSettingsMenu<FragmentSettingsNo
     private var setRepeatTime = minimum
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         context?.applicationContext?.stopService(intentService)
