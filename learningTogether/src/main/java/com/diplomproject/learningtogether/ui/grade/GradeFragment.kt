@@ -11,6 +11,7 @@ import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.ViewBindingFragment
 import com.diplomproject.learningtogether.databinding.FragmentGradeBinding
 import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
+import com.diplomproject.learningtogether.domain.interactor.AnswerPercentInteractor
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
@@ -25,7 +26,8 @@ import java.util.Locale
 class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
     FragmentGradeBinding::inflate
 ) {
-    private val answer: AnswerCounterInteractor by inject()
+    private val answerCounter: AnswerCounterInteractor by inject()
+    private val answerPercent: AnswerPercentInteractor by inject()
 
     private var rightBarEntries = listOf<BarEntry>()
     private var wrongBarEntries = listOf<BarEntry>()
@@ -66,24 +68,24 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
 
         rightBarEntries = listOf<BarEntry>(
 
-            BarEntry(7f, answer.getRightCounter(today).toFloat()),
-            BarEntry(6f, answer.getRightCounter(yesterday1).toFloat()),
-            BarEntry(5f, answer.getRightCounter(yesterday2).toFloat()),
-            BarEntry(4f, answer.getRightCounter(yesterday3).toFloat()),
-            BarEntry(3f, answer.getRightCounter(yesterday4).toFloat()),
-            BarEntry(2f, answer.getRightCounter(yesterday5).toFloat()),
-            BarEntry(1f, answer.getRightCounter(yesterday6).toFloat())
+            BarEntry(7f, answerPercent.getRightPercent(today).toFloat()),
+            BarEntry(6f, answerPercent.getRightPercent(yesterday1).toFloat()),
+            BarEntry(5f, answerPercent.getRightPercent(yesterday2).toFloat()),
+            BarEntry(4f, answerPercent.getRightPercent(yesterday3).toFloat()),
+            BarEntry(3f, answerPercent.getRightPercent(yesterday4).toFloat()),
+            BarEntry(2f, answerPercent.getRightPercent(yesterday5).toFloat()),
+            BarEntry(1f, answerPercent.getRightPercent(yesterday6).toFloat())
         )
 
         wrongBarEntries = listOf<BarEntry>(
 
-            BarEntry(7f, answer.getWrongCounter(today).toFloat()),
-            BarEntry(6f, answer.getWrongCounter(yesterday1).toFloat()),
-            BarEntry(5f, answer.getWrongCounter(yesterday2).toFloat()),
-            BarEntry(4f, answer.getWrongCounter(yesterday3).toFloat()),
-            BarEntry(3f, answer.getWrongCounter(yesterday4).toFloat()),
-            BarEntry(2f, answer.getWrongCounter(yesterday5).toFloat()),
-            BarEntry(1f, answer.getWrongCounter(yesterday6).toFloat())
+            BarEntry(7f, answerPercent.getWrongPercent(today).toFloat()),
+            BarEntry(6f, answerPercent.getWrongPercent(yesterday1).toFloat()),
+            BarEntry(5f, answerPercent.getWrongPercent(yesterday2).toFloat()),
+            BarEntry(4f, answerPercent.getWrongPercent(yesterday3).toFloat()),
+            BarEntry(3f, answerPercent.getWrongPercent(yesterday4).toFloat()),
+            BarEntry(2f, answerPercent.getWrongPercent(yesterday5).toFloat()),
+            BarEntry(1f, answerPercent.getWrongPercent(yesterday6).toFloat())
         )
     }
 
@@ -202,7 +204,7 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
                 AlertDialog.Builder(requireContext())
                     .setTitle(getString(R.string.delete_data_text))
                     .setPositiveButton(getString(R.string.yes)) { dialogInterface: DialogInterface, i: Int ->
-                        answer.resetCounters()
+                        answerCounter.resetCounters()
                         dialogInterface.dismiss()
                         getData()
                         dataChar()

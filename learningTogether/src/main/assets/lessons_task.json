@@ -1475,20 +1475,6 @@
             "favourites": false
           },
           {
-            "id": 10010416,
-            "task": "Bottom",
-            "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fbottom.png?alt=media&token=bd80cfe1-afb9-4124-8f85-374610ad0dd0",
-            "right_answer": "Зад",
-            "variants_answer": [
-              "Зад",
-              "Попа",
-              "Бедра",
-              "Туловище"
-            ],
-            "level": 2,
-            "favourites": false
-          },
-          {
             "id": 10010417,
             "task": "Cheek",
             "task_image_url": "https://firebasestorage.googleapis.com/v0/b/learningtogether-f18a6.appspot.com/o/Cours2%2FLesson2_3%2Fcheek.png?alt=media&token=32472576-94b4-4346-ace0-1f52a9b2e09c",
