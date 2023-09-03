@@ -104,5 +104,11 @@ class MainViewModel(var interactor: MainInteractor) : BaseViewModel<AppState>() 
             )
         }
     }
+    fun playContentUrl(url: String) {
+        interactor.playContentUrl(url)
+    }
 
+    fun releaseMediaPlayer() {
+        interactor.releaseMediaPlayer()
+    }
 }

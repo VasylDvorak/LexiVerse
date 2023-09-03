@@ -1,7 +1,6 @@
 package com.diplomproject.view.settings_menu
 
 import android.animation.Animator
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +21,6 @@ abstract class BaseFragmentSettingsMenu<B : ViewBinding>(
     private var _binding: B? = null
     protected val binding: B
         get() = _binding!!
-    var mMediaPlayer: MediaPlayer? = null
     val router: Router by KoinJavaComponent.inject(Router::class.java)
     val screen = KoinJavaComponent.getKoin().get<IScreens>()
     protected var isNetworkAvailable: Boolean = false

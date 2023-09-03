@@ -194,6 +194,3 @@ fun converterDataModelToFavoriteEntity(sourse: DataModel): FavoriteEntity {
     )
 
 }
-
-
-

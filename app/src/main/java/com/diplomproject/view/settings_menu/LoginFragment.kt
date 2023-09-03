@@ -78,7 +78,8 @@ class LoginFragment : BaseFragmentSettingsMenu<FragmentLoginBinding>(
                     val truncatedText = charSequence.toString().substring(0, MAX_CHARACTERS)
                     editText.setText(truncatedText)
                     editText.setSelection(MAX_CHARACTERS)
-                    Toast.makeText(requireContext(), getString(R.string.restriction_text), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.restriction_text),
+                        Toast.LENGTH_SHORT).show()
                 }
             }
 

@@ -50,9 +50,11 @@ class SettingsFragment : ViewBindingFragment<FragmentSettingsBinding>(
 
     private fun loadAuthorizedFragment(){
         if(auth?.currentUser != null) {// если пользователь авторизован, то загружаем первый вариант подфрагмента, если нет, то второй
-            fragmentManager?.beginTransaction()?.replace(R.id.container_authorized, AuthorizedFragment(auth?.currentUser?.email ?: ""))?.commit()
+            fragmentManager?.beginTransaction()?.replace(R.id.container_authorized,
+                AuthorizedFragment(auth?.currentUser?.email ?: ""))?.commit()
         }else{
-            fragmentManager?.beginTransaction()?.replace(R.id.container_authorized, NotAuthorizedFragment())?.commit()
+            fragmentManager?.beginTransaction()?.replace(R.id.container_authorized,
+                NotAuthorizedFragment())?.commit()
         }
     }
 

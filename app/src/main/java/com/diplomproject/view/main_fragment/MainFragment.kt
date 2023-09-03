@@ -59,7 +59,7 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
     }
 
     private fun onPlayClick(url: String) {
-        playContentUrl(url)
+        model.playContentUrl(url)
     }
 
 
@@ -191,6 +191,7 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
                         }
                         return true
                     }
+
                     @RequiresApi(Build.VERSION_CODES.N)
                     override fun onQueryTextChange(newText: String?): Boolean {
                         return false
@@ -201,12 +202,18 @@ class MainFragment : BaseFragment<AppState, FragmentMainBinding>(FragmentMainBin
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        model.releaseMediaPlayer()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.favorite -> {
                 router.navigateTo(screen.startFavoriteFragment())
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

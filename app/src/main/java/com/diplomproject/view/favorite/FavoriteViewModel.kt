@@ -48,5 +48,13 @@ class FavoriteViewModel(var interactor: FavoriteInteractor) :
         }
     }
 
+    fun playContentUrl(url: String) {
+        interactor.playContentUrl(url)
+    }
+
+    fun releaseMediaPlayer() {
+        interactor.releaseMediaPlayer()
+    }
+
 }
 

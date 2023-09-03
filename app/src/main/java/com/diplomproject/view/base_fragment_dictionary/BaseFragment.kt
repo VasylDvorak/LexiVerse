@@ -2,8 +2,6 @@ package com.diplomproject.view.base_fragment_dictionary
 
 
 import android.animation.Animator
-import android.media.AudioManager
-import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -37,7 +35,6 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
 
     private val gson = Gson()
 
-    var mMediaPlayer: MediaPlayer? = null
     private var snack: Snackbar? = null
     protected var isNetworkAvailable: Boolean = false
     private val checkConnection: OnlineRepository by inject()
@@ -121,31 +118,6 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
         }
     }
 
-    fun playContentUrl(url: String) {
-        mMediaPlayer = MediaPlayer()
-        mMediaPlayer?.apply {
-            try {
-                setDataSource(url)
-                setAudioStreamType(AudioManager.STREAM_MUSIC)
-                setOnPreparedListener { start() }
-                prepareAsync()
-            } catch (exception: Exception) {
-                release()
-                null
-            }
-        }
-    }
-
-    fun releaseMediaPlayer() {
-        mMediaPlayer?.apply {
-            if (isPlaying == true) {
-                stop()
-                release()
-                mMediaPlayer = null
-            }
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -162,7 +134,6 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        releaseMediaPlayer()
     }
 
     companion object {

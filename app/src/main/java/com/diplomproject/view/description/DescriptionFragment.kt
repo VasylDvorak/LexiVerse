@@ -1,9 +1,6 @@
 package com.diplomproject.view.description
 
-import android.animation.Animator
 import android.graphics.drawable.Drawable
-import android.media.AudioManager
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -26,17 +23,16 @@ import com.diplomproject.model.data_description_request.DescriptionAppState
 import com.diplomproject.model.data_description_request.Example
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.utils.ui.viewById
-import com.diplomproject.view.AnimatorDictionary
 import com.diplomproject.view.OnlineRepository
 import com.diplomproject.view.settings_menu.BaseFragmentSettingsMenu
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
-import java.io.IOException
 
 private const val delayForButtom = 400L
 
 private const val delayImage = 1000
 const val CURRENT_DATA_MODEl = "current_data_model"
+
 class DescriptionFragment :
     BaseFragmentSettingsMenu<FragmentDescriptionBinding>(FragmentDescriptionBinding::inflate) {
 
@@ -53,7 +49,7 @@ class DescriptionFragment :
 
 
     private fun onPlayClick(url: String) {
-        playContentUrl(url)
+        model.playContentUrl(url)
     }
 
 
@@ -95,7 +91,7 @@ class DescriptionFragment :
                         postDelayed({ isEnabled = true }, delayForButtom)
                     }
                     currentDataModel.meanings?.get(0)?.soundUrl?.let { soundUrl ->
-                        playContentUrl(soundUrl)
+                        model.playContentUrl(soundUrl)
                     }
                 }
                 val imageLink = currentDataModel.meanings?.get(0)?.imageUrl
@@ -166,21 +162,6 @@ class DescriptionFragment :
     }
 
 
-    fun playContentUrl(url: String) {
-        mMediaPlayer = MediaPlayer()
-        mMediaPlayer?.apply {
-            try {
-                setDataSource(url)
-                setAudioStreamType(AudioManager.STREAM_MUSIC)
-                setOnPreparedListener { start() }
-                prepareAsync()
-            } catch (exception: IOException) {
-                release()
-                null
-            }
-        }
-    }
-
     private fun useGlideToLoadPhoto(imageView: ImageView, imageLink: String) {
         Glide.with(this)
             .load("https:$imageLink")
@@ -215,20 +196,9 @@ class DescriptionFragment :
             .into(imageView)
     }
 
-
-    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return AnimatorDictionary().setAnimator(transit, enter)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
-        mMediaPlayer?.apply {
-            if (isPlaying == true) {
-                stop()
-                release()
-                mMediaPlayer = null
-            }
-        }
+        model.releaseMediaPlayer()
     }
 
     companion object {
