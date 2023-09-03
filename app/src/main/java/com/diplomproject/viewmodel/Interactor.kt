@@ -4,7 +4,6 @@ package com.diplomproject.viewmodel
 import android.media.AudioManager
 import android.media.MediaPlayer
 import com.diplomproject.model.data_word_request.DataModel
-import com.diplomproject.model.datasource.AppState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
@@ -16,7 +15,6 @@ interface Interactor<T : Any> {
     suspend fun getWordFromDB(word: String): Flow<DataModel> = flow {}
     suspend fun putFavorite(favorite: DataModel) {}
     suspend fun removeFavoriteItem(removeFavorite: DataModel) {}
-    suspend fun updateHistory(word: String, inFavoriteList: Boolean){}
     fun playContentUrl( url: String) {
         mMediaPlayer = MediaPlayer()
         mMediaPlayer?.apply {
