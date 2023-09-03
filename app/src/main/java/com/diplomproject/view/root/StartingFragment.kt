@@ -1,5 +1,6 @@
 package com.diplomproject.view.root
 
+import android.animation.Animator
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,10 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
         super.onViewCreated(view, savedInstanceState)
 
         initButton()
+    }
+
+    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
+        return null
     }
 
     private fun initButton() {
