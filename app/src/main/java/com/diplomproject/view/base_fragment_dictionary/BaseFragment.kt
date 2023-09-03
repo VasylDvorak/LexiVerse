@@ -155,9 +155,9 @@ abstract class BaseFragment<T : AppState, B : ViewBinding>(
         return binding.root
     }
 
-    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return AnimatorDictionary().setAnimator(transit, enter)
-    }
+//    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
+//        return AnimatorDictionary().setAnimator(transit, enter)
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

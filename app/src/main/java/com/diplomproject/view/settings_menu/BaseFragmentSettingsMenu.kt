@@ -40,8 +40,8 @@ abstract class BaseFragmentSettingsMenu<B : ViewBinding>(
         _binding = null
     }
 
-    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return AnimatorDictionary().setAnimator(transit, enter)
-    }
+//    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
+//        return AnimatorDictionary().setAnimator(transit, enter)
+//    }
 
 }

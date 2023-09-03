@@ -21,9 +21,9 @@ abstract class ViewBindingFragment<T : ViewBinding>(
     val router: Router by KoinJavaComponent.inject(Router::class.java)
     val screen = KoinJavaComponent.getKoin().get<IScreens>()
 
-    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return AnimatorDictionary().setAnimator(transit, enter)
-    }
+//    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
+//        return AnimatorDictionary().setAnimator(transit, enter)
+//    }
 
     private var _binding: T? = null
 
