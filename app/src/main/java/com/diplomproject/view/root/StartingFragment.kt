@@ -16,9 +16,7 @@ class StartingFragment : ViewBindingFragment<FragmentStartingBinding>(
         initButton()
     }
 
-    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? {
-        return null
-    }
+    override fun onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int): Animator? = null
 
     private fun initButton() {
         binding.apply {
