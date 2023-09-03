@@ -13,7 +13,6 @@ import com.diplomproject.R
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.view.DictionaryActivity
 import com.diplomproject.view.SHOW_DETAILS
-import com.diplomproject.view.favorite.NOTIFICATION_SETTINGS
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.GenericTypeIndicator
@@ -28,6 +27,7 @@ import java.lang.reflect.Type
 const val REFERENCE = "REFERENCE"
 const val delayFactor = 60000
 const val CHANNEL_ID = "channel_id"
+const val NOTIFICATION_SETTINGS = "NOTIFICATION_SETTINGS"
 class NotificationService : Service() {
 
     val database = Firebase.database

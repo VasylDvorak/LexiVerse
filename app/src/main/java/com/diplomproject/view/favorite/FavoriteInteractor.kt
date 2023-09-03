@@ -8,6 +8,7 @@ import com.diplomproject.model.datasource.AppState
 import com.diplomproject.model.repository.RepositoryLocal
 import com.diplomproject.utils.network.SharedPreferencesDelegate
 import com.diplomproject.view.main_fragment.LIST_KEY
+import com.diplomproject.view.notification.NOTIFICATION_SETTINGS
 import com.diplomproject.view.notification.REFERENCE
 import com.diplomproject.viewmodel.Interactor
 import com.google.firebase.database.ktx.database
@@ -17,7 +18,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.koin.mp.KoinPlatform.getKoin
 
-const val NOTIFICATION_SETTINGS = "NOTIFICATION_SETTINGS"
 class FavoriteInteractor(
     val repositoryLocal: RepositoryLocal<List<DataModel>>
 ) : Interactor<AppState> {
