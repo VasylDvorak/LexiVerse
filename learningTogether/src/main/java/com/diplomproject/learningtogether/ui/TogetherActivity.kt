@@ -38,23 +38,23 @@ class TogetherActivity : ViewBindingActivity<ActivityTogetherBinding>(
         setContentView(R.layout.activity_together)
         title = defaultTitle
         flagLearningOrTest = intent.getBooleanExtra(LEARNING_TOGETHER_REQUEST_KOD, false)
-        remoteStartFavorite()
-        if (savedInstanceState == null)
+
+        val startFavorite = intent.getBooleanExtra(
+            Key.START_FAVORITES_FRAGMENT,
+            false
+        )
+
+        if (startFavorite) {
+            intent.putExtra(Key.START_FAVORITES_FRAGMENT, false)
+            openFavourite()
+        } else if (savedInstanceState == null) {
             openCourses(flagLearningOrTest)
+        }
 
         title = if (flagLearningOrTest) {
             getString(R.string.learning_together)
         } else {
             getString(R.string.knowledge_check)
-        }
-    }
-
-    private fun remoteStartFavorite() {
-        val startFavorite = intent.getBooleanExtra(Key.START_FAVORITES_FRAGMENT,
-            false)
-        if (startFavorite) {
-            intent.putExtra(Key.START_FAVORITES_FRAGMENT, false)
-            openFavourite()
         }
     }
 

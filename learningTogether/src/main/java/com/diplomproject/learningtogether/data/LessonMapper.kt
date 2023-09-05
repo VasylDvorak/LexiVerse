@@ -14,14 +14,18 @@ import com.diplomproject.learningtogether.domain.entities.LessonEntity
  * специальных выражений, называемых расширения.
  */
 
-fun LessonEntity.mapToFavoriteLesson(isFavorite: Boolean = false): FavoriteLessonEntity {
+fun LessonEntity.mapToFavoriteLesson(
+    isFavorite: Boolean = false,
+    courseId: Long
+): FavoriteLessonEntity {
     return FavoriteLessonEntity(
         id = this.id,
         name = name,
         imageUrl = imageUrl,
         victoryImageUrl = victoryImageUrl,
         tasks = ArrayList(tasks),//сделали копию листа
-        isFavorite = isFavorite
+        isFavorite = isFavorite,
+        courseId = courseId
     )
 }
 
@@ -31,7 +35,7 @@ fun CourseEntity.mapToCourseWithFavoriteLessonEntity(): CourseWithFavoriteLesson
         name = name,
         logoUrl = logoUrl,
         //у lessons другой тип, поэтому делаем преобразование к соответствующему типу
-        lessons = lessons.map { it.mapToFavoriteLesson() }.toMutableList()
+        lessons = lessons.map { it.mapToFavoriteLesson(courseId = id) }.toMutableList()
         //берем список, для каждого члена списка применяем преобразование -> it.mapToFavoriteLesson(),
         // долее превращаем в общий список -> toMutableList()
         // Очень важный момент - не передаем факт избранности

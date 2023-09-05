@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,9 +50,6 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
         viewModel.selectedLessonsLiveData.observe(viewLifecycleOwner) {
             getController().openLesson(courseId, it)
         }
-
-        view.findViewById<TextView>(R.id.fragment_id_text_view).text = courseId.toString()
-        view.findViewById<TextView>(R.id.fragment_id_text_view).visibility = View.GONE
     }
 
     private fun initViews(view: View) {

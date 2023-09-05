@@ -33,7 +33,11 @@ class FavoriteRepoImpl : FavoriteLessonsRepo {
     }
 
     override fun isFavorite(courseId: Long, lessonId: Long): Boolean {
-        val lessonId = LessonIdEntity(courseId, lessonId)
-        return data.contains(lessonId)// проверяем элемент (если такой элемемент содержится, возвращаем true)
+        return data.contains(
+            LessonIdEntity(
+                courseId = courseId,
+                lessonId = lessonId
+            )
+        )
     }
 }

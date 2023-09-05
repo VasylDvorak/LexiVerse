@@ -8,6 +8,7 @@ import com.diplomproject.learningtogether.domain.entities.TaskEntity
 import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
 import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.domain.repos.CoursesRepo
+import com.diplomproject.learningtogether.domain.repos.MeaningRepo
 import com.diplomproject.learningtogether.utils.SingleLiveEvent
 
 class TaskViewModel(
@@ -15,7 +16,8 @@ class TaskViewModel(
     private val courseId: Long,
     private val lessonId: Long,
     private val favoriteInteractor: FavoriteInteractor,
-    private val answerCounterInteractor: AnswerCounterInteractor
+    private val answerCounterInteractor: AnswerCounterInteractor,
+    private val meaningRepo: MeaningRepo
 ) : ViewModel() {
 
     var currentValueIndex = 0
@@ -50,6 +52,7 @@ class TaskViewModel(
                     tasks = it.tasks
                     tasksValue = it.tasks.size
                     tasksLiveData.mutable().postValue(getNextTask())
+//                    postTaskByIndex(getNextTask()!!.task.lastIndex)
                 }
             }
         }
@@ -73,11 +76,13 @@ class TaskViewModel(
                 selectedSuccessLiveData.mutable().postValue(Unit)
             } else {
                 tasksLiveData.mutable().postValue(taskEntity)
+//                postTaskByIndex(taskEntity.level)
             }
-
             answerCounterInteractor.logRightAnswer()
 
+
         } else {
+
             answerCounterInteractor.logErrorAnswer()
             negativeTasksIndex = negativeIndex + 1
             wrongAnswerLiveData.mutable().postValue(Unit)
@@ -86,8 +91,10 @@ class TaskViewModel(
                 selectedSuccessLiveData.mutable().postValue(Unit)
             } else {
                 tasksLiveData.mutable().postValue(taskEntity)
+//                postTaskByIndex(taskEntity.level)
             }
         }
+
     }
 
     private fun checkingAnswer(userAnswer: String, rightAnswer: String): Boolean {
@@ -98,6 +105,7 @@ class TaskViewModel(
     private fun getNextTask(): TaskEntity? {
         val nextTask = tasks.randomOrNull()
         tasks.remove(nextTask)
+//        postTaskByIndex(tasks.lastIndex)
         return nextTask
     }
 
@@ -107,5 +115,14 @@ class TaskViewModel(
 
     fun onLikeClick() {
         favoriteInteractor.changeLike(LessonIdEntity(courseId, lessonId))
+    }
+
+    private fun postTaskByIndex(index: Int) {
+        val task = tasks[index]
+
+        meaningRepo.getImageUrl(task.task) {
+            task.taskImageUrl = it
+            tasksLiveData.mutable().postValue(task)
+        }
     }
 }

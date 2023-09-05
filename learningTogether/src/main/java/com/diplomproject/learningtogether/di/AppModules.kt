@@ -13,6 +13,7 @@ package com.diplomproject.learningtogether.di
  * get - ходит по всем зависимостям и ищит ту зависимость которая поможет ему вернуть значение.
  */
 
+import androidx.room.Room
 import com.diplomproject.learningtogether.data.AnswerCounterInteractorImpl
 import com.diplomproject.learningtogether.data.AnswerPercentInteractorImpl
 import com.diplomproject.learningtogether.data.AssetsCoursesRepoImpl
@@ -21,6 +22,9 @@ import com.diplomproject.learningtogether.data.FavoriteInteractionImpl
 import com.diplomproject.learningtogether.data.FavoriteRepoImpl
 import com.diplomproject.learningtogether.data.GradeEvaluatorImpl
 import com.diplomproject.learningtogether.data.retrofit.MeaningRetrofitImpl
+import com.diplomproject.learningtogether.data.room.AppDataBase
+import com.diplomproject.learningtogether.data.room.FavoriteLessonDao
+import com.diplomproject.learningtogether.data.room.RoomFavoriteTestsRepoImpl
 import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
 import com.diplomproject.learningtogether.domain.interactor.AnswerPercentInteractor
 import com.diplomproject.learningtogether.domain.interactor.CoursesWithFavoriteLessonInteractor
@@ -60,6 +64,18 @@ val appModuleLearningTogether = module {
 
     single<GradeEvaluator> { GradeEvaluatorImpl() }
 
+    single<AppDataBase> {
+        Room.databaseBuilder(
+            get(),
+            AppDataBase::class.java,
+            "database"
+        ).allowMainThreadQueries().build()
+    }
+
+    /** FavoriteLesson */
+    single<FavoriteLessonDao> { get<AppDataBase>().favoriteLessonDao() }
+    single<FavoriteLessonsRepo> { RoomFavoriteTestsRepoImpl(get()) }
+
     //секция viewModel
     viewModel { CoursesViewModel(get()) }
     viewModel { parameters -> LessonsViewModel(get(), parameters.get()) }
@@ -68,6 +84,7 @@ val appModuleLearningTogether = module {
             get(),
             courseId = parameters[0],
             lessonId = parameters[1],
+            get(),
             get(),
             get()
         )

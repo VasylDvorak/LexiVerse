@@ -55,7 +55,7 @@ class CoursesWithFavoriteLessonInteractorImpl(
         val isFavorite =
             favoriteLessonsRepo.isFavorite(courseId, lessonId)//получаем информацию какой урок
         coursesRepo.getLesson(courseId, lessonId) {
-            onSuccess(it?.mapToFavoriteLesson(isFavorite))
+            onSuccess(it?.mapToFavoriteLesson(isFavorite, courseId))
         }
     }
 }
