@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentLoginBinding
+import com.diplomproject.view.base_for_dictionary.BaseFragmentSettingsMenu
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : BaseFragmentSettingsMenu<FragmentLoginBinding>(

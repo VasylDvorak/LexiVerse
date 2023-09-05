@@ -1,9 +1,9 @@
-package com.diplomproject.model.datasource
+package com.diplomproject.model.room
 
 import com.diplomproject.model.data_description_request.DataModelId
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.repository.RepositoryDataSourceLocal
-import com.diplomproject.room.favorite.FavoriteDao
+import com.diplomproject.model.room.favorite.FavoriteDao
 import com.diplomproject.utils.converterDataModelToFavoriteEntity
 import com.diplomproject.utils.mapFavoriteEntityToSearchResult
 

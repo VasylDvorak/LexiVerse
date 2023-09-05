@@ -9,8 +9,8 @@ import com.diplomproject.databinding.FragmentFavoriteBinding
 import com.diplomproject.di.ConnectKoinModules.favoriteScreenScope
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
-import com.diplomproject.utils.ui.viewById
-import com.diplomproject.view.base_fragment_dictionary.BaseFragment
+import com.diplomproject.utils.delegates.viewById
+import com.diplomproject.view.base_for_dictionary.BaseFragment
 
 class FavoriteFragment : BaseFragment<AppState,
         FragmentFavoriteBinding>(FragmentFavoriteBinding::inflate) {

@@ -4,8 +4,8 @@ import android.content.Context
 import android.media.AudioManager
 import android.preference.PreferenceManager
 import com.diplomproject.model.data_word_request.DataModel
-import com.diplomproject.utils.PronunciationPlayer
-import com.diplomproject.utils.network.SharedPreferencesDelegate
+import com.diplomproject.domain.PronunciationPlayer
+import com.diplomproject.utils.delegates.SharedPreferencesDelegate
 import com.google.gson.Gson
 import org.koin.java.KoinJavaComponent
 import org.koin.mp.KoinPlatform.getKoin

@@ -1,4 +1,4 @@
-package com.diplomproject.view.base_fragment_dictionary
+package com.diplomproject.view.base_for_dictionary
 
 
 import android.animation.Animator
@@ -16,7 +16,6 @@ import com.diplomproject.navigation.IScreens
 import com.diplomproject.utils.ui.AlertDialogFragment
 import com.diplomproject.view.AnimatorDictionary
 import com.diplomproject.view.OnlineRepository
-import com.diplomproject.viewmodel.BaseViewModel
 import com.github.terrakok.cicerone.Router
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson

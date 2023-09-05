@@ -20,9 +20,9 @@ import com.diplomproject.databinding.FragmentMainBinding
 import com.diplomproject.di.ConnectKoinModules.mainScreenScope
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
-import com.diplomproject.utils.network.SharedPreferencesDelegate
-import com.diplomproject.utils.ui.viewById
-import com.diplomproject.view.base_fragment_dictionary.BaseFragment
+import com.diplomproject.utils.delegates.SharedPreferencesDelegate
+import com.diplomproject.utils.delegates.viewById
+import com.diplomproject.view.base_for_dictionary.BaseFragment
 
 
 const val LIST_KEY = "list_key"

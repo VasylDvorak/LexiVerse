@@ -13,7 +13,7 @@ import com.diplomproject.di.ConnectKoinModules
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.navigation.IScreens
-import com.diplomproject.utils.network.SharedPreferencesDelegate
+import com.diplomproject.utils.delegates.SharedPreferencesDelegate
 import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.widget.NEW_DATA
 import com.github.terrakok.cicerone.NavigatorHolder

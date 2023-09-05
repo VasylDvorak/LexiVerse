@@ -13,6 +13,7 @@ import com.diplomproject.R
 import com.diplomproject.databinding.FragmentSettingsNotificationBinding
 import com.diplomproject.di.ConnectKoinModules
 import com.diplomproject.model.datasource.AppState
+import com.diplomproject.view.base_for_dictionary.BaseFragmentSettingsMenu
 import com.diplomproject.view.favorite.FavoriteViewModel
 import com.diplomproject.view.notification.CHANNEL_ID
 import com.diplomproject.view.notification.NotificationService

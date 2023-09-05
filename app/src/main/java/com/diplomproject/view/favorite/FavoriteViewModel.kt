@@ -1,10 +1,11 @@
 package com.diplomproject.view.favorite
 
 import androidx.lifecycle.LiveData
+import com.diplomproject.domain.interactors.FavoriteInteractor
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.parseLocalSearchResults
-import com.diplomproject.viewmodel.BaseViewModel
+import com.diplomproject.view.base_for_dictionary.BaseViewModel
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel(var interactor: FavoriteInteractor) :

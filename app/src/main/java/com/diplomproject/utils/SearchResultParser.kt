@@ -6,7 +6,7 @@ import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.data_word_request.Meanings
 import com.diplomproject.model.data_word_request.Translation
 import com.diplomproject.model.datasource.AppState
-import com.diplomproject.room.favorite.FavoriteEntity
+import com.diplomproject.model.room.favorite.FavoriteEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.Flow

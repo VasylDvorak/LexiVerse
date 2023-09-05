@@ -1,4 +1,4 @@
-package com.diplomproject.view.settings_menu
+package com.diplomproject.view.base_for_dictionary
 
 import android.animation.Animator
 import android.os.Bundle

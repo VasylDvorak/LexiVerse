@@ -1,4 +1,4 @@
-package com.diplomproject.utils.ui
+package com.diplomproject.utils.delegates
 
 import android.app.Activity
 import android.view.View

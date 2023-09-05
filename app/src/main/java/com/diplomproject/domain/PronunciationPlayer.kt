@@ -1,10 +1,9 @@
-package com.diplomproject.utils
+package com.diplomproject.domain
 
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.CountDownTimer
 import java.io.IOException
-
 
 private const val COUNT_DOWN_INTERVAL = 100L
 

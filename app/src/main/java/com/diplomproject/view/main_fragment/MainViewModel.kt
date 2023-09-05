@@ -3,10 +3,11 @@ package com.diplomproject.view.main_fragment
 import android.content.Context
 import androidx.lifecycle.LiveData
 import com.diplomproject.R
+import com.diplomproject.domain.interactors.MainInteractor
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.utils.parseSearchResults
-import com.diplomproject.viewmodel.BaseViewModel
+import com.diplomproject.view.base_for_dictionary.BaseViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged

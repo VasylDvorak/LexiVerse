@@ -1,4 +1,4 @@
-package com.diplomproject.room.favorite
+package com.diplomproject.model.room.favorite
 
 import androidx.room.*
 

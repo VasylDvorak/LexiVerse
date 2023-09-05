@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentShareBinding
+import com.diplomproject.view.base_for_dictionary.BaseFragmentSettingsMenu
 
 
 class ShareApplicationFragment : BaseFragmentSettingsMenu<FragmentShareBinding>(

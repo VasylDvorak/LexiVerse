@@ -1,11 +1,10 @@
-package com.diplomproject.view.main_fragment
+package com.diplomproject.domain.interactors
 
 import android.media.MediaPlayer
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.model.repository.Repository
 import com.diplomproject.model.repository.RepositoryLocal
-import com.diplomproject.viewmodel.Interactor
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

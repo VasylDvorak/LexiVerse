@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.diplomproject.R
+import com.diplomproject.domain.interactors.DescriptionInteractor
 import com.diplomproject.model.data_description_request.DescriptionAppState
 import com.diplomproject.model.data_word_request.Meanings
 import com.diplomproject.utils.parseSearchResultsDescription

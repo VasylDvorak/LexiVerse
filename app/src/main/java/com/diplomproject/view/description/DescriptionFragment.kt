@@ -22,9 +22,9 @@ import com.diplomproject.di.ConnectKoinModules.descriptionScreenScope
 import com.diplomproject.model.data_description_request.DescriptionAppState
 import com.diplomproject.model.data_description_request.Example
 import com.diplomproject.model.data_word_request.DataModel
-import com.diplomproject.utils.ui.viewById
+import com.diplomproject.utils.delegates.viewById
 import com.diplomproject.view.OnlineRepository
-import com.diplomproject.view.settings_menu.BaseFragmentSettingsMenu
+import com.diplomproject.view.base_for_dictionary.BaseFragmentSettingsMenu
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 

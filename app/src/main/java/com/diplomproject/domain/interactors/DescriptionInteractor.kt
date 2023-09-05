@@ -1,4 +1,4 @@
-package com.diplomproject.view.description
+package com.diplomproject.domain.interactors
 
 import android.content.Context
 import android.media.AudioManager

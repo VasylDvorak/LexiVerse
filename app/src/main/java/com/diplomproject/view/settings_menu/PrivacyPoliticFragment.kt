@@ -5,6 +5,7 @@ import android.text.Html
 import android.view.View
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentPrivacyPoliticBinding
+import com.diplomproject.view.base_for_dictionary.BaseFragmentSettingsMenu
 
 
 class PrivacyPoliticFragment : BaseFragmentSettingsMenu<FragmentPrivacyPoliticBinding>(

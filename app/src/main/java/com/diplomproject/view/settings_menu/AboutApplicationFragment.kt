@@ -6,6 +6,8 @@ import android.view.View
 import com.diplomproject.BuildConfig
 import com.diplomproject.R
 import com.diplomproject.databinding.FragmentAboutApplicationBinding
+import com.diplomproject.view.base_for_dictionary.BaseFragmentSettingsMenu
+
 //import com.google.android.apps.common.testing.accessibility.framework.BuildConfig
 
 

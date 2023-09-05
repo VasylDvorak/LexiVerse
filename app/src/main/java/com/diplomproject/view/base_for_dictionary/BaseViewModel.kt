@@ -1,4 +1,4 @@
-package com.diplomproject.viewmodel
+package com.diplomproject.view.base_for_dictionary
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

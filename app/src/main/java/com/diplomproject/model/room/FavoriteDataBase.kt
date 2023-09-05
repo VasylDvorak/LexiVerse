@@ -1,9 +1,9 @@
-package com.diplomproject.room
+package com.diplomproject.model.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.diplomproject.room.favorite.FavoriteDao
-import com.diplomproject.room.favorite.FavoriteEntity
+import com.diplomproject.model.room.favorite.FavoriteDao
+import com.diplomproject.model.room.favorite.FavoriteEntity
 
 @Database(
     entities = [FavoriteEntity::class],

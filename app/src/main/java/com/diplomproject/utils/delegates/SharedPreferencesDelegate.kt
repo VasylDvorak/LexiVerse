@@ -1,4 +1,4 @@
-package com.diplomproject.utils.network
+package com.diplomproject.utils.delegates
 
 import android.content.Context
 import android.preference.PreferenceManager

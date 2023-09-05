@@ -1,4 +1,4 @@
-package com.diplomproject.view.base_fragment_dictionary
+package com.diplomproject.view.base_for_dictionary
 
 interface ViewLayout {
 

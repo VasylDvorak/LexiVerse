@@ -1,12 +1,12 @@
 package com.diplomproject.view.favorite
 
-import android.os.Build
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.test.runner.AndroidJUnit4
 import com.google.gson.Gson
 import com.diplomproject.TestCoroutineRule
+import com.diplomproject.domain.interactors.FavoriteInteractor
 import com.diplomproject.model.datasource.AppState
 import com.diplomproject.model.data_word_request.DataModel
 import com.diplomproject.model.data_word_request.Meanings

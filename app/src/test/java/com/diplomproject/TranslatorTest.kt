@@ -1,6 +1,6 @@
 package com.diplomproject
 
-import com.diplomproject.view.base_fragment_dictionary.BaseFragment
+import com.diplomproject.view.base_for_dictionary.BaseFragment
 import com.diplomproject.view.description.CURRENT_DATA_MODEl
 import org.junit.Assert.assertNotEquals
 import org.junit.Test

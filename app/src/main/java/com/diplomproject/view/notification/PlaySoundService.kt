@@ -5,7 +5,7 @@ import android.content.Intent
 import android.media.AudioManager
 import android.os.IBinder
 import android.preference.PreferenceManager
-import com.diplomproject.utils.PronunciationPlayer
+import com.diplomproject.domain.PronunciationPlayer
 import org.koin.java.KoinJavaComponent
 
 const val PLAY_URL = "PLAY_URL"
