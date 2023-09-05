@@ -20,13 +20,4 @@
         android:scrollbars="vertical"
         tools:listitem="@layout/item_lesson_full_width" />
 
-    <TextView
-        android:id="@+id/fragment_id_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FA0606"
-        android:textSize="@dimen/MCard_Text_20sp"
-        android:textStyle="bold"
-        tools:text="@string/for_testing" />
-
 </FrameLayout>

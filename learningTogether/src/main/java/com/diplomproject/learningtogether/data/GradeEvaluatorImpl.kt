@@ -3,7 +3,6 @@ package com.diplomproject.learningtogether.data
 import com.diplomproject.learningtogether.domain.GradeEvaluation
 import com.diplomproject.learningtogether.domain.interactor.GradeEvaluator
 
-
 class GradeEvaluatorImpl : GradeEvaluator {
 
     override fun evaluator(

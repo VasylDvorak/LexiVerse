@@ -20,7 +20,6 @@ class AssetsCoursesRepoImpl(
                 it.readText()
             }
 
-        //достаем массив уроков
         val courses: MutableList<CourseEntity> =
             Gson()
                 .fromJson(databaseJson, object : TypeToken<List<CourseEntity>>() {}
@@ -28,7 +27,6 @@ class AssetsCoursesRepoImpl(
         onSuccess(courses)
     }
 
-    //подгружаем данные по ID
     override fun getCourse(id: Long, onSuccess: (CourseEntity?) -> Unit) {
         getCourses {
             val searchResult = it.find { it.id == id }

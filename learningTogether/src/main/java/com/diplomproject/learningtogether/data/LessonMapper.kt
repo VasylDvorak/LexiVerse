@@ -20,7 +20,7 @@ fun LessonEntity.mapToFavoriteLesson(isFavorite: Boolean = false): FavoriteLesso
         name = name,
         imageUrl = imageUrl,
         victoryImageUrl = victoryImageUrl,
-        tasks = ArrayList(tasks),//сделали копию листа
+        tasks = ArrayList(tasks),
         isFavorite = isFavorite
     )
 }
@@ -30,10 +30,6 @@ fun CourseEntity.mapToCourseWithFavoriteLessonEntity(): CourseWithFavoriteLesson
         id = id,
         name = name,
         logoUrl = logoUrl,
-        //у lessons другой тип, поэтому делаем преобразование к соответствующему типу
         lessons = lessons.map { it.mapToFavoriteLesson() }.toMutableList()
-        //берем список, для каждого члена списка применяем преобразование -> it.mapToFavoriteLesson(),
-        // долее превращаем в общий список -> toMutableList()
-        // Очень важный момент - не передаем факт избранности
     )
 }

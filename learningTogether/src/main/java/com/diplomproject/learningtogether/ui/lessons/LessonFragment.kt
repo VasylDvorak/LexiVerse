@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,24 +35,18 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
 
         courseId = arguments?.getLong(Key.COURSE_ID_ARGS_KEY) ?: DEFAULT_COURSE_KEY
 
-        //observe - это наблюдатель
-        // подписываемся на inProgressLiveData
         viewModel.inProgressLiveData.observe(viewLifecycleOwner) { inProgress ->
-            //сюда приходит значение
             lessonsRecyclerView.isVisible = !inProgress
             progressBar.isVisible = inProgress
         }
 
         viewModel.coursesLiveData.observe(viewLifecycleOwner) {
-            it?.let { adapter.setData(it.id, it.lessons) }// пополнение адаптера данными
+            it?.let { adapter.setData(it.id, it.lessons) }
         }
 
         viewModel.selectedLessonsLiveData.observe(viewLifecycleOwner) {
             getController().openLesson(courseId, it)
         }
-
-        view.findViewById<TextView>(R.id.fragment_id_text_view).text = courseId.toString()
-        view.findViewById<TextView>(R.id.fragment_id_text_view).visibility = View.GONE
     }
 
     private fun initViews(view: View) {
@@ -61,10 +54,8 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
         lessonsRecyclerView = view.findViewById(R.id.lessons_recycler_view)
         progressBar = view.findViewById(R.id.lessons_progress_courses_bar)
 
-        //это два параметра которые принимаем на вход. Это слушатель и данные
         lessonsRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        //кэшируем адаптер чтобы его потом вызвать //флажек для разметки
         adapter = LessonsAdapter(
             isFullWidth = true,
         ) { courseId, lesson ->
@@ -81,7 +72,7 @@ class LessonFragment : Fragment(R.layout.fragment_lesson) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        getController()  //Вариант 2. агресивный способ проверки наличия контроллера. Если нет контроллера, приложение свалтится на присоединение к фрагмента к активити
+        getController()
     }
 
     companion object {

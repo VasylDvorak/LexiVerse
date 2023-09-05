@@ -10,13 +10,6 @@ import retrofit2.http.Query
  */
 interface ApiService {
 
-    // https://dictionary.skyeng.ru/api/public/v1/
-
-//    @GET("words/search")
-//    fun searchAsync(
-//        @Query("search") wordToSearch: String
-//    ): Deferred<List<DataEntity>>
-
     // https://dictionary.skyeng.ru/api/public/v1/words/search?search=dog
     @GET("words/search")
     fun wordAsync(

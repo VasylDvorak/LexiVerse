@@ -15,7 +15,7 @@ import org.koin.android.ext.android.inject
 class FavouritesFragment : Fragment(R.layout.fragment_lesson) {
 
 
-    private lateinit var favoriteList: MutableList<LessonIdEntity>//кэшируем данные
+    private lateinit var favoriteList: MutableList<LessonIdEntity>
 
     private lateinit var adapter: FavoritesAdapter
 

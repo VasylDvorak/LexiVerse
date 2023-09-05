@@ -60,7 +60,6 @@ val appModuleLearningTogether = module {
 
     single<GradeEvaluator> { GradeEvaluatorImpl() }
 
-    //секция viewModel
     viewModel { CoursesViewModel(get()) }
     viewModel { parameters -> LessonsViewModel(get(), parameters.get()) }
     viewModel { parameters ->

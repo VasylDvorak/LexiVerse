@@ -15,7 +15,7 @@ class FavoritesAdapter(
     @SuppressLint("NotifyDataSetChanged")
     fun setData(favorite: MutableList<LessonIdEntity>) {
         data = favorite
-        notifyDataSetChanged()//обнавили данные
+        notifyDataSetChanged()
     }
 
     fun setOnItemClickListener(listener: (LessonIdEntity) -> Unit) {

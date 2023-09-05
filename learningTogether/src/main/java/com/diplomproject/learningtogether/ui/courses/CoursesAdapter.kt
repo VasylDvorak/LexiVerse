@@ -9,7 +9,6 @@ import com.diplomproject.learningtogether.domain.entities.CourseWithFavoriteLess
 import com.diplomproject.learningtogether.domain.entities.FavoriteLessonEntity
 
 class CoursesAdapter(
-    //адаптер принимает на вход данные
     private var data: List<CourseWithFavoriteLessonEntity> = mutableListOf(),
     private var onShowAllListener: (CourseWithFavoriteLessonEntity) -> Unit = {},
     private var onLessonClickListener: (Long, FavoriteLessonEntity) -> Unit = { _, _ -> }

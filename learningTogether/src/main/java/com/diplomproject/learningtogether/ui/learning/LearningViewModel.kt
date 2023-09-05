@@ -20,20 +20,18 @@ class LearningViewModel(
 
     private val _inProgressLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
-    var currentValueIndex = 0 // Индекс текущего значения
+    var currentValueIndex = 0
     val needShowFinishScreen =
-        SingleLiveEvent<Boolean>() // Флаг, указывающий, достигнуто ли последнее значение
+        SingleLiveEvent<Boolean>()
 
     val needShowBackButton: LiveData<Int> =
-        MutableLiveData() // Флаг, указывающий, первое (0) ли значение
+        MutableLiveData()
 
-    // сразу когда чтото будет кластся в inProgressLiveData, сразу все подписчики будут получать изменения
     val inProgressLiveData: LiveData<Boolean> = _inProgressLiveData
 
     val learningLiveData: LiveData<TaskEntity> = MutableLiveData()
     var learningList: MutableList<TaskEntity> = mutableListOf()
 
-    //изменение лайка
     val isFavoriteLiveData: LiveData<Boolean> = MutableLiveData()
 
     init {
@@ -42,14 +40,13 @@ class LearningViewModel(
             coursesRepo.getLesson(courseId, lessonId) {
                 it?.let {
                     inProgressLiveData.mutable().postValue(false)
-                    learningList = it.tasks//сохранили список на старте запуска
+                    learningList = it.tasks
 
                     postTaskByIndex(it.tasks.lastIndex)
                 }
             }
         }
 
-        //подписка на старте (изменение лайков)
         favoriteInteractor.onLikeChange(LessonIdEntity(courseId, lessonId)) {
             isFavoriteLiveData.mutable().postValue(it)
         }
@@ -62,7 +59,6 @@ class LearningViewModel(
     fun onLikeClick() {
         favoriteInteractor.changeLike(LessonIdEntity(courseId, lessonId))
     }
-
 
     fun initValues() {
         currentValueIndex = 0
@@ -83,7 +79,6 @@ class LearningViewModel(
         }
     }
 
-    // Метод для переключения на следующее значение
     fun navigateToNextValue() {
         val currentIndex = currentValueIndex
 
