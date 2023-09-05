@@ -11,7 +11,6 @@ import com.diplomproject.learningtogether.domain.repos.FavoriteLessonsRepo
  * нужны два репозитория на вход
  */
 
-
 class CoursesWithFavoriteLessonInteractorImpl(
     private val coursesRepo: CoursesRepo,
     private val favoriteLessonsRepo: FavoriteLessonsRepo
@@ -21,13 +20,12 @@ class CoursesWithFavoriteLessonInteractorImpl(
         coursesRepo.getCourses { courseList ->
             val rawCourses =
                 courseList.map { it.mapToCourseWithFavoriteLessonEntity() }.toMutableList()
-            // проходимся по всем курсам и делаем преобразование
             rawCourses.forEach { course ->
                 course.lessons.forEach { lesson ->
                     lesson.isFavorite = favoriteLessonsRepo.isFavorite(
                         course.id,
                         lesson.id
-                    )//каждому уроку проставляем информацию из репозитория
+                    )
                 }
             }
             onSuccess(rawCourses)
@@ -41,7 +39,7 @@ class CoursesWithFavoriteLessonInteractorImpl(
                 lesson.isFavorite = favoriteLessonsRepo.isFavorite(
                     id,
                     lesson.id
-                )//каждому уроку проставляем информацию из репозитория
+                )
             }
             onSuccess(rawCourse)
         }
@@ -53,7 +51,7 @@ class CoursesWithFavoriteLessonInteractorImpl(
         onSuccess: (FavoriteLessonEntity?) -> Unit
     ) {
         val isFavorite =
-            favoriteLessonsRepo.isFavorite(courseId, lessonId)//получаем информацию какой урок
+            favoriteLessonsRepo.isFavorite(courseId, lessonId)
         coursesRepo.getLesson(courseId, lessonId) {
             onSuccess(it?.mapToFavoriteLesson(isFavorite))
         }

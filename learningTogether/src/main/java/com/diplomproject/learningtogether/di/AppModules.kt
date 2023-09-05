@@ -14,6 +14,7 @@ package com.diplomproject.learningtogether.di
  */
 
 import com.diplomproject.learningtogether.data.AnswerCounterInteractorImpl
+import com.diplomproject.learningtogether.data.AnswerPercentInteractorImpl
 import com.diplomproject.learningtogether.data.AssetsCoursesRepoImpl
 import com.diplomproject.learningtogether.data.CoursesWithFavoriteLessonInteractorImpl
 import com.diplomproject.learningtogether.data.FavoriteInteractionImpl
@@ -21,6 +22,7 @@ import com.diplomproject.learningtogether.data.FavoriteRepoImpl
 import com.diplomproject.learningtogether.data.GradeEvaluatorImpl
 import com.diplomproject.learningtogether.data.retrofit.MeaningRetrofitImpl
 import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
+import com.diplomproject.learningtogether.domain.interactor.AnswerPercentInteractor
 import com.diplomproject.learningtogether.domain.interactor.CoursesWithFavoriteLessonInteractor
 import com.diplomproject.learningtogether.domain.interactor.FavoriteInteractor
 import com.diplomproject.learningtogether.domain.interactor.GradeEvaluator
@@ -54,9 +56,10 @@ val appModuleLearningTogether = module {
 
     single<AnswerCounterInteractor> { AnswerCounterInteractorImpl(get()) }
 
+    single<AnswerPercentInteractor> { AnswerPercentInteractorImpl(get()) }
+
     single<GradeEvaluator> { GradeEvaluatorImpl() }
 
-    //секция viewModel
     viewModel { CoursesViewModel(get()) }
     viewModel { parameters -> LessonsViewModel(get(), parameters.get()) }
     viewModel { parameters ->

@@ -35,9 +35,8 @@ class LessonViewHolder(
                 .load(lessonEntity.imageUrl)
                 .placeholder(R.drawable.uploading_images_5)
                 .into(coverImageView)
-//        coverImageView.scaleType = ImageView.ScaleType.FIT_XY// растягиваем картинку на весь элемент
         }
-        //на старте делаем полное обновление состояния лайка. Подписываемся на какоето значение
+
         likeInteractor.onLikeChange(LessonIdEntity(courseId, lessonEntity.id)) { isFavorite ->
             //здесь ожидается какоето значение
             favoriteImageView.isVisible = isFavorite
@@ -49,9 +48,7 @@ class LessonViewHolder(
             listener.invoke(courseId, lessonEntity)
         }
 
-        //обрабатываем нажатие на сердечко (доставка в репозиторий и подписка обновлений)
         favoriteImageView.setOnClickListener {
-            //Берем данные и просто в БД переворачиваем значения, а потом в likeInteractor придут значения
             likeInteractor.changeLike(LessonIdEntity(courseId, lessonEntity.id))
         }
     }

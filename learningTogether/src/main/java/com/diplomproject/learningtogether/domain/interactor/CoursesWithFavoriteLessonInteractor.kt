@@ -13,7 +13,6 @@ import com.diplomproject.learningtogether.domain.entities.FavoriteLessonEntity
  * Можете поместить логику интерактора в класс презентатора, но в этом нет смысла.
  */
 
-
 interface CoursesWithFavoriteLessonInteractor {
     fun getCourses(onSuccess: (MutableList<CourseWithFavoriteLessonEntity>) -> Unit)
     fun getCourse(id: Long, onSuccess: (CourseWithFavoriteLessonEntity?) -> Unit)

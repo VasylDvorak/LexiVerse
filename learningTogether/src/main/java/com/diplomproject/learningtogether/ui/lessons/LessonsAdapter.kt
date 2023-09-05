@@ -8,8 +8,7 @@ import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.domain.entities.FavoriteLessonEntity
 
 class LessonsAdapter(
-    //адаптер принимает на вход данные и слушатель
-    private val isFullWidth: Boolean = false,//флажек для переключением между элементами на экране
+    private val isFullWidth: Boolean = false,
     private var data: List<FavoriteLessonEntity> = mutableListOf(),
     private var courseId: Long = -1,
     private var listener: (Long, FavoriteLessonEntity) -> Unit = { _, _ -> },
@@ -25,7 +24,6 @@ class LessonsAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
         return LessonViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                //условие выбора загрузки фрагмента
                 if (isFullWidth) {
                     R.layout.item_lesson_full_width
                 } else {

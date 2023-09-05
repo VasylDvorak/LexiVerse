@@ -25,19 +25,15 @@ class CoursesViewModel(
     private val coursesInteractor: CoursesWithFavoriteLessonInteractor
 ) : ViewModel() {
 
-    //одно из решений над Mutable (это стандартно принятый этот метод)
     private val _inProgressLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
-    // сразу когда чтото будет кластся в inProgressLiveData, сразу все подписчики будут получать изменения
     val inProgressLiveData: LiveData<Boolean> = _inProgressLiveData
     val coursesLiveData: LiveData<List<CourseWithFavoriteLessonEntity>> = MutableLiveData()
 
-    //Pair - это такой класс который позволяет принимать два параметра (это класс у которого есть два поля А и Б)
     val selectedLessonsLiveData: LiveData<Pair<Long, FavoriteLessonEntity>> = SingleLiveEvent()
     val selectedCoursesLiveData: LiveData<CourseWithFavoriteLessonEntity> = SingleLiveEvent()
 
     init {
-        //проверяе на наличие данных в coursesLiveData. Это необходимо для того чтобы при повороте не данные не закачивались заново (это костыль)
         if (coursesLiveData.value == null) {
             _inProgressLiveData.postValue(true)
             coursesInteractor.getCourses {
@@ -48,20 +44,13 @@ class CoursesViewModel(
     }
 
     fun onLessonClick(courseId: Long, lessonEntity: FavoriteLessonEntity) {
-        //Вариант 2 (не потоко безопмсно) не желательный вариант
-//        selectedLessonsLiveData.value = lessonEntity
         (selectedLessonsLiveData as MutableLiveData).value = Pair(courseId, lessonEntity)
-        //Вариант когда агресивно приводим к MutableLiveData
     }
 
     fun onCourseClick(courseEntity: CourseWithFavoriteLessonEntity) {
-        //Вариант 1 (потоко безопмсно) предпочтительный вариант
-        //postValue работает с многопоточностью, из любого потока делаем postValue и приходит все на главный поток
         selectedCoursesLiveData.mutable().postValue(courseEntity)
     }
 
-    //экстеншен (расширение обычной чужай функции). Можно указать mutable расширение и оно вернет версию MutableLiveData
-    //это сделано чтобы случайно во фрагменте случайно не изменить список (в этом рельной безописности нет)
     private fun <T> LiveData<T>.mutable(): MutableLiveData<T> {
         return this as MutableLiveData
     }

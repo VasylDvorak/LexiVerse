@@ -39,7 +39,7 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
         super.onViewCreated(view, savedInstanceState)
 
         setHasOptionsMenu(true)
-        // Инициализируйте значения
+
         viewModel.initValues()
 
         viewModel.inProgressLiveData.observe(viewLifecycleOwner) { inProgress ->
@@ -129,6 +129,7 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
         alertDialog.show()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
         favoriteMenuItem = menu.findItem(R.id.favourites_icon_menu_items)
@@ -141,6 +142,7 @@ class LearningFragment : ViewBindingFragment<FragmentLearningBinding>(
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
 

@@ -77,7 +77,6 @@ class SuccessFragment : ViewBindingFragment<FragmentSuccessBinding>(
         }
     }
 
-    //это перехват нажатия на BackStack
     private fun pressingBackStackButton(view: View) {
         view.isFocusableInTouchMode = true
         view.requestFocus()

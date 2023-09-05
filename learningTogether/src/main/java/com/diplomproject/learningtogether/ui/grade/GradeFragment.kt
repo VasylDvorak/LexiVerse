@@ -11,6 +11,7 @@ import com.diplomproject.learningtogether.R
 import com.diplomproject.learningtogether.ViewBindingFragment
 import com.diplomproject.learningtogether.databinding.FragmentGradeBinding
 import com.diplomproject.learningtogether.domain.interactor.AnswerCounterInteractor
+import com.diplomproject.learningtogether.domain.interactor.AnswerPercentInteractor
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
@@ -25,7 +26,8 @@ import java.util.Locale
 class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
     FragmentGradeBinding::inflate
 ) {
-    private val answer: AnswerCounterInteractor by inject()
+    private val answerCounter: AnswerCounterInteractor by inject()
+    private val answerPercent: AnswerPercentInteractor by inject()
 
     private var rightBarEntries = listOf<BarEntry>()
     private var wrongBarEntries = listOf<BarEntry>()
@@ -66,24 +68,24 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
 
         rightBarEntries = listOf<BarEntry>(
 
-            BarEntry(7f, answer.getRightCounter(today).toFloat()),
-            BarEntry(6f, answer.getRightCounter(yesterday1).toFloat()),
-            BarEntry(5f, answer.getRightCounter(yesterday2).toFloat()),
-            BarEntry(4f, answer.getRightCounter(yesterday3).toFloat()),
-            BarEntry(3f, answer.getRightCounter(yesterday4).toFloat()),
-            BarEntry(2f, answer.getRightCounter(yesterday5).toFloat()),
-            BarEntry(1f, answer.getRightCounter(yesterday6).toFloat())
+            BarEntry(7f, answerPercent.getRightPercent(today).toFloat()),
+            BarEntry(6f, answerPercent.getRightPercent(yesterday1).toFloat()),
+            BarEntry(5f, answerPercent.getRightPercent(yesterday2).toFloat()),
+            BarEntry(4f, answerPercent.getRightPercent(yesterday3).toFloat()),
+            BarEntry(3f, answerPercent.getRightPercent(yesterday4).toFloat()),
+            BarEntry(2f, answerPercent.getRightPercent(yesterday5).toFloat()),
+            BarEntry(1f, answerPercent.getRightPercent(yesterday6).toFloat())
         )
 
         wrongBarEntries = listOf<BarEntry>(
 
-            BarEntry(7f, answer.getWrongCounter(today).toFloat()),
-            BarEntry(6f, answer.getWrongCounter(yesterday1).toFloat()),
-            BarEntry(5f, answer.getWrongCounter(yesterday2).toFloat()),
-            BarEntry(4f, answer.getWrongCounter(yesterday3).toFloat()),
-            BarEntry(3f, answer.getWrongCounter(yesterday4).toFloat()),
-            BarEntry(2f, answer.getWrongCounter(yesterday5).toFloat()),
-            BarEntry(1f, answer.getWrongCounter(yesterday6).toFloat())
+            BarEntry(7f, answerPercent.getWrongPercent(today).toFloat()),
+            BarEntry(6f, answerPercent.getWrongPercent(yesterday1).toFloat()),
+            BarEntry(5f, answerPercent.getWrongPercent(yesterday2).toFloat()),
+            BarEntry(4f, answerPercent.getWrongPercent(yesterday3).toFloat()),
+            BarEntry(3f, answerPercent.getWrongPercent(yesterday4).toFloat()),
+            BarEntry(2f, answerPercent.getWrongPercent(yesterday5).toFloat()),
+            BarEntry(1f, answerPercent.getWrongPercent(yesterday6).toFloat())
         )
     }
 
@@ -96,7 +98,7 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
         val textSize = 15F
         val textDataSize = 12F
 
-        // Настройка осей
+        /** Настройка осей */
         val xAxis = binding.barChart.xAxis
         val leftAxis = binding.barChart.axisLeft
         val rightAxis = binding.barChart.axisRight
@@ -109,7 +111,7 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
         barChart.description.text = getString(R.string.description_legend)
         barChart.description.isEnabled = true
 
-        // Настройка X-ось
+        /** Настройка X-ось */
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawGridLines(false)
         xAxis.valueFormatter = object : ValueFormatter() {
@@ -122,7 +124,7 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
             }
         }
 
-        // Настройка Y-осей
+        /** Настройка Y-осей */
         leftAxis.setDrawAxisLine(false)
         leftAxis.setDrawGridLines(true)
         leftAxis.gridLineWidth = 0.8f
@@ -143,35 +145,42 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
             }
         }
 
-        // Настройка легенды
         val legend = binding.barChart.legend
         legend.isEnabled = true
 
-        val groupCount = barData.entryCount // Количество групп в графике
-        val startYear = 0 // Начальная позиция графика по оси X
-        val groupSpace = 0.2f // Пространство между группами столбцов
-        val barSpace = 0.05f // Пространство между столбцами в одной группе
-        val barWidth = 0.4f // Ширина столбцов
+        val groupCount = barData.entryCount
 
-        // Настройка данных
+        /** Количество групп в графике */
+        val startYear = 0
+
+        /** Начальная позиция графика по оси X */
+        val groupSpace = 0.2f
+
+        /** Пространство между группами столбцов */
+        val barSpace = 0.05f
+
+        /** Пространство между столбцами в одной группе */
+        val barWidth = 0.4f
+        /** Ширина столбцов */
+
         rightDataSet.label = getText(R.string.right_attempts).toString()
         wrongDataSet.label = getText(R.string.wrong_attempts).toString()
         rightDataSet.color = ColorTemplate.COLORFUL_COLORS[0]
         wrongDataSet.color = ColorTemplate.COLORFUL_COLORS[1]
 
-        // Расположение столбцов
+        /** Расположение столбцов */
         barData.barWidth = barWidth
 
         binding.barChart.data = barData
 
-        barData.dataSets.reverse()// Поменять местами значения данных
+        barData.dataSets.reverse()
 
         binding.barChart.xAxis.axisMinimum = startYear.toFloat()
         binding.barChart.xAxis.axisMaximum =
             startYear + barWidth * groupCount + groupSpace * groupCount + barSpace * (groupCount - 1)
         binding.barChart.groupBars(startYear.toFloat(), groupSpace, barSpace)
 
-        // Косые надписи на оси X
+        /** Косые надписи на оси X */
         binding.barChart.xAxis.labelRotationAngle = 45f
         binding.barChart.xAxis.setCenterAxisLabels(true)
         binding.barChart.xAxis.granularity = 1.25f
@@ -185,7 +194,7 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
         binding.barChart.isScaleXEnabled = true
         binding.barChart.isScaleYEnabled = false
 
-        binding.barChart.moveViewToX(binding.barChart.xChartMin - 6f) // Проскроллить до последних 7 дней
+        binding.barChart.moveViewToX(binding.barChart.xChartMin - 6f)
     }
 
     @Deprecated("Deprecated in Java")
@@ -202,7 +211,7 @@ class GradeFragment : ViewBindingFragment<FragmentGradeBinding>(
                 AlertDialog.Builder(requireContext())
                     .setTitle(getString(R.string.delete_data_text))
                     .setPositiveButton(getString(R.string.yes)) { dialogInterface: DialogInterface, i: Int ->
-                        answer.resetCounters()
+                        answerCounter.resetCounters()
                         dialogInterface.dismiss()
                         getData()
                         dataChar()

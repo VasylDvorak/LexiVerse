@@ -12,28 +12,23 @@ import com.google.firebase.ktx.Firebase
 
 class FirebaseLessonsRepoImpl : CoursesRepo {
 
-    //ссылка на бд. reference - это ссылка на значение
     private val database by lazy {
         Firebase.database(Key.DATABASE_URL_KEY).apply { setPersistenceEnabled(true) }
-    }    //setPersistenceEnabled(true) для работы без интернета
+    }
 
     override fun getCourses(onSuccess: (MutableList<CourseEntity>) -> Unit) {
         Handler(Looper.getMainLooper()).postDelayed({
 
-            database.reference.keepSynced(true)//для синхранизации данных (кешируем данные)
+            database.reference.keepSynced(true)
 
             database.reference.get()
                 .addOnSuccessListener {
-                    val lessons: MutableList<CourseEntity> = mutableListOf()// собираем колекцию
+                    val lessons: MutableList<CourseEntity> = mutableListOf()
                     it.children.forEach { snapshot ->
-                        //обработка исключения. Если есть соответствующие данные то обрабатываем,
-                        // если данные не соответствуют то ничего с ними не делаем
                         try {
-                            //Парсим значения. Если значение не null то добавляем в колекцию (lessons.add(it) )
                             snapshot.getValue(CourseEntity::class.java)?.let { lesson ->
                                 lessons.add(lesson)
                             }
-                            //ничего с ними не делаем
                         } catch (exc: DatabaseException) {
                             exc.printStackTrace()
                         }
