@@ -12,16 +12,13 @@ android {
 
 dependencies {
 
-    //Koin
-    implementation(Koin.koin_android)
+    //Fonts
+    implementation(Fonts.calligraphy3)
+    implementation(Fonts.viewpump)
 
-    //шрифты
-    implementation("io.github.inflationx:calligraphy3:3.1.1")
-    implementation("io.github.inflationx:viewpump:2.0.3")
-
-    //picasso
-    implementation("com.squareup.picasso:picasso:2.71828")
+    //Picasso
+    implementation(Picasso.picasso)
 
     //MPAndroidChart Графики
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation(MpAndroidChart.mp_android_chart)
 }

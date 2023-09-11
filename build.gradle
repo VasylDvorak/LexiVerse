@@ -59,6 +59,7 @@ subprojects {
                 implementation Design.swiperefreshlayout
                 implementation Design.recyclerview
                 implementation Design.viewmodel_ktx
+                implementation Design.arCore
 
                 //Kotlin
                 implementation Kotlin.core
@@ -66,6 +67,11 @@ subprojects {
                 implementation Kotlin.coroutines_android
                 // Android X
                 implementation(Kotlin.splash_screen)
+
+                //Koin
+                implementation Koin.koin_android
+                implementation Koin.koin_core
+                implementation Koin.koin_compat
 
                 //Retrofit
                 implementation Retrofit.retrofit
@@ -77,37 +83,54 @@ subprojects {
                 implementation Cicerone.cicerone
 
                 //Glide
-                implementation Glide.glideCompiler
+                implementation Glide.glide_compiler
                 implementation Glide.glide
 
-
-
                 //Firebase
-                implementation platform (Firebase.firebaseBom)
-                implementation Firebase.firebaseAuth
-                implementation Firebase.firebaseDatabase
-                implementation Firebase.crashlyticsKtx
-                implementation Firebase.analyticsKtx
-                implementation Firebase.databaseKtx
+                implementation platform(Firebase.firebase_bom)
+                implementation Firebase.firebase_auth
+                implementation Firebase.firebase_database
+                implementation Firebase.crashlytics_ktx
+                implementation Firebase.messaging_ktx_app
+                implementation Firebase.database_ktx_app
+                implementation Firebase.analytics_ktx_version
+                implementation Firebase.firebase_auth_ktx
 
-                //Tests
-                testImplementation 'androidx.arch.core:core-testing:2.2.0'
-                implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
-                testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+                //TestImpl
+                testImplementation TestImpl.junit
+                androidTestImplementation TestImpl.espresso
+                androidTestImplementation TestImpl.test_imlement_junit
+                testImplementation TestImpl.core_testing
+                //Mockito
+                testImplementation Mockito.mockito_core
+                testImplementation Mockito.mockito_inline
+                testImplementation('com.nhaarman:mockito-kotlin:1.5.0') {
+                    exclude group: 'org.jetbrains.kotlin'
+                    exclude group: 'org.mockito'
+                }
 
                 //Robolectric Tests
-                testImplementation 'org.robolectric:robolectric:4.10.3'
-                testImplementation 'androidx.test:core:1.5.0'
-                testImplementation 'androidx.test:runner:1.5.2'
-                testImplementation 'androidx.test.ext:junit:1.1.5'
-                testImplementation 'androidx.test.ext:truth:1.5.0'
-                testImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-                testImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
-                //Fragment Tests
-                debugImplementation 'androidx.fragment:fragment-testing:1.6.1'
+                testImplementation Robolectric.robolectric
+                testImplementation Robolectric.test_core
+                testImplementation Robolectric.test_runner
+                testImplementation Robolectric.test_junit
+                testImplementation Robolectric.test_truth
+                testImplementation Robolectric.test_espresso_core
+                testImplementation Robolectric.test_espresso_intents
+                implementation Robolectric.ar_core
 
-                //MPAndroidChart Графики
-//                implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+                //Fragment Tests
+                debugImplementation Automator.fragment_testing
+
+                //UI Automator
+                androidTestImplementation Automator.uiautomator
+                androidTestImplementation Automator.test_rules
+
+                //RecyclerView
+                debugImplementation RecyclerView.espresso_contrib
+
+                //CoroutineTests
+                testImplementation CoroutineTests.coroutines_test
             }
         }
     }
