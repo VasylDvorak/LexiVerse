@@ -1,5 +1,4 @@
 import org.gradle.api.JavaVersion
-import java.awt.Font
 
 object Config {
     const val application_id = "com.diplomproject"
@@ -22,10 +21,10 @@ object Modules {
     const val learningTogether = ":learningTogether"
 }
 
-
 object Versions {
     //SplashScreen API
     const val splashscreen = "1.0.1"
+
     //Design
     const val appcompat = "1.6.1"
     const val material = "1.9.0"
@@ -41,9 +40,8 @@ object Versions {
     //Kotlin
     const val core = "1.10.0"
     const val coroutinesCore = "1.7.0-RC"
-    const val coroutinesAndroid = "1.7.0-RC"    // splash Screen
+    const val coroutinesAndroid = "1.7.0-RC"
     const val splashScreen = "1.0.1"
-
 
     //Retrofit
     const val retrofit = "2.9.0"
@@ -68,11 +66,10 @@ object Versions {
     const val bom = "30.3.1"
     const val auth = "22.1.0"
     const val database = "20.2.2"
-    const val authApp = "21.1.0"
     const val messagingKtx = "23.1.0"
-    const val database_ktx= "20.1.0"
-    const val analytics_ktx = "21.2.0"
-    const val auth_ktx = "21.1.0"
+    const val databaseKtx = "20.1.0"
+    const val analyticsKtx = "21.2.0"
+    const val authKtx = "21.1.0"
 
     //Room
     const val roomKtx = "2.5.1"
@@ -81,12 +78,46 @@ object Versions {
 
     //Test
     const val jUnit = "4.13.2"
-    const val junit_impl = "1.1.5"
+    const val junitImpl = "1.1.5"
     const val espressoCore = "3.5.1"
     const val testing = "2.2.0"
+
+    //Mockito
+    const val mockitoCore = "5.3.1"
+    const val mockitoInline = "2.13.0"
+
+    //Robolectric
+    const val robolectric = "4.10.3"
+    const val testCore = "1.5.0"
+    const val testRunner = "1.5.2"
+    const val testTruth = "1.5.0"
+    const val testJunit = "1.1.5"
+    const val testEspresso = "3.5.1"
+    const val arCore = "1.39.0"
+
+    //Automator
+    const val uiautomator = "2.2.0"
+    const val testRules = "1.6.0-alpha01"
+    const val fragmentTesting = "1.6.1"
+
+    //RecyclerView
+    const val espressoContrib = "3.5.1"
+
+    //CoroutineTests
+    const val coroutinesTest = "1.4.3"
+
+    //Fonts
+    const val calligraphy3 = "3.1.1"
+    const val viewpump = "2.0.3"
+
+    //Picasso
+    const val picasso = "2.71828"
+
+    //MpAndroidChart
+    const val mpAndroidChart = "v3.1.0"
 }
 
-object SplashScreen{
+object SplashScreen {
     const val core_splashscreen = "androidx.core:core-splashscreen:${Versions.splashscreen}"
 }
 
@@ -138,21 +169,21 @@ object Cicerone {
 
 object Glide {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
-    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
+    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glideCompiler}"
 }
 
-object Firebase{
-    const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.bom}"
-    const val firebaseAuth = "com.google.firebase:firebase-auth:${Versions.auth}"
-    const val firebaseDatabase = "com.google.firebase:firebase-database:${Versions.database}"
-    const val crashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
-    const val analyticsKtx = "com.google.firebase:firebase-analytics-ktx"
-    const val databaseKtx = "com.google.firebase:firebase-database-ktx"
-    const val firebaseAuthApp = "com.google.firebase:firebase-auth:${Versions.authApp}"
-    const val messagingKtxApp = "com.google.firebase:firebase-messaging-ktx:${Versions.messagingKtx}"
-    const val databaseKtxApp = "com.google.firebase:firebase-database-ktx:${Versions.database_ktx}"
-    const val analyticsKtxVersion = "com.google.firebase:firebase-analytics-ktx:${Versions.analytics_ktx}"
-    const val firebase_auth = "com.google.firebase:firebase-auth-ktx:${Versions.auth_ktx}"
+object Firebase {
+    const val firebase_bom = "com.google.firebase:firebase-bom:${Versions.bom}"
+    const val firebase_auth = "com.google.firebase:firebase-auth:${Versions.auth}"
+    const val firebase_database = "com.google.firebase:firebase-database:${Versions.database}"
+    const val crashlytics_ktx = "com.google.firebase:firebase-crashlytics-ktx"
+    const val messaging_ktx_app =
+        "com.google.firebase:firebase-messaging-ktx:${Versions.messagingKtx}"
+    const val database_ktx_app =
+        "com.google.firebase:firebase-database-ktx:${Versions.databaseKtx}"
+    const val analytics_ktx_version =
+        "com.google.firebase:firebase-analytics-ktx:${Versions.analyticsKtx}"
+    const val firebase_auth_ktx = "com.google.firebase:firebase-auth-ktx:${Versions.authKtx}"
 }
 
 object Room {
@@ -166,7 +197,52 @@ object Room {
 object TestImpl {
     const val junit = "junit:junit:${Versions.jUnit}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
-    const val test_imlement_junit = "androidx.test.ext:junit:${Versions.junit_impl}"
+    const val test_imlement_junit = "androidx.test.ext:junit:${Versions.junitImpl}"
     const val core_testing = "androidx.arch.core:core-testing:${Versions.testing}"
+}
 
+object Mockito {
+    const val mockito_core = "org.mockito:mockito-core:${Versions.mockitoCore}"
+    const val mockito_inline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
+}
+
+object Robolectric {
+    const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
+    const val test_core = "androidx.test:core:${Versions.testCore}"
+    const val test_runner = "androidx.test:runner:${Versions.testRunner}"
+    const val test_truth = "androidx.test.ext:truth:${Versions.testTruth}"
+    const val test_junit = "androidx.test.ext:junit:${Versions.testJunit}"
+    const val test_espresso_core = "androidx.test.espresso:espresso-core:${Versions.testEspresso}"
+    const val test_espresso_intents =
+        "androidx.test.espresso:espresso-intents:${Versions.testEspresso}"
+    const val ar_core = "com.google.ar:core:${Versions.arCore}"
+}
+
+object Automator {
+    const val uiautomator = "androidx.test.uiautomator:uiautomator:${Versions.uiautomator}"
+    const val test_rules = "androidx.test:rules:${Versions.testRules}"
+    const val fragment_testing = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
+}
+
+object RecyclerView {
+    const val espresso_contrib =
+        "androidx.test.espresso:espresso-contrib:${Versions.espressoContrib}"
+}
+
+object CoroutineTests {
+    const val coroutines_test =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+}
+
+object Fonts {
+    const val calligraphy3 = "io.github.inflationx:calligraphy3:${Versions.calligraphy3}"
+    const val viewpump = "io.github.inflationx:viewpump:${Versions.viewpump}"
+}
+
+object Picasso {
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+}
+
+object MpAndroidChart {
+    const val mp_android_chart = "com.github.PhilJay:MPAndroidChart:${Versions.mpAndroidChart}"
 }
