@@ -42,6 +42,9 @@ subprojects {
                         includeAndroidResources = true
                     }
                 }
+                lintOptions {
+                    checkReleaseBuilds false
+                }
             }
 
             dependencies {

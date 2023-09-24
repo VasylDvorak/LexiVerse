@@ -8,8 +8,13 @@ plugins {
 
 android {
     namespace = "com.diplomproject.learningtogether"
-}
 
+}
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }}
 dependencies {
 
     //Fonts
