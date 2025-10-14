@@ -1,4 +1,4 @@
-# DiplomProject
+# LexiVerse
 ![photo_2023-08-31_01-49-23-removebg](https://github.com/VasylDvorak/DiplomProject/assets/82653197/98b397d9-1c40-4a2e-90c8-abf20afb43cc)
 
 ## LexiVerse - ваш надежный партнер в изучении английского языка. Наше приложение предоставляет богатый выбор ресурсов для обогащения вашего словарного запаса и практики навыков. 
